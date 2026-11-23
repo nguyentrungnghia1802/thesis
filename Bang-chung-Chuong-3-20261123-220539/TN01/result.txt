@@ -1,0 +1,6 @@
+PASS
+case=auction_valid
+plugins=5
+owned_producer_stopped=true
+decision=APPROVE
+completed_auctions=2

@@ -1,0 +1,24 @@
+2026-11-23T22:08:35.2920763+07:00
+
+Caption     : Microsoft Windows 11 Home
+Version     : 10.0.26300
+BuildNumber : 26300
+
+
+java version "21.0.5" 2024-10-15 LTS
+Java(TM) SE Runtime Environment (build 21.0.5+9-LTS-239)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.5+9-LTS-239, mixed mode, sharing)
+Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
+Maven home: D:\DevTools\apache-maven-3.9.9-bin\apache-maven-3.9.9
+Java version: 21.0.5, vendor: Oracle Corporation, runtime: D:\DevTools\Java\jdk-21.0.5
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+Python 3.13.2
+c3f47cd38bb67d2de9581ab8fa221b547b326735
+34f45bd70350135b11e75f289fe32273267e3eaa
+9F760506DE92DC24255239890DDBED5D032A2ADF59D4C1ED76367CC9877F6021  use-jacamo-plugin-1.0.1.jar
+B41BF68920C95D2CF903C5222C615A73AD7E28F7598952870668CEC814D0F16A  cartago-3.1-checkpoint-SNAPSHOT.jar
+3FBF98BC1BAD6D0E48A70BB0D6296D0D4BDAFF9432949BB843F355A523B51018  checkpoint-runtime-1.0.0-SNAPSHOT.jar
+DEDE2E2CDE568C747A774E33F821CDCEE6501515997A710816AA9C02C7C901F5  jacamo-1.3.1-checkpoint-SNAPSHOT.jar
+E1A7A84BF20018189D660A19AD0CF65FEF2E5AB2A9417061A28608CBB28D2646  jason-interpreter-3.3.2-checkpoint-SNAPSHOT.jar
+D1666FBDAA816D99B6837C0DD68CE57B3F30815B460E8CD9AD295F4695408056  npl-0.6.1-checkpoint-SNAPSHOT.jar

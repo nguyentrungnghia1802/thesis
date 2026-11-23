@@ -1,0 +1,1786 @@
+--- PDF PAGE 1 ---
+ĐẠI HỌC QUỐC GIA HÀ NỘI
+TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+Nguyễn Đức Quyền
+PHÁT TRIỂN MÔ ĐUN SINH TỰ ĐỘNG
+BIỂU ĐỒ UML TỪ ĐẶC TẢ FRSL
+KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
+Ngành: Công nghệ thông tin
+HÀ NỘI - 2025
+--- PDF PAGE 2 ---
+ĐẠI HỌC QUỐC GIA HÀ NỘI
+TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+Nguyễn Đức Quyền
+PHÁT TRIỂN MÔ ĐUN SINH TỰ ĐỘNG
+BIỂU ĐỒ UML TỪ ĐẶC TẢ FRSL
+KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
+Ngành: Công nghệ thông tin
+Cán bộ hướng dẫn: PGS. TS. Đặng Đức Hạnh
+HÀ NỘI - 2025
+--- PDF PAGE 3 ---
+TÓM TẮT
+Tóm tắt: Chất lượng của một phần mềm phụ thuộc nhiều vào giai đoạn đặc tả yêu
+cầu. Nơi các yêu cầu thường sử dụng ngôn ngữ tự nhiên, dễ gây ra sự mơ hồ và mâu
+thuẫn. Việc áp dụng các ngôn ngữ dành riêng cho miền đã được chứng minh là một giải
+pháp hiệu quả, giúp tiêu chuẩn hóa giao tiếp, tăng năng suất và chất lượng thông qua tự
+động hóa kiểm tra và xác minh bằng các biểu đồ trực quan. Tuy nhiên thách thức lại nằm
+ở việc chuyển đổi các đặc tả văn bản thành các mô hình như UML hay SysML. Nghiên
+cứu đề xuất một phương pháp tiếp cận để sinh tự động các biểu đồ từ một ngôn ngữ đặc
+tả yêu cầu có tên là FRSL, tập trung vào hai biểu đồ chính là biểu đồ ca sử dụng và biểu
+đồ tuần tự. Quy trình áp dụng sử dụng DSL và chuyển đổi mô hình để cải thiện phân
+tích các yêu cầu và sinh tự động biểu đồ. Từ đó có thể giảm thiểu lỗi và nâng cao hiệu
+quả trong phát triển phần mềm.
+Từ khóa: FRSL, USE, biểu đồ ca sử dụng, biểu đồ tuần tự.
+i
+--- PDF PAGE 4 ---
+LỜI CAM ĐOAN
+Em là Nguyễn Đức Quyền, sinh viên khóa QH-2021-I/CQ-I IT20 của trường Đại
+học Công Nghệ xin được cam đoan khóa luận tốt nghiệp "Phát triển mô đun sinh tự
+động biểu đồ UML từ đặc tả FRSL" là thành quả em đã tự thực hiện dưới sự đầu tư
+nghiêm túc của bản thân và được hướng dẫn của PGS. TS. Đặng Đức Hạnh. Tất cả các
+tài liệu tham khảo đều được em trích dẫn và ghi nguồn gốc rõ ràng và không có hành
+vi sao chép tài liệu hay công trình của người khác. Nếu phát hiện bất kỳ sai phạm nào
+em xin chịu hoàn toàn trách nhiệm trước hội đồng kỉ luật khoa công nghệ thông tin và
+Trường Đại học Công Nghệ - ĐHQGHN.
+Hà Nội, ngày 8 tháng 5 năm 2024
+Sinh viên
+NGUYỄN ĐỨC QUYỀN
+ii
+--- PDF PAGE 5 ---
+LỜI CẢM ƠN
+Đầu tiên, em xin gửi lời cảm ơn sâu sắc đến người thầy kính yêu, PGS. Đặng Đức
+Hạnh, người đã tận tình hướng dẫn, truyền đạt kiến thức và kinh nghiệm quý báu. Thầy
+không chỉ giúp em tiếp cận sâu sắc hơn với quá trình phát triển phần mềm mà còn chỉ
+dẫn cách nhìn nhận vấn đề một cách logic và chặt chẽ. Chính sự tận tâm và nhiệt huyết
+của thầy đã truyền cảm hứng mạnh mẽ, giúp em vững bước trên con đường học thuật.
+Em cũng xin gửi lời cảm ơn chân thành đến anh Nghĩa, người đồng hành cùng
+thầy trong việc hướng dẫn em. Kinh nghiệm và sự hỗ trợ của anh đã là nguồn động lực
+lớn lao, giúp em vượt qua những khó khăn trong quá trình nghiên cứu. Anh là một tấm
+gương sáng để em không ngừng nỗ lực và phấn đấu phát triển bản thân.
+Bên cạnh đó, em muốn bày tỏ sự cảm kích đến các Thầy/Cô, anh chị và bạn bè
+trong nhóm nghiên cứu SME Lab. Sự đồng hành và hỗ trợ của mọi người đã đóng góp
+không nhỏ vào thành công của đề tài này. Những đề tài của các anh chị là nguồn tham
+khảo quý giá, giúp em học hỏi và hoàn thiện khóa luận.
+Em cũng xin dành lời tri ân sâu sắc đến gia đình, những người đã luôn yêu thương,
+ủng hộ và tạo mọi điều kiện thuận lợi để em có thể tập trung hoàn thành khóa luận một
+cách tốt nhất.
+Cuối cùng, em xin gửi lời cảm ơn đến Trường Đại học Công nghệ - Đại học Quốc
+gia Hà Nội, nơi đã tạo điều kiện cho em được nghiên cứu và thực hiện đề tài: "Sinh tự
+động biểu đồ bằng ngôn ngữ đặc tả yêu cầu FRSL" . Đây là cơ hội quý báu để em
+khám phá và phát triển trong lĩnh vực mà em đam mê.
+Với tất cả lòng biết ơn, em xin chân thành cảm ơn những người đã đồng hành và hỗ
+trợ em trong hành trình ý nghĩa này.
+Hà Nội, ngày 8 tháng 5 năm 2025
+Sinh viên
+NGUYỄN ĐỨC QUYỀN
+iii
+--- PDF PAGE 6 ---
+MỤC LỤC
+DANH MỤC KÝ HIỆU V À CHỮ VIẾT TẮT vii
+DANH MỤC HÌNH VẼ x
+DANH MỤC BẢNG BIỂU xi
+DANH MỤC THUÂT TOÁN xii
+MỞ ĐẦU 1
+CHƯƠNG 1. KIẾN THỨC NỀN TẢNG 3
+1.1 Giới thiệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2 DSL . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.1 Lợi ích khi dùng DSL . . . . . . . . . . . . . . . . . . . . . . 4
+1.2.2 Hạn chế khi dùng DSL . . . . . . . . . . . . . . . . . . . . . . 5
+1.2.3 Quy trình kiến trúc DSL . . . . . . . . . . . . . . . . . . . . . 6
+1.2.4 Ngôn ngữ đặc tả và ngôn ngữ mô hình . . . . . . . . . . . . . . 8
+1.2.5 ANTLR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1.3 FRSL - Ngôn ngữ đặc tả yêu cầu chức năng . . . . . . . . . . . . . . . 10
+1.3.1 Mô hình đối tượng - Object model . . . . . . . . . . . . . . . . 10
+1.3.1.1 OCL - Object Constraint Language . . . . . . . . . . 11
+1.3.2 Mô hình ca sử dụng . . . . . . . . . . . . . . . . . . . . . . . . 12
+1.3.2.1 Cú pháp trừu tượng . . . . . . . . . . . . . . . . . . 12
+1.3.2.2 Cú pháp cụ thể . . . . . . . . . . . . . . . . . . . . . 13
+1.3.2.3 Tổng quan kiến trúc . . . . . . . . . . . . . . . . . . 15
+1.4 USE - Công cụ phần mềm để đặc tả và kiểm thử dựa trên UML . . . . . 15
+1.4.1 Plugin trong USE . . . . . . . . . . . . . . . . . . . . . . . . . 16
+1.5 Chuyển đổi mô hình . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+--- PDF PAGE 7 ---
+1.5.1 Kỹ thuật biểu diễn mô hình dựa trên siêu mô hình hóa . . . . . 18
+1.5.2 Kỹ thuật chuyển đổi mô hình . . . . . . . . . . . . . . . . . . . 19
+1.6 Tổng kết chương . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+CHƯƠNG 2. SINH TỰ ĐỘNG BIỂU ĐỒ TỪ ĐẶC TẢ FRSL 22
+2.1 Giới thiệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+2.2 Phương pháp tiếp cận . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+2.3 Đặc tả FRSL trong USE . . . . . . . . . . . . . . . . . . . . . . . . . 24
+2.3.1 Tinh chỉnh ngữ pháp . . . . . . . . . . . . . . . . . . . . . . . 24
+2.3.2 Tinh chỉnh ngữ nghĩa . . . . . . . . . . . . . . . . . . . . . . . 24
+2.4 Sinh biểu đồ ca sử dụng . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+2.4.1 Cú pháp trừu tượng . . . . . . . . . . . . . . . . . . . . . . . . 25
+2.4.2 Cú pháp củ thể . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+2.4.2.1 Biểu đồ ví dụ . . . . . . . . . . . . . . . . . . . . . 27
+2.4.3 Mô hình UCD . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+2.4.4 Biểu diễn thuật toán . . . . . . . . . . . . . . . . . . . . . . . 30
+2.5 Sinh biểu đồ tuần tự hệ thống . . . . . . . . . . . . . . . . . . . . . . . 32
+2.5.1 Cú pháp trừu tượng . . . . . . . . . . . . . . . . . . . . . . . . 32
+2.5.2 Cú pháp cụ thể . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+2.5.2.1 Biểu đồ ví dụ . . . . . . . . . . . . . . . . . . . . . 37
+2.5.3 Mô hình SSD . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+2.5.4 Biểu diễn thuật toán . . . . . . . . . . . . . . . . . . . . . . . 39
+2.5.4.1 Thuật toán . . . . . . . . . . . . . . . . . . . . . . . 39
+2.6 Công việc liên quan . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+2.7 Tổng kết chương . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+CHƯƠNG 3. TRIỂN KHAI V À THỰC NGHIỆM 44
+3.1 Giới thiệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+3.2 Cài đặt . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+v
+--- PDF PAGE 8 ---
+3.3 Kịch bản thử nghiệm . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+3.4 Đánh giá thực nghiệm . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+3.4.1 Đánh giá chất lượng biểu đồ sinh tự động . . . . . . . . . . . . 48
+3.4.2 Các tiêu chí bổ sung . . . . . . . . . . . . . . . . . . . . . . . 48
+3.5 Kết quả và phân tích . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+3.6 Hướng mở rộng và phát triển trong tương lai . . . . . . . . . . . . . . . 51
+3.7 Tổng kết chương . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+KẾT LUẬN 53
+TÀI LIỆU THAM KHẢO 54
+vi
+--- PDF PAGE 9 ---
+DANH MỤC KÝ HIỆU V À CHỮ VIẾT TẮT
+Từ viết tắt Nguyên nghĩa Nghĩa Việt
+DSL Domain-Specific Languages Ngôn ngữ chuyên biệt
+miền
+OCL Object Constraint Language Ngôn ngữ ràng buộc đối
+tượng
+AST Abstract Syntax Tree Cây cú pháp trừu tượng
+GPL General-Purpose Language Ngôn ngữ mục đích
+chung
+IDE Integrated Development
+Environment
+Môi trường phát triển
+tích hợp
+AI Artificial Intelligence Trí tuệ nhân tạo
+ANTLR ANother Tool for Language
+Recognition
+Công cụ nhận dạng ngôn
+ngữ
+SRLC Software Development Life
+Cycle
+Vòng đời phát triển phần
+mềm.
+NL Natural Language Ngôn ngữ tự nhiên
+NLP Natural Language Processing Quy trình xử lý ngôn
+ngữ tự nhiên
+UML Unified Modeling Language Ngôn ngữ mô hình
+thống nhất
+USE A UML-based Specification
+Environment
+Môi trường đặc tả dựa
+trên UML
+EBNF Extended Backus-Naur Form Họ ngữ pháp không ngữ
+cảnh
+vii
+--- PDF PAGE 10 ---
+Từ viết tắt Nguyên nghĩa Nghĩa Việt
+LUCAM Language of Use Cases to
+Automate Models
+Ngôn ngữ của các ca sử
+dụng để tự động hóa các
+mô hình
+SRS Software Requirements
+Specification
+Đặc tả yêu cầu phần
+mềm
+UCS Use Case Specification Đặc tả ca sử dụng
+UCD Use Case Diagram Biểu đồ ca sử dụng
+SSD System Sequence Diagram Biểu đồ tuần tự hệ thống
+viii
+--- PDF PAGE 11 ---
+DANH MỤC HÌNH VẼ
+Hình 1.1 Lợi ích của DSL trích dẫn từ [1]. . . . . . . . . . . . . . . . . . . 6
+Hình 1.2 Quy trình kiến trúc của DSL bên ngoài. . . . . . . . . . . . . . . 7
+Hình 1.3 Phân tích cú pháp tạo cây cú pháp và bảng ký hiệu trích từ [2]. . . 7
+Hình 1.4 Ví dụ về ngữ pháp ANTLR. . . . . . . . . . . . . . . . . . . . . . 10
+Hình 1.5 Ví dụ về mô hình đối tượng của FRSL. . . . . . . . . . . . . . . . 11
+Hình 1.6 Ví dụ snapshot tại một thời điểm của mô hình đối tượng. . . . . . . 12
+Hình 1.7 Siêu mô hình FRSL trích từ [3]. . . . . . . . . . . . . . . . . . . 13
+Hình 1.8 Mô tả ca sử dụng ProcessSale. . . . . . . . . . . . . . . . . . . . 14
+Hình 1.9 Đặc tả FRSL cho ca sử dụng ProcessSale. . . . . . . . . . . . . . 14
+Hình 1.10 Đặc tả FRSL cho điểm mở rộng. . . . . . . . . . . . . . . . . . . 15
+Hình 1.11 Kiến trúc FRSL trên Eclipse. . . . . . . . . . . . . . . . . . . . . 15
+Hình 1.12 Mô hình kiến trúc trong USE. . . . . . . . . . . . . . . . . . . . 16
+Hình 1.13 Ví dụ mô hình hóa trong USE. . . . . . . . . . . . . . . . . . . . 17
+Hình 1.14 Mô hình của chuyển đổi mô hình từ Ma sang Mb. . . . . . . . . . . 20
+Hình 2.1 Tổng quan phương pháp. . . . . . . . . . . . . . . . . . . . . . . 23
+Hình 2.2 mô hình trừu tượng biểu đồ ca sử dụng trích dẫn từ [4]. . . . . . . 25
+Hình 2.3 Mô hình thêm vào biểu đồ ca sử dụng từ FRSL. . . . . . . . . . . 26
+Hình 2.4 Biểu diễn biểu đồ ca sử dụng. . . . . . . . . . . . . . . . . . . . . 28
+Hình 2.5 Trình duyệt cho biểu đồ ca sử dụng. . . . . . . . . . . . . . . . . 28
+Hình 2.6 Mô hình biểu diễn biểu đồ ca sử dụng. . . . . . . . . . . . . . . . 29
+Hình 2.7 Ví dụ luật RU1 bằng biểu đồ đối tượng. . . . . . . . . . . . . . . . 31
+Hình 2.8 Siêu mô hinh UML cho biểu đồ tuần tự trích dẫn từ [4]. . . . . . . 32
+Hình 2.9 Các siêu khái niệm biểu diễn thông điệp (Message) trong FRSL. . . 33
+Hình 2.10 Các siêu khái niệm biểu diễn khung nhỏ (Fragment) trong FRSL. . 34
+Hình 2.11 Các siêu khái niệm biểu diễn khung tham chiếu tương tác (Interac-
+tionUse) trong FRSL. . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+ix
+--- PDF PAGE 12 ---
+Hình 2.12 Các siêu khái niệm biểu diễn đường đời (Lifeline) trích dẫn từ [4]. 35
+Hình 2.13 Biểu diễn biểu đồ hoạt động. . . . . . . . . . . . . . . . . . . . . 37
+Hình 2.14 Trình duyệt biểu đồ tuần tự. . . . . . . . . . . . . . . . . . . . . 38
+Hình 2.15 Biểu diễn mô hình biểu đồ tuần tự. . . . . . . . . . . . . . . . . . 39
+Hình 3.1 Cấu trúc thư mục plugin. . . . . . . . . . . . . . . . . . . . . . . 45
+Hình 3.2 Cài đặt FRSL thành công. . . . . . . . . . . . . . . . . . . . . . 45
+Hình 3.3 Tổng quan kiến trúc hệ thống. . . . . . . . . . . . . . . . . . . . 46
+Hình 3.4 Giao diện phần mềm cài đặt theo kiến trúc. . . . . . . . . . . . . 47
+Hình 3.5 Quy trình áp dụng NLP trích từ [5]. . . . . . . . . . . . . . . . . 50
+x
+--- PDF PAGE 13 ---
+DANH MỤC BẢNG BIỂU
+Bảng 2.1 Tổng hợp các ký pháp được sử dụng trong FRSL. . . . . . . . . . 26
+Bảng 2.2 Luật chuyển của FRSL2UCD. . . . . . . . . . . . . . . . . . . . 30
+Bảng 2.3 Ký hiệu trong biểu đồ tuần tự . . . . . . . . . . . . . . . . . . . . 36
+Bảng 2.4 Luật chuyển của FRSL2SSD. . . . . . . . . . . . . . . . . . . . . 39
+Bảng 3.1 Bảng so sánh các phương pháp. . . . . . . . . . . . . . . . . . . . 50
+Bảng 3.2 Kết quả so sánh hai ngôn ngữ. . . . . . . . . . . . . . . . . . . . 51
+xi
+--- PDF PAGE 14 ---
+DANH MỤC THUẬT TOÁN
+Thuật toán 1 Chuyển đổi mô hình FRSL sang biểu đồ ca sử dụng . . . . . . 31
+Thuật toán 2 Chuyển đổi mô hình FRSL sang biểu đồ tuần tự . . . . . . . 40
+Thuật toán 3 Chuyển ca sử dụng sang mô hình của biểu đồ tuần tự . . . . . 41
+xii
+--- PDF PAGE 15 ---
+MỞ ĐẦU
+Trong vòng đời phát triển phần mềm (SDLC), giai đoạn đặc tả yêu cầu đóng vai trò
+cốt lõi, quyết định chất lượng sản phẩm và ảnh hưởng đến toàn bộ quy trình phát triển.
+Một tài liệu đặc tả yêu cầu phần mềm (SRS) tốt không chỉ giúp tránh sai sót, tiết kiệm
+chi phí mà còn đảm bảo sản phẩm đáp ứng đúng nhu cầu khách hàng [6].
+SRS không chỉ cần mô tả đầy đủ các yêu cầu chức năng và phi chức năng mà còn
+phải hỗ trợ trực quan hóa qua các biểu đồ UML[7], như: biểu đồ lớp, biểu đồ trình tự.
+Nhằm giúp các bên liên quan dễ hiểu và làm cầu nối giữa yêu cầu và thiết kế [8].
+Xu hướng tự động hóa hiện nay đang thúc đẩy việc chuyển đổi tự động hay bán
+tự động SRS thành biểu đồ UML, giảm công sức thủ công, tăng tốc độ và độ chính xác
+trong phát triển phần mềm [2]. Một trong những thách thức đặt ra cho mục tiêu này là
+cần có các phương pháp kỹ thuật giúp sinh tự động các biểu đồ UML từ đặc tả yêu cầu
+phần mềm.
+Trong khi các yêu cầu được viết dưới dạng ngôn ngữ tự nhiên (NL) thường chứa
+đựng sự mợ không, không nhất quán. Thường phải được thêm các cấu trúc hay giới hạn
+về phương pháp đặc tả. Trong số đó, các ngôn ngữ chuyên biệt miền (DSL) nổi bật hơn
+về cách chúng có thể tăng khả năng giao tiếp đồng thời đảm bảo chất lượng của các yêu
+cầu. Điều đó đặt ra câu hỏi quan trọng rằng có thể "sinh tự động biểu đồ UML từ các
+ngôn ngữ DSL".
+Trong lĩnh vực đặc tả và mô hình hóa hệ thống phần mềm, USE nổi bật với khả
+năng đặc tả mạnh mẽ và hỗ trợ trực quan hóa thông qua các biểu đồ UML như biểu đồ
+lớp, biểu đồ đối tượng. Bên cạnh đó, USE còn tích hợp sẵn công cụ OCL để định nghĩa
+và kiểm tra các ràng buộc trong mô hình UML. Tuy nhiên, một điểm hạn chế đáng chú ý
+là USE chưa hỗ trợ biểu đồ ca sử dụng, một thành phần quan trọng để mô hình hóa yêu
+cầu chức năng của hệ thống từ góc nhìn người dùng.
+Nghiên cứu sử dụng công cụ USE làm nền tảng phát triển, thông qua việc tích hợp
+một DSL có tên là FRSL vào USE như một plugin. Từ đó tự động hóa quá trình sinh các
+biểu đồ UML. Mặc dù không giải quyết trực tiếp sự mơ hồ của NL, FRSL có thể mang
+lại trải nghiệm tốt hơn cho những người không phải lập trình viên.
+Kết quả mong đợi là một plugin của USE để tự động sinh biểu đồ ca sử dụng và
+biểu đồ tuần tự. Từ đó đặt nền móng cho khả năng tích hợp các DSL vào USE. Mở rộng
+để có thể tự động hóa với các loại biểu đồ khác.
+1
+--- PDF PAGE 16 ---
+Phần còn lại của khóa luận được tổ chức như sau:
+Chương 1. Kiến thức nền tảng: Chương đặt nền móng cho nền tảng của khóa luân.
+Khám phá các khái niệm lý thuyết về các ngôn ngữ hướng miền và các phương pháp
+trong chuyển đổi mô hình. Trong chương này cũng đi sâu vào ngôn ngữ đặc tả FRSL
+và môi trường USE.
+Chương 2. Sinh tự động biểu đồ UML từ đặc tả FRSL: Sẽ khảo sát hiện trạng
+các phương pháp chuyển đổi từ đặc tả sang mô hình, từ đó áp dụng với FRSL. Giới
+thiệu về cú pháp biểu diễn của hai biểu đồ là biểu đồ ca sử dụng và biểu đồ tuần tự,
+cùng với thuật toán sinh tự động.
+Chương3. Triển khai và thực nghiệm: Trình bày về quá trình triển khai sinh biểu
+đồ trên USE. Kịch bản để kiểm thử chất lượng hai biểu đồ. Từ đó đánh giá và phân
+tích kết quả thu được.
+2
+--- PDF PAGE 17 ---
+CHƯƠNG 1. KIẾN THỨC NỀN TẢNG
+DSL đóng vai trò quan trọng trong việc nâng cao hiệu quả và chất lượng của quá
+trình phát triển phần mềm, đặc biệt với các dự án phức tạp, có tính chuyên môn cao.
+Giảm thiểu sự mơ hồ và xung đột thường gặp khi sử dụng NL trong giai đoạn đặc tả yêu
+cầu, nhờ vào tính rõ ràng và đặc thù của nó. Trong chương này, sẽ giới thiệu về DSL và
+môi trường để phát triển. Giới thiệu về phương pháp chuyển đổi mô hình được áp dụng
+để sinh tự động biểu đồ UML từ đặc tả FRSL.
+1.1 Giới thiệu
+Trong nghiên cứu [9], có khoảng cách đáng kể giữa đặc tả yêu cầu và thiết kế phần
+mềm. Hầu hết các nhóm phát triển vẫn dựa vào các quy trình thủ công và kinh nghiệm
+để tạo ra một mô hình hệ thống từ đặc tả yêu cầu. Các yêu cầu phải được trình bày cho
+các bên liên quan của dự án một cách dễ hiểu, cung cấp một mức độ tự động hóa nhất
+định trong một phần của quy trình.
+Một số nghiên cứu ủng hộ các ngôn ngữ dành riêng cho miền như một giải pháp
+khả thi cho vấn đề này vì việc sử dụng chúng nâng cao năng suất, thúc đẩy giao tiếp giữa
+các kỹ sư và chuyên gia lĩnh vực và cho phép loại bỏ sự mơ hồ, mâu thuẫn được quan sát
+thấy trong các văn bản ngôn ngữ tự nhiên [2]. Nhu cầu về tính dễ đọc, dễ hiểu và năng
+suất cũng thúc đẩy cho việc sử dụng DSL để mô tả các yêu cầu hệ thống [10]. Trong số
+các DSL khác, FRSL được lựa chọn vì đây là một ngôn ngữ đặc tả có cấu trúc rõ ràng
+được chia thành hai phần là mô hình miền (phù hợp với môi trường USE) và mô hình ca
+sử dụng. Đồng thời cung cấp một cách tiếp cận tập trung vào việc chuyển đổi mô hình,
+đáp ứng yêu cầu của nghiên cứu này.
+Chương cung cấp các kiến thức nền tảng làm cơ sở cho nghiên cứu sinh tự động
+biểu đồ UML từ đặc tả FRSL trên môi trường của USE. Nội dung chương bắt đầu từ
+phần 1.2, giới thiệu về ngôn ngữ miền cụ thể (DSL), vai trò và hạn chế trong phát triển
+phần mềm. Phần 1.3 giới thiệu tổng quan về ngôn ngữ đặc tả FRSl. Phần 1.4 phân tích
+mô trường của USE và plugin. Phần 1.5 trình bày về các phương pháp chuyển đổi mô
+hình và cuối cùng là tổng kết chương trong phần 1.6.
+1.2 DSL
+DSL được phát triển mạnh mẽ và được biết đến nhiều hơn từ năm 1998 [11]. DSL
+là ngôn ngữ phù hợp với một miền cụ thể [12], mang lại lợi ích đáng kể về khả năng
+biểu đạt trong lĩnh vực, đồng thời ngữ nghĩa dễ dàng tiếp cận đối với các công cụ [13].
+3
+--- PDF PAGE 18 ---
+Ngôn ngữ này cung cấp một phương tiện để thu hẹp khoảng cách giao tiếp giữa người
+dùng và nhà phát triển, giúp giảm chi phí vòng đời của quá trình phát triển [14]. DSL
+còn được mở rộng để có thể ứng dụng vào các lĩnh vực như model-driven engineering
+(MDE) [15].
+Trong khóa luận này sẽ chọn định nghĩa của Martin Fowler [2] nhằm thể hiện gần
+chính xác nhất về DSL. Theo đó, DSL là một ngôn ngữ lập trình máy tính có khả năng
+biểu đạt hạn chế để tập trung vào một miền cụ thể. Có bốn yếu tố cho định nghĩa này:
+- Ngôn ngữ lập trình máy tính: DSL phải được con người sử dụng để hướng dẫn
+máy tính thực hiện các hoạt động và được thiết kế để con người dễ hiểu.
+- Bản thân của ngôn ngữ: DSL không chỉ biểu đạt từ các biểu thức riêng lẻ mà còn
+hỗ trợ tạo các cấu trúc phức tạp hơn.
+- Khả năng biểu đạt hạn chế: DSL hỗ trợ tối thiểu các tính năng trong miền của nó.
+Tuy không thể xây dựng toàn bộ hệ thống bằng DSL nhưng có thể dùng cho một
+khía cạnh nào đó.
+- Tập trung vào miền: Một DSL chỉ hữu ích khi xác định được miền tập trung. Đặc
+biệt, lĩnh vực tập trung này là điều làm DSL trở nên nổi bật.
+DSL ngày càng phát triển và việc phân biệt các loại DSL ngày càng khó khăn
+[16, 2]. Mỗi loại DSL lại có các điều kiện ranh giới khác nhau, nhưng vẫn có thể nhấn
+mạnh ba yếu tố để phân loại chúng nhờ xem xét bản thân các ngôn ngữ, khả năng biểu
+đạt và mức độ tập trung vào miền của ngôn ngữ đó.
+DSL nội bộ (Internal DSL): Là các ngôn ngữ được xây dựng dựa trên GPL và chỉ
+sử dụng một tập con của ngôn ngữ đó. Ví dụ như Ruby hoặc Lisp. Một vài framework
+cũng được coi là các DSL khi chúng hỗ trợ trên miền dịch vụ.
+DSL bên ngoài (External DSL): Là các ngôn ngữ được xây dựng độc lập, tách
+biệt hoàn toàn với ngôn ngữ chính của hệ thống.
+Bộ công cụ phát triển ngôn ngữ: Là những môi trường phát triển tích hợp (IDE)
+để xây dựng các DSL.
+1.2.1 Lợi ích khi dùng DSL
+DSL tuy có những giới hạn nhất định, nhưng chính sự hạn chế này lại mang đến
+những hiệu quả rõ rệt và cụ thể. Trong từng miền vấn đề khác nhau, DSL thể hiện những
+công dụng đặc thù riêng. Tuy nhiên, vẫn có thể nhận diện một số lợi ích chung nổi bật
+khi phát triển hoặc ứng dụng một DSL.
+Thứ nhất về nâng cao năng suất: Nó cung cấp một bộ công cụ mạnh mẽ tập trung
+4
+--- PDF PAGE 19 ---
+vào việc giải quyết một vấn đề cụ thể. Rút ngắn thời gian phát triển trên chính miền đó.
+Thứ hai về cải thiện giao tiếp: GPL trở nên khá phức tạp và cồng kềnh đối với
+người dùng. Và đôi khi nghiệp vụ hệ thống đòi hỏi một giao tiếp chặt chẽ giữa các bên
+liên quan và nhà phát triển. Nhờ đó DSL ra đời để cải thiện giao tiếp với người dùng.
+DSL giúp người dùng cuối viết ngắn gọn, mô tả hoạt động dễ dàng hơn so với GPL.
+Thứ ba về tái sử dụng giải pháp: Một vấn đề miền cụ thể đôi khi lại có thể được
+áp dụng với các hệ thống khác nhau.
+1.2.2 Hạn chế khi dùng DSL
+Bên cạnh những lợi ích đáng kể, DSL vẫn vấp phải không ít ý kiến trái chiều từ
+cộng đồng. Dưới đây là một số quan điểm được nhấn mạnh để làm rõ vấn đề.
+Phát triển nhiều ngôn ngữ. Nhiều người cho rằng việc học một ngôn ngữ đã khó
+khăn và việc phải học nhiều ngôn ngữ như vậy là không cần thiết khi có thể chỉ cần học
+một GPL để giải quyết mọi khía cạnh của vấn đề. Đôi khi việc có nhiều DSL tham gia
+vào hệ thống khiến việc hiểu những luồng hoạt động trở nên khó khăn.
+Việc duy trì DSL cũng là một vấn đề khi các nhóm phát triển đều gặp vấn đề với
+ngôn ngữ mới. Hoặc với một công ty có quá nhiều các DSL nội bộ, gây khó khăn trong
+việc tìm kiếm nhân viên mới.
+Chi phí xây dựng. Khi sử dụng DSL, chi phí trở nên ít hơn nhiều so với việc tiếp
+tục phát triển dựa trên công nghệ cũ. Nhưng đôi khi quá trình để phát triển một DSL
+mới lại đòi hỏi chi phí ban đầu lớn, khiến việc áp dụng DSL vào hệ thống trở thành một
+vấn đề khó khăn. Hình 1.1 bên dưới thể hiện quá trình áp dụng DSL vào hệ thống và chi
+phí. Một thời điểm trong quá trình, DSL lại thể hiện rõ điểm mạnh của mình. Các nhà
+phát triển sẽ phải phân tích điểm giao giữa hai đường thẳng.
+Đôi khi các API hoặc các Framework có sẵn cũng có thể thực hiện tốt công việc.
+Làm thay đổi điểm giao giữa chúng. Phát triển một DSL mới cũng đòi hỏi người phát
+triển phải có kiến thức về triển khai ngôn ngữ cùng với kiến thức của miền. Đồng thời
+rất khó để xây dựng công cụ kiểm tra và trình gỡ lỗi cho mỗi DSL như vậy.
+Phức tạp, khó nắm bắt. Các DSL thường được triển khai dưới dạng siêu mô hình
+để nâng cao mức độ trừu tượng nhằm đẩy nhanh tiến độ phát triển và giảm số lượng lỗi
+[17].
+Sự trừu tượng cung cấp góc nhìn đơn giản hóa về một vấn đề cụ thể, giúp làm nổi
+bật các đặc điểm quan trọng của miền [18]. Điều này cho phép dễ dàng nắm bắt các vấn
+đề chính mà không cần lo lắng về các chi tiết hoặc cấu trúc con phức tạp hơn. Sự trừu
+5
+--- PDF PAGE 20 ---
+Hình 1.1 Lợi ích của DSL trích dẫn từ [1].
+tượng thường được biểu diễn thông qua cú pháp trừu tượng (AST) hoặc các khái niệm
+cốt lõi trong DSL.
+Siêu mô hình thì ngược lại, chi tiết và phức tạp hơn [19]. Nó được gọi là "mô hình
+của các mô hình" vì mô tả các quy tắc, cú pháp, và ngữ nghĩa của các mô hình khác.
+Siêu mô hình đóng vai trò như một khung tổ chức cho các sự trừu tượng, đảm bảo rằng
+các khái niệm trong DSL được định nghĩa chặt chẽ và nhất quán.
+Góc nhìn hẹp (Blinkering). Đôi khi làm việc trên một DSL nhiều lại dẫn đến sự
+phụ thuộc vào chính DSL đó. Thói quen thường thấy là bị động gán những vấn đề mới
+vào chính sự trừu tượng cũ. Thay vì xem xét tới khả năng điều chỉnh sự trừu tượng để
+phù hợp với miền vấn đề.
+1.2.3 Quy trình kiến trúc DSL
+Trước hết, cần lưu ý rằng với mỗi loại DSL khác nhau (đề cập ở phần 1.2), sẽ có
+các kiến trúc quy trình hoạt động khác nhau và việc phân biệt chúng thực sự khó khăn.
+Trong khóa luận này không đề cập đến tất cả các loại, mà chỉ tập trung vào loại DSL
+chính được sử dụng cho nghiên cứu là DSL bên ngoài.
+Theo Hình 1.2, quy trình kiến trúc của một DSL bên ngoài bao gồm các văn bản
+ngôn ngữ (hay đặc tả DSL). Đây là mã nguồn của DSL được người dùng sử dụng. Mã
+nguồn này có đặc điểm dễ đọc và dễ nắm bắt hoạt động của chương trình, ngay cả đối
+với những người không có chuyên môn về lập trình.
+Bước tiếp theo là chuyển mã nguồn thành AST. Quá trình này thường là kết quả
+của trình biên dịch. Trình biên dịch có thể được tạo thủ công, hoặc sử dụng các bộ công
+6
+--- PDF PAGE 21 ---
+Hình 1.2 Quy trình kiến trúc của DSL bên ngoài.
+Hình 1.3 Phân tích cú pháp tạo cây cú pháp và bảng ký hiệu trích từ [2].
+cụ phát triển ngôn ngữ.
+AST phản ánh cấu trúc cú pháp của mã nguồn và thường được tạo ra cùng với bảng
+ký hiệu như ở Hình 1.3. Bảng ký hiệu cần thiết để lưu lại các khai báo trong quá trình
+dịch mã nguồn.
+Bước cuối cùng là tạo mô hình ngữ nghĩa để làm rõ các dữ liệu được lưu trong
+AST và bảng ký hiệu. Mô hình ngữ nghĩa cũng có thể được coi là một mô hình đối
+tượng trong một số trường hợp. Đôi khi, mô hình ngữ nghĩa có thể tách biệt hoàn toàn
+với DSL; điều này khác với AST, vốn cần phản ánh đúng miền vấn đề.
+Mô hình ngữ nghĩa giúp hình dung về những hành động mà miền yêu cầu. Có thể
+tách biệt quá trình kiểm tra với DSL bằng cách chỉ tập trung vào các đối tượng trong mô
+7
+--- PDF PAGE 22 ---
+hình ngữ nghĩa và kiểm tra chúng. Thậm chí, một mô hình ngữ nghĩa có thể phù hợp với
+nhiều DSL khác nhau.
+Với một số DSL, mô hình ngữ nghĩa là chưa đủ để áp dụng vào một dự án cụ thể.
+Phần lớn sự khác biệt nằm ở việc lựa chọn ngôn ngữ lập trình chung cho hệ thống như
+Java, C#, v.v. Với những dự án như vậy, cần thêm một bước nữa để chuyển đổi mô hình
+ngữ nghĩa thành mã nguồn thực thi.
+1.2.4 Ngôn ngữ đặc tả và ngôn ngữ mô hình
+Trong lĩnh vực phát triển phần mềm, ngôn ngữ mô hình hóa và ngôn ngữ đặc tả
+đều đóng vai trò quan trọng trong việc nâng cao mức độ trừu tượng, biểu diễn chính xác
+cũng như truyền tải thông tin về hệ thống. Cả hai đều thuộc nhóm ngôn ngữ miền cụ thể,
+được thiết kế nhằm phục vụ những mục đích khác nhau trong quy trình phát triển phần
+mềm. Ngôn ngữ mô hình hóa chủ yếu được sử dụng để trực quan hóa cấu trúc và hành
+vi của hệ thống, trong khi ngôn ngữ đặc tả chú trọng vào việc diễn đạt các yêu cầu một
+cách hình thức, chính xác và không mơ hồ.
+Dù có sự khác biệt về mục đích, ngôn ngữ mô hình hóa và ngôn ngữ đặc tả thường
+được sử dụng song song để hỗ trợ lẫn nhau. Việc kết hợp hai loại ngôn ngữ này giúp
+tăng hiệu quả trong truyền thông giữa các nhóm phát triển, đồng thời tạo điều kiện thuận
+lợi cho việc chuyển đổi tự động từ yêu cầu sang mô hình thiết kế hoặc kiểm thử.
+- Ngôn ngữ mô hình hóa (Modeling Language): Cung cấp công cụ trực quan để
+xác định cấu trúc, dữ liệu và hành vi của một hệ thống thông qua các mô hình trừu
+tượng, không phụ thuộc vào chi tiết cài đặt.
+- Ngôn ngữ đặc tả (Specification Language): Là ngôn ngữ hình thức dùng để mô
+tả chính xác các yêu cầu, ràng buộc hoặc đặc tính của hệ thống mà không gắn với
+cách thực hiện cụ thể.
+Hai loại ngôn ngữ này bổ trợ lẫn nhau trong quá trình phát triển phần mềm, đặc biệt
+là trong việc xác định chính xác các yêu cầu và kiểm soát tính đúng đắn của hệ thống.
+- Ngôn ngữ đặc tả đảm bảo tính chặt chẽ: Bổ sung các biểu thức logic, điều kiện
+ràng buộc mà ngôn ngữ mô hình hóa không thể hiện đầy đủ (ví dụ: OCL với UML).
+- Ngôn ngữ mô hình hóa tăng tính trực quan: Hỗ trợ minh họa cấu trúc và luồng
+hoạt động của hệ thống, giúp các bên liên quan dễ dàng trao đổi và hợp tác, khắc
+phục sự phức tạp của ngôn ngữ đặc tả.
+Việc phối hợp sử dụng ngôn ngữ mô hình hóa và ngôn ngữ đặc tả là yếu tố quan
+trọng giúp đảm bảo chất lượng, tính nhất quán cũng như khả năng kiểm soát yêu cầu
+8
+--- PDF PAGE 23 ---
+trong các dự án phần mềm hiện đại.
+1.2.5 ANTLR
+ANTLR là một công cụ mạnh mẽ dùng để xây dựng trình phân tích cú pháp và
+trình phân tích từ vựng dựa trên các ngữ pháp được định nghĩa sẵn [20]. Công cụ này
+thường được ứng dụng trong các lĩnh vực như xử lý ngôn ngữ lập trình, ngôn ngữ tự
+nhiên và các hệ thống biên dịch hiện đại.
+Trong ANTLR, ngữ pháp đóng vai trò then chốt, xác định cấu trúc cú pháp của
+ngôn ngữ mục tiêu. ANTLR sử dụng định dạng EBNF (Extended Backus-Naur Form)
+để mô tả các quy tắc ngữ pháp. Một tệp ngữ pháp ANTLR thường bao gồm hai loại quy
+tắc chính:
+Quy tắc từ vựng (Lexical Rules): Được viết bằng chữ in hoa, dùng để định nghĩa
+các đơn vị cơ bản như từ khóa, toán tử, định danh.
+Quy tắc cú pháp (Syntax Rules): Được viết bằng chữ thường, mô tả cách kết hợp
+các thành phần từ vựng thành các cấu trúc hợp lệ của ngôn ngữ.
+Ví dụ ngữ pháp trong Hình 1.4 minh họa cách ANTLR mô tả cú pháp cho các biểu
+thức số học đơn giản. Ngữ pháp khởi đầu với quy tắc expr, đại diện cho biểu thức tổng
+quát, cho phép kết hợp các term thông qua phép cộng. Mỗi term lại được tạo thành từ
+các factor liên kết bằng phép nhân, đảm bảo thứ tự ưu tiên đúng theo quy tắc toán học
+truyền thống.
+Thành phần nhỏ nhất của biểu thức là factor, có thể là một số nguyên ( INT) hoặc
+một biểu thức con đặt trong dấu ngoặc tròn, cho phép lồng ghép các biểu thức. Quy tắc
+INT định nghĩa một hoặc nhiều chữ số liên tiếp, giúp nhận diện các số nguyên có độ dài
+bất kỳ. Để đảm bảo tính linh hoạt, quy tắc WS được sử dụng để loại bỏ các ký tự trắng
+như khoảng trắng, tab, hoặc ký tự xuống dòng trong quá trình phân tích.
+ANTLR hỗ trợ nhiều ngôn ngữ lập trình như Java, Python, C#, JavaScript,... Khi
+đã định nghĩa xong ngữ pháp, ANTLR sẽ sinh ra mã nguồn cho lexer và parser, có thể
+tích hợp vào các ứng dụng phần mềm. Lexer đảm nhiệm việc tách đầu vào thành các
+token, còn parser sử dụng các token này để xây dựng cây phân tích cú pháp theo các quy
+tắc đã định nghĩa.
+Dựa trên kết quả của parser, ANTLR có thể sinh ra AST (Abstract Syntax Tree),
+biểu diễn cấu trúc cú pháp của đầu vào dựa trên ngữ pháp đã định nghĩa. AST giúp trực
+quan hóa và tổ chức các thành phần ngôn ngữ, là cơ sở cho các bước xử lý tiếp theo. Một
+số điểm nổi bật của ANTLR gồm:
+9
+--- PDF PAGE 24 ---
+Hình 1.4 Ví dụ về ngữ pháp ANTLR.
+- Hỗ trợ LL(*) Parsing: Thuật toán phân tích LL(*) cho phép ANTLR xử lý hiệu
+quả các ngữ pháp phức tạp, vượt trội so với các bộ phân tích LL(k) truyền thống.
+- Backtracking: Hỗ trợ cơ chế quay lui để giải quyết các ngữ cảnh không xác định
+trong ngữ pháp.
+- Actions và Listeners: Cho phép nhúng mã xử lý trực tiếp vào ngữ pháp, hoặc sử
+dụng các listener/visitor để xử lý cây cú pháp sau khi parser hoàn thành.
+Nhờ vào tính năng mạnh mẽ và khả năng mở rộng, ANTLR đã trở thành lựa chọn
+hàng đầu trong các dự án phát triển phần mềm yêu cầu xử lý ngôn ngữ và phân tích cú
+pháp hiệu quả.
+1.3 FRSL - Ngôn ngữ đặc tả yêu cầu chức năng
+FRSL là một ngôn ngữ đặc tả miền chuyên biệt nhằm mô tả chính xác các yêu cầu
+chức năng của hệ thống thông qua các ca sử dụng [3]. Ngôn ngữ này cung cấp mô tả
+tổng quan về ca sử dụng cũng như các thông tin chi tiết khác như mối quan hệ giữa các
+ca sử dụng, kịch bản và các bản chụp tức thời cho các ràng buộc trong hệ thống.
+FRSL được xây dựng trên nền tảng Eclipse IDE với công cụ Xtext, sử dụng siêu
+mô hình để định nghĩa cú pháp trừu tượng (xem Hình 1.7 ). Ngôn ngữ còn hỗ trợ cú
+pháp cụ thể dạng văn bản và có khả năng mở rộng sang cú pháp đồ họa [21]. Đặc biệt,
+FRSL mô tả ngữ nghĩa của các ca sử dụng bằng chuỗi trạng thái chuyển tiếp, làm rõ các
+mối quan hệ như Include và Extend, giúp tăng tính chính xác và khả năng tự động hóa
+trong phát triển phần mềm. Đặc tả FRSL sẽ được chia thành hai phần chính là mô hình
+đối tượng và mô hình ca sử dụng.
+1.3.1 Mô hình đối tượng - Object model
+Mô hình đối tượng là sự biểu diễn các khái niệm, đối tượng và mối quan hệ giữa
+chúng trong miền vấn đề, nhằm phản ánh cấu trúc logic của hệ thống. Mỗi đối tượng
+10
+--- PDF PAGE 25 ---
+Hình 1.5 Ví dụ về mô hình đối tượng của FRSL.
+trong mô hình không chỉ có các thuộc tính riêng mà còn tuân thủ các ràng buộc được
+xác định bằng ngôn ngữ OCL, như minh họa ở Hình 1.5.
+Mô hình đối tượng có thể được biểu diễn dưới dạng biểu đồ lớp gắn với các điều
+kiện ràng buộc OCL [22], và là cơ sở cho mô hình ca sử dụng (đề cập trong phần sau).
+Một phiên hoạt động của mô hình đối tượng nắm bắt các trạng thái của hệ thống được
+gọi là các bản chụp tức thời (snapshot), bao gồm các đối tượng, quan hệ và thuộc tính
+của chúng tại thời điểm đó (Hình 1.6).
+1.3.1.1 OCL - Object Constraint Language
+Ngôn ngữ Ràng buộc Đối tượng (OCL) là một ngôn ngữ chính thức được sử dụng
+để định nghĩa các ràng buộc hoặc thực hiện các truy vấn trong mô hình phần mềm
+[23, 22]. Một đặc điểm nổi bật của OCL là các biểu thức của nó không gây tác dụng
+phụ, chúng có thể là các điều kiện hoặc truy vấn mà không làm thay đổi trạng thái của
+hệ thống.
+OCL cũng được đánh máy nghiêm ngặt, nghĩa là mỗi biểu thức hợp lệ đều có một
+kiểu dữ liệu cụ thể, xác định giá trị đầu ra sau khi đánh giá. Hệ thống kiểu của OCL bao
+gồm các loại cơ bản như: Integer, Real, String, Boolean, cùng với các loại đối tượng, tin
+nhắn và các loại tập hợp như: Set, Bag và Sequence. Điều này giúp tăng cường độ chính
+xác và khả năng biểu diễn của ngôn ngữ.
+11
+--- PDF PAGE 26 ---
+Hình 1.6 Ví dụ snapshot tại một thời điểm của mô hình đối tượng.
+Ngoài ra, OCL có tính phản ánh, cho phép mô hình hóa mạnh mẽ và tự sử dụng để
+định nghĩa các đặc tả cho chính ngôn ngữ này, làm nổi bật vai trò của nó trong việc xây
+dựng các mô hình phần mềm phức tạp.
+Ví dụ trong mô hình hệ thống bán hàng (POS), mỗi "SalesLineItem" phải liên kết
+với một "ProductDescription". Ràng buộc này có thể được biểu diễn bằng OCL như sau:
+1 context S a l e s L i n e I t e m
+2 self . item -> forAll ( it : Item | it . prdtDesc = self . p r o d u c t D e s c )
+1.3.2 Mô hình ca sử dụng
+Mô hình ca sử dụng mô hình hóa sự tương tác giữa hệ thống phần mềm và môi
+trường của nó [24], bao gồm hai thành phần chính là ca sử dụng và tác nhân.
+Ca sử dụng là đặc tả các hành động mà hệ thống, hệ thống con hoặc lớp có thể
+thực hiện thông qua tương tác với các đối tượng bên ngoài, bao gồm cả chuỗi biến thể và
+chuỗi lỗi, nhằm cung cấp một dịch vụ có giá trị [25].
+Tác nhân là một phân loại đại diện cho các thực thể bên ngoài tương tác trực tiếp
+với hệ thống. Một tác nhân tham gia vào một hoặc nhiều ca sử dụng để hoàn thành một
+mục tiêu cụ thể [25].
+1.3.2.1 Cú pháp trừu tượng
+FRSL sử dụng một siêu mô hình để tổng quan và nắm bắt các thông tin chi tiết như:
+(1) Cấu trúc mối quan hệ của các ca sử dụng, đại diện bởi các include, extend; (2) Kịch
+bản của ca sử dụng, đại diện bởi các thể hiện con của step; (3) Bản chụp tức thời cho
+trạng thái của hệ thống, đại diện bởi các snapshot cùng ObjVar, Varlink và constraint;
+(4) Điều kiện để bảo vệ các luồng hoạt động thay thế (altflow) hay các điểm mở rộng
+(extensionpoint), được mô tả chi tiết trong Hình 1.7.
+12
+--- PDF PAGE 27 ---
+Hình 1.7 Siêu mô hình FRSL trích từ [3].
+1.3.2.2 Cú pháp cụ thể
+Đầu tiên, FRSL đặc tả về các tác nhân tham gia vào hệ thống. Tiếp đến là đặc tả về
+các ca sử dụng. Một ca sử dụng được đặc tả dựa trên các mẫu mô tả [26], gồm hai phần
+là tổng quan mô tả và kịch bản của ca sử dụng, như minh họa ở Hình 1.8.
+FRSL cũng cung cấp thông tin về các tác nhân chính và phụ của ca sử dụng, các
+điều kiện bắt đầu và kết thúc. Cú pháp của điều kiện bắt đầu (precondition) và kết thúc
+(postcondition) được thể hiện bằng các bản chụp tức thời trạng thái của hệ thống.
+Các bản chụp tức thời mô tả những đối tượng đang hoạt động tại thời điểm đó,
+cũng như các đối tượng được khởi tạo hay bị xóa bỏ tại thời điểm trình bày bởi cú pháp
+<objVarName> và !<objVarName>. FRSL cũng mô tả các mối liên kết và hủy liên kết
+giữa các đối tượng, thể hiện bởi cú pháp <varLink> hoặc !<varLink>. Các đối tượng
+khớp với mẫu sẽ được đặt "$" ở trước tên của chúng. Với các đối tượng ứng với miền vấn
+đề, được quy ước đặt "_" ngay trước tên. Ví dụ trong Hình 1.9.
+Điểm mở rộng đề cập đến một bước trong kịch bản của ca sử dụng được mở rộng
+đến một ca sử dụng khác. Có ba kiểu để chỉ định một điểm mở rộng: <stepname> có
+nghĩa là điểm mở rộng xảy ra tại bước đó; <stepname1>::<stepname2> có nghĩa là
+điểm mở rộng sẽ có trên tất cả các bước từ stepname1 đến stepname2; và cuối cùng
+là <stepname1>::all có nghĩa là điểm mở rộng có thể xảy ra ở bất kỳ bước nào từ
+13
+--- PDF PAGE 28 ---
+Hình 1.8 Mô tả ca sử dụng ProcessSale.
+Hình 1.9 Đặc tả FRSL cho ca sử dụng ProcessSale.
+14
+--- PDF PAGE 29 ---
+Hình 1.10 Đặc tả FRSL cho điểm mở rộng.
+Hình 1.11 Kiến trúc FRSL trên Eclipse.
+stepname1. Mỗi điểm mở rộng đều có các điều kiện để kích hoạt, minh họa trong Hình
+1.10.
+1.3.2.3 Tổng quan kiến trúc
+Kiến trúc của FRSL mang tính mô đun, gồm lõi và các mô đun bổ sung. Lõi đảm
+nhận việc cung cấp cú pháp trừu tượng, trong khi các mô đun như: Gen-TC, Gen-U hay
+Gen-AD-UCD mở rộng khả năng như sinh ca kiểm thử, giao diện người dùng và các loại
+biểu đồ khác (Hình 1.11). Mô đun lõi cho phép chỉ định các cú pháp trừu tượng và là
+đầu vào cho các mô đun khác để sinh ra các tạo tác.
+1.4 USE - Công cụ phần mềm để đặc tả và kiểm thử dựa trên UML
+Theo [7], USE được sử dụng rộng rãi để kiểm tra và xác nhận các mô hình phần
+mềm. Với bộ công cụ OCL mạnh mẽ làm cốt lõi, USE đã thể hiện năng lực của mình
+ngay từ những dự án đầu tiên. USE khởi đầu như một dự án luận án [27], và kể từ đó các
+nhà phát triển đã liên tục cải tiến, cập nhật các tiêu chuẩn cho OCL. Nhờ vậy, USE trở
+thành một trong những phần mềm hỗ trợ OCL nổi bật nhất hiện nay.
+15
+--- PDF PAGE 30 ---
+Hình 1.12 Mô hình kiến trúc trong USE.
+USE là công cụ hỗ trợ đặc tả và kiểm thử trên mô hình phần mềm UML/OCL [28].
+Một đặc tả trong USE bao gồm một mô hình cùng các ràng buộc OCL dưới dạng bất
+biến hoặc điều kiện. Mô hình có thể được trực quan hóa giúp dễ dàng xác thực, hỗ trợ
+khởi tạo trạng thái và các bản chụp tức thời [29]. Các ràng buộc OCL sẽ được tự động
+kiểm tra trên tất cả các bản chụp và trả về kết quả. Một số thuộc tính nổi bật của USE
+gồm:
+- Tính nhất quán: USE có khả năng kiểm tra tính nhất quán của mô hình. Nếu có
+thể xây dựng một sơ đồ đối tượng hợp lệ, điều đó chứng tỏ các biến thể trong mô
+hình không mâu thuẫn với nhau.
+- Tính độc lập: Tính độc lập của một bất biến được xác định bằng việc chứng minh
+rằng nó không phụ thuộc vào các bất biến khác hoặc sự kết hợp của chúng. Điều
+này có thể thực hiện bằng cách xây dựng một trạng thái hệ thống thỏa mãn tất cả
+các bất biến khác nhưng không thỏa mãn bất biến đang kiểm tra.
+- Hàm ý: Ý nghĩa của các bất biến có thể được xác minh bằng việc kiểm tra khả năng
+xây dựng sơ đồ đối tượng. Nếu việc thêm phủ định của một hàm ý cần kiểm chứng
+vào các bất biến hiện tại khiến không thể xây dựng sơ đồ đối tượng, điều đó chứng
+minh hàm ý là hợp lệ.
+Để minh họa thêm, Hình 1.12 trình bày tổng quan kiến trúc của USE, và Hình 1.13
+là ví dụ về ứng dụng mô hình hóa xác thực trong USE.
+1.4.1 Plugin trong USE
+Plugin đầu tiên được phát triển là ngôn ngữ ASSL (A Snapshot Sequence Lan-
+guage) [30], dùng để hướng dẫn tìm kiếm các phiên bản mô hình. Sau này, nhiều plugin
+16
+--- PDF PAGE 31 ---
+Hình 1.13 Ví dụ mô hình hóa trong USE.
+khác được tích hợp vào USE, đóng vai trò là công cụ chuyển đổi và mở rộng chức năng
+cho các mô hình trong USE, như USE ModelValidator [31], filmstrip [32].
+Hệ thống plugin trong USE được xây dựng dựa trên nguyên tắc đảo ngược điều
+khiển, cho phép mỗi plugin cung cấp các điểm mở rộng để tích hợp thêm chức năng vào
+USE [?]. Mỗi plugin có thể mở rộng chức năng ở các khía cạnh sau:
+Action: Cho phép plugin bổ sung thông tin và hoạt động tương tác vào giao diện
+đồ họa của USE.
+Shell: Cho phép plugin bổ sung các câu lệnh tương tác với giao diện dòng lệnh
+(CLI) của USE.
+Model: Cho phép plugin tương tác với mô hình thông qua USE-API, nhằm bổ sung
+ngữ nghĩa cho mô hình.
+Cách triển khai thực tế được trình bày chi tiết hơn trong [ ?]. Quá trình này cho
+phép tích hợp FRSL như một plugin trong USE. Các chức năng chi tiết sẽ được đề cập
+trong Chương 3.
+17
+--- PDF PAGE 32 ---
+1.5 Chuyển đổi mô hình
+Chuyển đổi mô hình ( model transformation) thường được sử dụng trong bối cảnh
+của kỹ thuật định hướng mô hình (MDE) và đóng vai trò quan trọng [33]. Trong đó,
+MDE đặt các mô hình là hiện vật hạng nhất trong suốt vòng đời phát triển phần mềm
+[34]. Quá trình chuyển đổi mô hình có thể được so sánh về vai trò và tầm quan trọng
+với các trình biên dịch ngôn ngữ lập trình cấp cao, giúp thu hẹp khoảng cách giữa thiết
+kế và triển khai. Dự kiến, chuyển đổi mô hình sẽ trở nên phổ biến trong phát triển phần
+mềm dựa trên mô hình [35].
+Các phương pháp chuyển đổi mô hình có thể được trừu tượng hóa thành các mô
+hình chuyển đổi [36]. Phần lớn các phương pháp này dựa trên cú pháp trừu tượng của
+các ngôn ngữ mô hình, được định nghĩa bởi các siêu mô hình và thường tuân theo một
+siêu mô hình chung [37, 36]. Vì vậy, có thể chia thành hai nhóm kỹ thuật chính trong
+các kỹ thuật cốt lõi của MDE: kỹ thuật mô hình hóa ngôn ngữ và kỹ thuật chuyển đổi
+mô hình.
+1.5.1 Kỹ thuật biểu diễn mô hình dựa trên siêu mô hình hóa
+Kỹ thuật mô hình hóa ngôn ngữ trong bối cảnh MDE bao gồm ít nhất hai thành
+phần [38]. Đầu tiên, một siêu mô hình phải xác định cú pháp trừu tượng của một ngôn
+ngữ (tức là xác định ngữ pháp của ngôn ngữ đó). Thứ hai, cần cung cấp các ánh xạ từ
+cú pháp trừu tượng sang cú pháp cụ thể. Các tiêu chuẩn như UML kết hợp với OCL và
+QVT (Queries, Views, Transformations) củng cố cho kỹ thuật mô hình [34]. Trong đó,
+QVT là một họ ngôn ngữ để mô tả các chuyển đổi mô hình [39] và được OMG đặt làm
+tiêu chuẩn.
+Cú pháp trừu tượng - Abstract syntax: Tương tự như các ngữ pháp được xây
+dựng dựa trên EBNF 1, các siêu mô hình đóng vai trò xác định cú pháp trừu tượng.
+Thường được xây dựng dựa trên các chuẩn như MOF (Meta Object Facility) [39] - một
+ngôn ngữ chuẩn hóa để định nghĩa các ngôn ngữ mô hình hóa theo cách hướng đối tượng.
+Mỗi khái niệm trong mô hình đại diện cho một phần tử của ngôn ngữ. Các khái
+niệm này có thể được hiển thị rõ ràng như các đối tượng bậc nhất trong mô hình, hoặc
+được ẩn trong các thuộc tính hay tham chiếu. Hiện tượng này được gọi là ẩn khái niệm
+[40].
+Cú pháp cụ thể - Concrete syntax: Bao gồm hầu hết các yếu tố đồ họa như:
+ellipse, label và rectangle, có thể kết hợp thành các dạng phức tạp hơn. Ký hiệu thực tế
+của các khái niệm mô hình hóa được xác định bằng ánh xạ giữa các phần tử cú pháp trừu
+1Thông qua các khái niệm và quan hệ giữa chúng.
+18
+--- PDF PAGE 33 ---
+tượng với các yếu tố cú pháp cụ thể. Các ánh xạ này có thể được biểu diễn bằng bộ ba
+như sau:
+Triple := < as(E), cs(E), const(as(E))? >
+Trong đó:
+- as(E): Phần tử từ cú pháp trừu tượng.
+- cs(E): Phần tử từ cú pháp cụ thể.
+- const(as(E)): Một ràng buộc tùy chọn (được định nghĩa bằng OCL), xác định điều
+kiện mà một phần tử trừu tượng as(E) được biểu diễn bởi một phần tử cụ thể cs(E).
+Trong nhiều trường hợp, ánh xạ một-một giữa cú pháp trừu tượng và cụ thể không
+đủ để biểu diễn các khái niệm phức tạp. Khi đó, cần sử dụng các ràng buộc OCL để định
+nghĩa các điều kiện cụ thể. Nhiệm vụ này đòi hỏi kiến thức sâu về siêu mô hình và có
+thể dễ xảy ra lỗi, đặc biệt khi xử lý các biến đổi mô hình phức tạp.
+1.5.2 Kỹ thuật chuyển đổi mô hình
+Kỹ thuật chuyển đổi mô hình nhằm lấy một mô hình đầu vào và tạo ra một mô hình
+dưới dạng đầu ra. Theo [36, 41], kỹ thuật này được chia thành 4 cấp độ theo mức độ
+trừu tượng, được thể hiện trong Hình 1.14. Trong đó, Ma và Mb lần lượt là mô hình đầu
+vào và mô hình đầu ra của quá trình chuyển đổi, ở cấp độ M1 2. Cả hai được định nghĩa
+và phù hợp với các siêu mô hình MMa và MMb tương ứng, ở cấp độ M2 3. Mt là mô
+hình chuyển đổi được định nghĩa bởi một siêu mô hình MMt, nắm bắt cả thông tin của
+các siêu mô hình đầu vào và đầu ra. Các siêu mô hình này lại được định nghĩa bởi một
+siêu siêu mô hình khác, ở đây là MOF ở cấp độ M3 4. MOF tiếp tục được định nghĩa bởi
+chính nó ở các cấp độ cao hơn. Trong khi đó, "Runtime instance" là mô hình trạng thái
+của hệ thống, đại diện cho cấp độ M0.
+Nghiên cứu trong [42] phân biệt các phương pháp chuyển đổi dựa trên biểu đồ tính
+năng, nhằm đưa ra các lựa chọn thiết kế phù hợp. Từ đó, phân biệt hai loại mô hình
+chuyển đổi là: chuyển đổi ngoại sinh và chuyển đổi nội sinh [42, 43].
+Chuyển đổi ngoại sinh: Chuyển đổi ngoại sinh, còn gọi là chuyển đổi giữa các
+mô hình ( model-to-model transformation ), là quá trình thay đổi giữa các không gian
+ngữ nghĩa hoặc ngôn ngữ mô hình hóa khác nhau (tức là các miền vấn đề khác nhau).
+2Mô hình.
+3Siêu mô hình.
+4Siêu siêu mô hình (meta-metamodel).
+19
+--- PDF PAGE 34 ---
+Hình 1.14 Mô hình của chuyển đổi mô hình từ Ma sang Mb.
+Quá trình này có thể làm thay đổi mức độ trừu tượng của mô hình, tạo cơ sở cho việc
+sinh mã tự động thông qua chuyển đổi dọc ( vertical transformations) hoặc thực hiện các
+kịch bản tích hợp ở cùng mức độ trừu tượng thông qua chuyển đổi ngang ( horizontal
+transformations).
+Ví dụ điển hình bao gồm việc chuyển đổi từ một biểu đồ lớp UML sang mã nguồn
+Java hoặc từ một biểu đồ trạng thái sang một mạng Petri (Petri net) để phân tích hành vi
+hệ thống.
+Chuyển đổi nội sinh: Ngược lại với chuyển đổi ngoại sinh, chuyển đổi nội sinh
+diễn ra trong cùng một ngôn ngữ mô hình hóa và chỉ viết lại mô hình đầu vào để tạo ra
+mô hình đầu ra. Quá trình này bao gồm hai bước chính: đầu tiên là xác định các phần tử
+mô hình cần được thay đổi, và sau đó là thực hiện cập nhật, thêm mới hoặc xóa các phần
+tử đó. Sự chuyển đổi này còn được gọi là chuyển đổi diễn đạt lại [44].
+Các phép biến đổi nội sinh thường được áp dụng cho các nhiệm vụ như tái cấu trúc
+mô hình (refactoring), tối ưu hóa, tiến hóa mô hình, và mô phỏng. Ví dụ, một biểu đồ
+lớp UML có thể được tái cấu trúc để giảm sự phụ thuộc giữa các lớp mà không làm thay
+đổi ngữ nghĩa hoặc mục đích thiết kế ban đầu.
+Nhiều phương pháp khác nhau đã được đề xuất, chủ yếu dựa trên sự kết hợp giữa
+20
+--- PDF PAGE 35 ---
+các quy tắc khai báo và mệnh lệnh, như ATL [33], hoặc các phép biến đổi dựa trên đồ thị
+như AGG, hoặc dựa trên các mối quan hệ như MTF. Điểm chung của các phương pháp
+này là đều mô tả các quy tắc chuyển đổi giữa siêu mô hình nguồn và siêu mô hình đích
+ở cấp độ M2, và thực hiện các quy tắc đó ở cấp độ M1, tức là chỉ dựa vào các siêu mô
+hình mà không phụ thuộc vào cú pháp cụ thể.
+Quá trình áp dụng các luật chuyển đổi có thể được chia thành nhiều bước quy trình.
+Trong nghiên cứu này, các quy trình như vậy sẽ được thể hiện bằng các thuật toán chuyển
+đổi.
+1.6 Tổng kết chương
+Trong chương này, đã trình bày tổng quan về các DSL và các phương pháp chuyển
+đổi mô hình. Đặc biệt, chương đã làm rõ các khái niệm, ứng dụng và thuộc tính của hai
+lĩnh vực này, cũng như nhấn mạnh vai trò quan trọng của chúng trong phát triển phần
+mềm hiện đại. Chuyển đổi mô hình yêu cầu xác định ba thành phần chính: mô hình
+nguồn, mô hình đích và luật chuyển đổi (hay còn gọi là thuật toán sinh). Trong đó, các
+mô hình có nhiệm vụ xác định cú pháp trừu tượng và ánh xạ sang cú pháp cụ thể. Bên
+cạnh đó, chương cũng đã giới thiệu về FRSL và môi trường USE như một nền tảng lý
+thuyết quan trọng. Phương pháp chuyển đổi từ FRSL sang UML sẽ được trình bày chi
+tiết trong chương tiếp theo (Chương 2).
+21
+--- PDF PAGE 36 ---
+CHƯƠNG 2. SINH TỰ ĐỘNG BIỂU ĐỒ UML TỪ ĐẶC TẢ FRSL
+MDE lấy mô hình làm trung tâm trong suốt vòng đời phần mềm. Trong đó bước
+đầu tiên là sinh ra các mô hình độc lập tính toán (CIM) thường được biểu diễn bằng biểu
+đồ UML như: biểu đồ ca sử dụng hay biểu đồ lớp. Một hướng tiếp cận hiệu quả là sử
+dụng DSL để chuẩn hóa và đặc tả yêu cầu của người dùng, giúp giảm thiểu sự mơ hồ và
+tăng tính chính xác. Trong chương này, sẽ trình bày chi tiết về quá trình chuyển đổi mô
+hình, từ đặc tả yêu cầu được xây dựng bằng DSL sang các biểu đồ UML, qua đó hỗ trợ
+việc thiết kế và phát triển phần mềm.
+2.1 Giới thiệu
+Mô hình ca sử dụng trở nên phổ biến nhờ sự giới thiệu của Jacobson [45] như một
+cách để mô tả hệ thống một cách tự nhiên, dễ hiểu và tập trung vào hệ thống từ góc độ
+người dùng. Mô hình ca sử dụng bao gồm biểu đồ ca sử dụng (UCD) và văn bản đặc tả
+ca sử dụng (UCS), thường được áp dụng cho các yêu cầu về cấu trúc và tài liệu hóa [1].
+Mục tiêu là hạn chế cách người dùng ghi lại UCS nhằm giảm thiểu sự mơ hồ, từ đó
+tạo điều kiện thuận lợi cho việc phân tích tự động để trích xuất các mô hình phân tích,
+bao gồm: biểu đồ lớp, biểu đồ tương tác và các loại biểu đồ hoặc ràng buộc khác.
+Quá trình sinh tự động là một tập hợp con của các bước chuyển đổi mô hình, bao
+gồm việc xác định cú pháp trừu tượng của UCS và UCD, cũng như các luật ánh xạ giữa
+chúng.
+Chương này sẽ bắt đầu từ phần 2.2 để trình bày phương pháp tiếp cận nghiên cứu.
+Phần 2.3 chỉ ra những hạn chế và vấn đề chưa được giải quyết của USE-FRSL. Tiếp theo
+là phần sinh tự động biểu đồ ca sử dụng trong 2.4, và sinh tự động biểu đồ tuần tự bổ
+sung cho ca sử dụng ở phần 2.5. Cuối cùng, chương sẽ đề cập đến các phương pháp liên
+quan trong phần 2.6 và tổng kết các kết quả đạt được cũng như định hướng phát triển
+trong tương lai ở phần 2.7.
+2.2 Phương pháp tiếp cận
+Nghiên cứu này không bao gồm việc xử lý ngôn ngữ tự nhiên mà thay vào đó sử
+dụng một ngôn ngữ đặc tả là FRSL, như minh họa ở Hình 2.1. Mặc dù việc chuyển đổi
+từ NL sang FRSL vẫn là một thách thức, FRSL có thể mang lại sự thân thiện hơn đối với
+cả những người không có kinh nghiệm lập trình.
+Nghiên cứu lựa chọn USE làm môi trường phát triển, với OCL được tích hợp sẵn
+22
+--- PDF PAGE 37 ---
+Hình 2.1 Tổng quan phương pháp.
+để kiểm tra các ràng buộc. Từ đó, nghiên cứu kiểm tra mức độ tương thích của FRSL
+trên USE với vai trò là một plugin, đồng thời phân tích cách thức biên dịch FRSL trong
+USE.
+Sau khi xác định được mô hình đầu vào, các siêu mô hình để biểu diễn biểu đồ
+sẽ được phát triển, bao gồm xác định cú pháp trừu tượng và cú pháp cụ thể tương ứng.
+Thông qua hai bộ chuyển đổi chính là FRSL2UCD và FRSL2SSD.
+- FRSL2UCD: Nhận diện các tác nhân (Actors) và các ca sử dụng (use cases) từ
+FRSL, ánh xạ các mối quan hệ giữa chúng và biểu diễn trên biểu đồ.
+- FRSL2SSD: Xác định các đối tượng (objects), các thông điệp (messages, bao gồm
+message actor và message system) và các luồng hoạt động con (frame) có trong
+luồng hoạt động chính. Các bước tuần tự được ánh xạ thành các dòng thời gian và
+hành động trong biểu đồ.
+Các bộ chuyển đổi sẽ xác định các luật chuyển dựa trên siêu mô hình nguồn và
+đích. Từ đó đặc tả các luật chuyển bằng ngôn ngữ Java. Các luật chuyển sau đó sẽ được
+áp dụng vào trong các quy trình để chuyển đổi sang mô hình đích.
+Công việc cuối cùng là biểu diễn các biểu đồ. Nghiên cứu cũng tiến hành so sánh
+với các phương pháp hiện có trong việc tự động hoặc bán tự động sinh biểu đồ UML từ
+yêu cầu (xem chương 3).
+23
+--- PDF PAGE 38 ---
+2.3 Đặc tả FRSL trong USE
+Việc di chuyển FRSL từ môi trường Eclipse sang môi trường mới (USE) đã được
+thực hiện thành công. Tuy nhiên, để kiểm tra và đánh giá mức độ tương thích với USE
+một cách toàn diện, vẫn cần thêm thời gian cùng với các ví dụ mẫu cụ thể. Bên cạnh đó,
+vẫn còn tồn tại một số điểm chưa được thỏa mãn khi triển khai FRSL trên USE. Khối
+lượng công việc lớn trong nghiên cứu trước đây cũng đã dẫn đến việc một số chức năng
+chưa được hoàn thiện đầy đủ.
+Trong môi trường USE (như đã được trình bày ở 1.2.3), quá trình chuyển đổi từ đặc
+tả ngôn ngữ sang mô hình có thể được chia thành hai giai đoạn chính:
+Giai đoạn 1: Chuyển từ đặc tả sang AST.
+Giai đoạn 2: Chuyển từ cây trừu tượng sang mô hình ngữ nghĩa.
+Cả hai giai đoạn này không chỉ được áp dụng cho các ngôn ngữ trong USE mà còn
+được áp dụng cho đặc tả FRSL. Thông qua quy trình này, ta có thể xây dựng các bước
+kiểm tra tính đúng đắn của ngôn ngữ và đảm bảo rằng đặc tả FRSL tương thích với mô
+hình ngữ nghĩa trong USE.
+2.3.1 Tinh chỉnh ngữ pháp
+Trong ngữ pháp cũ của FRSL trên Xtext, có một số điểm bất cập:
+Loại bỏ AssociationCS: Khái niệm này không cần thiết trong FRSL plugin và đã
+được lược bỏ trong định nghĩa.
+Vấn đề với AltFlowCS: Định nghĩa AltFlowCS trong Xtext sử dụng cấu trúc đệ
+quy, dẫn đến việc các AltFlowCS không bổ nghĩa đúng cho StepCS tương ứng mà chỉ
+bổ nghĩa cho StepCS cuối cùng trong luồng hoạt động. Điều này gây ra sự không chính
+xác trong ngữ nghĩa của FRSL.
+Để khắc phục, ANTLR 3 được sử dụng để định nghĩa lại ngữ pháp. Trong ANTLR,
+ngữ nghĩa và hành động được đặt trong một file .uc, giúp dễ dàng chỉnh sửa. Một hàm
+moveAltFlow() được thêm vào để kiểm tra và di chuyển AltFlowCS về đúng StepCS
+tương ứng nếu cần. Giải pháp này giả định rằng người dùng sẽ không đặc tả ngoại lệ
+(AltFlowCS) trước khi hoàn thành các bước chính (StepCS).
+2.3.2 Tinh chỉnh ngữ nghĩa
+Tham khảo từ khóa luận trước, sau khi tạo được AST, mỗi nút trong cây sẽ có
+phương thức visitPreOrder() để tạo ra các đối tượng tương ứng trong mô hình FRSL.
+Các đối tượng này được lưu trong bảng kiểu của USE và sử dụng để xây dựng các mối
+24
+--- PDF PAGE 39 ---
+quan hệ trong mô hình FRSL.
+Trong nghiên cứu trước, khó khăn xuất hiện khi xử lý các nút ở mức độ thấp, đặc
+biệt là nút Step. Các Step trong cùng một Use Case có tên duy nhất, nhưng giữa các Use
+Case khác nhau thì không đảm bảo. Để khắc phục, tên Step được gắn với tên Use Case,
+ví dụ: Step01processSale. Các nút thấp hơn như ObjVarCS và ConstraintCS cũng được
+xử lý tương tự.
+Trước đây, USEAPI được sử dụng để tích hợp mô hình FRSL vào USE. Tuy nhiên,
+cách này chỉ là tạm thời và không đảm bảo tính đúng đắn ngữ nghĩa khi coi Use Case là
+đối tượng và pre/post condition là thuộc tính. Nghiên cứu hiện tại thay thế bằng việc xây
+dựng mô hình riêng cho FRSL, đảm bảo tuân thủ quy chuẩn và loại bỏ các khái niệm
+không cần thiết như DomainClass và Tracks.
+2.4 Sinh biểu đồ ca sử dụng
+Trong phần này sẽ trình bày về mô hình cấu trúc của biểu đồ ca sử dụng 5. Trong
+bước trước đó, ta đã có được mô hình của FRSL (FRSLModel).
+2.4.1 Cú pháp trừu tượng
+Hình 2.2 mô hình trừu tượng biểu đồ ca sử dụng trích dẫn từ [4].
+5Use case diagram.
+25
+--- PDF PAGE 40 ---
+Biểu đồ ca sử dụng (Use case diagram) cố gắng bám sát theo tiêu chuẩn cộng đồng
+về UML 2.0 [4] và các nguyên tắc thiết kế [46] của OMG thể hiện trong Hình 2.2. Tuy
+nhiên, để có thể biểu diễn đủ các ý trong đặc tả của FRSL, một vài khái niệm sẽ được
+thêm vào hoặc bị thay đổi.
+Trong không gian của FRSL, khái niệm "Primary" and "Second" sẽ được thêm vào
+mô hình. Thể hiện ở Hình 2.3.
+Hình 2.3 Mô hình thêm vào biểu đồ ca sử dụng từ FRSL.
+2.4.2 Cú pháp củ thể
+Bảng 2.1 tổng hợp các ký hiệu được sử dụng trong biểu đồ ca sử dụng, giúp minh
+họa cách các thành phần trong hệ thống tương tác với nhau để hoàn thành các tác vụ
+hoặc chức năng cụ thể. Các thành phần này đóng vai trò quan trọng trong việc hiểu rõ
+yêu cầu của hệ thống và phân tích chức năng.
+Bảng 2.1 Tổng hợp các ký pháp được sử dụng trong FRSL.
+Thành phần Ký hiệu Mô tả
+Ca sử dụng
+(Use case)
+Một ca sử dụng là đặc tả tập hợp
+các hành động được thực hiện bởi hệ
+thống, nhằm mang lại một kết quả có
+thể quan sát được. Điển hình là có giá
+trị cho môt hoặc nhiều tác nhân.
+26
+--- PDF PAGE 41 ---
+Biên hệ
+thống
+(System
+bound)
+Một biên của hệ thống là tập hợp các
+ca sử dụng có trong hệ thống. Không
+bao gồm các phụ thuộc bên ngoài.
+Tác nhân
+(Actor)
+Là các tác nhân tham gia vào hệ thống.
+Chỉ định một vai trò của tác nhân đối
+với hệ thống.
+Bao gồm
+(Include)
+Xác định rằng một ca sử dụng chứa
+hành vi được xác định trong một ca sử
+dụng khác.
+Mở rộng
+(Extend)
+Đặc tả cách thức và thời gian một ca sử
+dụng có thể được thêm vào một ca sử
+dụng khác.
+Điểm mở
+rộng
+(Extension
+Point)
+Điểm mở rộng xác định một điểm
+trong ca sử dụng mà ở đó có thể được
+mở rộng bởi các hành vi của ca sử
+dụng khác.
+Tác nhân
+chính
+(Primary
+actor)
+Xác định tác nhân chính trong ca sử
+dụng. Đóng vai trò kích hoạt ca sử
+dụng.
+Tác nhân phụ
+(Second
+actor)
+Xác định tác nhân phụ trong ca sử
+dụng. Tác nhân phụ không kích hoạt
+ca sử dụng, nhưng tham gia vào trong
+các bước của ca sử dụng đó.
+2.4.2.1 Biểu đồ ví dụ
+Hình 2.4 biểu diễn biểu đồ ca sử dụng cho ví dụ về phần mềm Point of Sale (POS)
+[47]. Trong hình biểu diễn các tác nhân ở hình người que và các hình elip đại diện cho
+các ca sử dụng. Ca sử dụng ProcessSales là đặc biệt vì có điểm mở rộng PaidByGiftCert
+được thể hiện dưới tên của ca sử dụng và chia cắt bởi đường gạch ngang.
+Bên canh việc biểu diễn, biểu đồ ca sử dụng sẽ có một trình duyệt riêng (Browser).
+Bởi vì browser của USE đã được bảo mật nên việc kế thừa các chức năng có sẵn có của
+USE hoàn toàn khó khắn. Chưa kể, nghiên cứu muốn phát triển một plugin hoàn toàn
+27
+--- PDF PAGE 42 ---
+Hình 2.4 Biểu diễn biểu đồ ca sử dụng.
+Hình 2.5 Trình duyệt cho biểu đồ ca sử dụng.
+28
+--- PDF PAGE 43 ---
+độc lập với USE. Thêm vào đó là do đặc tả của USE (file .use) và đặc tả của FRSL (file
+.uc) tuy rằng bổ nghĩa cho nhau nhưng vẫn là hai bản đặc tả riêng biệt nên cần làm hai
+browser riêng để có thể xem cụ thể đặc tả trong FRSL.
+Chuột phải vào biểu đồ và khung tùy chọn sẽ hiện ra. Có một tùy chọn “Show
+model browser”, kích chuột và sẽ hiện được như Hình 2.5. Browser chứa một cây cấu
+trúc, với cấp độ cao nhất là tên của đặc tả FRSL. Cấp độ tiếp theo là đặc tả FRSL về tác
+nhân và ca sử dụng.
+2.4.3 Mô hình UCD
+Biểu đồ ca sử dụng được xây dựng dựa trên ý tưởng từ các mô hình biểu đồ lớp
+trong USE. Trong đó có các thành phần chính như: 1) Lớp "UseCaseDiagramView"
+để tạo cửa sổ giao diện cho biểu đồ để thực hiện các thao tác của người dùng. 2) Lớp
+"UseCaseDiagram" chịu trách nhiệm vẽ các hình biểu diễn từ mô hình FRSL. 3) Lớp
+"UseCaseDiagramData" cung cấp các tùy chọn cho biểu đồ. 4) Lớp "UseCaseDiagram-
+Data" là mô hình của biểu đồ.
+Hình 2.6 Mô hình biểu diễn biểu đồ ca sử dụng.
+Mô hình của biểu đồ ca sử dụng sẽ bao gồm bốn thành phần chính. Các System-
+29
+--- PDF PAGE 44 ---
+Bound thể hiện cho vùng biên của hệ thống. UsecaseNode đại diện cho các ca sử dụng.
+ActorNode đại diện cho các tác nhân. EdgeBase dùng để biểu diễn các mối quan hệ giữa
+các ca sử dụng với nhau thông qua IncludeEdge, ExtendEdge hay với tác nhân thông qua
+AssociationEdge.
+Ba thành phần "UsecaseNode", "ActorNode" và "EdgeBase" được kế thừa chức
+năng từ lớp "PlaceableNode" để có thể tương tác với biểu đồ. Ngoài ra, "TreeNode"
+được sử dụng để tổ chức các thành phần trong biểu đồ dưới dạng cây cấu trúc. "Usecas-
+eSelection" dùng để mở rộng các tùy chọn cho biểu đồ như ẩn ca sử dụng.
+2.4.4 Biểu diễn thuật toán
+Bước tiếp theo trong chuyển đổi là xác định các luật chuyển để ánh xạ các thành
+phần từ mô hình của FRSL trong Hình 1.7 tới các thành phần trong mô hình biểu diễn
+trong Hình 2.6. Với bộ chuyển FRSL2UCD có năm luật chuyển tất cả được liệt kê trong
+Bảng 2.2 với cột đầu tiên là tên của các luật và cột thứ hai mô tả các lớp được ánh xạ tới
+lớp đích.
+Bảng 2.2 Luật chuyển của FRSL2UCD.
+Luật Mô tả
+RU1 Ánh xạ Usecase sang UsecaseNode và Actor sang ActorNode
+RU2 Ánh xạ ExtensionPoint sang thuộc tính fExtendPonit của UsecaseNode
+RU3 Ánh xạ UCStep sang IncludeEdge
+RU4 Ánh xạ Extend sang ExtendEdge
+RU5 Ánh xạ mối quan hệ primaryActor và secondeActor sang AssociationEdge
+Trong đó, luật RU1 có thể được biểu diễn bằng biểu đồ đối tượng như trong Hình
+2.7. Thể hiện đối tượng U1 của lớp UseCase có thể được ánh xạ sang đối tượng UN1 của
+lớp UsecaseNode. Các thuộc tính như name cũng sẽ được chuyển đổi theo. Tượng tự, đối
+tượng A1 thuộc lớp Actor cũng được ánh xạ sang đối tượng AN1 thuộc lớp ActorNode.
+Biểu diễn của thuật toán được thể hiện trong Thuật toán 1 áp dụng các quy tắc
+chuyển đổi trên. Đầu vào của thuật toán là mô hình ngữ nghĩa của FRSL đã được biên
+dịch từ đặc tả (F) và đầu ra là cửa sổ tương tác với biểu đồ ca sử dụng. Bước đầu tiên là
+khởi tạo một biểu đồ mới cho ca sử dụng (diagram) và cửa sổ tương tác (usecaseView).
+Bước thứ hai là duyệt qua các thành phần có trong mô hình ngữ nghĩa và áp dụng
+các luật chuyển nhằm chuyển về các thành phần trong mô hình biểu diễn. Các thành
+phần sau khi chuyển có thông tin tương ứng về tên của ca sử dụng và các mối quan hệ
+của nó.Bước thứ ba là cập nhập lại các tùy chọn dành cho biểu đồ. Từ đó duyệt qua các
+30
+--- PDF PAGE 45 ---
+Hình 2.7 Ví dụ luật RU1 bằng biểu đồ đối tượng.
+Thuật toán 1: Chuyển đổi mô hình FRSL sang biểu đồ ca sử dụng
+UsecaseDiagram (F);
+Input : An FRSL model.
+Output
+:
+A UML use case diagram.
+begin
+diagram, usecaseView;
+for x ∈ node in F .getUsecase()do
+RU1(x, diagram);
+RU2(x, diagram);
+end for
+for x ∈ node in F .getActor())do
+RU1(x, diagram);
+end for
+for x ∈ node in F .getInclude()do
+RU3(x, diagram);
+end for
+for x ∈ node in F .getxtend())do
+RU4(x, diagram);
+end for
+for x ∈ node in F .getUsecase()do
+RU5(x, diagram);
+end for
+diagram → usecaseView return usecaseView;
+end
+31
+--- PDF PAGE 46 ---
+điểm rồi biểu diễn chúng trong biểu đồ. Sau đó, duyệt qua các cạnh và nối hai điểm đầu
+của cạnh để biểu diễn các mối quan hệ. Với mỗi luật chuyển có hai tham số đầu vào.
+Tham số đầu tiên là đối tượng cần chuyển đổi. Tham số thứ hai là mô hình đích để lưu
+các đối tượng sau khi đã được chuyển.
+Cuối cùng là thêm biểu đồ ca sử dụng vào cửa sổ tương tác để người dùng có thể
+tương tác với biểu đồ. Kết quả trả về cửa số tương tác của biểu đồ ca sử dụng.
+2.5 Sinh biểu đồ tuần tự hệ thống
+Khi nhấp chuột phải vào biểu đồ ca sử dụng, trong tùy chọn xuất hiện một lựa chọn
+là “Show use case”. Tùy chọn này sẽ mở ra một biểu đồ tuần tự dành riêng để biểu diễn
+chi tiết cho ca sử dụng đã chọn.
+Trong khi biểu đồ ca sử dụng cung cấp cái nhìn tổng quan về các chức năng mà hệ
+thống hỗ trợ là với góc nhìn ở cấp độ hệ thống, thì biểu đồ tuần tự bổ sung thêm ý nghĩa
+chi tiết. Biểu đồ tuần tự tập trung mô tả các bước tương tác theo thứ tự cụ thể để thực
+hiện ca sử dụng, thể hiện góc nhìn ở cấp độ yêu cầu chức năng.
+2.5.1 Cú pháp trừu tượng
+Có nhiều cách để biểu diễn các tương tác trong ca sử dụng, bao gồm Interaction
+Overview Diagrams, Communication Diagrams, và Timing Diagrams. Trong phạm vi
+khóa luận này, biểu đồ tuần tự được lựa chọn để mô tả các bước hoạt động trong ca sử
+dụng.
+Hình 2.8 Siêu mô hinh UML cho biểu đồ tuần tự trích dẫn từ [4].
+32
+--- PDF PAGE 47 ---
+Mô hình trừu tượng của biểu đồ tuần tự khá phức tạp khi các khái niệm ở mức độ
+trừu tượng cao. Được chia thành 5 biểu đồ từ Hình 2.8 đến Hình 2.12.
+Hình 2.9 Các siêu khái niệm biểu diễn thông điệp (Message) trong FRSL.
+Ngoài ra, mặc dù có nhiều sự trùng lặp khái niệm với biểu đồ tuần tự theo tiêu
+chuẩn của OMG [4], một số khái niệm đã được xem xét để tạo mới hoặc kế thừa từ mô
+hình trừu tượng của OMG để phù hợp hơn với đặc tả FRSL. Sự điều chỉnh này nhằm
+33
+--- PDF PAGE 48 ---
+Hình 2.10 Các siêu khái niệm biểu diễn khung nhỏ (Fragment) trong FRSL.
+Hình 2.11 Các siêu khái niệm biểu diễn khung tham chiếu tương tác (InteractionUse)
+trong FRSL.
+34
+--- PDF PAGE 49 ---
+mục đích đảm bảo các mô hình có thể thể hiện chính xác các tương tác và ý nghĩa trong
+FRSL.
+Đối với message trong Hình 2.9, các thuộc tính trong lớp MessageSort và Mes-
+sageKind đã được thay đổi. MessageSort sẽ chỉ còn đồng bộ (SynchCall) và bất đồng bộ
+(AsynchCall). MessageKing có 4 loại bao gồm tương tác của người dùng (ActorMes-
+sage), tương tác của tác nhân tới hệ thông (SystemMessage) và hệ thống gửi về (Return-
+Message). Cuối cùng là các tương tác gọi tới một ca sử dụng khác (RefMessage).
+CombinedFrament trong Hình 2.10 là các khung biểu thức tương tác trong biểu đồ,
+ký hiệu trong bảng 2.3. Hai biểu thức chính là vòng lặp (loop) và ngoại lệ (alt). Một vài
+khái niệm đã bị lược bỏ trong mô hình của OMG về CombinedFrament để phù hợp hơn.
+Các message sẽ liên kết trực tiếp một một với InteractionUse là điểm khác biệt
+chính trong biểu đồ Hình 2.11 so với định nghĩa của OMG về InteractionUse.
+Hình 2.12 Các siêu khái niệm biểu diễn đường đời (Lifeline) trích dẫn từ [4].
+2.5.2 Cú pháp cụ thể
+Bảng 2.3 cung cấp tổng quan về các thành phần và ký hiệu quan trọng trong biểu
+đồ tuần tự. Các thành phần này được sử dụng để mô tả cách các đối tượng hoặc thực thể
+trong hệ thống tương tác với nhau theo trình tự thời gian.
+35
+--- PDF PAGE 50 ---
+Bảng 2.3 Ký hiệu trong biểu đồ tuần tự
+Thành phần Ký hiệu Mô tả
+Interaction
+Fragment
+Là đơn vị tổng quan nhất và không có
+ký hiệu chung. Các lớp con cụ thể sẽ
+có các ký hiệu riêng khác.
+Interaction
+ Trong không gian của FRSL, interac-
+tion thể hiện quy trình từng bước của
+một ca sử dụng.
+Occurrence
+Specification
+Đánh dấu các sự kiện quan trọng xảy
+ra trên các Lifeline, giúp mô tả trình tự
+và thời gian diễn ra các tương tác trong
+biểu đồ tuần tự.
+Execution
+Specification
+Đặc tả về việc thực hiện một hành
+động trên đường LifeLine. Phân biệt
+với Occurrence Specification tại UML
+v2.5 [48].
+Life line
+ Đại diện cho một tác nhân hoặc hệ
+thống tham gia vào một loạt các hoạt
+động tương tác.
+Message
+ Xác định một loại giao tiếp cụ thể
+giữa các Lifeline. Bao gồm 4 loại
+chính trong FRSL là: ActorMes-
+sage, ReturnMessage, SystemMes-
+sage, RefMessage.
+Combined
+Fragemnt
+Xác định các biểu thức phức tạp giữa
+các interaction fragment. Được định
+nghĩa thêm bởi InteractionOperand,
+gồm 2 loại chính là alt và loop.
+InteractionUse
+ Là tham chiếu đến một biểu đồ trình tự
+của một ca sử dụng khác.
+36
+--- PDF PAGE 51 ---
+2.5.2.1 Biểu đồ ví dụ
+Hình 2.13 biểu diễn biểu đồ tuần tự cho ca sử dụng ProcessSale. Tác nhân đầu tiên
+(từ bên trái sang) đóng vai trò là tác nhân chính trong ca sử dụng. Các tác nhân kế tiếp
+đóng vai trò là tác nhân phụ. Cuối cùng là hệ thống nhằm thể hiện các tương tác trong
+ca sử dụng. Ở ví dụ là ca sử dụng ProcessSale.
+Hình 2.13 Biểu diễn biểu đồ hoạt động.
+Hoạt động của tác nhân (ActorStep) được biểu diễn bằng đường mũi tên quay lại
+chính tác nhân đó. Đây là quá trình hoạt động bên phía người dùng vì thế sẽ không được
+tương tác với hệ thống. Như ở step01.
+Hoạt động của hệ thống (SystemStep) được biểu diễn bằng đường mũi tên từ tác
+nhân đến hệ thống. Biểu diễn giai đoạn tác nhân yêu cầu đến hệ thống và hệ thống phản
+hồi về bên tác nhân. Được biểu thị bằng đường nét đứt đi về phía tác nhân. Như ở step03.
+Các thông tin được gửi trong các bước cũng được biểu diễn trong cặp dấu "{}" sau
+tên của bước đó. (như step03:{saleInfor, cashierInfor}).
+Bên cạnh, các hoạt động gọi đến một ca sử dụng khác (UCStep) được biểu diễn
+bằng đường thẳng, mũi tên đóng, đi đến một InteractionUse. Biểu thị gọi đến một ca sử
+dụng khác. Như ở step08.
+Tương tự như biểu đồ ca sử dụng, biểu đồ hoạt động cũng có một trình duyệt riêng
+37
+--- PDF PAGE 52 ---
+Hình 2.14 Trình duyệt biểu đồ tuần tự.
+để xem chi tiết các bước có trong biều đồ như Hình 2.14. Với cấp độ cao nhất là tên của
+ca sử dụng. Ở cấp độ tiếp theo bao gồm đặc tả FRSL về tác nhân chính và phụ, tiền điều
+kiện, hậu điều kiến, luồng hoạt động chính, phụ và các bước hoạt động trong vòng lặp.
+2.5.3 Mô hình SSD
+Như đã được nói ở phần 2.4.2, ta cũng có thể dễ dàng tìm thấy 4 thành phần chính có
+trong mô hình này. Gồm SequenceUCView, SequenceUC, SequenceData, UCPropreties
+trong Hình 2.15.
+Trong SequenceData lưu mô hình của SSD, có ba thành phần chính. LifeLineUC
+đại diện cho các đối tượng tham gia và ca sử dụng bao gồm các tác nhân và đối tượng thể
+hiện của hệ thống. Lớp MessageUC thể hiện các bước hoạt động có trong ca sử dụng và
+được chia làm nhiều loại thông điệp khác nhau như MessageReturn hay MessageSync-
+Self. Và cuối cùng là FrameUC đại diện cho các luồng hoạt động con bên trong luồng
+hoạt động chính. Bao gồm ba loại luồng hoạt động như: luồng ngoại lệ, vòng lặp và
+luồng tham chiếu tới một ca sử dụng khác. ActivationUC đại diện cho khoảng thời gian
+hoạt động của một đối tượng trong ca sử dụng.
+Với mỗi lớp trong mô hình SSD, bao gồm hai giai đoạn chuyển đổi, bắt đầu từ khởi
+tạo các giá trị ban đầu, và từ các giá trị đó để biểu diễn biểu đồ. Được mô tả chi tiết
+trong thuật toán 2.
+38
+--- PDF PAGE 53 ---
+Hình 2.15 Biểu diễn mô hình biểu đồ tuần tự.
+2.5.4 Biểu diễn thuật toán
+2.5.4.1 Thuật toán
+Với bộ chuyển đổi FRSL2SSD, sẽ bao gồm bảy luật chuyển tất cả, chi tiết trong
+Bảng 2.4.
+Bảng 2.4 Luật chuyển của FRSL2SSD.
+Luật Mô tả
+RS1 Ánh xạ Actor sang ActorLifeLine và Usecase sang UsecaseLifeLine
+RS2 Ánh xạ ActorStep sang MessageSyncSelf
+RS3 Ánh xạ SystemStep sang MessageSync và MessageReturn
+RS4 Ánh xạ RejionStep sang LoopFrame
+RS5 Ánh xạ AltFlow sang AltFrame
+RS6 Ánh xạ UCStep sang MessageSyncRef và RefFrame
+RS7 Ánh xạ Extend sang MessageSyncRef, RefFrame, AltFrame
+39
+--- PDF PAGE 54 ---
+Giống với thuật toán sinh biểu đồ ca sử dụng (được trình bày trong thuật toán 1 ).
+Bước đầu tiên trong thuật toán sẽ bắt đầu từ việc khởi tạo một cửa sổ tương tác với biểu
+đồ và tùy chỉnh các cài đặt ban đầu.
+Bước thứ 2 là sinh biểu đồ từ mô hình. Khởi tạo một biểu đồ (diagram) phục vụ
+biểu diễn biểu đồ. Các trạng thái hoạt động xảy ra trong ca sử dụng được khởi tạo một
+cách có quy luật dựa trên hàm initState() (được trình bày tỏng thuật toán 3 ).
+Bước thứ 3 là cập nhật các trạng thái dựa trên khởi tạo mẫu. Các thành phần trong
+biểu đồ như lifeline, message, dashline, frame được biểu diễn lần lượt theo thứ tự. Dảm
+bảo khả năng biểu diễn của biểu đồ.
+Bước cuối cùng của thuật toán là thêm khung trình duyệt cho biểu đồ và biểu đồ
+tuần tự vào cửa sổ tương tác. Cây cấu trúc (tree) được chuyển đổi từ đặc tả ca sử dụng
+của FRSL. Và cuối cùng là tùy chọn bố cục cho cửa sổ.
+Thuật toán 2: Chuyển đổi mô hình FRSL sang biểu đồ tuần tự
+SequenceDiagram (U, F);
+Input : (1) Use case specification (2) a FRSL model.
+Output
+:
+A UML sequence diagram.
+begin
+Update properties;
+diagram ← InitState (U, F) ;
+for l ∈ diagram.getAllLi f eLineUC() do
+draw life line draw(l);
+end for
+for m ∈ diagram.getAllMessageUC () do
+draw life line draw(m);
+end for
+for l ∈ diagram.getAllLi f eLineUC() do
+draw dash line drawDashLine(l);
+end for
+for f ∈= diagram.getAllFrameUC () do
+draw life line draw( f );
+end for
+Add diagram into view sequenceView ← diagram ;
+return sequenceView;
+end
+40
+--- PDF PAGE 55 ---
+Thuật toán 3: Chuyển ca sử dụng sang mô hình của biểu đồ tuần tự
+InitState (U, F);
+Input : (1) Use case specification (2) a FRSL model.
+Output
+:
+A model sequence diagram.
+begin
+diagram ← / 0; stackStep ← / 0; listFrame ← / 0;
+mapExtend ← getExtend (F) ; listStep ← U. f irstStep () ;
+Transform actor and use case in U to life line and add into diagram;
+if listStep = / 0then
+return diagram;
+end if
+while listStep has’t next or stackStep size not 0 do
+if listStep has’t next then
+Pop first element in stackStep into last listStep ;
+Add new frame → listFrame ; continue ;
+end if
+step ← listStep .next();
+if step has next then
+add next step into listStep ;
+end if
+Transform step → message; Add message → all frame in listFrame ;
+if step has alt flow or mapExtend has step then
+Transform step → altFrame ; Add altFrame → listFrame
+if mapExtend has step then
+for point ∈ mapExtend do
+Transform point → ucStep ; Add ucStep → stackStep ;
+altFrame set number frame add 1;
+end for
+end if
+for f low ∈ step do
+Add f low → stackStep ; altFrame set number frame add 1;
+end for
+end if
+end while
+update position of message; Add listmessage, listFrame → diagram;
+return diagram;
+end 41
+--- PDF PAGE 56 ---
+Vì tính đặc thù của biểu đồ tuần tự, các thành phần được biểu diễn cố định trên
+biểu đồ. Làm hạn chế khả năng biều diễn. Tuy nhiên, nghiên cứu đã đưa ra thuật toán
+biểu diễn để có thể bám sát theo tiêu chuẩn của OMG về biểu đồ tuần tự. Trình bày trong
+thuật toán 3 .
+Các biến cục bộ sẽ được khởi tạo trước như mapExtend, stackStep, listStep và
+listFrame. Trong đó mapExtend là một map có key là tên của bước có điểm mở rộng
+(dạng String) và value là danh sách các điểm mở rộng tại bước đó. StackStep sẽ bao gồm
+các bước ngoại lệ và được biểu diễn sau khi đã biểu diễn trong luồng hoạt động chính.
+ListStep là danh sách các bước hoạt động của ca sử dụng. Khi danh sách có phần tử cuối
+cùng là null, danh sách sẽ duyệt tiếp đến các bước ngoại lệ trong stackStep. Cuối cùng
+là listFrame là danh sách các khung (Combined Fragemnt), danh sách này sẽ cập nhật
+cho tất cả các khung ở trong danh sách hoặc xóa chúng khỏi danh sách.
+Biểu đồ khởi tạo các lifestep và kiểm tra xem ca sử dụng này có bước hoạt động
+nào không. Nếu có, tiếp tục kiểm tra liệu danh sách các bước đã đi hết hay chưa, nếu hết
+sẽ kiểm tra tiếp các bước ngoại lệ. Nếu không còn các bước ngoại lệ, kết thúc vòng lặp.
+Bước đầu tiên trong vòng lặp là kiểm tra xem bước tiếp theo có là bước ngoại lệ hay
+không. Nếu phải, cập nhật danh sách listStep và listFrame. Sau đó là thêm một khung
+mởi vào trong listFrame và chuyển tới vòng lặp tiếp theo.
+Bước thứ 2 trong vòng lặp là kiểm tra xem bước hiện tại còn có bước tiếp theo hay
+không. Nếu có, thêm bước tiếp theo vào danh sách. Nếu không, thêm "null" thể hiện
+kết thúc danh sách. Sau đó, biểu đồ khởi tạo các message tương ứng với bước hoạt động
+đó. ListFrame thêm các message vào trong các khung, cập nhật lại các khoảng cách trên
+dưới của các Combined Fragemnt so với message.
+Bước thứ 3 trong vòng lặp là kiểm tra bước hiện tại có ngoại lệ hay không. Nếu
+có, biểu đồ tạo Combined Fragemnt tương ứng (altFrame) tại bước hiện tại và thêm
+vào listFrame. Nếu ngoại lệ đó là một điểm mở rộng, tạo các InteractionUse ( ở đây là
+ucStep) và thêm vào stackStep. Combined Fragemnt hiện tại cũng được tăng kích thước
+ngoại lệ thêm 1. Tương tự với các luồng ngoại lệ.
+Cuối cùng, listFrame sẽ kiểm tra cập nhập lại khoảng cách so với các message và
+cập nhật vị trí của các message theo thứ tự đã duyệt.
+2.6 Công việc liên quan
+Phần này tập trung thảo luận các công việc liên quan đến phương pháp được mô tả
+trong khóa luận. Do khả năng tiếp cận các tài liệu tham khảo hạn chế, nghiên cứu mới
+chỉ tìm hiểu được các thông tin được cung cấp miễn phí.
+42
+--- PDF PAGE 57 ---
+Trong nghiên cứu [49], tác giả đề xuất một ngôn ngữ chuyên biệt miền có tên là
+LUCAM để mô tả các ca sử dụng theo một mẫu cho trước. Kèm theo đó là công cụ được
+gọi là LUCAMTool, có khả năng tự động sinh ra các biểu đồ UML và tập trung vào
+biểu đồ lớp với biểu đồ tuần tự từ các mô tả use case được viết bằng ngôn ngữ LUCAM.
+Triển khai dựa trên hai hàm chức năng chính là identifiesSentence() để phân tích
+ngữ nghĩa trong văn bản đặc tả (chủ ngữ, động từ, phương pháp, danh từ) và trả về một
+bảng các đối tượng và thuốc tính. Các đối tượng sau đó được gửi dưới dạng tham số cho
+identifiesMessage(Sentence) để ánh xạ các đối tượng trong sơ đồ tuần tự.
+2.7 Tổng kết chương
+Trong chương này, nghiên cứu đã đề cập đến nhưng hạn chế của nghiên cứu trước
+đó trong quá trình biên dịch ngữ nghĩa của FRSL và biện pháp nhằm khắc phục. Nghiên
+cứu cùng để xuất hai bộ chuyển đổi là FRSL2UCD và FRSL2SSD để sinh biểu đồ, bám
+sát theo các tiêu chuẩn cộng đồng của OMG. Tuy nhiên, một vài khái niệm cũng đã được
+tạo mới để bổ sung đầy đủ ý nghĩa đối với đặc tả FRSL.
+43
+--- PDF PAGE 58 ---
+CHƯƠNG 3. TRIỂN KHAI V À THỰC NGHIỆM
+Sự bùng nổ của các công nghệ như trí tuệ nhân tạo, điện toán đám mây và chuyển
+đổi số đã tạo ra làn sóng tăng trưởng mạnh mẽ, đòi hỏi các doanh nghiệp phải liên tục
+tối ưu hóa để đáp ứng nhu cầu ngày càng cao của người dùng. Tuy nhiên, sự phát triển
+nhanh chóng của ngành cũng đi kèm với những thách thức lớn. Đảm bảo phần mềm vừa
+đáp ứng yêu cầu khách hàng vừa duy trì chất lượng trở nên khó khăn hơn. Trong bối
+cảnh đó, việc phân tích tự động hoặc bán tự động các yêu cầu văn bản trở thành bài toán
+khó. Trong chương này sẽ khám phá thực nghiệm phương pháp của nghiên cứu đề xuất.
+3.1 Giới thiệu
+Phân tích yêu cầu và thiết kế các biểu đồ UML được sử dụng trong giai đoạn phân
+tích và thiết kế là một nhiệm vụ khó khăn và phức tạp [50]. Các SRS thường được viết
+bằng NL, vốn không rõ ràng và chứa đựng nhiều nghĩa mơ hồ.
+Việc tạo ra các mô hình UML từ các yêu cầu ngôn ngữ tự nhiên là một nhiệm vụ
+đầy thách thức và tốn thời gian, đòi hỏi nhà phân tích phải có kinh nghiệm để nhận biết
+các lỗi ngôn ngữ tự nhiên. Các mô hình UML như biểu đồ ca sử dụng, hoạt động và biểu
+đồ lớp thường được sử dụng để ghi lại các yêu cầu theo cách có cấu trúc hơn [51].
+Các nghiên cứu gần đây đã tập trung vào việc tự động hóa quá trình chuyển đổi này,
+chẳng hạn như tự động sinh các biểu đồ UML từ đặc tả yêu cầu dạng văn bản, áp dụng
+các kỹ thuật NLP kết hợp heuristic rules để phân tích cú pháp và ngữ nghĩa [52, 53].
+Một số phương pháp khác nhận đầu vào là bản đặc tả ca sử dụng để tự động sinh biểu
+đồ lớp [54, 55] và biểu đồ tuần tự [56]. Ngoài ra, sự kết hợp giữa các mô hình học máy
+và các quy tắc chuyển đổi cũng được nghiên cứu nhằm tạo biểu đồ UML từ ngôn ngữ tự
+nhiên [57].
+Mặc dù đạt được một số tiến bộ quan trọng, các phương pháp hiện tại vẫn đối mặt
+với nhiều thách thức lớn khi các vấn đề về ngôn ngữ tự nhiên chưa được giải quyết triệt
+để. Các công cụ thường ở mức bán tự động, yêu cầu sự can thiệp của con người để đảm
+bảo độ chính xác và ngữ cảnh phù hợp.
+Chương này sẽ bắt đầu với phần 3.2, hướng dẫn cài đặt môi trường thử nghiệm trên
+USE. Phần 3.3 trình bày các kịch bản thử nghiệm và tiêu chí đánh giá các bài kiểm tra
+trong phần 3.4. Tiếp theo là phần kết quả và phân tích hiệu quả trong 3.5. Phần 3.6 sẽ
+trình bày các hạn chế và định hướng công việc trong tương lai. Cuối cùng, chương được
+tóm tắt ở phần 3.7.
+44
+--- PDF PAGE 59 ---
+3.2 Cài đặt
+Để cài đặt môi trường làm việc với USE và FRSL, trước tiên cần đảm bảo rằng
+Maven đã được cài đặt trên máy tính. Để kiểm tra, mở bảng điều khiển CMD hoặc
+Terminal và nhập lệnh "mvn -version". Nếu Maven đã được cài đặt, thông tin phiên bản
+sẽ hiển thị. Nếu không, cần tải và cài đặt Maven từ trang chính thức 6.
+Sau khi cài đặt Maven, cần tải các tài nguyên cần thiết cho dự án. Tải USE từ trang
+chính thức tại SourceForge 7 và mã nguồn FRSL.
+Khi đã có mã nguồn, hãy bắt đầu quá trình biên dịch. Điều hướng đến thư mục chứa
+mã nguồn của USE trong CMD hoặc Terminal và chạy lệnh "mvn package" để đóng gói
+chương trình. Lệnh này sẽ tạo ra tệp tin thực thi của USE. Tiếp theo, điều hướng đến
+thư mục chứa mã nguồn của FRSL và chạy lệnh "mvn package". Sau khi quá trình biên
+dịch hoàn tất, bạn sẽ có tệp thực thi của FRSL. Để tích hợp FRSL vào USE, sao chép
+tệp thực thi của FRSL và dán vào thư mục plugin trong USE (Hình 3.1). Hoặc có thể tạo
+một symbolic link, hướng điều khuyển tới file .jar.
+Để kiểm tra, hãy mở USE và đảm bảo rằng plugin FRSL đã được tích hợp thành
+công như Hình 3.2.
+Hình 3.1 Cấu trúc thư mục plugin.
+Hình 3.2 Cài đặt FRSL thành công.
+6https://maven.apache.org/.
+7https://github.com/useocl/use.
+45
+--- PDF PAGE 60 ---
+3.3 Kịch bản thử nghiệm
+Tổng quan kiến trúc khi tích hợp plugin được mô tả trong Hình 3.3. Như đã giới
+thiệu trong phần 2.4, đặc tả FRSL (.frsl) bao gồm hai mô hình chính và được chia thành
+hai bản đặc tả tương ứng: đặc tả miền vấn đề 8 và đặc tả ca sử dụng 9. Trong khi đặc
+tả miền vấn đề được biên dịch trong USE, đặc tả ca sử dụng được biên dịch bởi plugin
+USE-FRSL. Sau đó, các biểu đồ ca sử dụng và biểu đồ tuần tự sẽ được sinh tự động.
+Hình 3.3 Tổng quan kiến trúc hệ thống.
+Hình 3.4 giới thiệu các thành phần trong kịch bản kiểm thử, bao gồm: (1) Bản đặc
+tả đối tượng. (2) Bản đặc tả ca sử dụng. (3) Phần mềm plugin được tích hợp vào USE,
+dùng để phân tích file đặc tả ca sử dụng. (4) Biểu đồ ca sử dụng.
+Việc kiểm thử plugin dựa trên các phiên bản thử nghiệm khác nhau của pos.uc,
+một đặc tả ca sử dụng mô tả ví dụ về hệ thống Point of Sale. Các bản kiểm thử ban đầu
+sẽ kiểm tra ở mức đơn giản nhất với biểu đồ ca sử dụng chỉ có một tác nhân và một ca
+sử dụng rỗng10. Các phiên bản sau sẽ chi tiết hơn khi thêm tác nhân và ca sử dụng. Cuối
+cùng là thêm extensionPoint và UCstep.
+- Test01.uc: Kiểm thử với một tác nhân và một ca sử dụng rỗng.
+- Test02.uc: Kiểm thử với năm tác nhân và bốn ca sử dụng rỗng.
+- Test03.uc: Thêm UCstep vào một ca sử dụng và thêm các điểm mở rộng.
+Các ca kiểm thử tiếp theo sẽ bắt đầu mô tả trên một ca sử dụng là ProcessSale. Bắt
+8file .use
+9file .uc
+10Không mô tả ca sử dụng.
+46
+--- PDF PAGE 61 ---
+Hình 3.4 Giao diện phần mềm cài đặt theo kiến trúc.
+đầu từ tác nhân chính, hậu điều kiện và tiền điều kiện. Các kiểm thử sau đó tiếp tục thêm
+các tác nhân phụ và các bước hoạt động. Các phiên bản thử nghiệm cũng sẽ tráo đổi các
+bước hoạt động (dù như thế ca sử dụng không có ngữ nghĩa) để đại diện cho các ca sử
+dụng phức tạp với các fragment lồng nhau. Ngoài ra, các bài kiểm thử về lỗi cú pháp
+hoặc ngữ nghĩa cũng được thực hiện.
+- Test04.uc: Thêm mô tả cho ca sử dụng ProcessSale.
+- Test05.uc: Thêm một bước hoạt động.
+- Test06.uc: Thêm nhiều bước hoạt động.
+- Test07.uc: Thêm action vào trong các bước.
+- Test08.uc: Thêm các vòng lặp và các luồng ngoại lệ (tráo đổi vị trí của chúng trong
+thứ tự các bước).
+Với mỗi ca kiểm thử, các tiêu chí sau được chọn để đánh giá chất lượng:
+Đầu tiên là khả năng thể hiện chính xác các yêu cầu của hệ thống, bao gồm các
+mối quan hệ và ràng buộc. Tiêu chí này cũng dựa trên việc biểu đồ có bám sát chuẩn
+UML hay không.
+Thứ hai là kiểm tra tính đầy đủ yêu cầu của biểu đồ và mức độ trực quan giữa các
+thành phần biểu đồ, bao gồm tính dễ hiểu, dễ sử dụng và giao diện thân thiện.
+47
+--- PDF PAGE 62 ---
+3.4 Đánh giá thực nghiệm
+Tham khảo từ [58], tác giả đã nghiên cứu các quy tắc hạn chế nhằm giảm sự mơ hồ
+trong đặc tả yêu cầu và khả năng sinh tự động biểu đồ UML từ các mô hình ca sử dụng.
+Các tiêu chí đánh giá bổ sung bao gồm: tỷ lệ lỗi, khả năng hiểu và áp dụng. Ngoài ra,
+chất lượng của ngôn ngữ đặc tả FRSL được đánh giá chi tiết trong nghiên cứu [3]. Quá
+trình đánh giá dựa trên phương pháp định tính, tập trung vào cảm nhận trực quan và trải
+nghiệm của người dùng.
+3.4.1 Đánh giá chất lượng biểu đồ sinh tự động
+Chất lượng biểu đồ sinh tự động từ FRSL được đánh giá dựa trên hai tiêu chí chính:
+Tính đúng đắn (Correctness): Biểu đồ phải tuân thủ các quy tắc thiết kế UML
+của OMG (giới thiệu trong phần 2.4 và 2.5). Tuy nhiên, hiện tại các biểu đồ chỉ phản
+ánh một phần thông tin từ FRSL, ngoài ra, các ràng buộc OCL chưa được kiểm tra tính
+đúng đắn bằng công cụ như USE.
+Các ca kiểm thử từ test01 đến test08 đều thể hiện sai so với chuẩn UML ở việc biểu
+diễn mối quan hệ tác nhân chính và phụ. Tuy vậy, ở biểu đồ tuần tự, các bài kiểm tra đều
+không cho thấy hiển thị sai cú pháp.
+Biểu đồ ca sử dụng cho thấy đã thể hiện đúng các mối quan hệ ghi trong đặc tả ở
+các bài kiểm tra từ test01 đến test03. Ở biểu đồ tuần tự cũng thể hiện đúng các trình tự
+và thông tin theo biểu đồ tuần tự hệ thống từ test04 đến test08.
+Tính đầy đủ (Completeness): Biểu đồ cần phản ánh đầy đủ các thông tin được
+mô tả trong FRSL, bao gồm các thành phần (actor, use case, step) và các mối quan hệ
+(include, extend). Các thông tin chi tiết hơn, không thường được thể hiện trong biểu đồ,
+được tóm tắt lại trong trình duyệt của plugin USE-FRSL.
+Trong khi biểu đồ ca sử dụng thể hiện đầy đủ các thông tin cần thiết, biểu đồ tuần
+tự lại thiếu các thông tin về điều kiện ngoại lệ hoặc điều kiện lặp, tạm thời được khắc
+phục trong trình duyệt. Đặc biệt thiếu cách biểu diễn các SnapshotPattern để thể hiện
+chuyển đổi trạng thái của hệ thống.
+3.4.2 Các tiêu chí bổ sung
+Với các phương pháp hạn chế hay chuẩn hóa, yêu cầu người dùng thường yêu cầu
+độ phức tạp cao (chi tiết trong bảng 3.1). Vì vậy, ngoài các tiêu chí chính, việc đánh giá
+còn dựa trên các yếu tố sau:
+Xác suất lỗi ngữ pháp và ngữ nghĩa: Đánh giá xác suất xảy ra lỗi ngữ pháp (các
+lỗi cú pháp khiến trình biên dịch không hoạt động) và lỗi ngữ nghĩa (các lỗi khiến biểu
+48
+--- PDF PAGE 63 ---
+đồ biểu diễn sai logic). Xác suất lỗi được tính bằng tỷ lệ giữa số lỗi phát hiện và tổng số
+ca kiểm thử.
+Khả năng hiểu và áp dụng: Đánh giá khả năng người dùng hiểu và áp dụng
+FRSL. Đánh giá dựa trên tỷ lệ các khái niệm quen thuộc như actor, usecase, step, và
+với các khái niệm mới như objVar, varLink, SnapshotPattern, yêu cầu một đường
+cong học tập cao hơn. Kết quả cho thấy khoảng 30% là các khái niệm mới và 10% là các
+khái niệm phức tạp.
+Khả năng mở rộng: FRSL vẫn có thể tự động sinh ra các biểu đồ trạng thái, tuy
+nhiên gặp khó khăn trong cú pháp khai báo objVar dẫn đến các đối tượng trạng thái
+chưa thể hiện trực quan. Bên cạnh đó, các đối tượng của FRSL còn được ánh xạ tới miền
+vấn đề, do đó cần một cách để thể hiện cả giữa miền vấn đề và miền hệ thống đối với
+biểu đồ trạng thái.
+Khả năng chịu lỗi: Bên cạnh các bài kiểm thử được nêu ở phần 3.3, nghiên cứu
+cũng kiểm thử dựa trên các bản đặc tả bị lỗi hoặc thiếu chi tiết, nhằm đánh giá mức độ
+lỗi mà FRSL có thể chịu đựng. Qua đó nhận thấy FRSL không có khả năng chịu các
+lỗi cú pháp, do chưa xây dựng khả năng hồi phục; các lỗi có thể khiến chương trình bị
+dừng. Tuy nhiên, FRSL xác định được lỗi trong ngữ pháp. Đối với các lỗi liên quan đến
+thiếu chi tiết trong đặc tả, FRSL chỉ chịu được các lỗi liên quan đến khai báo trong các
+SnapshotPattern hay các thuộc tính mô tả. Các khai báo còn lại mang tính tham chiếu
+dễ gây lỗi khi sinh biểu đồ.
+3.5 Kết quả và phân tích
+FRSL cho thấy hiệu quả vượt trội trong việc giảm thiểu sự mơ hồ và tăng độ chính
+xác khi sinh biểu đồ UML. Tuy nhiên, việc triển khai FRSL đòi hỏi nỗ lực đáng kể trong
+việc xây dựng đặc tả, điều này có thể làm tăng chi phí ban đầu. So với các phương pháp
+NLP, FRSL có ưu thế về độ chính xác nhưng lại kém hơn về tính linh hoạt khi xử lý các
+yêu cầu không chính thức. Việc hỗ trợ hai loại biểu đồ mới cũng giúp giao diện thân
+thiện hơn đối với nhà phát triển.
+Tuy nhiên, chất lượng của các biểu đồ UML phụ thuộc rất lớn vào mức độ chi tiết
+và chính xác của bản đặc tả FRSL. Nếu bản đặc tả không đầy đủ hoặc thiếu chính xác,
+các biểu đồ sinh ra có thể không phản ánh đúng yêu cầu thực tế, thậm chí có thể không
+được hiển thị. Hình 3.5 minh họa quy trình gồm năm bước để sinh biểu đồ UML bằng
+các kỹ thuật NLP, bắt đầu từ các bước trung gian như chuẩn hóa tài liệu yêu cầu, tiếp
+theo là xác định các đối tượng khái niệm và mối quan hệ giữa chúng. Vì FRSL là sản
+49
+--- PDF PAGE 64 ---
+Hình 3.5 Quy trình áp dụng NLP trích từ [5].
+phẩm đạt được sau khi trải qua bước thứ tư 11, nó yêu cầu nhà phân tích phải có kinh
+nghiệm trong quá trình phân tích yêu cầu. Các nghiên cứu trước dựa trên chuẩn hóa tài
+liệu thường bị lược bỏ [59], điều này cũng tạo ra thách thức cho phương pháp tiếp cận
+này.
+Ngược lại, FRSL mang lại lợi thế trong giao tiếp. Không chỉ gần gũi với khách
+hàng mà còn giúp các nhà phân tích và đội ngũ phát triển phần mềm dễ dàng thảo luận,
+kiểm tra và xác nhận các yêu cầu. Nhận xét này cho thấy FRSL có thể đem lại sự đơn
+giản hơn trong những giai đoạn trước đó. Đây có thể là điểm sáng để phát triển những
+phương pháp tương tự trong tương lai.
+Các phương pháp truyền thống mong muốn sử dụng ngôn ngữ tự nhiên để tự động
+phân tích yêu cầu. Tuy nhiên, các nghiên cứu hiện nay vẫn chưa thể giải quyết triệt để
+sự mơ hồ của ngôn ngữ. Đôi khi, sự mơ hồ là không thể khắc phục được, ví dụ như yêu
+cầu "tạo chức năng giao dịch giống với các phần mềm đã có". Quy trình này thường đòi
+hỏi phải có sự trao đổi chặt chẽ giữa các bản yêu cầu và phân tích. Do đó, nghiên cứu
+nhận định rằng "sử dụng ngôn ngữ tự nhiên không hoàn toàn hiệu quả mà nên áp dụng
+các giới hạn hoặc cấu trúc cho các yêu cầu" .
+Bảng 3.1 Bảng so sánh các phương pháp.
+Phương pháp Chính xác Mơ hồ Phức tạp Linh hoạt Giao tiếp
+Y êu cầu chính
+thức (FRSL)
+H N H M H
+NLP L H N H H
+Y êu cầu có cấu
+trúc
+M M M M M
+Y êu cầu bị hạn
+chế
+M L L M M
+11Relation resolution.
+50
+--- PDF PAGE 65 ---
+Bảng 3.2 Kết quả so sánh hai ngôn ngữ.
+Tiêu chí FRSL LUCAM
+Phạm vi Biểu đồ ca sử dụng, biểu đồ
+tuần tự
+Biểu đồ lớp, biểu đồ tuần
+tự.
+Môi trường phát
+triển
+USE LUCAM tool
+Định dạng đầu
+vào
+Ngôn ngữ hướng miền Ngôn ngữ tự nhiên được
+cấu trúc theo mẫu
+Tự động hoặc
+bán tự động
+Tự động Tự động
+Nghiên cứu sẽ so sánh FRSL với các phương pháp cấu trúc yêu cầu hoặc yêu cầu
+bị hạn chế. Điểm chung của các phương pháp này là đầu vào được xử lý bởi con người
+để loại bỏ một phần sự mơ hồ. Nhóm nghiên cứu cũng sẽ so sánh với phương pháp NLP
+truyền thống trong Bảng 3.1. Các từ viết tắt như Y - có, N - không có, H - cao, M -
+trung bình và L - thấp. Các tiêu chí so sánh bao gồm mức độ yêu cầu chính xác, sự mơ
+hồ trong ngôn ngữ, độ phức tạp của yêu cầu, khả năng linh hoạt trong mở rộng yêu cầu
+và khả năng giao tiếp giữa khách hàng và nhà phân tích. Các tiêu chí này được đánh giá
+dựa trên quan điểm chủ quan kết hợp với nhận xét khách quan từ các nghiên cứu trước.
+Do giới hạn về quyền truy cập, nghiên cứu chỉ tìm và so sánh được với một bài báo
+có phương pháp tiếp cận gần giống. Việc so sánh với LUCAM sẽ dựa trên các tiêu chí
+như yêu cầu về đầu vào, phạm vi, phân loại DSL, và phương pháp, như thể hiện trong
+Bảng 3.2.
+FRSL là một phương pháp hiệu quả và có tiềm năng ứng dụng cao trong các dự án
+phần mềm yêu cầu độ chính xác và rõ ràng. Tuy nhiên, cần cân nhắc giữa độ phức tạp
+của dự án và chi phí đầu tư vào việc xây dựng bản đặc tả FRSL.
+3.6 Hướng mở rộng và phát triển trong tương lai
+Hiện tại, việc xây dựng đặc tả FRSL đòi hỏi sự can thiệp thủ công từ các nhà phân
+tích, điều này có thể gây tốn thời gian và dễ xảy ra lỗi. Có thể áp dụng các kỹ thuật NLP
+hoặc các yêu cầu có cấu trúc để hỗ trợ tạo các bản đặc tả FRSL tự động hoặc bán tự
+động. NLP phân tích ngữ nghĩa từ các tài liệu yêu cầu ngôn ngữ tự nhiên, trích xuất các
+thực thể chính (như đối tượng, hành động, thuộc tính) và xác định các mối quan hệ giữa
+chúng. Sau đó, nhà phân tích chỉ cần kiểm tra và hoàn thiện bản đặc tả, thay vì xây dựng
+hoàn toàn từ đầu.
+51
+--- PDF PAGE 66 ---
+Ngoài việc tự động sinh các biểu đồ UML phổ biến như Use Case Diagram hoặc
+Class Diagram, có thể mở rộng việc sử dụng FRSL để tạo ra các loại biểu đồ UML khác
+nhằm trực quan hóa tốt hơn các yêu cầu chức năng và phi chức năng của phần mềm. Ví
+dụ như biểu đồ đối tượng có thể giúp trực quan hóa các trạng thái tức thời của hệ thống
+tại một thời điểm thông qua các bản chụp snapshot. Cũng như các bước chuyển đổi trạng
+thái trong một ca sử dụng.
+Bên cạnh đó, USE vẫn đang sử dụng trình biên dịch ANTLR 3, trong khi phiên bản
+ANTLR 4 đã ra mắt từ những năm 2014. Việc nâng cấp lên phiên bản 4 có thể mang lại
+trải nghiệm tốt hơn đối với các nhà phát triển miền trên USE. Từ đó mở ra các khả năng
+tích hợp các ngôn ngữ miền khác trên USE, như các bản đặc tả yêu cầu kỹ thuật [59].
+3.7 Tổng kết chương
+Trong chương này đã giới thiệu về quy trình thực nghiệm plugin USE-FRSL trong
+việc sinh tự động biểu đồ UML từ đặc tả. Bao gồm các kịch bản và tiêu chí để đánh
+giá. Nghiên cứu cũng nhận xét và so sánh phương pháp với các phương pháp tương đồng
+khác. Đặc biệt là với các phương pháp áp dụng NLP . Từ đó đưa ra các nhận xét khách
+quan về kết quả mà nghiên cứu mang lại.
+52
+--- PDF PAGE 67 ---
+KẾT LUẬN
+Khóa luận này đã tập trung nghiên cứu và đề xuất một phương pháp tự động sinh
+biểu đồ UML từ đặc tả yêu cầu bằng cách sử dụng ngôn ngữ đặc tả FRSL. Mục tiêu
+chính là nâng cao hiệu quả chuyển đổi từ yêu cầu ngôn ngữ tự nhiên sang các mô hình
+UML, và khóa luận đã đạt được những kết quả đáng khích lệ.
+Nghiên cứu đã đề xuất một phương pháp tiếp cận mới, với trọng tâm là áp dụng
+ngôn ngữ đặc tả FRSL như một plugin trong công cụ USE. Việc tích hợp này giúp tận
+dụng các chức năng mạnh mẽ của USE, chẳng hạn như hỗ trợ OCL. Quy trình chuyển
+đổi mô hình được áp dụng trong nghiên cứu cho phép sinh tự động hai loại biểu đồ chính,
+bao gồm biểu đồ ca sử dụng và biểu đồ tuần tự. Phương pháp này không chỉ cải thiện
+hiệu quả của quá trình phân tích mà còn tạo tiền đề cho việc tích hợp các kỹ thuật NLP
+trong tương lai.
+Tuy nhiên, phương pháp vẫn còn một vài hạn chế như thiếu tính khách quan khi
+đánh giá chất lượng các biểu đồ. Chưa thể áp dụng các công cụ để đánh giá chất lượng.
+Thiếu dữ liệu đầu vào đa dạng và không kiểm tra với các ứng dụng lớn. Hạn chế lớn là
+có những giới hạn nhất định khi sử dụng FRSL để đặc tả yêu cầu như: độ phức tạp cao,
+yêu cầu kinh nghiệm của người phân tích. Nghiên cứu cũng so sánh và chỉ ra lý do NL
+cần được kết hợp với các hạn chế, từ đó mở rộng để kết hợp với FRSL.
+Nghiên cứu cũng đã tiến hành đánh giá các hạn chế và sai sót trong quá trình tích
+hợp FRSL với công cụ USE. Khóa luận đề xuất phương pháp không chỉ góp phần nâng
+cao hiệu quả của ngôn ngữ đặc tả yêu cầu khi sử dụng trên nền tảng công cụ mô hình
+hóa, mà còn tạo tiền đề cho các nghiên cứu tiếp theo trong lĩnh vực tự động hóa phát
+triển phần mềm. Phạm vi ứng dụng trong tương lai có thể mở rộng sang các môi trường
+khác ngoài USE, giúp đa dạng hóa khả năng áp dụng của phương pháp.
+Việc áp dụng NLP cũng có thể hỗ trợ sinh tự động các bản đặc tả FRSL từ yêu cầu
+ngôn ngữ tự nhiên, giúp khắc phục hạn chế trong quá trình đặc tả. Sau khi được sinh tự
+động, các bản đặc tả FRSL này có thể được tinh chỉnh bởi cả người dùng lẫn nhà phát
+triển, tăng tính chính xác và hiệu quả của quá trình.
+Bên cạnh những kết quả đáng ghi nhận, khóa luận vẫn gặp phải một số hạn chế. Cụ
+thể, khả năng truy cập hạn chế vào các tài liệu và bài báo khoa học đã dẫn đến việc đánh
+giá đôi khi thiếu toàn diện và khách quan. Trong các nghiên cứu tiếp theo, mục tiêu sẽ
+là kết hợp sâu hơn các kỹ thuật NLP để tự động sinh đặc tả FRSL, góp phần hoàn thiện
+và mở rộng ứng dụng của phương pháp trong thực tiễn phát triển phần mềm.
+53
+--- PDF PAGE 68 ---
+TÀI LIỆU THAM KHẢO
+[1] P . Hudak, “Domain-specific languages,” Handbook of programming languages ,
+vol. 3, no. 39-60, p. 21, 1997.
+[2] M. Fowler, Domain-specific languages. Pearson Education, 2010.
+[3] D.-H. Dang, “Frsl: A domain specific language to specify functional require-
+ments,” VNU Journal of Science: Computer Science and Communication Engi-
+neering, vol. 39, no. 1, 2023.
+[4] O. Specification, “Omg unified modeling language (omg uml), superstructure, v2.
+1.2,” Object Management Group, vol. 70, p. 16, 2007.
+[5] S. Ahmed, A. Ahmed, and N. U. Eisty, “Automatic transformation of natural to
+unified modeling language: A systematic review,” in 2022 IEEE/ACIS 20th Inter-
+national Conference on Software Engineering Research, Management and Appli-
+cations (SERA), pp. 112–119, IEEE, 2022.
+[6] A. Aurum and C. Wohlin, Engineering and managing software requirements ,
+vol. 1. Springer, 2005.
+[7] F. Hilken and L. Hamann, “History of the use tool 20 years of uml/ocl modeling
+made in germany.,” J. Object Technol., vol. 19, no. 3, pp. 3–1, 2020.
+[8] G. Glasson, “The unified modeling language user guide,” Linux Journal, vol. 1999,
+no. 65es, pp. 30–es, 1999.
+[9] M. El-Attar, “A systematic approach to assemble sequence diagrams from use case
+scenarios,” in 2011 3rd International Conference on Computer Research and De-
+velopment, vol. 4, pp. 171–175, IEEE, 2011.
+[10] M. Mernik and V . ˇZumer, “Domain-specific languages for software engineering,”
+in Hawaii International Conference on System Sciences , vol. 9, p. 9071, 2001.
+[11] T. Starr, DSL advances. Prentice Hall Professional, 2003.
+[12] M. Mernik, J. Heering, and A. M. Sloane, “When and how to develop domain-
+specific languages,” ACM computing surveys (CSUR), vol. 37, no. 4, pp. 316–344,
+2005.
+54
+--- PDF PAGE 69 ---
+[13] M. Voelter, S. Benz, C. Dietrich, B. Engelmann, M. Helander, L. C. Kats, E. Visser,
+and G. Wachsmuth, “Dsl engineering-designing, implementing and using domain-
+specific languages,” p. 71, 2013.
+[14] S. Kelly and J.-P . Tolvanen, Domain-specific modeling: enabling full code genera-
+tion. John Wiley & Sons, 2008.
+[15] D. Breuker, “Towards model-driven engineering for big data analytics–an ex-
+ploratory analysis of domain-specific languages for machine learning,” in 2014
+47th Hawaii International Conference on System Sciences , pp. 758–767, IEEE,
+2014.
+[16] B. Langlois, C.-E. Jitia, and E. Jouenne, “Dsl classification,” in OOPSLA 7th work-
+shop on domain specific modeling , 2007.
+[17] J. Luoma, S. Kelly, and J. Tolvanen, “Defining domain-specific modeling lan-
+guages: Collected experiences, || in oopsla workshop on domain-specific modeling,
+vancouver,”British Columbia, Canada , 2004.
+[18] E. Y ee, “Abstraction and concepts: when, how, where, what and why?,” 2019.
+[19] T. K ¨uhne, “What is a model?,” Schloss Dagstuhl–Leibniz-Zentrum f ¨ur Informatik,
+2005.
+[20] T. Parr, The definitive ANTLR reference: building domain-specific languages. Prag-
+matic Bookshelf, 2007.
+[21] V . T. Phuong, “Investigating graphical syntax definition techniques for dsls and
+applying improvements to the frsl requirement specification tool,” VNU University
+of Engineering and Technology, 2024.
+[22] J. B. Warmer and A. G. Kleppe, The object constraint language: getting your mod-
+els ready for MDA. Addison-Wesley Professional, 2003.
+[23] J. Warmer and A. Kleppe, The object constraint language: precise modeling with
+UML. Addison-Wesley Longman Publishing Co., Inc., 1998.
+[24] I. Jacobson, Object-oriented software engineering: a use case driven approach .
+Pearson Education India, 1993.
+[25] J. Rumbaugh, The unified modeling language reference manual. Pearson Education
+India, 2005.
+55
+--- PDF PAGE 70 ---
+[26] A. Cockburn and L. Cockburn, Writing effective use cases . Pearson Education
+India, 2008.
+[27] M. Richters, “A precise approach to validating uml models and ocl constraints,
+volume 14 of biss monographs,” 2002.
+[28] M. Gogolla, F. B ¨uttner, and M. Richters, “Use: A uml-based specification envi-
+ronment for validating uml and ocl,” Science of Computer Programming , vol. 69,
+no. 1-3, pp. 27–34, 2007.
+[29] M. Gogolla, J. Bohling, and M. Richters, “Validating uml and ocl models in use
+by automatic snapshot generation,” Software & Systems Modeling , vol. 4, no. 4,
+pp. 386–398, 2005.
+[30] E. Vassev and M. Hinchey, “Assl: A software engineering approach to autonomic
+computing.,” Computer, vol. 42, no. 6, pp. 90–93, 2009.
+[31] M. Gogolla, L. Hamann, and F. Hilken, “Checking transformation model properties
+with a uml and ocl model validator.,” in VOLT@ STAF, pp. 16–25, 2014.
+[32] F. Hilken, L. Hamann, and M. Gogolla, “Transformation of uml and ocl models into
+filmstrip models,” in International Conference on Theory and Practice of Model
+Transformations, pp. 170–185, Springer, 2014.
+[33] F. Jouault, F. Allilaire, J. Bézivin, and I. Kurtev, “Atl: A model transformation
+tool,” Science of computer programming, vol. 72, no. 1-2, pp. 31–39, 2008.
+[34] J. BEZIVIN, “On the unification power ofmodels. software and system modeling,”
+2005.
+[35] S. Sendall and W . Kozaczynski, “Model transformation: The heart and soul of
+model-driven software development,” IEEE software , vol. 20, no. 5, pp. 42–45,
+2003.
+[36] J. Bézivin, F. B ¨uttner, M. Gogolla, F. Jouault, I. Kurtev, and A. Lindow, “Model
+transformations? transformation models!,” in Model Driven Engineering Lan-
+guages and Systems: 9th International Conference, MoDELS 2006, Genova, Italy,
+October 1-6, 2006. Proceedings 9 , pp. 440–453, Springer, 2006.
+[37] G. Kappel, P . Langer, W . Retschitzegger, W . Schwinger, and M. Wimmer, “Model
+transformation by-example: a survey of the first wave,” Conceptual Modelling and
+Its Theoretical Foundations: Essays Dedicated to Bernhard Thalheim on the Oc-
+casion of His 60th Birthday , pp. 197–215, 2012.
+56
+--- PDF PAGE 71 ---
+[38] A. Kleppe, Software language engineering: creating domain-specific languages
+using metamodels. Pearson Education, 2008.
+[39] O. A. Specification, “Mof qvt final adopted specification,”
+[40] G. Kappel, E. Kapsammer, H. Kargl, G. Kramler, T. Reiter, W . Retschitzegger,
+W . Schwinger, and M. Wimmer, “Lifting metamodels to ontologies: A step to
+the semantic integration of modeling languages,” in International Conference on
+Model Driven Engineering Languages and Systems , pp. 528–542, Springer, 2006.
+[41] M. Strommer, Model transformation by-example MTBE . PhD thesis, Technische
+Universit¨at Wien, 2008.
+[42] K. Czarnecki, S. Helsen, et al. , “Classification of model transformation ap-
+proaches,” in Proceedings of the 2nd OOPSLA Workshop on Generative Techniques
+in the Context of the Model Driven Architecture , vol. 45, pp. 1–17, USA, 2003.
+[43] T. Mens and P . Van Gorp, “A taxonomy of model transformation,” Electronic notes
+in theoretical computer science, vol. 152, pp. 125–142, 2006.
+[44] M. Biehl, “Literature study on model transformations,” Royal Institute of Technol-
+ogy, Tech. Rep. ISRN/KTH/MMK, vol. 291, 2010.
+[45] I. Jacobson, “Use cases–yesterday, today, and tomorrow,” Software & systems mod-
+eling, vol. 3, no. 3, pp. 210–220, 2004.
+[46] A. N. M.-R. Files et al., “Omg unified modeling languagetm (omg uml), infrastruc-
+ture,” GD Number, I. Associated, 2010.
+[47] C. Larman, Applying UML and patterns: an introduction to object-oriented analy-
+sis and design and iterative development . Pearson Education India, 2012.
+[48] A. Object Management Group et al., “Omg unified modeling language (omg uml)
+version 2.5,” 2017.
+[49] M. A. Miranda, M. G. Ribeiro, H. T. Marques-Neto, and M. A. J. Song, “Domain-
+specific language for automatic generation of uml models,” IET Software, vol. 12,
+no. 2, pp. 129–135, 2018.
+[50] A. O. Mohammed, Z. A. Abdelnabi, A. M. Maatuk, and A. S. Abdalla, “An ex-
+perimental study on detecting semantic defects in object-oriented programs using
+software reading techniques,” in Proceedings of the The International Conference
+on Engineering & MIS 2015 , pp. 1–6, 2015.
+57
+--- PDF PAGE 72 ---
+[51] S. Aljawarneh, T. Al-Rousan, and A. Maatuk, “Security issues influencing the us-
+age of online banking in the arab world: Data validation,” Security Journal (ISI
+Thomson), p. 10, 2012.
+[52] E. A. Abdelnabi, A. M. Maatuk, T. M. Abdelaziz, and S. M. Elakeili, “Generating
+uml class diagram using nlp techniques and heuristic rules,” in 2020 20th Interna-
+tional Conference on Sciences and Techniques of Automatic Control and Computer
+Engineering (STA), pp. 277–282, IEEE, 2020.
+[53] A. M. Maatuk and E. A. Abdelnabi, “Generating uml use case and activity diagrams
+using nlp techniques and heuristics rules,” in International Conference on Data
+Science, E-learning and Information Systems 2021 , pp. 271–277, 2021.
+[54] J. S. Thakur and A. Gupta, “Automatic generation of analysis class diagrams from
+use case specifications,” arXiv preprint arXiv:1708.01796, 2017.
+[55] M.-H. Chu and D.-H. Dang, “Automatic extraction of analysis class diagrams from
+use cases,” in 2020 12th International Conference on Knowledge and Systems En-
+gineering (KSE), pp. 109–114, IEEE, 2020.
+[56] F. C. De Souza and F. A. de Castro Giorno, “Automatic generation of sequence
+diagrams and updating domain model from use cases,” no. c, pp. 85–92, 2015.
+[57] F. Alaswad, E. Poovammal, B. Aljaddouh, and B. Supriya, “Software requirements
+to uml class diagrams using machine learning and rule-based approach,” in In-
+ternational Conference on Intelligent Systems in Computing and Communication ,
+pp. 86–101, Springer, 2023.
+[58] T. Yue, L. C. Briand, and Y . Labiche, “A use case modeling approach to facili-
+tate the transition towards analysis models: Concepts and empirical evaluation,”
+in Model Driven Engineering Languages and Systems: 12th International Con-
+ference, MODELS 2009, Denver, CO, USA, October 4-9, 2009. Proceedings 12 ,
+pp. 484–498, Springer, 2009.
+[59] S. Das, N. Deb, A. Cortesi, and N. Chaki, “Extracting goal models from natural
+language requirement specifications,” Journal of Systems and Software , vol. 211,
+p. 111981, 2024.
+58

@@ -1,0 +1,1 @@
+java -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true -cp "<distribution>/lib/*" "<evidence>/QA/ThesisUseCapture.java" "<distribution>" "<evidence>/TN01"

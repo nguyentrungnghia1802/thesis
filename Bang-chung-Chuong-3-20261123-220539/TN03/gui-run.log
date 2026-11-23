@@ -1,0 +1,27 @@
+C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-Chuong-3-20261123-220539\QA\ThesisUseCapture.java:161: warning: [unchecked] unchecked cast
+    private static Map<String,Object> object(Object value){return (Map<String,Object>)value;}
+                                                                                      ^
+  required: Map<String,Object>
+  found:    Object
+C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-Chuong-3-20261123-220539\QA\ThesisUseCapture.java:171: warning: [unchecked] unchecked method invocation: method valueOf in class Enum is applied to given types
+        Object instance=document.getConstructor(kindType,Path.class,String.class,state,List.class).newInstance(Enum.valueOf((Class)kindType,kind),model,result.get("sequence").toString(),objects,markings);document.getMethod("write",Path.class).invoke(instance,file);
+                                                                                                                           ^
+  required: Class<T>,String
+  found:    Class,String
+  where T is a type-variable:
+    T extends Enum<T> declared in method <T>valueOf(Class<T>,String)
+C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-Chuong-3-20261123-220539\QA\ThesisUseCapture.java:171: warning: [unchecked] unchecked conversion
+        Object instance=document.getConstructor(kindType,Path.class,String.class,state,List.class).newInstance(Enum.valueOf((Class)kindType,kind),model,result.get("sequence").toString(),objects,markings);document.getMethod("write",Path.class).invoke(instance,file);
+                                                                                                                            ^
+  required: Class<T>
+  found:    Class
+  where T is a type-variable:
+    T extends Enum<T> declared in method <T>valueOf(Class<T>,String)
+3 warnings
+USE version 7.5.0, Copyright (C) 1999-2025 University of Bremen & University of Applied Sciences Hamburg
+PACKAGED_PLUGINS_OK engine=file:/D:/_CODE_BANK/Project_/08_Thesis/use/use-assembly/target/new/lib/plugins/use-jacamo-plugin-1.0.1.jar
+STATE_WORKBENCH work=C:\WINDOWS\TEMP\use-jacamo-6458047636216211109 pid=11044
+CSL_STATE sequence=1 decision=APPROVE diagnostic=
+CSL_STATE sequence=2 decision=APPROVE diagnostic=
+CSL_STATE sequence=3 decision=HOLD_FAILURE diagnostic=
+EMBEDDED_USE_SMOKE_PASS case=counter evidence=C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-Chuong-3-20261123-220539\TN03

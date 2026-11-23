@@ -1,0 +1,2 @@
+Independent expected result before live run
+Synchronous children set(-1) before parent run returns. Counter::Nonnegative must FAIL when final -1 is observed; decision HOLD_FAILURE and matching producer receipt.

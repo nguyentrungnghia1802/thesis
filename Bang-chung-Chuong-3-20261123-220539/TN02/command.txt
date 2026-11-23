@@ -1,0 +1,1 @@
+java -cp "<distribution>/bridge/state/*" org.tzi.use.plugins.jacamo.entrypoint.ReplayMain "<TN01>/input/attribute-mapping.xml" "<TN01>/input/auction.csl" "<TN01>/input/auction.istar" "<TN01>/run/consumer-history.jsonl" "<TN02>/replay.json"

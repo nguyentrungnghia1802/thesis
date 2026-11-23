@@ -1,0 +1,3 @@
+run=3868eb28-83b0-4ea5-9de0-78420f33e383
+sequence=58
+source-dir=C:\WINDOWS\TEMP\use-jacamo-12355015193549041320

@@ -1,0 +1,495 @@
+000 Cover Center | ĐẠI HỌC QUỐC GIA HÀ NỘI
+001 Cover Center | TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+002 Cover Center | 
+003 Cover Center | Nguyễn Trung Nghĩa
+004 Cover Center | NGHIÊN CỨU MỞ RỘNG CÔNG CỤ USE HỖ TRỢ ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ
+005 Cover Center | KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
+006 Cover Center | Ngành: Công nghệ thông tin
+007 Cover Center | 
+008 Cover Center | 
+009 Cover Center | 
+010 Cover Center | HÀ NỘI - 2026
+011 Normal | 
+012 Cover Center | ĐẠI HỌC QUỐC GIA HÀ NỘI
+013 Cover Center | TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+014 Cover Center | Nguyễn Trung Nghĩa
+015 Cover Center | NGHIÊN CỨU MỞ RỘNG CÔNG CỤ USE HỖ TRỢ ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ
+016 Cover Center | KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
+017 Cover Center | Ngành: Công nghệ thông tin
+018 Cover Center | Cán bộ hướng dẫn: PGS. TS. Đặng Đức Hạnh
+019 Cover Center | 
+020 Cover Center | 
+021 Cover Center | 
+022 Cover Center | 
+023 Cover Center | 
+024 Cover Center | 
+025 Cover Center | 
+026 Cover Center | 
+027 Cover Center | 
+028 Cover Center | 
+029 Cover Center | 
+030 Cover Center | 
+031 Cover Center | 
+032 Cover Center | 
+033 Cover Center | 
+034 Cover Center | 
+035 Cover Center | 
+036 Cover Center | 
+037 Cover Center | 
+038 Cover Center | 
+039 Cover Center | 
+040 Cover Center | HÀ NỘI - 2026
+041 Normal | 
+042 Front Heading | TÓM TẮT
+043 Normal | Trong các hệ thống đa tác tử, nhiều tác tử hoạt động tự chủ và phối hợp để thực hiện các mục tiêu chung. Tuy nhiên, sự tương tác giữa các tác tử khiến việc xác định tính đúng đắn của hệ thống và mức độ đạt được các mục tiêu trở nên phức tạp. Các phương pháp đặc tả và kiểm chứng dựa trên mô hình, kết hợp với ngôn ngữ ràng buộc OCL, cung cấp cơ sở để đánh giá tính hợp lệ của trạng thái hệ thống. Bên cạnh đó, mô hình iStar hỗ trợ biểu diễn và phân tích các mục tiêu, nhiệm vụ cùng mối quan hệ giữa chúng. Tuy nhiên, thách thức đặt ra là làm thế nào để kết nối các mô hình đặc tả với trạng thái thực tế của hệ thống đa tác tử trong quá trình thực thi. Khóa luận nghiên cứu phương pháp mở rộng công cụ USE nhằm hỗ trợ đặc tả và kiểm chứng hệ thống đa tác tử được xây dựng trên JaCaMo. Phương pháp sử dụng CSL để mô tả cấu trúc và ràng buộc, kết hợp iStar để đánh giá tiến độ thực hiện mục tiêu và nhiệm vụ. Thông qua cơ chế thu thập, ánh xạ và kiểm chứng trạng thái tại các điểm kiểm tra trong quá trình thực thi, nghiên cứu hướng tới hỗ trợ phát hiện vi phạm và theo dõi mức độ đạt mục tiêu, góp phần nâng cao khả năng kiểm soát và đánh giá hệ thống đa tác tử.
+044 Normal | Từ khóa: JaCaMo, USE, CSL, iStar, kiểm chứng hệ thống đa tác tử.
+045 Normal | 
+046 Front Heading | LỜI CAM ĐOAN
+047 Normal | Em là Nguyễn Trung Nghĩa, sinh viên khóa QH-2023-K68I-IT20, Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội, xin cam đoan khóa luận tốt nghiệp “Nghiên cứu mở rộng công cụ USE hỗ trợ đặc tả và kiểm chứng hệ thống đa tác tử” là công trình do em tự thực hiện dưới sự đầu tư nghiên cứu nghiêm túc của bản thân và sự hướng dẫn tận tình của PGS. TS. Đặng Đức Hạnh cùng anh Nguyễn Đức Quyền.
+048 Normal | Tất cả các tài liệu tham khảo đều được em trích dẫn và ghi rõ nguồn gốc, không có hành vi sao chép tài liệu hay công trình nghiên cứu của người khác. Nếu phát hiện bất kỳ sai phạm nào, em xin chịu hoàn toàn trách nhiệm trước Hội đồng kỷ luật Khoa Công nghệ Thông tin và Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội.
+
+049 Normal | Bên cạnh đó, trong quá trình nghiên cứu, phát triển hệ thống và hoàn thiện khóa luận, em có sử dụng một số công cụ trí tuệ nhân tạo (AI) như ChatGPT, Gemini nhằm hỗ trợ tìm hiểu kiến thức, tham khảo ý tưởng, phân tích và phát triển mã nguồn, kiểm tra lỗi cũng như cải thiện cách diễn đạt. Tuy nhiên, các công cụ này chỉ đóng vai trò hỗ trợ; em trực tiếp xem xét, đánh giá và kiểm chứng các nội dung, giải pháp và kết quả được sử dụng trong khóa luận, đồng thời chịu trách nhiệm về tính chính xác, trung thực của toàn bộ công trình nghiên cứu.
+
+050 Normal | Hà Nội, ngày ..... tháng 12 năm 2026
+051 Normal | Sinh viên
+052 Normal | NGUYỄN TRUNG NGHĨA
+053 Normal | 
+054 Front Heading | LỜI CẢM ƠN
+055 Normal | Trước hết, em xin bày tỏ lòng biết ơn sâu sắc đến PGS. TS. Đặng Đức Hạnh, người thầy đã tận tình hướng dẫn và định hướng cho em trong suốt quá trình nghiên cứu và thực hiện khóa luận tốt nghiệp. Những kiến thức chuyên môn, kinh nghiệm cùng những lời góp ý quý báu của thầy đã giúp em nâng cao tư duy khoa học, khả năng phân tích và tiếp cận vấn đề một cách chặt chẽ. Sự tận tâm và nhiệt huyết của thầy là nguồn động lực lớn lao giúp em không ngừng học hỏi và hoàn thiện bản thân.
+056 Normal | Em xin gửi lời cảm ơn đặc biệt đến anh Nguyễn Đức Quyền, người đã luôn đồng hành và trực tiếp hỗ trợ em trong quá trình thực hiện đề tài. Anh đã dành nhiều thời gian chia sẻ kiến thức, giải đáp thắc mắc và tận tình hướng dẫn em vượt qua những khó khăn trong quá trình nghiên cứu và phát triển hệ thống. Những góp ý, định hướng cùng kinh nghiệm quý báu của anh không chỉ giúp em từng bước hoàn thiện khóa luận mà còn giúp em học hỏi được nhiều điều về tư duy nghiên cứu và cách giải quyết vấn đề. Em thực sự trân trọng sự nhiệt tình, kiên nhẫn và những tâm huyết mà anh đã dành cho em trong suốt thời gian qua.
+057 Normal | Bên cạnh đó, em xin chân thành cảm ơn các thầy cô, anh chị và các bạn trong nhóm nghiên cứu SME Lab đã luôn chia sẻ kiến thức, kinh nghiệm và tạo nên một môi trường học tập, nghiên cứu tích cực. Sự hỗ trợ và những đóng góp của mọi người đã giúp em mở rộng hiểu biết và có thêm nhiều kinh nghiệm quý báu.
+058 Normal | Em cũng xin dành lời tri ân sâu sắc đến gia đình, những người đã luôn yêu thương, động viên và tạo mọi điều kiện thuận lợi để em yên tâm học tập, nghiên cứu và hoàn thành khóa luận.
+059 Normal | Cuối cùng, em xin gửi lời cảm ơn đến Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội đã tạo điều kiện để em được học tập, nghiên cứu và thực hiện đề tài “Nghiên cứu mở rộng công cụ USE hỗ trợ đặc tả và kiểm chứng hệ thống đa tác tử”. Đây là cơ hội quý báu để em vận dụng kiến thức đã học, tiếp cận những vấn đề chuyên sâu và tích lũy kinh nghiệm cho chặng đường phát triển sau này.
+060 Normal | Em xin chân thành cảm ơn tất cả những người đã luôn đồng hành, giúp đỡ và động viên em trong suốt quá trình thực hiện khóa luận tốt nghiệp.
+061 Normal | Hà Nội, ngày ..... tháng 12 năm 2026
+062 Normal | Sinh viên
+063 Normal | NGUYỄN TRUNG NGHĨA
+064 Normal | 
+065 Front Heading | MỤC LỤC
+066 Normal | MỞ ĐẦU	vi
+067 Normal | CHƯƠNG 1. KIẾN THỨC NỀN TẢNG	1
+068 Normal | 1.1. Giới thiệu	1
+069 Normal | 1.2. Ngôn ngữ hướng miền	1
+070 Normal | 1.2.1. Khái niệm, phạm vi và lựa chọn DSL	1
+071 Normal | 1.2.2. Cú pháp, ngữ nghĩa và metamodel	2
+072 Normal | 1.2.3. ANTLR và quy trình xử lý ngôn ngữ	4
+073 Normal | 1.3. Hệ thống đa tác tử và JaCaMo	6
+074 Normal | 1.3.1. Tổng quan hệ thống đa tác tử và kiến trúc JaCaMo	6
+075 Normal | 1.3.2. Belief, Goal, Plan và Intention trong Jason	7
+076 Normal | 1.3.3. Artifact và Workspace trong CArtAgO	9
+077 Normal | 1.3.4. Mô hình tổ chức Moise	11
+078 Normal | 1.4. Mô hình mục tiêu iStar	13
+079 Normal | 1.4.1. Actor và các phần tử ý định	13
+080 Normal | 1.4.2. Refinement, Dependency và các quan hệ ý định	14
+081 Normal | 1.4.3. Góc nhìn và phân tích mô hình iStar	15
+082 Normal | 1.5. UML, OCL và công cụ USE	17
+083 Normal | 1.5.1. Mô hình lớp, đối tượng và trạng thái	17
+084 Normal | 1.5.2. OCL và các loại ràng buộc	18
+085 Normal | 1.5.3. Môi trường USE và khả năng mở rộng	19
+086 Normal | 1.6. Kiểm chứng hệ thống đa tác tử	20
+087 Normal | 1.6.1. Kiểm chứng mô hình (Model Checking)	20
+088 Normal | 1.6.2. Kiểm chứng khi thực thi (Runtime Verification)	21
+089 Normal | 1.6.3. Trace, snapshot và checkpoint	21
+090 Normal | 1.7. Các nghiên cứu liên quan	21
+091 Normal | 1.8. Tổng kết chương	22
+092 Normal | CHƯƠNG 2. PHƯƠNG PHÁP ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ TRÊN USE	23
+093 Normal | 2.1. Giới thiệu	23
+094 Normal | 2.2. Motivation (Động cơ nghiên cứu)	23
+095 Normal | Ví dụ minh họa: Hệ thống đấu giá	24
+096 Normal | 2.3. Tổng quan phương pháp	24
+097 Normal | 2.4. Đặc tả CSL trong USE	26
+098 Normal | 2.4.1. Biên dịch và kiểm tra mô hình	26
+099 Normal | 2.5. Đặc tả iStar mở rộng trong USE	27
+100 Normal | 2.5.1. Liên kết giữa trạng thái CSL và phần tử iStar	27
+101 Normal | 2.6. Ánh xạ trạng thái JaCaMo sang CSL	28
+102 Normal | 2.6.1. Khai báo tương ứng bằng XML	28
+103 Normal | 2.6.2. Đồng bộ JaCaMo với CSL	28
+104 Normal | 2.6.3. Chiếu đối tượng, thuộc tính và quan hệ	29
+105 Normal | 2.7. Kiểm chứng ràng buộc và đánh giá Goal/Task	30
+106 Normal | 2.7.1. Đánh giá OCL trên trạng thái CSL	30
+107 Normal | 2.7.2. Đánh giá Task theo lịch sử tiền và hậu điều kiện	31
+108 Normal | 2.7.3. Đánh giá Goal và lan truyền kết quả	32
+109 Normal | 2.7.4. Tổng hợp quyết định checkpoint	32
+110 Normal | 2.8. Tổng kết chương	33
+111 Normal | CHƯƠNG 3. TRIỂN KHAI VÀ THỰC NGHIỆM	34
+112 Normal | 3.1. Giới thiệu	34
+113 Normal | 3.2. Triển khai công cụ	34
+114 Normal | 3.2.1. Tổ chức các thành phần	34
+115 Normal | 3.2.2. Môi trường và cách khởi chạy	34
+116 Normal | 3.3. Kịch bản thử nghiệm	34
+117 Normal | 3.3.1. Chạy Auction và đánh giá lại vết	34
+118 Normal | 3.3.2. Vi phạm ràng buộc và thiếu dữ liệu	34
+119 Normal | 3.4. Tiêu chí đánh giá	35
+120 Normal | 3.5. Kết quả và phân tích sơ bộ	35
+121 Normal | 3.6. Giới hạn và hướng mở rộng	35
+122 Normal | 3.7. Tổng kết chương	35
+123 Normal | TÀI LIỆU THAM KHẢO	36
+124 Normal | 
+125 Normal | 
+126 Normal | 
+127 Normal | 
+128 Normal | 
+129 Normal | 
+130 Normal | 
+131 Normal | 
+132 Normal | 
+133 Normal | 
+134 Normal | 
+135 Normal | 
+136 Normal | 
+137 Normal | 
+138 Normal | 
+139 Normal | 
+140 Normal | 
+141 Normal | 
+142 Normal | 
+143 Normal | 
+144 Normal | 
+145 Normal | 
+146 Normal | 
+147 Normal | 
+148 Normal | 
+149 Normal | 
+150 Normal | 
+151 Normal | 
+152 Normal | 
+153 Normal | MỞ ĐẦU
+154 Normal | Hệ thống đa tác tử (Multi-Agent System – MAS) là một hướng tiếp cận đã được nghiên cứu từ lâu trong lĩnh vực trí tuệ nhân tạo và công nghệ phần mềm, trong đó nhiều tác tử tự chủ tương tác và phối hợp để thực hiện các mục tiêu riêng hoặc mục tiêu chung [1]. Ngày nay, MAS tiếp tục được ứng dụng trong các hệ thống phân tán và tự chủ, đặc biệt là các ứng dụng robot hoạt động trong môi trường phức tạp, khó dự đoán [24]. Tuy nhiên, tính phân tán và khả năng tương tác giữa các tác tử khiến việc kiểm thử, gỡ lỗi và kiểm chứng hành vi tổng thể của hệ thống trở nên phức tạp [24], [25].
+155 Normal | Trong lĩnh vực này, JaCaMo cung cấp nền tảng tích hợp Jason, CArtAgO và Moise để phát triển hệ thống đa tác tử [2]. Các nghiên cứu đã bước đầu áp dụng kiểm chứng khi thực thi (Runtime Verification) cho JaCaMo, tiêu biểu là RV4JaCa, tập trung giám sát thông điệp và kiểm tra các giao thức tương tác giữa tác tử [24]. Bên cạnh đó, các phương pháp kết hợp Model Checking và Runtime Verification cũng được nghiên cứu nhằm kiểm tra khả năng thực hiện mục tiêu của các tác tử trong những trường hợp khó kiểm chứng đầy đủ bằng phương pháp tĩnh [25].
+156 Normal | Tuy nhiên, việc kiểm tra hành vi tương tác chưa giải quyết đầy đủ bài toán đánh giá trạng thái cấu trúc và tiến độ thực hiện mục tiêu của hệ thống. Đặc biệt, dữ liệu quan sát trong quá trình thực thi có thể không đầy đủ, khiến kết quả kiểm chứng chưa đủ cơ sở để kết luận [23]. Vì vậy, cần có cơ chế kết nối trạng thái runtime với mô hình đặc tả cấu trúc, ràng buộc và mục tiêu, đồng thời duy trì lịch sử quan sát để hỗ trợ đánh giá hệ thống.
+157 Normal | Xuất phát từ vấn đề trên, khóa luận lựa chọn đề tài “Nghiên cứu mở rộng công cụ USE hỗ trợ đặc tả và kiểm chứng hệ thống đa tác tử”. Nghiên cứu phát triển plugin kết nối JaCaMo với USE thông qua các đặc tả CSL và iStar. Trạng thái hệ thống được thu thập tại các checkpoint, ánh xạ vào mô hình CSL để kiểm tra ràng buộc bằng OCL, đồng thời cập nhật mức độ thực hiện Goal và Task dựa trên lịch sử trạng thái. Kết quả được tổng hợp thành quyết định cho phép tiếp tục hoặc giữ thực thi tại checkpoint tương ứng.
+158 Normal | Phần còn lại của khóa luận được tổ chức thành ba chương:
+159 Normal | Chương 1. Kiến thức nền tảng: Trình bày ngôn ngữ hướng miền, hệ thống đa tác tử và JaCaMo, mô hình iStar, UML, OCL, công cụ USE và các nghiên cứu liên quan.
+160 Normal | Chương 2. Phương pháp đặc tả và kiểm chứng hệ thống đa tác tử trên USE: Trình bày động cơ nghiên cứu, kiến trúc phương pháp, đặc tả CSL/iStar, ánh xạ trạng thái JaCaMo và cơ chế đánh giá OCL, Goal/Task tại checkpoint.
+161 Normal | Chương 3. Triển khai và thực nghiệm: Trình bày quá trình phát triển plugin, các chức năng chính, kịch bản thực nghiệm, kết quả đánh giá và những hạn chế của hệ thống.
+162 Normal | 
+163 Heading 1 | CHƯƠNG 1. KIẾN THỨC NỀN TẢNG
+164 Normal | Đặc tả một hệ thống đa tác tử đòi hỏi mô tả được cả trạng thái của hệ thống và các mục tiêu cần đạt. Cơ sở để kiểm chứng là mối liên hệ giữa hai loại thông tin này: mỗi điều kiện kiểm chứng cần có một nghĩa xác định trên trạng thái hoặc trên một chuỗi trạng thái. Chương này trình bày các khái niệm cần thiết để thiết lập và đánh giá mối liên hệ đó.
+165 Heading 2 | 1.1. Giới thiệu
+166 Normal | Trong hệ thống đa tác tử, trạng thái của hệ thống được hình thành từ hoạt động của các tác tử, sự biến đổi của môi trường và các quan hệ tổ chức. Một đặc tả cấu trúc cho biết những thực thể, thuộc tính và quan hệ nào có thể xuất hiện. Một đặc tả hướng mục tiêu mô tả kết quả mà các chủ thể mong muốn và cách các kết quả cấp dưới góp phần đạt mục tiêu cấp trên [2], [12], [13].
+167 Normal | Đối với một trạng thái cụ thể, có thể kiểm tra ngay một bất biến cấu trúc nếu dữ liệu cần thiết đã có. Với tính chất phụ thuộc thời gian, bằng chứng còn nằm ở thứ tự và diễn biến của các trạng thái. Chẳng hạn, việc một điều kiện từng đúng và việc điều kiện ấy tiếp tục đúng sau khi đạt được là hai yêu cầu khác nhau. Phân biệt hai trường hợp này là cơ sở để lựa chọn ngữ nghĩa đánh giá mục tiêu và xác định phạm vi kết luận từ một vết thực thi hữu hạn [5], [18].
+168 Normal | Mục 1.2 trình bày DSL và các mức mô tả ngôn ngữ. Mục 1.3 giới thiệu cấu trúc của hệ đa tác tử trong JaCaMo. Mục 1.4 giải thích siêu mô hình, ký pháp và cách đọc mô hình iStar. Mục 1.5 trình bày UML, OCL và USE. Mục 1.6 phân tích các cách kiểm chứng, sau đó Mục 1.7 đối chiếu các nghiên cứu liên quan.
+169 Heading 2 | 1.2. Ngôn ngữ hướng miền
+170 Normal | Ngôn ngữ hướng miền (Domain-Specific Language, DSL) là ngôn ngữ có các cấu trúc biểu đạt được thiết kế cho một miền ứng dụng xác định [6]. Miền ứng dụng quyết định các khái niệm cần biểu diễn trực tiếp và các quy tắc kết hợp chúng. Trong miền đặc tả trạng thái hệ thống, các khái niệm cần biểu diễn có thể gồm kiểu đối tượng, quan hệ giữa các đối tượng và các điều kiện xác định trạng thái hợp lệ.
+171 Heading 3 | 1.2.1. Khái niệm, phạm vi và lựa chọn DSL
+172 Normal | Phạm vi biểu đạt của DSL được xác định theo nhóm vấn đề mà ngôn ngữ cần giải quyết. Việc đặt tên và quy định cách kết hợp các khái niệm miền giúp đặc tả nhất quán và tạo cơ sở để dùng chung các phép kiểm tra cho nhiều mô hình. Giá trị của cách tiếp cận này phụ thuộc vào mức độ ổn định của các khái niệm miền và khả năng tái sử dụng chúng qua nhiều bài toán. Việc mở rộng phạm vi làm tăng số quy tắc cần định nghĩa, duy trì và kiểm tra [6].
+173 Normal | Xét theo quan hệ với ngôn ngữ chủ, DSL có thể được tổ chức dưới dạng nội bộ hoặc bên ngoài [27]. DSL nội bộ biểu đạt các khái niệm miền bằng các cấu trúc hợp lệ của ngôn ngữ chủ. Cách này tận dụng được cơ chế phân tích và các công cụ sẵn có, đồng thời chịu sự chi phối của cú pháp ngôn ngữ chủ. DSL bên ngoài có cú pháp cụ thể do chính ngôn ngữ đó quy định. Cách này cho phép thiết kế ký pháp theo cấu trúc của miền và đòi hỏi xác định riêng cách đọc, diễn giải các đặc tả.
+174 Normal | Với DSL dùng để mô hình hóa, có thể xem đặc tả là một biểu diễn của mô hình. Thao tác đọc đặc tả xác định mô hình mà văn bản đang mô tả, còn việc đánh giá một ràng buộc xác định điều kiện đó có đúng trên một trạng thái cụ thể hay không. Sự phân biệt giữa biểu diễn, mô hình và trạng thái được dùng xuyên suốt phần UML và OCL.
+175 Heading 3 | 1.2.2. Cú pháp, ngữ nghĩa và metamodel
+176 Normal | Đặc tả viết bằng DSL có thể được xem xét ở ba mức. Cú pháp cụ thể quy định cách biểu diễn đặc tả bằng văn bản hoặc hình vẽ. Cú pháp trừu tượng xác định các thành phần của mô hình và quan hệ giữa chúng. Ngữ nghĩa quy định cách diễn giải mô hình đã được xác định, chẳng hạn một điều kiện được đánh giá trên trạng thái nào và kết quả đúng hay sai có hệ quả gì [27], [28, mục IV].
+177 Normal | Trong một DSL dạng văn bản, quy tắc từ vựng nhận diện các đơn vị như từ khóa, định danh, giá trị số và dấu phân cách. Quy tắc cú pháp xác định cách các đơn vị đó kết hợp thành biểu thức, khai báo hoặc câu lệnh. Nếu G là ngữ pháp và L(G) là tập các chuỗi do G sinh ra, một chuỗi w đúng cú pháp khi w ∈ L(G). Cây phân tích cú pháp ghi lại cách các quy tắc được áp dụng để nhận diện chuỗi. Với ngữ pháp nhập nhằng, một chuỗi có thể được nhận diện theo nhiều cấu trúc khác nhau [30, mục 3 và Phụ lục A].
+178 Normal | Hai cây trong Hình 1.1 nhận cùng chuỗi a%b+c. Cây bên trái nhóm a%b thành một toán hạng của phép cộng, còn cây bên phải nhóm b+c thành một toán hạng của phép %. Khi độ ưu tiên của % cao hơn độ ưu tiên của +, cách nhóm thứ nhất được chọn. Ví dụ cho thấy việc nhận diện được chuỗi thuộc ngôn ngữ và việc xác định cấu trúc của chuỗi là hai vấn đề riêng [30, Phụ lục A].
+179 Normal | 
+180 Caption | Hình 1.1. Hai cây phân tích cho cùng biểu thức a%b+c. Trích từ [30, Hình 14, tr. 18].
+181 Normal | Cú pháp trừu tượng giữ lại thông tin cần thiết cho các bước kiểm tra và diễn giải. Chẳng hạn, một nút phép toán cần biểu diễn toán tử và các toán hạng. Dấu ngoặc đã làm rõ cách nhóm khi phân tích văn bản có thể được lược bỏ nếu cấu trúc cây đã ghi nhận cách nhóm đó. Cây cú pháp trừu tượng (Abstract Syntax Tree, AST) là một dạng biểu diễn của cú pháp trừu tượng. Với DSL mô hình hóa, cú pháp trừu tượng còn có thể được biểu diễn bằng mô hình gồm các phần tử liên kết với nhau, bao gồm cả tham chiếu đến khai báo ở nơi khác [3], [27].
+182 Normal | Siêu mô hình (metamodel) định nghĩa các loại phần tử có thể xuất hiện trong mô hình, kiểu của thuộc tính, quan hệ kế thừa, các liên kết được phép và bội số của chúng. Một mô hình tuân thủ siêu mô hình khi các phần tử và mối liên hệ của nó thỏa mãn những quy tắc cấu trúc đó. Trong kiến trúc mô hình nhiều tầng, M0 chứa các thể hiện được mô tả, M1 chứa mô hình cụ thể, M2 chứa siêu mô hình quy định cấu trúc của mô hình M1, còn M3 cung cấp các khái niệm dùng để xây dựng siêu mô hình [3], [14].
+183 Normal | Hình 1.2 trích phần cú pháp trừu tượng của siêu mô hình UML 2.5.1 về liên kết. Association và Property là các lớp ở mức siêu mô hình dùng để định nghĩa phần tử của mô hình UML. Quan hệ memberEnd có bội số 2..*, nghĩa là mỗi Association phải có ít nhất hai đầu liên kết, mỗi đầu được biểu diễn bởi một Property xác định kiểu của đầu đó. AssociationClass kế thừa từ cả Association và Class, nên mô hình có thể biểu diễn một quan hệ có đặc trưng của lớp, chẳng hạn có thuộc tính riêng. Các ràng buộc này được kiểm tra trên mô hình UML trước khi xét những đối tượng cụ thể mà mô hình có thể mô tả [14, mục 11.5].
+184 Normal | 
+185 Caption | Hình 1.2. Cú pháp trừu tượng của Association trong siêu mô hình UML 2.5.1. Trích từ [14, Hình 11.25, tr. 199].
+186 Normal | Ngữ nghĩa tĩnh quy định các điều kiện hợp lệ có thể kiểm tra trên đặc tả, chẳng hạn tên tham chiếu phải được khai báo trong phạm vi thích hợp và biểu thức phải có kiểu phù hợp với vị trí sử dụng. Ngữ nghĩa động quy định cách diễn giải đặc tả trên trạng thái hoặc qua các bước chuyển trạng thái. Trong ví dụ UML, việc một Association có đủ đầu liên kết là yêu cầu cấu trúc của mô hình. Khi xét một trạng thái cụ thể, mỗi liên kết được hiểu là một bộ giá trị gồm một thể hiện cho từng đầu Association và thể hiện đó phải có kiểu phù hợp với đầu tương ứng. Một bất biến OCL trên mô hình còn có thể được đánh giá để xác định trạng thái này có thỏa ràng buộc hay không [14, mục 11.5.3.1], [15].
+187 Heading 3 | 1.2.3. ANTLR và quy trình xử lý ngôn ngữ
+188 Normal | ANTLR (ANother Tool for Language Recognition) là công cụ sinh bộ phân tích từ vựng (lexer) và bộ phân tích cú pháp (parser) từ mô tả ngữ pháp. Tệp ngữ pháp ANTLR 4 sử dụng các cấu trúc kiểu EBNF (Extended Backus–Naur Form) để khai báo chuỗi các thành phần, phương án thay thế và số lần xuất hiện. Ký hiệu | phân cách các phương án, ? cho phép một thành phần xuất hiện không quá một lần, * cho phép xuất hiện từ không đến nhiều lần, và + yêu cầu xuất hiện ít nhất một lần. Tên quy tắc lexer bắt đầu bằng chữ hoa, còn tên quy tắc parser bắt đầu bằng chữ thường [7], [31, Lexer Rules và Parser Rules].
+189 Normal | Ngữ pháp Ex trong Hình 1.3 minh họa mối liên hệ giữa hai nhóm quy tắc. Các quy tắc ID và WS định nghĩa lần lượt định danh gồm một hoặc nhiều chữ cái và các dãy ký tự trắng. Lệnh skip yêu cầu lexer bỏ qua token WS. Các quy tắc stat, expr và id mô tả cấu trúc của câu lệnh, biểu thức và vị trí chấp nhận định danh. Quy tắc stat có hai phương án, một phép gán hoặc một biểu thức đứng độc lập, cùng kết thúc bằng dấu chấm phẩy. Vì cả hai đều bắt đầu bằng expr, parser cần quan sát các token tiếp theo để phân biệt dấu bằng và dấu chấm phẩy sau biểu thức [30, mục 2.1].
+190 Normal | 
+191 Caption | Hình 1.3. Ngữ pháp Ex minh họa các quy tắc từ vựng và cú pháp trong ANTLR 4. Trích từ [30, Hình 1, tr. 3].
+192 Normal | Lexer đọc luồng ký tự và tạo dãy token. Mỗi token chứa loại, nội dung và thông tin vị trí giúp xác định nơi phát sinh lỗi. Chẳng hạn, với câu lệnh a=b+c; của ngữ pháp Ex, lexer nhận a, b và c là những token loại ID. Parser bắt đầu từ quy tắc stat, nhận diện phương án chứa phép gán, rồi áp dụng expr cho vế trái và vế phải. Cây phân tích cú pháp ghi lại các lần áp dụng quy tắc và các token đã được nhận diện. Trình phân tích cũng có thể phục hồi sau một số lỗi cú pháp để tiếp tục chẩn đoán, vì vậy cần xem các thông báo lỗi cùng với cây thu được khi xác định đầu vào có hợp lệ hay không [30, mục 2.1], [31, Parser Rules].
+193 Normal | Ở ANTLR 4, bộ phân tích cú pháp dùng chiến lược Adaptive LL(*) để chọn phương án dựa trên chuỗi token phía trước và thông tin ngữ cảnh khi cần. Quy tắc expr trong Hình 1.3 minh họa đệ quy trái trực tiếp, vì một số phương án của expr bắt đầu ngay bằng expr. ANTLR 4 có thể chuyển đổi các dạng đệ quy trái trực tiếp được hỗ trợ để phân tích biểu thức theo độ ưu tiên và tính kết hợp. Nhờ đó, mô tả ngữ pháp có thể giữ được dạng gần với cấu trúc biểu thức mà người thiết kế muốn biểu diễn [30, mục 2.1–2.2].
+194 Normal | Sau bước phân tích cú pháp, chương trình có thể duyệt cây bằng listener hoặc visitor. Với listener, bộ duyệt phát sự kiện khi đi vào và đi ra khỏi nút tương ứng với một quy tắc, cho phép xử lý những sự kiện cần thiết. Với visitor, phương thức xử lý xác định các nút con cần tới và có thể trả về kết quả cho nút cha. Khi cần AST hoặc mô hình theo siêu mô hình, các lớp xử lý cây xác định cách chuyển từng cấu trúc cú pháp thành phần tử tương ứng [31, Parse Tree Listeners và Tool Command Line Options].
+195 Normal | Ở bước phân tích ngữ nghĩa, bảng ký hiệu có thể lưu tên, kiểu và phạm vi của các khai báo. Từ đó có thể giải quyết tham chiếu, phát hiện khai báo trùng hoặc kiểm tra kiểu toán hạng. Chẳng hạn, parser có thể nhận diện vế phải b+c theo quy tắc expr của Ex. Trong một DSL sử dụng ngữ pháp tương tự, việc phép cộng đó có hợp lệ hay không còn phụ thuộc b và c có được khai báo với kiểu phù hợp theo quy tắc của ngôn ngữ. Phân tách các bước này giúp nhận diện lỗi từ vựng, lỗi cú pháp và lỗi ngữ nghĩa tại đúng mức mô tả [27], [30, mục 2].
+196 Heading 2 | 1.3. Hệ thống đa tác tử và JaCaMo
+197 Normal | Hệ thống đa tác tử (Multi-Agent System, MAS) gồm nhiều tác tử có khả năng hành động và tương tác. Các đặc trưng thường dùng để mô tả tác tử gồm tính tự chủ, khả năng tương tác xã hội, tính phản ứng với thay đổi và khả năng chủ động theo đuổi mục tiêu [1]. Trong MAS, kết quả của một hành động còn phụ thuộc vào môi trường mà tác tử tác động lên và cách hoạt động của các tác tử được tổ chức [2].
+198 Heading 3 | 1.3.1. Tổng quan hệ thống đa tác tử và kiến trúc JaCaMo
+199 Normal | Nghiên cứu về hệ thống đa tác tử có nguồn gốc từ hướng trí tuệ nhân tạo phân tán (Distributed Artificial Intelligence, DAI), phát triển vào cuối thập niên 1970 và đầu thập niên 1980 [32], [33]. Những công trình đầu tiên đặt câu hỏi làm thế nào để nhiều thành phần tính toán cùng giải quyết một bài toán khi mỗi thành phần chỉ có một phần thông tin hoặc năng lực xử lý. Một mốc tiêu biểu là giao thức Contract Net do Reid G. Smith công bố năm 1980. Giao thức phân công công việc bằng cách công bố nhiệm vụ, nhận đề xuất từ các nút có khả năng thực hiện, rồi lựa chọn và giao nhiệm vụ cho nút phù hợp [33]. Năm 1988, Alan H. Bond và Les Gasser tập hợp các công trình của hướng nghiên cứu này trong cuốn Readings in Distributed Artificial Intelligence [32].
+200 Normal | Từ nền tảng đó, nghiên cứu dần mở rộng từ việc phân chia một bài toán chung sang việc thiết kế các tác tử có thông tin, mục tiêu và khả năng ra quyết định riêng. Khi mỗi tác tử hành động dựa trên thông tin cục bộ, hành vi của hệ thống phụ thuộc vào cách chúng trao đổi, phối hợp và xử lý các mục tiêu có thể khác nhau. Trong thập niên 1990, Wooldridge và Jennings hệ thống hóa các đặc trưng và kiến trúc tác tử, còn tuyển tập Multiagent Systems do Gerhard Weiss biên tập trình bày các vấn đề từ hành động cá nhân tới phối hợp tập thể [1], [34]. Đến năm 2002, Foundation for Intelligent Physical Agents (FIPA) ban hành chuẩn trao đổi Contract Net giữa các tác tử, bổ sung thông điệp từ chối và xác nhận. Việc chuẩn hóa cho phép mô tả rõ các thông điệp mà mỗi bên gửi ở từng bước, từ khi mời đề xuất đến lúc báo kết quả [35, mục 1].
+201 Normal | Khi đưa các khái niệm này vào lập trình, cần mô tả cả cách tác tử lựa chọn hành động, môi trường mà hành động tác động lên và các quy tắc phối hợp trong tổ chức. JaCaMo là một nền tảng tích hợp ba chiều đó, được Boissier và cộng sự giới thiệu trong công trình công bố năm 2013 [2]. Sách Multi-Agent Oriented Programming của các tác giả JaCaMo trình bày cách lập trình hệ đa tác tử với nền tảng này qua các ví dụ thực hành [36].
+202 Normal | Trong JaCaMo, Jason cung cấp các khái niệm và cơ chế suy luận ở chiều tác tử, gồm belief, goal, plan và intention. CArtAgO biểu diễn chiều môi trường thông qua workspace và artifact mà tác tử có thể sử dụng hoặc quan sát. Moise biểu diễn chiều tổ chức bằng nhóm, vai trò, mục tiêu chung và các quy tắc thực hiện mission [2]. Ba chiều liên hệ với nhau thông qua hoạt động của tác tử. Một tác tử có thể áp dụng một kế hoạch để thực hiện nhiệm vụ được giao và gọi thao tác trên một artifact trong kế hoạch đó.
+203 Normal | Sự phân chia này giúp xác định nguồn của từng loại thông tin. Belief thuộc về thông tin mà tác tử sử dụng khi suy luận. Giá trị quan sát được thuộc về artifact công bố giá trị đó. Quan hệ đảm nhiệm vai trò cho biết tác tử tham gia một nhóm với trách nhiệm nào. Khi phân tích cùng một hoạt động, ba loại thông tin này cho biết tác tử đã biết gì, môi trường đã thay đổi ra sao và hoạt động gắn với vai trò nào [2].
+204 Heading 3 | 1.3.2. Belief, Goal, Plan và Intention trong Jason
+205 Normal | Jason là trình thông dịch cho một phiên bản mở rộng của AgentSpeak, ngôn ngữ lập trình tác tử theo kiến trúc Belief–Desire–Intention (BDI). Cơ sở niềm tin (belief base) lưu thông tin mà tác tử dùng khi suy luận. Trong Jason, cùng một niềm tin có thể mang chú thích chỉ nguồn, chẳng hạn thông tin do tác tử cảm nhận từ môi trường hoặc nhận từ một tác tử khác. AgentSpeak phân biệt mục tiêu đạt được (achievement goal), ký hiệu bằng !, và mục tiêu truy vấn (test goal), ký hiệu bằng ?. Mục tiêu đạt được phát sinh yêu cầu tìm kế hoạch thực hiện. Mục tiêu truy vấn tìm dữ liệu trong cơ sở niềm tin có thể hợp nhất với biểu thức cần kiểm tra [8], [9], [37, mục 2.1 và 3.1].
+206 Normal | Một kế hoạch (plan) có dạng te : ct <- h. Trong đó, te là sự kiện kích hoạt, ct là ngữ cảnh áp dụng và h là thân kế hoạch. Kế hoạch liên quan đến sự kiện nếu te hợp nhất được với sự kiện đã chọn. Kế hoạch liên quan trở thành kế hoạch có thể áp dụng khi ct được thỏa mãn theo cơ sở niềm tin hiện tại. Thân kế hoạch định nghĩa một chuỗi hành động, mục tiêu con hoặc thao tác cập nhật niềm tin. Việc thêm hoặc xóa niềm tin có thể tạo sự kiện mới, được biểu thị bằng dấu + hoặc − trong sự kiện kích hoạt [37, mục 2.1–2.3].
+207 Normal | Ý định (intention) biểu diễn một hướng hành động mà tác tử đã chọn để xử lý một sự kiện. Có thể xem mỗi ý định như một ngăn xếp các kế hoạch đang thực hiện. Khi tác tử gặp mục tiêu con trong thân kế hoạch, sự kiện nội bộ sinh ra vẫn gắn với ý định hiện tại. Kế hoạch được chọn để xử lý mục tiêu con được đưa lên đỉnh ngăn xếp. Sau khi hoàn thành kế hoạch này, tác tử có thể tiếp tục kế hoạch bên dưới. Một sự kiện bên ngoài do cập nhật niềm tin có thể tạo một ý định mới [37, mục 2.3].
+208 Normal | Hình 1.4 mô tả chu trình diễn giải cơ bản của AgentSpeak(L). Cảm nhận từ môi trường có thể làm thay đổi cơ sở niềm tin và sinh sự kiện. Bộ thông dịch chọn một sự kiện (Sₑ), đối chiếu với sự kiện kích hoạt trong thư viện kế hoạch và kiểm tra ngữ cảnh của các kế hoạch liên quan. Tiếp đó, nó chọn một kế hoạch có thể áp dụng (Sₒ) để tạo hoặc cập nhật ý định, rồi chọn một ý định (Sᵢ) để thực hiện bước kế tiếp. Bước này có thể phát sinh hành động tác động lên môi trường, truy vấn cơ sở niềm tin hoặc tạo một mục tiêu con [37, mục 2.3].
+209 Normal | 
+210 Caption | Hình 1.4. Chu trình diễn giải cơ bản của AgentSpeak(L). Trích từ [37, Hình 2.3, tr. 4], in lại từ công trình của Machado và Bordini (2002).
+211 Normal | Hình 1.5 áp dụng cơ chế trên cho robot thăm dò Sao Hỏa. Khi niềm tin green_patch(Rock) được thêm vào, kế hoạch đầu tiên trở nên liên quan. Ngữ cảnh not battery_charge(low) cho phép áp dụng kế hoạch khi tác tử chưa có niềm tin rằng pin đang yếu. Thân kế hoạch truy vấn tọa độ của mẫu đá bằng ?location, rồi đặt các mục tiêu di chuyển và kiểm tra mẫu. Hai kế hoạch cùng xử lý sự kiện +!traverse nhưng kiểm tra điều kiện trái nhau về độ an toàn của đường đi. Ví dụ cho thấy cùng một mục tiêu có thể dẫn đến cách hành động khác nhau theo thông tin hiện có của tác tử [29, mục 2].
+212 Normal | 
+213 Caption | Hình 1.5. Các kế hoạch AgentSpeak cho robot thăm dò Sao Hỏa. Trích từ [29, Fig. 2, trang PDF 3].
+214 Heading 3 | 1.3.3. Artifact và Workspace trong CArtAgO
+215 Normal | Trong JaCaMo, CArtAgO cung cấp mô hình lập trình môi trường theo cách tiếp cận tác tử và artifact [2], [10]. Tác tử quyết định sẽ thực hiện hành động nào dựa trên thông tin và mục tiêu của mình. Artifact là một thực thể có thể được tác tử sử dụng để đọc thông tin, thao tác trên tài nguyên hoặc phối hợp với tác tử khác. Khi nhiều tác tử cùng sử dụng một artifact, chúng tương tác qua trạng thái và các quy tắc do artifact cung cấp. Cách tổ chức này cho phép tách việc lựa chọn hành động của tác tử khỏi cách môi trường thực hiện hành động đó [10].
+216 Normal | Workspace là đơn vị tổ chức môi trường CArtAgO. Mỗi workspace tập hợp các artifact và những tác tử tham gia vào không gian đó. Một môi trường có thể có nhiều workspace, kể cả trên các nút khác nhau. Một tác tử có thể tham gia nhiều workspace và có thể tìm, tạo hoặc loại bỏ artifact thông qua các thao tác mà workspace cung cấp. Tập hành động môi trường khả dụng đối với tác tử vì vậy phụ thuộc vào các artifact mà nó có thể sử dụng tại thời điểm đó. Kiểu artifact quy định cấu trúc và các thao tác chung cho những thể hiện cùng loại, còn định danh chỉ ra thể hiện cụ thể cần thao tác hoặc quan sát [38, Chương 1 và mục 2.14].
+217 Normal | Giao diện sử dụng của một artifact gồm các thao tác (operation) mà tác tử có thể yêu cầu. Kết quả thực hiện thao tác có thể làm thay đổi trạng thái của artifact. Những phần trạng thái được công bố được gọi là thuộc tính quan sát được (observable property). Artifact còn có thể phát tín hiệu (signal) để thông báo một sự kiện. Thuộc tính quan sát được ghi nhận giá trị hiện hành, còn tín hiệu phản ánh việc một sự kiện đã xảy ra. Hai hình thức này cung cấp cho tác tử thông tin bổ sung cho nhau [10], [38, mục 2.2].
+218 Normal | Hình 1.6 minh họa giao diện của một artifact đấu giá trong ca xây nhà. Chủ nhà Giacomo tạo một thể hiện để tổ chức đấu giá cho mỗi công việc xây dựng. Các công ty có thể quan sát mô tả công việc, mức giá tối đa, bên đang dẫn đầu và mức giá tốt nhất hiện tại, rồi dùng thao tác bid để gửi giá. Nhiều công ty có thể theo dõi cùng một cuộc đấu giá. Mỗi cuộc đấu giá có các giá trị riêng, ngay cả khi các thể hiện cung cấp cùng một giao diện [39, slide 8–10].
+219 Normal | 
+220 Caption | Hình 1.6. Giao diện của artifact đấu giá trong ca xây nhà. Trích từ [39, slide 10].
+221 Normal | Để quan sát một artifact, tác tử dùng focus với định danh của artifact. Trong tích hợp với Jason, giá trị của các thuộc tính quan sát được từ artifact mà tác tử đang theo dõi được phản ánh trong cơ sở belief của tác tử. Khi giá trị thay đổi, belief tương ứng được cập nhật. Tín hiệu cũng có thể làm phát sinh sự kiện để tác tử chọn kế hoạch phù hợp, nhưng bản thân tín hiệu không được lưu tự động như một belief [38, Chương 1 và mục 2.2].
+222 Normal | Ví dụ Counter trong Hình 1.7 thể hiện sự khác nhau giữa hai cơ chế quan sát. Khi khởi tạo, artifact công bố thuộc tính count với giá trị 0. Mỗi lần thực hiện inc, artifact tăng giá trị count và phát tín hiệu tick. Một tác tử đang theo dõi Counter có thể dùng giá trị count để biết bộ đếm đang ở mức nào, hoặc phản ứng với sự kiện tick khi một lần tăng xảy ra [38, mục 2.2, tr. 8–11].
+223 Normal | 
+224 Caption | Hình 1.7. Mã định nghĩa artifact Counter với thao tác inc, thuộc tính count và tín hiệu tick. Trích từ [38, mục 2.2, tr. 8].
+225 Heading 3 | 1.3.4. Mô hình tổ chức Moise
+226 Normal | Moise+ mô hình hóa cách một tập tác tử phối hợp để đạt mục tiêu chung. Đặc tả tổ chức (Organisational Specification, OS) gồm đặc tả cấu trúc (Structural Specification, SS), đặc tả chức năng (Functional Specification, FS) và đặc tả nghĩa vụ (Deontic Specification, DS). Ba phần lần lượt xác định vị trí và quan hệ trong tổ chức, cách phân rã mục tiêu chung, và quyền hoặc nghĩa vụ cam kết thực hiện từng phần công việc [11], [40, mục 2].
+227 Normal | Đặc tả cấu trúc mô tả vai trò, quan hệ giữa các vai trò và cách tập hợp vai trò thành các nhóm. Quan hệ chuyên biệt hóa cho phép một vai trò kế thừa các đặc điểm của vai trò tổng quát hơn. Các quan hệ xã hội quy định khả năng biết đến, giao tiếp hoặc thực thi quyền hạn đối với tác tử giữ vai trò khác. Đặc tả nhóm quy định các vai trò có thể cùng được đảm nhiệm và giới hạn dưới, giới hạn trên đối với số tác tử đảm nhiệm từng vai trò. Ví dụ, nhóm phòng ngự trong mô hình đội bóng yêu cầu đúng một thủ môn và đúng ba hậu vệ. Quyền hạn của thủ môn đối với hậu vệ có phạm vi trong cùng nhóm phòng ngự. Quyền hạn của huấn luyện viên đối với cầu thủ có thể vươn tới các nhóm khác [40, mục 2].
+228 Normal | Đặc tả chức năng mô tả các mục tiêu chung bằng những lược đồ phối hợp (social scheme). Mỗi lược đồ có một mục tiêu gốc và các kế hoạch phân rã mục tiêu thành những mục tiêu con. Phép phân rã tuần tự yêu cầu đạt các mục tiêu con theo thứ tự đã định. Phép lựa chọn yêu cầu đạt một trong các mục tiêu con thay thế. Phép song song yêu cầu đạt tất cả mục tiêu con và cho phép thực hiện đồng thời. Một mission tập hợp những mục tiêu có liên quan mà tác tử cam kết thực hiện. Trong Hình 1.8, mục tiêu ghi bàn được phân rã qua các bước giành bóng, đưa bóng tới khu vực tấn công và dứt điểm. Mission m3 gắn với việc có mặt trong khu vực cầu môn đối phương, dứt điểm và đóng góp vào mục tiêu chung là ghi bàn [40, mục 2].
+229 Normal | 
+230 Caption | Hình 1.8. Lược đồ mục tiêu và các mission trong phương án tấn công biên. Trích từ [40, Fig. 2, trang PDF 5].
+231 Normal | Đặc tả nghĩa vụ kết nối cấu trúc với chức năng qua quan hệ giữa vai trò và mission. Một quyền (permission) cho phép tác tử giữ vai trò tương ứng cam kết thực hiện mission. Một nghĩa vụ (obligation) yêu cầu tác tử thực hiện cam kết đó khi luật áp dụng. Trong lược đồ tấn công biên, hậu vệ được phép cam kết với m1, còn tiền vệ và tiền đạo lần lượt có nghĩa vụ với m2 và m3. Thứ tự theo đuổi mục tiêu vẫn do lược đồ quy định. Chẳng hạn, tiền vệ theo đuổi mục tiêu có mặt ở giữa sân sau khi mục tiêu giành bóng đã được thỏa mãn [40, mục 2, Bảng 1].
+232 Normal | Thực thể tổ chức (Organisational Entity, OE) là một thể hiện của đặc tả. OE ghi nhận các nhóm đã tạo, tác tử đang đảm nhiệm từng vai trò và các cam kết đã hình thành. Vì các quan hệ này thay đổi khi hệ chạy, một nhóm đã được tạo vẫn có thể chưa đáp ứng đủ bội số. Trong Hình 1.9, tác tử Marcos đã đảm nhiệm vai trò thủ môn của nhóm phòng ngự, nhưng nhóm vẫn chưa hợp lệ vì số hậu vệ đang là 0, thấp hơn mức tối thiểu 3. Ví dụ cho thấy đặc tả cung cấp tiêu chí đánh giá, còn thực thể tổ chức cung cấp dữ liệu để đánh giá tại từng thời điểm [40, mục 3].
+233 Normal | 
+234 Caption | Hình 1.9. Thể hiện nhóm phòng ngự chưa đủ số hậu vệ trong S-Moise+. Trích từ [40, Fig. 4, trang PDF 9].
+235 Heading 2 | 1.4. Mô hình mục tiêu iStar
+236 Normal | iStar 2.0 là ngôn ngữ mô hình hóa hướng mục tiêu dành cho việc phân tích các hệ thống có nhiều chủ thể. Mô hình biểu diễn ai có ý định gì, có những cách nào để thực hiện ý định đó và chủ thể nào cần đến sự hỗ trợ của chủ thể khác. Phần này dùng các khái niệm và ký pháp trong iStar 2.0 Language Guide của Dalpiaz, Franch và Horkoff [12], đối chiếu với siêu mô hình và các ví dụ kèm theo công cụ piStar của Pimentel và Castro [41].
+237 Heading 3 | 1.4.1. Actor và các phần tử ý định
+238 Normal | Actor (chủ thể) là thực thể có ý định và có thể hành động để đạt những ý định đó. iStar 2.0 dùng Actor khi chưa cần phân loại chi tiết. Agent biểu diễn một cá nhân hay hệ thống cụ thể, còn Role biểu diễn một vai trò được xác định bởi trách nhiệm hoặc hành vi trong một ngữ cảnh. Trên biểu đồ, Actor dùng hình tròn, Agent có thêm nét ngang ở phía trên, còn Role có thêm nét cong ở đáy. Đường bao nét đứt cho biết phạm vi các ý định thuộc về một chủ thể [12], [41].
+239 Normal | Siêu mô hình phân biệt các chủ thể với những phần tử ý định nằm trong phạm vi của chúng. Hướng dẫn iStar 2.0 xác định bốn kiểu phần tử ý định. Goal là một trạng thái mong muốn có tiêu chí đạt tương đối rõ, biểu diễn bằng hình chữ nhật bo góc. Task là một công việc được thực hiện theo một cách xác định, biểu diễn bằng hình lục giác. Resource là thực thể vật chất hoặc thông tin cần có, biểu diễn bằng hình chữ nhật. Quality là một đặc tính mong muốn của quá trình, kết quả hoặc tài nguyên, biểu diễn bằng hình có hai cạnh uốn lượn [12], [41].
+240 Normal | Tệp siêu mô hình Ecore đi kèm nghiên cứu của Ayala và cộng sự hiện thực hóa các kiểu trong [12]. Agent và Role chuyên biệt hóa Actor. Actor sở hữu các phần tử ý định qua tham chiếu wants. Goal, Task, Resource và Quality đều thuộc IntentionalElement. Siêu mô hình có lớp Dependency riêng với ba tham chiếu bắt buộc là depender, dependee và dependum. Hai tham chiếu dependerElmt và dependeeElmt là tùy chọn [42, tệp iStarMetamodel.ecore]. Các kiểu và bội số này cho biết cấu trúc nào hợp lệ trước khi đọc ý nghĩa của từng quan hệ.
+241 Normal | Hình 1.10 minh họa ký pháp tương ứng trên mô hình ví dụ của piStar. Có thể nhận diện một dependum theo hình dạng của phần tử ý định nằm giữa hai đầu phụ thuộc. Chẳng hạn, Dependum D có hình chữ nhật của Resource, trong khi Dependum C có hình lục giác của Task [41].
+242 Normal | 
+243 Caption | Hình 1.10. Ký pháp các loại chủ thể, phần tử ý định và quan hệ trong iStar 2.0. Xuất từ ví dụ “Every iStar 2.0 element and link”, tài liệu đi kèm [41].
+244 Heading 3 | 1.4.2. Refinement, Dependency và các quan hệ ý định
+245 Normal | Giữa các chủ thể, is-a biểu diễn sự chuyên biệt hóa từ chủ thể cụ thể hơn đến chủ thể tổng quát hơn. Participates-in biểu diễn việc một chủ thể tham gia vào một chủ thể khác, chẳng hạn một Agent đảm nhiệm một Role. Cả hai là liên kết ở mức chủ thể. Trong khi đó, Dependency biểu diễn việc một chủ thể cần chủ thể khác cung cấp một kết quả [12], [41].
+246 Normal | Một Dependency có tối đa năm thành phần. Depender là chủ thể cần kết quả và Dependee là chủ thể được trông cậy. Dependum là phần tử ý định nằm giữa hai bên. Ở mỗi đầu, mô hình có thể chỉ ra phần tử ý định cụ thể của chủ thể tương ứng, gọi lần lượt là dependerElmt và dependeeElmt. Kiểu của dependum cho biết bên phụ thuộc cần bên kia cung cấp tài nguyên, thực hiện một công việc, đạt một trạng thái hoặc đáp ứng một đặc tính chất lượng [12], [41].
+247 Normal | Refinement nối Goal hoặc Task con tới Goal hoặc Task cha trong cùng một phạm vi chủ thể. AND-refinement yêu cầu tất cả phần tử con. OR-refinement bao hàm yêu cầu ít nhất một phần tử con, nên nhiều phương án có thể cùng được thỏa mãn. Một phần tử cha dùng một loại refinement cho nhóm con trực tiếp của nó. Trên hình, các nhánh AND có dấu gạch ngang gần phần tử cha, còn nhánh OR có đầu mũi tên hướng về phần tử cha [12], [41].
+248 Normal | Có thể diễn đạt hai quy tắc refinement bằng phép toán Boolean. Gọi  là phần tử cha đang xét,  là tập các phần tử con trực tiếp và  là mệnh đề “phần tử  được thỏa mãn”. Trong trường hợp chỉ xét đạt hoặc chưa đạt, theo diễn giải của [12], điều kiện thỏa mãn  do từng loại refinement xác định như sau.
+249 Normal | 
+250 Normal | 
+251 Normal | NeededBy nối một Resource với Task cần tài nguyên đó. Qualification nối một Quality với Goal, Task hoặc Resource mà đặc tính đó mô tả. Contribution có đầu đích là Quality và biểu diễn ảnh hưởng của một phần tử ý định lên đặc tính chất lượng. Bốn nhãn make, help, hurt và break lần lượt biểu diễn tác động tích cực đủ để đạt, hỗ trợ, cản trở và tác động tiêu cực đủ để phá vỡ đặc tính đó. Có thể dùng Contribution để so sánh tác động của các phương án ngay cả khi chúng cùng đáp ứng một Goal [12, Bảng 1], [41].
+252 Heading 3 | 1.4.3. Góc nhìn và phân tích mô hình iStar
+253 Normal | Một cách đọc mô hình là xét trước các chủ thể và kết quả họ mong đợi từ nhau, rồi xem cấu trúc ý định trong từng đường bao. Lớp quan sát thứ nhất cho biết ai trông cậy vào ai và về điều gì. Lớp quan sát thứ hai cho biết mục tiêu được phân rã theo những cách nào, tài nguyên nào cần có và mỗi phương án tác động ra sao đến các Quality [12].
+254 Normal | Hình 1.11 là ví dụ University Travel Reimbursement từ iStar 2.0 Language Guide, được lưu trong bộ ví dụ của piStar. Student là vai trò trung tâm, PhD student chuyên biệt hóa Student và tác tử Mike White tham gia với vai trò PhD student. Trong đường bao của Student, mục tiêu Travel organized có hai nhánh AND là Authorization obtained và Trip booked. Như vậy, chỉ đặt xong chuyến đi thì chưa đủ để hoàn thành mục tiêu tổ chức chuyến đi [12], [41].
+255 Normal | 
+256 Caption | Hình 1.11. Mô hình University Travel Reimbursement trong iStar 2.0 Language Guide [12]. Xuất từ bản mô hình do dự án piStar cung cấp kèm [41].
+257 Normal | Mục tiêu Trip booked có hai cách thực hiện theo OR-refinement. Sinh viên có thể đặt từng phần của chuyến đi (Trip parts booked) hoặc đặt theo gói (Bundle booked). Với phương án tự đặt vé, liên kết NeededBy cho biết tác vụ Pay for tickets cần tài nguyên Credit card. Mô hình còn thể hiện sự phụ thuộc ra ngoài đường bao. Khi chọn điền biểu mẫu trực tuyến, sinh viên trông cậy vào hệ thống quản lý chuyến đi của trường để đạt mục tiêu Online form processed [12], [41].
+258 Normal | Mô hình cũng cho phép so sánh các phương án theo đặc tính chất lượng. Fill in online form có quan hệ help với No errors, còn Fill in paper form có quan hệ hurt với cùng đặc tính. Hai cách điền đều góp phần đạt Request prepared, nhưng mô hình ghi nhận tác động khác nhau lên khả năng tránh lỗi. Việc đọc đồng thời Refinement, Dependency và Contribution cho phép giải thích lựa chọn theo mục tiêu, sự phối hợp với chủ thể khác và chất lượng mong muốn [12], [41].
+259 Heading 2 | 1.5. UML, OCL và công cụ USE
+260 Normal | UML cung cấp ký pháp mô tả cấu trúc và hành vi của mô hình [14]. OCL bổ sung các biểu thức có kiểu để đặt ràng buộc và truy vấn trên mô hình [15]. USE tạo và biểu diễn các trạng thái đối tượng cụ thể để đánh giá những biểu thức đó [4].
+261 Heading 3 | 1.5.1. Mô hình lớp, đối tượng và trạng thái
+262 Normal | Mô hình lớp xác định các kiểu đối tượng, thuộc tính, thao tác, quan hệ và bội số. Trạng thái đối tượng tại một thời điểm ghi nhận các thể hiện mang định danh, giá trị thuộc tính của chúng và các liên kết giữa chúng. Trong trạng thái hợp lệ, mỗi đối tượng và liên kết phù hợp với kiểu đã khai báo, các đầu liên kết đáp ứng bội số và các bất biến của mô hình được thỏa mãn [4], [14], [16].
+263 Normal | Mô hình việc làm trong Hình 1.12 có ba lớp Person, Company và Job. Job biểu diễn một công việc cụ thể gắn với người lao động và công ty; BossWorker liên hệ các công việc theo quan hệ cấp trên và cấp dưới. Hình 1.13 cho thấy một trạng thái cụ thể trong đó Cher làm việc tại hai công ty. Mỗi công việc của Cher là một đối tượng Job có định danh và mức lương riêng, dù hai đối tượng cùng thuộc lớp Job [16, mục 3].
+264 Normal | 
+265 Caption | Hình 1.12. Biểu đồ lớp của mô hình việc làm. Trích từ [16, Fig. 2, trang PDF 5].
+266 Normal | 
+267 Caption | Hình 1.13. Trạng thái đối tượng của mô hình việc làm do tệp twoRoleTC.cmd tạo. Trích từ [16, Fig. 3, trang PDF 5].
+268 Heading 3 | 1.5.2. OCL và các loại ràng buộc
+269 Normal | OCL là ngôn ngữ biểu thức khai báo, có kiểu và không gây tác dụng phụ khi đánh giá. Ngữ cảnh của biểu thức xác định kiểu đối tượng hoặc thao tác mà biểu thức áp dụng. Nó cũng xác định đối tượng ngữ cảnh mà từ khóa self tham chiếu. OCL cung cấp các kiểu tập hợp, như Set, Bag và Sequence, cùng các phép lượng hóa và truy vấn trên tập hợp [15].
+270 Normal | Một bất biến trên lớp phải được thỏa mãn đối với từng đối tượng thuộc ngữ cảnh của nó trong một trạng thái hợp lệ. Ví dụ 1.1 phát biểu rằng hai thể hiện Person có cùng giá trị name phải là cùng một đối tượng. Phép forAll xét mọi p2 trong tập các thể hiện của Person. Với mỗi p1, phép kéo theo cho phép hai đối tượng khác nhau có tên khác nhau và loại bỏ trường hợp chúng trùng tên [16, mục 3].
+271 Caption | Ví dụ 1.1. Bất biến personNamesAreUnique. Trích từ [16, mục 3, trang PDF 6].
+272 Normal | context p1:Person inv personNamesAreUnique:
+  Person.allInstances->forAll(p2|p1.name=p2.name implies p1=p2)
+273 Normal | Tiền điều kiện của một thao tác được xét trước khi thao tác thực hiện. Hậu điều kiện được xét trên kết quả thực hiện và có thể tham chiếu giá trị cũ qua @pre ở những vị trí được OCL cho phép [15]. Ví dụ 1.2 trích hai điều kiện của thao tác marry. Tiền điều kiện isUnmarried kiểm tra tình trạng hôn nhân trước thao tác. Hậu điều kiện isMarried yêu cầu tình trạng sau thao tác là married. Các điều kiện đầy đủ về người phối ngẫu được định nghĩa trong cùng đặc tả [4, mục 2.1].
+274 Caption | Ví dụ 1.2. Trích đoạn hợp đồng của thao tác marry. Trích từ [4, mục 2.1, trang PDF 5].
+275 Normal | marry(aSpouse:Person)
+pre isUnmarried: civstat<>#married
+post isMarried: civstat=#married
+276 Normal | Trong OCL, false là một kết quả Boolean, null biểu thị giá trị vắng mặt và invalid biểu thị kết quả đánh giá không hợp lệ. Một bất biến được thỏa mãn khi biểu thức tương ứng có giá trị true. Sự phân biệt các kết quả đánh giá giúp xác định tình huống nào đã có bằng chứng ràng buộc sai và tình huống nào phát sinh vấn đề khi diễn giải biểu thức [15].
+277 Heading 3 | 1.5.3. Môi trường USE và khả năng mở rộng
+278 Normal | USE (UML-based Specification Environment) hỗ trợ nạp mô hình lớp UML/OCL, xây dựng trạng thái đối tượng và đánh giá biểu thức trên trạng thái đó. Hình 1.14 minh họa ba biểu diễn bổ sung cho nhau: biểu đồ đối tượng cho thấy dữ liệu trong trạng thái, bảng Class Invariants cho biết kết quả kiểm tra và Evaluation Browser cho phép xem các giá trị tham gia đánh giá một biểu thức [4, mục 2.2].
+279 Normal | 
+280 Caption | Hình 1.14. Biểu đồ đối tượng và các cửa sổ phân tích kết quả OCL trong USE. Trích từ [4, Fig. 2, trang PDF 4].
+281 Normal | Sinh trạng thái trong USE hỗ trợ khảo sát tính nhất quán và tính độc lập của các bất biến [4, mục 2.3], [16]. Cho  là một mô hình lớp,  là tập các trạng thái phù hợp với cấu trúc của , và  là tập bất biến. Tính nhất quán có thể được chứng minh bằng một trạng thái làm chứng  sao cho . Để kiểm tra tính độc lập của bất biến , gọi  là tập các bất biến còn lại sau khi bỏ . Một trạng thái thỏa mãn  nhưng bác bỏ  là bằng chứng cho thấy  độc lập với các bất biến còn lại [4, mục 2.3].
+282 Normal | 
+283 Normal | Khi việc sinh trạng thái giới hạn số thể hiện hoặc miền giá trị, kết luận về sự vắng mặt của một trạng thái làm chứng chỉ có hiệu lực trong miền được khảo sát, trừ trường hợp có lập luận bao quát miền còn lại [4, mục 2.3], [16]. USE còn cung cấp cơ chế mở rộng qua plugin, cho phép các công cụ bổ sung chức năng làm việc với mô hình và trạng thái [17].
+284 Heading 2 | 1.6. Kiểm chứng hệ thống đa tác tử
+285 Normal | Một bài toán kiểm chứng xác định tính chất cần kiểm tra và phạm vi của bằng chứng dùng để kết luận. Kiểm chứng mô hình (model checking) xét các hành vi của một mô hình chuyển trạng thái. Kiểm chứng khi thực thi (runtime verification) xét những gì có thể suy ra từ một vết quan sát. Với hệ đa tác tử, phạm vi của bằng chứng có thể phụ thuộc vào lịch thực thi, trạng thái phân tán và mức quan sát được của môi trường [5], [19], [20], [23].
+286 Heading 3 | 1.6.1. Kiểm chứng mô hình (Model Checking)
+287 Normal | Một cách biểu diễn hệ chuyển trạng thái là cấu trúc Kripke . Trong đó  là tập trạng thái,  là tập trạng thái khởi đầu,  là quan hệ chuyển và  gán cho mỗi trạng thái tập mệnh đề nguyên tử đúng tại trạng thái đó. Với một công thức thuộc tính , ký hiệu  diễn tả rằng mô hình thỏa mãn  theo ngữ nghĩa của logic được sử dụng. Kết luận được xác định trên các trạng thái khởi đầu và các hành vi của chính mô hình [19], [20].
+288 Normal | Trong trường hợp thuộc tính an toàn được biểu diễn bằng một điều kiện phải luôn đúng, một đường đi từ trạng thái khởi đầu đến trạng thái vi phạm là phản ví dụ. Với các tính chất thời gian hoặc chiến lược phức tạp hơn, bằng chứng phụ thuộc vào logic và thuật toán kiểm tra. MCMAS sử dụng mô hình interpreted systems để biểu diễn hệ đa tác tử và kiểm tra các thuộc tính về thời gian, tri thức hoặc chiến lược [20]. Phạm vi kết luận phụ thuộc mức trừu tượng của mô hình và không gian trạng thái mà công cụ kiểm tra.
+289 Heading 3 | 1.6.2. Kiểm chứng khi thực thi (Runtime Verification)
+290 Normal | Trong runtime verification, bộ giám sát đánh giá một đặc tả trên vết thực thi quan sát được [5]. Với ngữ nghĩa ba giá trị cho một tiền tố hữu hạn  của vết, kết quả phụ thuộc vào các phần tiếp nối có thể có. Công thức  nhận giá trị đúng nếu mọi phần tiếp nối vô hạn của  đều thỏa mãn ; nhận giá trị sai nếu không có phần tiếp nối nào thỏa mãn; và chưa xác định nếu có cả hai loại phần tiếp nối [18].
+291 Normal | Một tính chất an toàn yêu cầu một sự kiện xấu không bao giờ xuất hiện. Ngay khi tiền tố chứa sự kiện xấu, mọi phần tiếp nối đều giữ lại sự kiện đó, nên có thể kết luận vi phạm. Trái lại, với một yêu cầu rằng sự kiện phản hồi cuối cùng sẽ xuất hiện, việc chưa thấy phản hồi trong một tiền tố hữu hạn vẫn để ngỏ khả năng có phản hồi sau đó [18]. Tính chưa xác định do vết còn tiếp diễn cần được phân biệt với bất định do vết đã thu bị thiếu sự kiện hoặc chứa quan sát không chính xác [23].
+292 Heading 3 | 1.6.3. Trace, snapshot và checkpoint
+293 Normal | Vết thực thi (trace) là một chuỗi theo thứ tự, có thể gồm các sự kiện hoặc trạng thái. Ảnh chụp trạng thái (snapshot) biểu diễn thông tin trạng thái tại một mốc quan sát. Checkpoint là ranh giới thực thi được chọn để thu thập hoặc kiểm tra thông tin. Một dãy snapshot có thể là đầu vào cho một phép kiểm chứng trên vết trạng thái. Tính chất được đánh giá phụ thuộc vào những thông tin xuất hiện trong dãy này.
+294 Normal | Hai lần quan sát liên tiếp có thể cho cùng giá trị của một thuộc tính mặc dù thuộc tính đó đã thay đổi trong khoảng giữa. Vì vậy, một bất biến đúng ở mọi snapshot quan sát được cung cấp bằng chứng tại những mốc đã quan sát. Để kết luận về toàn bộ diễn biến, cần có thêm giả thiết hoặc bằng chứng về các trạng thái trung gian [5], [23].
+295 Normal | Đối với một hệ phân tán, việc thu trạng thái toàn cục còn đặt ra vấn đề nhất quán giữa trạng thái của các tiến trình và các kênh trao đổi. Chandy và Lamport mô tả một thuật toán ghi nhận cả hai thành phần trong mô hình tính toán phân tán [21]. Điều này làm rõ hai câu hỏi riêng khi dùng snapshot: dữ liệu thu được có biểu diễn một trạng thái nhất quán hay không, và các trạng thái được chọn có đủ để đánh giá tính chất cần kiểm chứng hay không.
+296 Heading 2 | 1.7. Các nghiên cứu liên quan
+297 Normal | Các nghiên cứu về USE xây dựng và kiểm tra trạng thái đối tượng trên mô hình UML/OCL. Kiểm tra một trạng thái cụ thể giúp xác định bất biến nào được thỏa mãn, còn sinh trạng thái hỗ trợ tìm trường hợp làm chứng hoặc phản ví dụ trong phạm vi tìm kiếm [4], [16].
+298 Normal | Ở hướng kỹ nghệ yêu cầu theo mục tiêu, iStar 2.0 cung cấp một ký pháp chung để mô tả chủ thể, ý định, các lựa chọn và sự phụ thuộc [12], [13]. Công cụ piStar hỗ trợ dựng và kiểm tra cấu trúc các biểu đồ theo ký pháp này [41]. Các công trình đó cung cấp nền tảng để phân tích mô hình mục tiêu trước khi xét bằng chứng từ quá trình thực thi.
+299 Normal | Đối với hệ đa tác tử, các công trình model checking xét thuộc tính trên mô hình hoặc chương trình tác tử được biểu diễn dưới dạng thích hợp [19], [20], [22]. RV4JaCa đưa giám sát giao thức tương tác vào JaCaMo và đánh giá trao đổi quan sát được trong phiên thực thi [24]. Hướng kết hợp kiểm chứng mô hình và kiểm chứng khi thực thi khai thác các loại bằng chứng khác nhau để phân tích tính chất của hệ đa tác tử [25].
+300 Normal | Những hướng nghiên cứu trên sử dụng các đối tượng đánh giá khác nhau, gồm trạng thái UML/OCL, mô hình mục tiêu iStar và vết tương tác JaCaMo. Bài toán của khóa luận đặt tại giao điểm của ba hướng này, khi cần diễn giải trạng thái quan sát được của JaCaMo theo một mô hình cấu trúc và dùng trạng thái đó để đánh giá cả ràng buộc lẫn tiến độ đạt mục tiêu.
+301 Heading 2 | 1.8. Tổng kết chương
+302 Normal | Các khái niệm DSL và siêu mô hình cho phép phân biệt cách viết đặc tả, cấu trúc hợp lệ của mô hình và ý nghĩa của các biểu thức. JaCaMo cung cấp mô hình về tác tử, môi trường và tổ chức. iStar biểu diễn các ý định và quan hệ giữa các chủ thể. UML mô tả cấu trúc và hành vi, còn OCL cho phép phát biểu điều kiện có thể đánh giá trên một trạng thái cụ thể.
+303 Normal | Các khái niệm về vết thực thi, snapshot và checkpoint xác định phạm vi của kết luận kiểm chứng khi quan sát một phiên chạy. Trên cơ sở đó, Chương 2 trình bày cách sử dụng trạng thái quan sát được từ JaCaMo để kiểm chứng ràng buộc và đánh giá tiến độ thực hiện mục tiêu.
+304 Heading 1 | CHƯƠNG 2. PHƯƠNG PHÁP ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ TRÊN USE
+305 Normal | Chương này trình bày phương pháp kiểm chứng một hệ thống JaCaMo đang thực thi bằng USE. Tại một checkpoint, công cụ tiếp nhận ảnh chụp dữ liệu nguồn, dựng trạng thái đối tượng theo mô hình CSL, rồi dùng trạng thái đó để đánh giá bất biến OCL và cập nhật mức đạt Goal/Task của mô hình iStar. Ví dụ Auction được dùng xuyên suốt để minh họa dữ liệu và kết quả ở từng bước.
+306 Heading 2 | 2.1. Giới thiệu
+307 Normal | Bài toán đặt ra là xác định liệu JaCaMo có thể tiếp tục từ một checkpoint, dựa trên bằng chứng USE nhận được tại checkpoint đó. Việc kiểm chứng trả lời ba câu hỏi. Trạng thái quan sát có thỏa các bất biến của mô hình hay không? Các Goal và Task đã có bằng chứng đạt đến đâu? Kết quả hiện có đủ để phê duyệt điểm dừng đang chờ hay chưa? Các câu hỏi này liên quan đến cùng một lần quan sát, nhưng có tiêu chí kết luận riêng.
+308 Normal | Phương pháp được áp dụng trong phạm vi trạng thái mà bộ thu quan sát được tại các ranh giới thực thi đã chọn. Do đó, kết luận về một thuộc tính phụ thuộc vào dữ liệu có mặt trong snapshot và vào cách đặc tả điều kiện trên dữ liệu đó. Ví dụ, nếu một giá trị sai xuất hiện rồi trở về bình thường giữa hai checkpoint, vết chỉ chứa giá trị ở hai đầu có thể bỏ qua vi phạm trung gian.
+309 Heading 2 | 2.2. Motivation (Động cơ nghiên cứu)
+310 Normal | Cấu hình JaCaMo trong ví dụ Auction giao cho tác tử Bob hai mục tiêu đấu giá có tên a1 và a2. Cả hai dùng kiểu artifact AuctionArtifact và cùng công bố thuộc tính best_bid. Nếu chỉ dùng tên kiểu để tìm đối tượng đích trong USE, hai giá trị sẽ cùng ghi vào một đối tượng. Khi đó, một lượt trả giá ở a1 có thể bị diễn giải nhầm thành thay đổi ở a2 [44, auction.jcm và AuctionArtifact.java].
+311 Normal | Ngay cả khi đã tách được hai đối tượng, giá trị hiện tại chỉ trả lời được một phần câu hỏi kiểm chứng. Giá tốt nhất có thể hợp lệ trong khi phiên đấu giá chưa có lượt trả giá cải thiện mức giá. Một nhiệm vụ cũng có thể cần bằng chứng tiền điều kiện ở một lần quan sát và bằng chứng hậu điều kiện ở lần khác. Vì vậy, ngoài cấu trúc và định danh, phương pháp phải quy định thời điểm thu dữ liệu, cách lưu lịch sử và ý nghĩa của việc thiếu bằng chứng.
+312 Caption | Bảng 2.1. Yêu cầu của phương pháp và mục trình bày cơ chế đáp ứng
+313 Heading 3 | Ví dụ minh họa: Hệ thống đấu giá
+314 Normal | Mỗi phiên có một artifact quản lý riêng. Thuộc tính running cho biết phiên đang mở hay đã dừng. best_bid giữ giá tốt nhất hiện tại. Khi khởi tạo, artifact gán best_bid bằng Double.MAX_VALUE. Trong thao tác bid, giá mới chỉ thay thế best_bid khi nó thấp hơn giá đang giữ. Thuộc tính quan sát winner được công bố khi thao tác stop kết thúc phiên, dựa trên người đang giữ giá tốt nhất [44, AuctionArtifact.java].
+315 Normal | Các phần sau dùng a1 và a2 để chỉ hai artifact trong cùng một lần chạy, đồng thời dùng chúng làm tên rút gọn để đọc ví dụ. Định danh thực tế trong phép chiếu được trình bày ở Mục 2.6.3. Từ cùng cấu hình Auction, Mục 2.4 chỉ ra dữ liệu cần biểu diễn, Mục 2.5 chỉ ra điều kiện cần quan sát, còn Mục 2.7 theo dõi kết quả qua hai checkpoint minh họa.
+316 Heading 2 | 2.3. Tổng quan phương pháp
+317 Normal | Phương pháp có hai giai đoạn. Giai đoạn chuẩn bị đọc và kiểm tra các đặc tả, xác định tương ứng nguồn–đích và biên dịch các biểu thức trên kiểu ngữ cảnh. Giai đoạn thực thi lặp tại các checkpoint được chọn. JaCaMo giữ nguồn trong phạm vi hỗ trợ, bộ thu tạo snapshot, USE chiếu dữ liệu vào trạng thái CSL, rồi bộ kiểm chứng đánh giá OCL và cập nhật kết quả iStar [43], [44].
+318 Caption | Bảng 2.2. Đầu vào của phiên kiểm chứng và vai trò trong ví dụ Auction
+319 Normal | Hình 2.1 biểu diễn hai chiều trao đổi. Theo chiều dữ liệu, mỗi snapshot được giải nghĩa bằng mapping và mô hình kiểu CSL để tạo trạng thái cho USE. OCL đánh giá biểu thức trên trạng thái này, còn mô hình iStar quy định cách dùng kết quả OCL để cập nhật Goal/Task. Theo chiều điều khiển, một quyết định gắn với checkpoint đang chờ được trả về JaCaMo. Khi quyết định hợp lệ cho phép tiếp tục, phía thực thi có thể qua điểm dừng theo quy tắc của bộ điều phối [43].
+320 Normal | 
+321 Caption | Hình 2.1. Luồng quan sát, kiểm chứng và phản hồi checkpoint. Sơ đồ tổng hợp từ [43] và [44].
+322 Normal | Đầu ra của một lượt xử lý gồm trạng thái CSL đã được cập nhật nếu snapshot được tiếp nhận, kết quả kiểm tra OCL, mức đạt Goal/Task ở các ngữ cảnh có đủ bằng chứng và quyết định cho checkpoint. Điều kiện để tiếp tục được xét trên kết quả của checkpoint hiện tại. Chương 3 có thể sử dụng các đầu ra này để kiểm tra từng bước của phương pháp trên các lần chạy cụ thể.
+323 Heading 2 | 2.4. Đặc tả CSL trong USE
+324 Normal | CSL (Composite State Language) cho phép mô tả dữ liệu miền cùng cấu trúc tổ chức trên một mô hình trạng thái [28, mục IV-C]. Trong phương pháp này, OrgContext khai báo kiểu ngữ cảnh tổ chức, Role khai báo vai trò trong ngữ cảnh và Entity khai báo kiểu thực thể miền. Mô hình AuctionState đặt các vai trò auctioneer và participant trong auctionGroup. Các đối tượng Auction được đặt trong phạm vi nhóm tương ứng khi chiếu dữ liệu thực thi [43, auction.csl].
+325 Normal | Ví dụ 2.1 trích khai báo kiểu Auction và bất biến ValidBid. Thuộc tính best_bid có kiểu Real. Bất biến được kiểm tra trên từng đối tượng Auction bằng cách gắn self với đối tượng đang xét. Vì vậy, nếu có hai đối tượng Auction, cùng biểu thức self.best_bid >= 0 được đánh giá riêng cho từng đối tượng [43, auction.csl].
+326 Caption | Ví dụ 2.1. Kiểu Auction và bất biến ValidBid trích từ auction.csl [43].
+327 Normal | entity Auction {
+    attribute id : String required;
+    attribute running : Boolean required mutable;
+    attribute task : String required mutable;
+    attribute best_bid : Real required mutable;
+    attribute winner : String required mutable;
+}
+
+context Auction inv ValidBid:
+    self.best_bid >= 0;
+328 Normal | Khai báo trên xác định mô hình kiểu. Trạng thái tại một checkpoint là tập các đối tượng, giá trị thuộc tính và liên kết đang tồn tại trong USE. Hai đối tượng của a1 và a2 cùng tuân theo một khai báo Auction nhưng có giá trị best_bid riêng. Tương tự, role participant thuộc mô hình kiểu, còn dữ kiện một tác tử đang đảm nhiệm vai trò đó thuộc trạng thái. Mục 2.6 trình bày cách dùng dữ kiện nguồn để dựng những thể hiện và liên kết này.
+329 Heading 3 | 2.4.1. Biên dịch và kiểm tra mô hình
+330 Normal | Bộ xử lý đọc văn bản CSL thành mô hình ngữ nghĩa gồm các khai báo và tham chiếu. Trên mô hình này, công cụ kiểm tra kiểu, cấu trúc và các đầu thuộc tính dùng trong ánh xạ. Chẳng hạn, một luật gán vào Auction.best_bid chỉ hợp lệ khi kiểu Auction và thuộc tính best_bid được khai báo, thuộc tính có thể gán và loại nguồn phù hợp với khai báo đích [43, CslModelCompiler và SnapshotProjection].
+331 Normal | Sau bước kiểm tra, mô hình CSL được chuyển thành mô hình USE với lớp, thuộc tính, liên kết cấu trúc và bất biến tương ứng. Các biểu thức được biên dịch theo kiểu của self. Đầu ra của bước chuẩn bị là mô hình có thể tiếp nhận đối tượng quan sát được. Lỗi tham chiếu trong đặc tả được phát hiện ở đây, còn lỗi do thiếu dữ liệu nguồn có thể phát sinh tại một checkpoint cụ thể [43].
+332 Heading 2 | 2.5. Đặc tả iStar mở rộng trong USE
+333 Normal | Mô hình iStar xác định những ý định cần theo dõi và cách chúng liên hệ. Phần mở rộng được sử dụng trong khóa luận gắn điều kiện OCL với Goal, hoặc gắn tiền điều kiện và hậu điều kiện với Task. Điều kiện mô tả bằng chứng cần tìm trong trạng thái CSL. Tên một plan Jason hay sự kiện hoàn tất một plan tự thân chưa cung cấp các giá trị để đánh giá điều kiện đó [43, auction.istar và SnapshotVerifier].
+334 Normal | Trong mô hình Auction, Goal AuctionCompleted phân rã theo ba nhánh O_start, O_bid và O_decide. Nhánh O_bid phụ thuộc vào Goal bid phía Participant. Task ObserveBid được khai báo trong góc nhìn auction_capabilities và góp phần vào Goal bid. Cấu hình này cho phép giải thích một bước đạt nhiệm vụ bằng dữ liệu quan sát, rồi truy nguyên kết quả qua các liên kết ý định đến mục tiêu cấp cao hơn [43, auction.istar].
+335 Heading 3 | 2.5.1. Liên kết giữa trạng thái CSL và phần tử iStar
+336 Normal | Chỉ thị // @csl-state Auction đặt kiểu ngữ cảnh mặc định cho mô hình trong ví dụ. Với mỗi đối tượng Auction đã được chiếu vào USE, self trong các điều kiện được gắn với chính đối tượng đó. Bộ kiểm chứng duy trì một phiên đánh giá Goal/Task theo định danh đối tượng. Hai phiên a1 và a2 vì vậy chia sẻ cùng đặc tả nhưng có lịch sử đánh giá riêng. Các biểu thức vẫn có thể điều hướng từ self sang những đối tượng liên quan qua các liên kết của mô hình [43, SnapshotVerifier].
+337 Caption | Ví dụ 2.2. Khai báo ngữ cảnh và điều kiện của ObserveBid trích từ auction.istar [43].
+338 Normal | // @csl-state Auction
+
+task ObserveBid > bid
+    pre {[
+        self.running and self.focusedBy->exists(a |
+            self.cslEntityScope.oclAsType(auctionGroup).participant->exists(r | r.player = a))
+    ]}
+    post {[ self.best_bid < 1.7976931348623157E308 ]}
+339 Normal | Tiền điều kiện của ObserveBid kiểm tra rằng phiên đang chạy và có một tác tử đang quan sát artifact, đồng thời đảm nhiệm vai trò participant trong nhóm tương ứng. Hậu điều kiện kiểm tra best_bid thấp hơn giá trị khởi tạo Double.MAX_VALUE. Hai biểu thức xác định phạm vi bằng chứng mà đặc tả cần. Quy tắc dùng kết quả đúng hoặc sai của chúng qua nhiều checkpoint được trình bày ở Mục 2.7.2 [43], [44].
+340 Normal | Trong đường kiểm chứng được sử dụng, mọi chủ thể của một graph cần quy về cùng một kiểu ngữ cảnh CSL, còn mỗi Task cần đúng một tiền điều kiện và một hậu điều kiện. Hồ sơ đánh giá này tập trung vào Goal và Task. Các phần tử Quality, Resource và quan hệ NeededBy trong kiến thức iStar cơ bản ở Chương 1 nằm ngoài phạm vi nạp vào bộ kiểm chứng trạng thái CSL hiện hành [43, SnapshotVerifier].
+341 Heading 2 | 2.6. Ánh xạ trạng thái JaCaMo sang CSL
+342 Normal | Phép ánh xạ có ba thành phần liên tiếp. XML quy định tương ứng của giá trị. Bộ thu cung cấp dữ kiện và định danh tại một checkpoint. Phép chiếu dùng hai đầu vào này để chuẩn bị danh sách đối tượng và liên kết cần cập nhật trong USE. Trong ví dụ, cùng một quy tắc XML được dùng cho a1 và a2, còn định danh nguồn quyết định giá trị được đưa vào đối tượng Auction nào.
+343 Heading 3 | 2.6.1. Khai báo tương ứng bằng XML
+344 Normal | Mỗi luật chỉ ra loại nguồn, kiểu nguồn, thành phần cần đọc và thuộc tính đích. Thành phần nguồn có thể là thuộc tính quan sát hoặc một trường định danh như name, uuid hay workspace. Trong ví dụ, identity:name cung cấp thuộc tính nghiệp vụ Auction.id. Việc tra cứu đối tượng xuyên các snapshot sử dụng khóa được dựng ở bước chiếu, nên hai khái niệm này có vai trò riêng [43, AttributeMapping và SnapshotProjection].
+345 Caption | Ví dụ 2.3. Ánh xạ các thuộc tính của AuctionArtifact trích từ attribute-mapping.xml [43].
+346 Normal | <attribute source="artifact:auction_env.AuctionArtifact/identity:name" target="Auction.id"/>
+<attribute source="artifact:auction_env.AuctionArtifact/property:running" target="Auction.running"/>
+<attribute source="artifact:auction_env.AuctionArtifact/property:task" target="Auction.task"/>
+<attribute source="artifact:auction_env.AuctionArtifact/property:best_bid" target="Auction.best_bid"/>
+<attribute source="artifact:auction_env.AuctionArtifact/property:winner" target="Auction.winner"/>
+347 Normal | Các luật trên khai báo cấu trúc tương ứng, còn các giá trị cụ thể được lấy tại thời điểm thu snapshot. Chẳng hạn, nếu có hai artifact cùng kiểu auction_env.AuctionArtifact, luật best_bid áp dụng cho cả hai. Thuộc tính winner cũng được đọc từ giá trị đã công bố của từng artifact [43], [44].
+348 Heading 3 | 2.6.2. Đồng bộ JaCaMo với CSL
+349 Normal | Checkpoint được chọn theo ranh giới thực thi của JaCaMo, gồm lúc khởi tạo, lúc nhóm plan gốc và các plan con đồng bộ kết thúc, một số điểm chuyển giao thông điệp và những trường hợp kết thúc thất bại hoặc hủy cần được quan sát. Một checkpoint có thể xuất hiện dù dữ liệu không đổi so với lần trước. Ngược lại, nhiều thay đổi có thể xảy ra trong cùng nhóm plan và chỉ giá trị cuối được ghi nhận. Độ hạt này xác định các trạng thái có thể làm bằng chứng [43, JaCaMoCheckpoints].
+350 Normal | Để quan sát nhất quán trong phạm vi hỗ trợ, bộ điều phối ngăn tiếp nhận công việc mới và đợi các hoạt động đã được cấp phép hoặc được theo dõi đạt trạng thái tạm ổn định. Snapshot được thu sau khi xác nhận mốc giữ dừng. Bảo đảm này áp dụng cho các hoạt động đi qua điểm tích hợp của JaCaMo và CArtAgO. Các luồng tự tạo và nguồn bên ngoài phạm vi theo dõi cần cơ chế quan sát riêng [43], [44].
+351 Normal | Snapshot thu các artifact đã ánh xạ, thuộc tính quan sát được, các tác tử quan sát và dữ kiện tổ chức như thành viên nhóm và quan hệ đảm nhiệm vai trò. Mỗi snapshot có mã lần chạy và số thứ tự. Ở cấp giao thức, token cùng thông tin xác thực được dùng để gắn phản hồi với đúng yêu cầu. Cờ complete cho biết bộ thu có đáp ứng phạm vi dữ liệu cần thiết hay không [43, StateProducer và CheckpointProtocol].
+352 Heading 3 | 2.6.3. Chiếu đối tượng, thuộc tính và quan hệ
+353 Normal | Trước khi tạo hoặc cập nhật đối tượng, phép chiếu ghép từng nguồn với các luật có cùng loại và kiểu nguồn, đọc giá trị và chuyển sang kiểu đích. Đồng thời, nó giải các tham chiếu cấu trúc. Focus lấy từ dữ kiện tác tử đang quan sát artifact, membership từ thông tin thành viên, còn quan hệ đảm nhiệm vai trò dựa trên tác tử và ngữ cảnh mà snapshot ghi nhận. Như vậy, mỗi liên kết được dựng từ một dữ kiện nguồn có thể truy nguyên [43, SnapshotProjection].
+354 Normal | Khóa đối tượng được xác định từ mã lần chạy, định danh thể hiện nguồn và kiểu đích. Trong Bảng 2.3, u₁ và u₂ ký hiệu hai định danh nguồn khác nhau, còn b₁ và b₂ là hai giá trị quan sát. a1 và a2 là giá trị của thuộc tính Auction.id. Bảng cho thấy cách một luật áp dụng trên hai dòng dữ liệu mà vẫn giữ riêng hai đối tượng.
+355 Caption | Bảng 2.3. Áp dụng luật best_bid cho hai artifact cùng kiểu
+356 Normal | Thuật toán 2.1 tóm tắt bước tiếp nhận và chiếu. Điều kiện complete được kiểm tra trước khi chuẩn bị phép chiếu và trước mọi cập nhật MSystem. Vì vậy, snapshot thiếu không được xử lý như một tập con của snapshot đầy đủ. Với snapshot đầy đủ đã qua bước chuẩn bị, đối tượng có cùng khóa được cập nhật, còn đối tượng không còn xuất hiện được loại bỏ cùng lịch sử đánh giá gắn với nó [43, SnapshotVerifier].
+357 Caption | Thuật toán 2.1. Tiếp nhận snapshot và chiếu thành trạng thái CSL
+358 Normal | Đầu vào   Snapshot, mô hình CSL, luật XML và trạng thái USE
+Đầu ra    Cặp trạng thái trước/sau hoặc kết quả dừng xử lý
+1. Kiểm tra mã lần chạy và số thứ tự của snapshot.
+   Nếu lặp đúng nội dung đã xử lý, dùng kết quả đã lưu.
+2. Nếu complete = false, trả HOLD_UNVERIFIED.
+3. Ghép luật theo loại và kiểu nguồn. Đọc và kiểm tra kiểu giá trị.
+   Chuẩn bị khóa, hàng đối tượng và liên kết từ dữ kiện nguồn.
+4. Sao chép trạng thái USE hiện tại làm trạng thái trước.
+5. Tạo hoặc tìm đối tượng theo khóa và cập nhật giá trị.
+   Gỡ các liên kết cũ và các đối tượng vắng mặt.
+   Dựng các liên kết theo dữ liệu đã chuẩn bị.
+6. Trả cặp trạng thái cho bước đánh giá OCL và Goal/Task.
+359 Normal | Bước chuẩn bị giúp phát hiện lỗi kiểu, định danh và phạm vi trước khi thay đổi dữ liệu. Bước áp dụng thay đổi trực tiếp MSystem, nên một ngoại lệ xảy ra sau khi cập nhật bắt đầu có thể để lại trạng thái đã thay đổi một phần. Bảo đảm không cập nhật nêu ở bước 2 áp dụng cho snapshot thiếu bị chặn trước phép chiếu [43, SnapshotVerifier].
+360 Heading 2 | 2.7. Kiểm chứng ràng buộc và đánh giá Goal/Task
+361 Normal | Trạng thái CSL sau phép chiếu là đầu vào chung của hai phép đánh giá. OCL xác định giá trị của bất biến và các điều kiện. Bộ đánh giá iStar diễn giải các điều kiện theo ngữ nghĩa Goal/Task và quan hệ ý định. Kết quả của cả hai được tổng hợp thành quyết định checkpoint.
+362 Heading 3 | 2.7.1. Đánh giá OCL trên trạng thái CSL
+363 Normal | Bất biến được đánh giá trên các đối tượng thuộc kiểu ngữ cảnh tương ứng. Trong ví dụ, ValidBid được kiểm tra trên cả a1 và a2 sau khi cập nhật. Bộ đánh giá trả PASS khi biểu thức đúng, FAIL khi biểu thức sai và một trạng thái khác khi kết quả không xác định hoặc không thể đánh giá. Một kết quả sai của tiền/hậu điều kiện Task có thể chỉ biểu thị tiến độ chưa đạt. Kết quả sai của bất biến là bằng chứng vi phạm mô hình [4], [15], [43].
+364 Normal | Biểu thức đọc trạng thái trước được đánh giá trên cặp trạng thái CSL trước và sau khi áp dụng snapshot. Ví dụ 2.4 trích điều kiện BidNeverIncreases. Với đối tượng vừa xuất hiện, nhánh đầu nhận diện rằng đối tượng chưa có trong trạng thái trước. Với đối tượng đã tồn tại, nhánh còn lại so sánh hai giá trị best_bid cùng định danh [43, auction.istar].
+365 Caption | Ví dụ 2.4. Điều kiện Goal BidNeverIncreases trích từ auction.istar [43].
+366 Normal | goal BidNeverIncreases : Maintain condition {[
+    Auction.allInstances@pre()->excludes(self) or self.best_bid <= self.best_bid@pre
+]}
+367 Normal | Ở đây, @pre tham chiếu trạng thái CSL ngay trước lần cập nhật. Nếu giữa hai checkpoint có nhiều lời gọi operation, phép so sánh vẫn chỉ đối chiếu hai trạng thái quan sát. Điều này giới hạn kết luận về những thay đổi có thể đã xảy ra bên trong khoảng giữa [43].
+368 Heading 3 | 2.7.2. Đánh giá Task theo lịch sử tiền và hậu điều kiện
+369 Normal | Mỗi Task giữ hai cờ theo từng đối tượng ngữ cảnh. Gọi  là cờ ghi nhận đã gặp tiền điều kiện đúng, còn  ghi nhận đã gặp hậu điều kiện đúng khi đã có bằng chứng tiền điều kiện. Hai cờ ban đầu đều sai. Gọi  và  là kết quả Boolean ở snapshot đang xét. Khi Task được yêu cầu và các kết quả đều xác định, bộ đánh giá cập nhật theo công thức sau, diễn giải từ IStarMarking.TaskMarking [43].
+370 Normal | 
+371 Normal | 
+372 Normal | Nếu  còn sai, Task ở UNKNOWN. Khi  đúng nhưng  còn sai, Task ở PENDING. Khi  đúng, Task đạt FULFILLED. Việc dùng  ở công thức thứ hai cho phép ghi nhận tiền và hậu điều kiện tại cùng snapshot. Khi nhiệm vụ chưa được yêu cầu hoặc bước đánh giá của ngữ cảnh chưa xác định, công cụ giữ lịch sử thay vì tiến cờ [43].
+373 Normal | Bảng 2.4 diễn giải công thức trên với đúng điều kiện ObserveBid trong Ví dụ 2.2. M là giá trị khởi tạo Double.MAX_VALUE. Hai checkpoint minh họa được giả định có snapshot đầy đủ, mỗi Task đang được yêu cầu và lịch sử ObserveBid ở cả hai đối tượng chưa có bằng chứng trước dòng đầu tiên. Các kiểm tra cần thiết đều xác định và không có vi phạm trong tình huống này. Bảng sử dụng giá trị 80 và các mốc giả định để minh họa phương pháp. Kết quả của các lần chạy được trình bày ở phần thực nghiệm.
+374 Caption | Bảng 2.4. Vết minh họa của ObserveBid trên hai phiên đấu giá
+375 Normal | Tại k, cả hai phiên đã có bằng chứng đủ để bắt đầu theo dõi ObserveBid. Đến k + 1, best_bid của a1 đã thấp hơn M, nên a1 có bằng chứng hậu điều kiện. a2 vẫn giữ M và lịch sử của nó vẫn ở PENDING. Hai dòng cùng checkpoint ghi chung một quyết định cho cả lượt quan sát, trong khi marking được tính riêng theo đối tượng. Bằng chứng của a1 xác nhận có ít nhất một lượt trả giá cải thiện giá đang giữ. Một lượt trả giá kém hơn có thể đã được gọi mà vẫn giữ nguyên best_bid [43], [44].
+376 Heading 3 | 2.7.3. Đánh giá Goal và lan truyền kết quả
+377 Normal | Với Goal có điều kiện trực tiếp, bộ đánh giá ghi nhận tình trạng kích hoạt, điều kiện và tính ổn định của điều kiện trong giai đoạn theo dõi. Goal chưa kích hoạt ở UNKNOWN. Khi đã kích hoạt, loại Goal xác định cách một kết quả đúng hoặc sai được diễn giải qua các lần quan sát [43, IStarMarking].
+378 Caption | Bảng 2.5. Các kiểu Goal và ý nghĩa của lịch sử điều kiện [43]
+379 Normal | Kết quả từ các Goal/Task có điều kiện là cơ sở để suy ra marking của các phần tử liên quan. AND-refinement cần tất cả nhánh bắt buộc đạt, còn OR-refinement có thể đạt khi một nhánh đã đủ. Dependency truyền bằng chứng hoàn thành từ phía dependee sang phía depender. Bộ đánh giá tổng hợp các kết quả này trong từng graph theo thứ tự và quy tắc của phiên đánh giá [43, GoalTaskSession và GoalModelInstanceTranslator].
+380 Normal | Trong Auction, ObserveBid là một phần của nhánh bid. Nhánh này còn có Task FocusForBid. Góc nhìn bid trong auction_capabilities được chia sẻ với Goal cùng tên của vai trò Participant khi liên kết participates-in đáp ứng điều kiện của bộ đánh giá. Dependency từ Participant.bid cung cấp bằng chứng cho nhánh O_bid. Vì AuctionCompleted có cả O_start và O_decide, một Task ObserveBid đã đạt mới cung cấp một phần bằng chứng cho mục tiêu cuối của phiên [43, auction.istar và GoalModelTopology].
+381 Heading 3 | 2.7.4. Tổng hợp quyết định checkpoint
+382 Normal | Bộ kiểm chứng tổng hợp quyết định theo hai tiêu chí. Tiêu chí thứ nhất xét có bất biến CSL nhận FAIL hoặc phần tử iStar ở VIOLATED hay không. Tiêu chí thứ hai xét có kiểm tra cần thiết chưa xác định hay không. Khi cả hai cùng xảy ra, bằng chứng vi phạm được ưu tiên. Snapshot thiếu được xử lý riêng từ bước tiếp nhận và trả HOLD_UNVERIFIED trước phép chiếu [43, SnapshotVerifier].
+383 Caption | Bảng 2.6. Điều kiện trả quyết định và tác động đến thực thi [43]
+384 Normal | Bảng 2.4 minh họa vì sao PENDING vẫn có thể đi cùng APPROVE. Hậu điều kiện sai ở một Task là một kết quả xác định, nên nó có thể biểu thị bước công việc còn chờ mà chưa cấu thành vi phạm. Chẳng hạn, nếu lần quan sát sau ghi best_bid tăng từ 80 lên 90 ở cùng đối tượng, bất biến ValidBid vẫn đúng nhưng Goal Maintain BidNeverIncreases bị vi phạm. Khi đủ dữ liệu để xác định vi phạm này, công cụ trả HOLD_FAILURE. Nếu bộ thu báo snapshot thiếu, HOLD_UNVERIFIED được trả trước bước chiếu và lịch sử vẫn ở mốc đã xử lý trước đó [43].
+385 Normal | Ở phía JaCaMo, chỉ phản hồi APPROVE đã xác thực và khớp yêu cầu của checkpoint đang chờ mới được dùng để phê duyệt. Việc đối chiếu có mã lần chạy, token, dấu vết yêu cầu và thông tin điểm giữ nguồn. Phản hồi sai định danh hoặc mất kết nối không tạo bằng chứng chấp thuận. Khi còn checkpoint chưa được chấp thuận trong cùng đợt giữ, bộ điều phối tiếp tục giữ admission theo quy tắc runtime [43, CheckpointProtocol và JaCaMoCheckpoints].
+386 Heading 2 | 2.8. Tổng kết chương
+387 Normal | Phương pháp kiểm tra đặc tả và ngữ cảnh trước khi chạy để đáp ứng R1. Ánh xạ XML, khóa theo thể hiện nguồn và quy tắc thu snapshot xử lý R2–R4. Cặp trạng thái trước/sau và lịch sử riêng của từng đối tượng cung cấp bằng chứng cho R5. Quy tắc tổng hợp và phản hồi theo định danh checkpoint đáp ứng R6. Ví dụ Auction cho thấy cùng một đặc tả có thể áp dụng cho hai artifact cùng kiểu mà vẫn phân biệt kết quả của từng phiên.
+388 Normal | Chương 3 trình bày triển khai và thực nghiệm. Các kịch bản đánh giá cần kiểm tra khả năng bảo toàn định danh, cập nhật Goal/Task theo vết quan sát và phân loại đúng các tình huống đủ bằng chứng, vi phạm và thiếu dữ liệu. Kết quả thực nghiệm dùng để đánh giá phạm vi mà phương pháp xử lý được tại các checkpoint đã chọn.
+389 Heading 1 | CHƯƠNG 3. TRIỂN KHAI VÀ THỰC NGHIỆM
+390 Heading 2 | 3.1. Giới thiệu
+391 Normal | Chương này trình bày cách hiện thực phương pháp ở Chương 2 và cách đánh giá công cụ. Auction được dùng để theo dõi hai phiên cùng kiểu trong một lần chạy và đối chiếu kết quả khi đánh giá lại vết. Counter và các ca kiểm thử ở mức bộ kiểm chứng giúp phân biệt việc giữ dừng do vi phạm với việc giữ dừng do thiếu dữ liệu.
+392 Heading 2 | 3.2. Triển khai công cụ
+393 Heading 3 | 3.2.1. Tổ chức các thành phần
+394 Normal | Plugin quản lý phiên phía USE, còn JaCaMo chạy trong một JVM riêng để thu snapshot và chờ phản hồi tại checkpoint. USE cập nhật trạng thái CSL, đánh giá OCL và lưu lịch sử Goal/Task theo từng đối tượng. Cửa sổ thử nghiệm hiển thị dữ liệu nguồn và kết quả kiểm chứng của phiên [43]–[45].
+395 Heading 3 | 3.2.2. Môi trường và cách khởi chạy
+396 Normal | Kho tích hợp quy định JDK 21 và Maven 3.9. Quá trình đóng gói nhập các thư viện runtime đi kèm, sau đó tạo bản USE có plugin. Người dùng có thể chọn JaCaMo trong menu Plugins và nạp dự án .jcm, tệp XML ánh xạ, đặc tả CSL và đặc tả iStar. Lần chạy Auction được báo cáo ở Mục 3.5 sử dụng bản USE 7.5.0, plugin 1.0.1 và điểm chạy WorkbenchMain ở chế độ không giao diện [43], [45].
+397 Heading 2 | 3.3. Kịch bản thử nghiệm
+398 Heading 3 | 3.3.1. Chạy Auction và đánh giá lại vết
+399 Normal | Kịch bản Auction sử dụng hai artifact a1 và a2 thuộc cùng kiểu AuctionArtifact. Trong lần chạy trực tiếp, cần theo dõi quyết định của từng checkpoint và kết quả AuctionCompleted theo từng đối tượng. Sau đó, ReplayMain dùng cùng đặc tả để đánh giá lại các snapshot trong consumer-history.jsonl. Phép đối chiếu tập trung vào quyết định theo số thứ tự và kết quả của hai ngữ cảnh đấu giá [43]–[45].
+400 Heading 3 | 3.3.2. Vi phạm ràng buộc và thiếu dữ liệu
+401 Normal | Kịch bản Counter đặt giá trị −1 ở cuối nhóm plan, vi phạm bất biến Nonnegative. Kết quả cần quan sát là HOLD_FAILURE tại checkpoint thu được giá trị đó. Một ca riêng trong CslStateVerifierTest gửi snapshot có complete=false sau khi trạng thái USE đã có đối tượng. Ca này kiểm tra rằng bộ kiểm chứng trả HOLD_UNVERIFIED và vẫn giữ đối tượng đã có. [43].
+402 Heading 2 | 3.4. Tiêu chí đánh giá
+403 Normal | Đánh giá dựa trên ba tiêu chí. Thứ nhất, hai thể hiện cùng kiểu phải có định danh và lịch sử Goal/Task riêng. Thứ hai, quyết định phải phù hợp với bằng chứng quan sát, thể hiện qua kết quả kiểm tra, quyết định và phản hồi tương ứng với checkpoint. Thứ ba, cùng một vết và cùng đặc tả phải cho phép đối chiếu lại kết quả theo thứ tự quan sát. Với ca dữ liệu thiếu, trạng thái USE trước và sau khi tiếp nhận snapshot là bằng chứng để kiểm tra việc giữ nguyên dữ liệu đã có.
+404 Heading 2 | 3.5. Kết quả và phân tích sơ bộ
+405 Normal | Theo tài liệu kỹ thuật ngày 22/11/2026, một phiên Auction qua CLI ghi nhận 58 checkpoint được APPROVE và có xác nhận phía JaCaMo. Hai ngữ cảnh đấu giá có kết quả AuctionCompleted = FULFILLED. Replay của cùng vết đánh giá lại cả 58 checkpoint và tái hiện kết quả của hai ngữ cảnh. Số checkpoint là kết quả của lần chạy được ghi nhận và có thể thay đổi giữa các lần chạy [45, mục 7.3].
+406 Normal | Báo cáo kiểm thử trong kho USE cũng ghi nhận Counter nhận HOLD_FAILURE ở checkpoint 3, tại cuối plan cha. Kết quả này minh họa rằng thời điểm phát hiện vi phạm phụ thuộc vào ranh giới quan sát. Ca snapshot thiếu được mô tả ở Mục 3.3.2 dựa trên các xác nhận trong mã kiểm thử. Hai báo cáo cung cấp căn cứ để phân tích riêng khả năng quan sát, đánh giá và giữ dừng [43, doc/TESTING.md], [45].
+407 Heading 2 | 3.6. Giới hạn và hướng mở rộng
+408 Normal | Kết quả thực nghiệm áp dụng cho các snapshot, nguồn dữ liệu và điều kiện đã khai báo. Biến đổi xuất hiện rồi biến mất giữa hai checkpoint có thể không được ghi nhận. Trong Auction, best_bid cho biết đã quan sát được một mức giá cải thiện, còn việc xác nhận người thắng đúng theo giá cần thêm dữ kiện liên hệ người trả giá với giá đang giữ. Một hướng mở rộng là bổ sung dữ kiện này vào mô hình quan sát và đánh giá tác động của việc tăng số điểm kiểm tra [43, doc/TESTING.md], [45].
+409 Heading 2 | 3.7. Tổng kết chương
+410 Normal | Auction và replay cung cấp bằng chứng về việc theo dõi hai phiên cùng kiểu qua lịch sử riêng. Counter cho thấy cách một vi phạm quan sát được dẫn tới quyết định giữ dừng, còn ca snapshot thiếu kiểm tra cách công cụ xử lý khi bằng chứng chưa đủ. Phạm vi kết luận gắn với các ranh giới và dữ liệu mà hệ thống đã quan sát.
+411 Heading 1 | TÀI LIỆU THAM KHẢO
+412 Bibliography1 | [1] M. Wooldridge và N. R. Jennings, “Intelligent agents: Theory and practice,” The Knowledge Engineering Review, vol. 10, no. 2, pp. 115–152, 1995. DOI: 10.1017/S0269888900008122.
+413 Bibliography1 | [2] O. Boissier, R. H. Bordini, J. F. Hübner, A. Ricci và A. Santi, “Multi-agent oriented programming with JaCaMo,” Science of Computer Programming, vol. 78, no. 6, pp. 747–761, 2013. DOI: 10.1016/j.scico.2011.10.004.
+414 Bibliography1 | [3] D. C. Schmidt, “Guest editor’s introduction: Model-driven engineering,” Computer, vol. 39, no. 2, pp. 25–31, 2006. DOI: 10.1109/MC.2006.58.
+415 Bibliography1 | [4] M. Gogolla, F. Büttner và M. Richters, “USE: A UML-based specification environment for validating UML and OCL,” Science of Computer Programming, vol. 69, nos. 1–3, pp. 27–34, 2007. DOI: 10.1016/j.scico.2007.01.013. Bản PDF trong kho USE.
+416 Bibliography1 | [5] M. Leucker và C. Schallhart, “A brief account of runtime verification,” Journal of Logic and Algebraic Programming, vol. 78, no. 5, pp. 293–303, 2009. DOI: 10.1016/j.jlap.2008.08.004.
+417 Bibliography1 | [6] M. Mernik, J. Heering và A. M. Sloane, “When and how to develop domain-specific languages,” ACM Computing Surveys, vol. 37, no. 4, pp. 316–344, 2005. DOI: 10.1145/1118890.1118892.
+418 Bibliography1 | [7] T. Parr, S. Harwell và K. Fisher, “Adaptive LL(*) parsing: The power of dynamic analysis,” in Proceedings of the 2014 ACM International Conference on Object Oriented Programming Systems Languages & Applications (OOPSLA), pp. 579–598, 2014. DOI: 10.1145/2660193.2660202.
+419 Bibliography1 | [8] R. H. Bordini và J. F. Hübner, “BDI agent programming in AgentSpeak using Jason,” in Computational Logic in Multi-Agent Systems (CLIMA 2005), Lecture Notes in Computer Science, vol. 3900, pp. 143–164, Springer, 2006. DOI: 10.1007/11750734_9.
+420 Bibliography1 | [9] R. H. Bordini, J. F. Hübner và M. Wooldridge, Programming Multi-Agent Systems in AgentSpeak using Jason. Wiley, 2007. DOI: 10.1002/9780470061848.
+421 Bibliography1 | [10] A. Ricci, M. Piunti và M. Viroli, “Environment programming in multi-agent systems: An artifact-based perspective,” Autonomous Agents and Multi-Agent Systems, vol. 23, pp. 158–192, 2011. DOI: 10.1007/s10458-010-9140-7.
+422 Bibliography1 | [11] J. F. Hübner, J. S. Sichman và O. Boissier, “Developing organised multiagent systems using the MOISE+ model: Programming issues at the system and agent levels,” International Journal of Agent-Oriented Software Engineering, vol. 1, nos. 3/4, pp. 370–395, 2007. DOI: 10.1504/IJAOSE.2007.016266.
+423 Bibliography1 | [12] F. Dalpiaz, X. Franch và J. Horkoff, “iStar 2.0 language guide,” arXiv:1605.07767 [cs.SE], 2016. Hướng dẫn iStar 2.0.
+424 Bibliography1 | [13] A. van Lamsweerde, “Goal-oriented requirements engineering: A guided tour,” in Proceedings of the Fifth IEEE International Symposium on Requirements Engineering, pp. 249–262, 2001. DOI: 10.1109/ISRE.2001.948567.
+425 Bibliography1 | [14] Object Management Group (OMG), OMG Unified Modeling Language (OMG UML), Version 2.5.1, 2017. https://www.omg.org/spec/UML/2.5.1. Bản PDF đối chiếu.
+426 Bibliography1 | [15] Object Management Group (OMG), Object Constraint Language (OCL), Version 2.4, 2014. https://www.omg.org/spec/OCL/2.4.
+427 Bibliography1 | [16] M. Gogolla, J. Böhling và M. Richters, “Validating UML and OCL models in USE by automatic snapshot generation,” Software and Systems Modeling, vol. 4, no. 4, pp. 386–398, 2005. DOI: 10.1007/s10270-005-0089-y. Bản PDF trong kho USE.
+428 Bibliography1 | [17] F. Hilken và L. Hamann, “History of the USE tool: 20 years of UML/OCL modeling made in Germany,” Journal of Object Technology, vol. 19, no. 3, pp. 3:1–3:13, 2020. DOI: 10.5381/jot.2020.19.3.a20.
+429 Bibliography1 | [18] A. Bauer, M. Leucker và C. Schallhart, “Runtime verification for LTL and TLTL,” ACM Transactions on Software Engineering and Methodology, vol. 20, no. 4, Article 14, 2011. DOI: 10.1145/2000799.2000800.
+430 Bibliography1 | [19] R. H. Bordini, M. Fisher, W. Visser và M. Wooldridge, “Verifying multi-agent programs by model checking,” Autonomous Agents and Multi-Agent Systems, vol. 12, no. 2, pp. 239–256, 2006. DOI: 10.1007/s10458-006-5955-7.
+431 Bibliography1 | [20] A. Lomuscio, H. Qu và F. Raimondi, “MCMAS: An open-source model checker for the verification of multi-agent systems,” International Journal on Software Tools for Technology Transfer, vol. 19, pp. 9–30, 2017. DOI: 10.1007/s10009-015-0378-x.
+432 Bibliography1 | [21] K. M. Chandy và L. Lamport, “Distributed snapshots: Determining global states of distributed systems,” ACM Transactions on Computer Systems, vol. 3, no. 1, pp. 63–75, 1985. DOI: 10.1145/214451.214456.
+433 Bibliography1 | [22] R. H. Bordini, L. A. Dennis, B. Farwer và M. Fisher, “Directions for agent model checking,” in Specification and Verification of Multi-Agent Systems, pp. 103–123, Springer, 2010. DOI: 10.1007/978-1-4419-6984-2_4.
+434 Bibliography1 | [23] R. Taleb, S. Hallé và R. Khoury, “Uncertainty in runtime verification: A survey,” Computer Science Review, vol. 50, Article 100594, 2023. DOI: 10.1016/j.cosrev.2023.100594.
+435 Normal | [24] D. C. Engelmann, A. Ferrando, A. R. Panisson, D. Ancona, R. H. Bordini và V. Mascardi, “RV4JaCa—Towards Runtime Verification of Multi-Agent Systems and Robotic Applications,” Robotics, vol. 12, no. 2, art. 49, 2023. DOI: 10.3390/robotics12020049.
+436 Normal | [25] A. Ferrando và V. Malvone, “Towards the Combination of Model Checking and Runtime Verification on Multi-agent Systems,” in Advances in Practical Applications of Agents, Multi-Agent Systems, and Complex Systems Simulation, LNCS 13616, pp. 140–152, Springer, 2022. DOI: 10.1007/978-3-031-18192-4_12.
+437 Normal | [26] M. Fisher et al., “Towards a framework for certification of reliable autonomous systems,” Autonomous Agents and Multi-Agent Systems, vol. 35, art. 8, 2021. DOI: 10.1007/s10458-020-09487-2.
+438 Bibliography1 | [27] M. Fowler, Domain-Specific Languages. Addison-Wesley Professional, 2010. ISBN: 978-0-321-71294-3.
+439 Bibliography1 | [28] D.-Q. Nguyen, M.-P. Hoang, H.-H. Dao và D.-H. Dang, “On Checking the Conformance between iStar and BPMN Models,” bản PDF tham khảo kèm khóa luận, 6 trang.
+440 Bibliography1 | [29] R. H. Bordini, J. F. Hübner và D. M. Tralamazza, “Using Jason to Implement a Team of Gold Miners,” bản tác giả lưu trong kho dự án JaCaMo. Bản PDF.
+441 Bibliography1 | [30] T. Parr, S. Harwell và K. Fisher, “Adaptive LL(*) Parsing: The Power of Dynamic Analysis,” báo cáo kỹ thuật, 24/03/2014. Bản dùng để trích Hình 1 và Hình 14. Bản PDF.
+442 Bibliography1 | [31] ANTLR Project, ANTLR 4 Documentation, các mục “Lexer Rules”, “Parser Rules”, “Parse Tree Listeners” và “Tool Command Line Options”. Nguồn.
+443 Bibliography1 | [32] A. H. Bond và L. Gasser (biên tập), Readings in Distributed Artificial Intelligence. Morgan Kaufmann, 1988.
+444 Bibliography1 | [33] R. G. Smith, “The Contract Net Protocol: High-Level Communication and Control in a Distributed Problem Solver,” IEEE Transactions on Computers, vol. C-29, no. 12, pp. 1104–1113, 1980. DOI: 10.1109/TC.1980.1675516.
+445 Bibliography1 | [34] G. Weiss (biên tập), Multiagent Systems: A Modern Approach to Distributed Artificial Intelligence. MIT Press, 1999. ISBN: 978-0-262-23203-6.
+446 Bibliography1 | [35] Foundation for Intelligent Physical Agents, FIPA Contract Net Interaction Protocol Specification, chuẩn SC00029H, 2002. Nguồn.
+447 Bibliography1 | [36] O. Boissier, R. H. Bordini, J. F. Hübner và A. Ricci, Multi-Agent Oriented Programming: Programming Multi-Agent Systems Using JaCaMo. MIT Press, 2020. Tài liệu và mã ví dụ kèm sách. Nguồn.
+448 Bibliography1 | [37] R. H. Bordini và J. F. Hübner, Jason: A Java-based interpreter for an extended version of AgentSpeak, release 0.9.5, Feb. 2007. Nguồn.
+449 Bibliography1 | [38] A. Ricci và A. Santi, CArtAgO and JaCa By Example. Università di Bologna, 2012, bản hướng dẫn cho CArtAgO 2.0.2 và Jason 1.3.4. Nguồn.
+450 Bibliography1 | [39] O. Boissier, R. H. Bordini, J. F. Hübner và A. Ricci, Practical Session: Programming Multiagent Systems, tài liệu hướng dẫn thực hành WESAAC, 2013. Nguồn.
+451 Bibliography1 | [40] J. F. Hübner, J. S. Sichman và O. Boissier, “S-MOISE+: A Middleware for Developing Organised Multi-Agent Systems,” trong Coordination, Organizations, Institutions, and Norms in Multi-Agent Systems, LNCS 3913, Springer, 2006, tr. 64–78. DOI: 10.1007/11775331_5. Nguồn.
+452 Bibliography1 | [41] J. Pimentel và J. Castro, “piStar Tool – A Pluggable Online Tool for Goal Modeling,” trong 2018 IEEE 26th International Requirements Engineering Conference, tr. 498–499, 2018. Tài liệu siêu mô hình và các ví dụ đi kèm trong kho piStar. Nguồn. Tài liệu siêu mô hình. Tệp ví dụ.
+453 Bibliography1 | [42] I. Ayala, M. Amor, J. M. Horcas và L. Fuentes, “A goal-driven software product line approach for evolving multi-agent systems in the Internet of Things,” Knowledge-Based Systems, vol. 184, bài 104883, 2019. DOI 10.1016/j.knosys.2019.104883. Siêu mô hình iStar 2.0 đi kèm nghiên cứu. Nguồn.
+454 Bibliography1 | [43] N. T. Nghĩa (kho tích hợp), USE–JaCaMo, mã nguồn plugin và cấu hình Auction, commit c3f47cd38bb6. Cấu hình Auction. Bộ kiểm chứng. Bộ đánh giá Goal/Task.
+455 Bibliography1 | [44] N. T. Nghĩa (kho tích hợp), JaCaMo có hỗ trợ checkpoint, dự án Auction, commit 34f45bd70350. Dự án và mã artifact.
+456 Bibliography1 | [45] Nguyễn Trung Nghĩa, Tổng quan khóa luận và kiến trúc USE–JaCaMo, tài liệu kỹ thuật của dự án, 2026, mục 2.3, 5.4 và 7.3. Tài liệu dự án.

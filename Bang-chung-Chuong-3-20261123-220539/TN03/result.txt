@@ -1,0 +1,6 @@
+PASS
+case=counter_violation
+plugins=5
+owned_producer_stopped=true
+decision=HOLD_FAILURE
+completed_auctions=0

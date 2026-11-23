@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<use-model-state checkpoint="3" kind="ISTAR_SCN" model="input\counter.istar" version="1">
+    <object id="state_33b2be0cd67e9c1c3127c833" kind="ENTITY" label="state_33b2be0cd67e9c1c3127c833 : Counter" type="Counter">
+        <attribute name="value" value="-1"/>
+    </object>
+    <marking actor="Counter" context="state_33b2be0cd67e9c1c3127c833" element="SafeValue" status="VIOLATED"/>
+    <marking actor="Counter" context="state_33b2be0cd67e9c1c3127c833" element="Ready" status="PENDING"/>
+    <marking actor="Counter" context="state_33b2be0cd67e9c1c3127c833" element="Positive" status="PENDING"/>
+    <marking actor="Counter" context="state_33b2be0cd67e9c1c3127c833" element="TargetReached" status="PENDING"/>
+</use-model-state>

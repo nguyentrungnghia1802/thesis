@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<use-model-state checkpoint="58" kind="ISTAR_SCN" model="input\auction.istar" version="1">
+    <object id="state_0f33583fefda2fab8009a98d" kind="GROUP" label="francois : auction_capabilities" type="auction_capabilities">
+        <attribute name="name" value="'francois'"/>
+        <attribute name="participants" value="Set{}"/>
+        <attribute name="roleContexts" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <object id="state_364e3a0bab81e4c476fbbd5c" kind="GROUP" label="bob : auction_capabilities" type="auction_capabilities">
+        <attribute name="name" value="'bob'"/>
+        <attribute name="participants" value="Set{}"/>
+        <attribute name="roleContexts" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <object id="state_44a8eb8d9b5b8fb0f987e27d" kind="GROUP" label="aorg : AuctionOrg" type="AuctionOrg">
+        <attribute name="name" value="'aorg'"/>
+        <attribute name="participants" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="roleContexts" value="Set{}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <object id="state_4fdc60a711137900120f646e" kind="ROLE" label="state_4fdc60a711137900120f646e : participant" type="participant"/>
+    <object id="state_666055bd21979d318d0452d0" kind="ENTITY" label="a1 : Auction" type="Auction">
+        <attribute name="best_bid" value="35.68913580847105"/>
+        <attribute name="id" value="'a1'"/>
+        <attribute name="running" value="false"/>
+        <attribute name="task" value="'flight_ticket(paris,athens,date(15,12,2015))'"/>
+        <attribute name="winner" value="'giacomo'"/>
+    </object>
+    <object id="state_7404b7db46220a1c9618a00b" kind="ROLE" label="state_7404b7db46220a1c9618a00b : participant" type="participant"/>
+    <object id="state_7e306742cd82a0e6508dc9f4" kind="ROLE" label="state_7e306742cd82a0e6508dc9f4 : participant" type="participant"/>
+    <object id="state_86ae789e6d07769cc117704f" kind="ENTITY" label="a2 : Auction" type="Auction">
+        <attribute name="best_bid" value="65.32236519848972"/>
+        <attribute name="id" value="'a2'"/>
+        <attribute name="running" value="false"/>
+        <attribute name="task" value="'flight_ticket(athens,paris,date(18,12,2015))'"/>
+        <attribute name="winner" value="'maria'"/>
+    </object>
+    <object id="state_a7493c589d2bf1cfbcc79eab" kind="GROUP" label="alice : auction_capabilities" type="auction_capabilities">
+        <attribute name="name" value="'alice'"/>
+        <attribute name="participants" value="Set{}"/>
+        <attribute name="roleContexts" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <object id="state_ab716c541efa4caf1764fec8" kind="ROLE" label="state_ab716c541efa4caf1764fec8 : participant" type="participant"/>
+    <object id="state_d701fee4917ed03cc367a8b7" kind="GROUP" label="agrp : auctionGroup" type="auctionGroup">
+        <attribute name="auctioneer" value="Set{state_ec388cc40315e4cdda79b764}"/>
+        <attribute name="name" value="'agrp'"/>
+        <attribute name="participant" value="Set{state_4fdc60a711137900120f646e,state_7404b7db46220a1c9618a00b,state_7e306742cd82a0e6508dc9f4,state_ab716c541efa4caf1764fec8}"/>
+        <attribute name="participants" value="Set{state_0f33583fefda2fab8009a98d,state_364e3a0bab81e4c476fbbd5c,state_a7493c589d2bf1cfbcc79eab,state_e1a984680576012094436c44,state_ecbc3206f0f15398b6828b7c}"/>
+        <attribute name="roleContexts" value="Set{}"/>
+        <attribute name="rolePlayers" value="Set{state_0f33583fefda2fab8009a98d,state_364e3a0bab81e4c476fbbd5c,state_a7493c589d2bf1cfbcc79eab,state_e1a984680576012094436c44,state_ecbc3206f0f15398b6828b7c}"/>
+    </object>
+    <object id="state_e1a984680576012094436c44" kind="GROUP" label="maria : auction_capabilities" type="auction_capabilities">
+        <attribute name="name" value="'maria'"/>
+        <attribute name="participants" value="Set{}"/>
+        <attribute name="roleContexts" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <object id="state_ec388cc40315e4cdda79b764" kind="ROLE" label="state_ec388cc40315e4cdda79b764 : auctioneer" type="auctioneer"/>
+    <object id="state_ecbc3206f0f15398b6828b7c" kind="GROUP" label="giacomo : auction_capabilities" type="auction_capabilities">
+        <attribute name="name" value="'giacomo'"/>
+        <attribute name="participants" value="Set{}"/>
+        <attribute name="roleContexts" value="Set{state_d701fee4917ed03cc367a8b7}"/>
+        <attribute name="rolePlayers" value="Set{}"/>
+    </object>
+    <link relation="CslFocuses" source="state_e1a984680576012094436c44" target="state_666055bd21979d318d0452d0"/>
+    <link relation="CslFocuses" source="state_e1a984680576012094436c44" target="state_86ae789e6d07769cc117704f"/>
+    <link relation="Plays" source="state_e1a984680576012094436c44" target="state_4fdc60a711137900120f646e"/>
+    <link relation="CslFocuses" source="state_ecbc3206f0f15398b6828b7c" target="state_666055bd21979d318d0452d0"/>
+    <link relation="CslFocuses" source="state_ecbc3206f0f15398b6828b7c" target="state_86ae789e6d07769cc117704f"/>
+    <link relation="Plays" source="state_ecbc3206f0f15398b6828b7c" target="state_7e306742cd82a0e6508dc9f4"/>
+    <link relation="CslEntityScopes" source="state_d701fee4917ed03cc367a8b7" target="state_666055bd21979d318d0452d0"/>
+    <link relation="CslFocuses" source="state_0f33583fefda2fab8009a98d" target="state_666055bd21979d318d0452d0"/>
+    <link relation="CslFocuses" source="state_364e3a0bab81e4c476fbbd5c" target="state_666055bd21979d318d0452d0"/>
+    <link relation="CslFocuses" source="state_a7493c589d2bf1cfbcc79eab" target="state_666055bd21979d318d0452d0"/>
+    <link relation="InContext" source="state_d701fee4917ed03cc367a8b7" target="state_4fdc60a711137900120f646e"/>
+    <link relation="InContext" source="state_d701fee4917ed03cc367a8b7" target="state_7e306742cd82a0e6508dc9f4"/>
+    <link relation="InContext" source="state_d701fee4917ed03cc367a8b7" target="state_ab716c541efa4caf1764fec8"/>
+    <link relation="Plays" source="state_0f33583fefda2fab8009a98d" target="state_ab716c541efa4caf1764fec8"/>
+    <link relation="InContext" source="state_d701fee4917ed03cc367a8b7" target="state_7404b7db46220a1c9618a00b"/>
+    <link relation="Plays" source="state_a7493c589d2bf1cfbcc79eab" target="state_7404b7db46220a1c9618a00b"/>
+    <link relation="CslContextScopes" source="state_44a8eb8d9b5b8fb0f987e27d" target="state_d701fee4917ed03cc367a8b7"/>
+    <link relation="CslEntityScopes" source="state_d701fee4917ed03cc367a8b7" target="state_86ae789e6d07769cc117704f"/>
+    <link relation="CslMembership" source="state_d701fee4917ed03cc367a8b7" target="state_44a8eb8d9b5b8fb0f987e27d"/>
+    <link relation="InContext" source="state_d701fee4917ed03cc367a8b7" target="state_ec388cc40315e4cdda79b764"/>
+    <link relation="Plays" source="state_364e3a0bab81e4c476fbbd5c" target="state_ec388cc40315e4cdda79b764"/>
+    <link relation="CslFocuses" source="state_0f33583fefda2fab8009a98d" target="state_86ae789e6d07769cc117704f"/>
+    <link relation="CslFocuses" source="state_364e3a0bab81e4c476fbbd5c" target="state_86ae789e6d07769cc117704f"/>
+    <link relation="CslFocuses" source="state_a7493c589d2bf1cfbcc79eab" target="state_86ae789e6d07769cc117704f"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="RolesConsistent" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="SafeBid" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="BidNeverIncreases" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="AuctionCompleted" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="O_start" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="O_bid" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_666055bd21979d318d0452d0" element="O_decide" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="auction_capabilities.start" status="FULFILLED"/>
+    <marking actor="Auctioneer" context="state_666055bd21979d318d0452d0" element="Auctioneer.start" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="CreateAuctionArtifact" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="FocusAuctionArtifact" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="StartAuction" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="auction_capabilities.bid" status="FULFILLED"/>
+    <marking actor="Participant" context="state_666055bd21979d318d0452d0" element="Participant.bid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="FocusForBid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="ObserveBid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="auction_capabilities.decide" status="FULFILLED"/>
+    <marking actor="Auctioneer" context="state_666055bd21979d318d0452d0" element="Auctioneer.decide" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_666055bd21979d318d0452d0" element="StopAuction" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="RolesConsistent" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="SafeBid" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="BidNeverIncreases" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="AuctionCompleted" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="O_start" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="O_bid" status="FULFILLED"/>
+    <marking actor="AuctionGroup" context="state_86ae789e6d07769cc117704f" element="O_decide" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="auction_capabilities.start" status="FULFILLED"/>
+    <marking actor="Auctioneer" context="state_86ae789e6d07769cc117704f" element="Auctioneer.start" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="CreateAuctionArtifact" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="FocusAuctionArtifact" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="StartAuction" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="auction_capabilities.bid" status="FULFILLED"/>
+    <marking actor="Participant" context="state_86ae789e6d07769cc117704f" element="Participant.bid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="FocusForBid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="ObserveBid" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="auction_capabilities.decide" status="FULFILLED"/>
+    <marking actor="Auctioneer" context="state_86ae789e6d07769cc117704f" element="Auctioneer.decide" status="FULFILLED"/>
+    <marking actor="auction_capabilities" context="state_86ae789e6d07769cc117704f" element="StopAuction" status="FULFILLED"/>
+</use-model-state>

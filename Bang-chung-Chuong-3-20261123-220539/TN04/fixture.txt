@@ -1,0 +1,8 @@
+    @Test void incompleteCoverageCannotDeleteObjectsOrCertifyEmptyState()throws Exception {
+        try(var verifier=verifier()) {
+            verifier.update(snapshot(1,1));
+            var held=verifier.update(new SourceSnapshot("run",2,false,List.of()));
+            assertEquals("HOLD_UNVERIFIED",held.decision());assertEquals(1,held.state().size());
+            assertEquals("APPROVE",verifier.update(snapshot(2,2)).decision());
+        }
+    }

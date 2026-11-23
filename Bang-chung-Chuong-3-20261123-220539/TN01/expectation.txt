@@ -1,0 +1,2 @@
+Independent expected result before live run
+Two physical AuctionArtifact instances a1 and a2 map separately; completed AuctionCompleted per context; live receipts correspond; replay compares each sequence.
