@@ -1,0 +1,3 @@
+run=9f8d2c52-c13d-4e65-9c6b-9dcc9bd8969c
+latestSequence=55
+input=D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\src\main\resources\example\auction\auction.mrv

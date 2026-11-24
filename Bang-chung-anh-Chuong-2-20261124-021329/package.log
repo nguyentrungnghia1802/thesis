@@ -1,0 +1,366 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] use                                                                [pom]
+[INFO] use-core                                                           [jar]
+[INFO] use-gui                                                            [jar]
+[INFO] USE CSL, OAL, iStar and JaCaMo plugins                             [jar]
+[INFO] use-assembly                                                       [pom]
+[INFO] 
+[INFO] --------------------------< org.tzi.use:use >---------------------------
+[INFO] Building use 7.5.0                                                 [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ------------------------< org.tzi.use:use-core >------------------------
+[INFO] Building use-core 7.5.0                                            [2/5]
+[INFO]   from use-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- merge:1.2.0:merge (merge-grammar-files) @ use-core ---
+[INFO] 
+[INFO] --- antlr3:3.5.3:antlr (antlr) @ use-core ---
+[INFO] ANTLR: Processing source directory D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\grammars
+[INFO] 
+[INFO] --- copy-rename:1.0:rename (move-antlr-parser-use) @ use-core ---
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\USELexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\use\USELexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\USEParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\use\USEParser.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\GeneratorLexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\generator\GeneratorLexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\GeneratorParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\generator\GeneratorParser.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\OCLLexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\ocl\OCLLexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\OCLParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\ocl\OCLParser.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\ShellCommandLexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\shell\ShellCommandLexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\ShellCommandParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\shell\ShellCommandParser.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\SoilLexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\soil\SoilLexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\SoilParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\soil\SoilParser.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\TestSuiteLexer.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\testsuite\TestSuiteLexer.java
+[INFO] Renamed D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\TestSuiteParser.java to D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3\org\tzi\use\parser\testsuite\TestSuiteParser.java
+[INFO] 
+[INFO] --- build-helper:3.6.0:add-source (add-antlr3-generated-source) @ use-core ---
+[INFO] Source directory: D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\generated-sources\antlr3 added.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ use-core ---
+[INFO] Copying 512 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- build-helper:3.6.0:add-test-source (add-test-source) @ use-core ---
+[INFO] Test Source directory: D:\_CODE_BANK\Project_\08_Thesis\use\use-core\src\it\java added.
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ use-core ---
+[WARNING] *********************************************************************************************************************************************************************************************
+[WARNING] * Required filename-based automodules detected: [antlr-runtime-3.5.3.jar, combinatoricslib-2.3.jar, vtd-xml-2.13.4.jar]. Please don't publish this project to a public artifact repository! *
+[WARNING] *********************************************************************************************************************************************************************************************
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 570 source files with javac [debug target 21 module-path] to target\classes
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-core/src/main/java/org/tzi/use/uml/ocl/type/MessageType.java: Some input files use or override a deprecated API.
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-core/src/main/java/org/tzi/use/uml/ocl/type/MessageType.java: Recompile with -Xlint:deprecation for details.
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-core/target/generated-sources/antlr3/org/tzi/use/parser/generator/GeneratorParser.java: Some input files use unchecked or unsafe operations.
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-core/target/generated-sources/antlr3/org/tzi/use/parser/generator/GeneratorParser.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ use-core ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ use-core ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ use-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ use-core ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-core\target\use-core-7.5.0.jar
+[INFO] 
+[INFO] ------------------------< org.tzi.use:use-gui >-------------------------
+[INFO] Building use-gui 7.5.0                                             [3/5]
+[INFO]   from use-gui\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ use-gui ---
+[INFO] Copying 56 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- build-helper:1.5:add-test-source (add-test-source) @ use-gui ---
+[INFO] Test Source directory: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\src\it\java added.
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ use-gui ---
+[WARNING] ******************************************************************************************************************************************************************************************************************************************
+[WARNING] * Required filename-based automodules detected: [antlr-runtime-3.5.3.jar, combinatoricslib-2.3.jar, annotations-13.0.jar, itextpdf-5.5.13.3.jar, vtd-xml-2.13.4.jar]. Please don't publish this project to a public artifact repository! *
+[WARNING] ******************************************************************************************************************************************************************************************************************************************
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 307 source files with javac [debug target 21 module-path] to target\classes
+[WARNING] /D:/_CODE_BANK/Project_/08_Thesis/use/use-gui/src/main/java/org/tzi/use/gui/views/diagrams/util/MenuScroller.java:[435,15] finalize() in java.lang.Object has been deprecated and marked for removal
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-gui/src/main/java/org/tzi/use/runtime/gui/impl/PluginActionProxy.java: Some input files use or override a deprecated API.
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-gui/src/main/java/org/tzi/use/runtime/gui/impl/PluginActionProxy.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- build-helper:1.5:add-test-resource (add-test-resource) @ use-gui ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ use-gui ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ use-gui ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ use-gui ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ use-gui ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\target\use-gui-7.5.0.jar
+[INFO] 
+[INFO] --- assembly:3.7.1:single (make-assembly) @ use-gui ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\target\use-gui.jar
+[WARNING] Configuration option 'appendAssemblyId' is set to false.
+Instead of attaching the assembly file: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\target\use-gui.jar, it will become the file for main project artifact.
+NOTE: If multiple descriptors or descriptor-formats are provided for this project, the value of this file will be non-deterministic!
+[WARNING] Replacing pre-existing project main-artifact file: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\target\use-gui-7.5.0.jar
+with assembly file: D:\_CODE_BANK\Project_\08_Thesis\use\use-gui\target\use-gui.jar
+[INFO] 
+[INFO] -----------------------< org.tzi.use:use-plugin >-----------------------
+[INFO] Building USE CSL, OAL, iStar and JaCaMo plugins 1.0.1              [4/5]
+[INFO]   from use-plugin\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/org/jacamo/jacamo/1.3.1-checkpoint-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/org/jacamo/checkpoint-runtime/1.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/io/github/jason-lang/jason-interpreter/3.3.2-checkpoint-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/org/jacamo/cartago/3.1-checkpoint-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/org/jacamo/npl/0.6.1-checkpoint-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jacamo: https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master/org/jacamo/jacamo-rest/0.9-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- antlr4:4.9.3:antlr4 (language-parsers) @ use-plugin ---
+[INFO] No grammars to process
+[INFO] ANTLR 4: Processing source directory D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\src\main\resources\grammars
+[INFO] 
+[INFO] --- dependency:3.8.1:build-classpath (development-runtime-classpath) @ use-plugin ---
+[INFO] Wrote classpath file 'D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\runtime-classpath.txt'.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ use-plugin ---
+[INFO] Copying 29 resources from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ use-plugin ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 223 source files with javac [debug target 21] to target\classes
+[WARNING] /D:/_CODE_BANK/Project_/08_Thesis/use/use-plugin/src/main/java/org/tzi/use/plugins/jacamo/gui/views/DiagramModelBrowser.java:[55,57] isAbstract() in org.vnu.sme.goal.dsl.csl.mm.CslRole has been deprecated and marked for removal
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-plugin/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslModel.java: Some input files use or override a deprecated API.
+[INFO] /D:/_CODE_BANK/Project_/08_Thesis/use/use-plugin/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslModel.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ use-plugin ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ use-plugin ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ use-plugin ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- dependency:3.8.1:copy-dependencies (official-jacamo-runtime) @ use-plugin ---
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ use-plugin ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1.jar
+[INFO] 
+[INFO] --- jar:3.4.2:jar (csl-entry-point) @ use-plugin ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1-csl.jar
+[INFO] 
+[INFO] --- jar:3.4.2:jar (oal-entry-point) @ use-plugin ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1-oal.jar
+[INFO] 
+[INFO] --- jar:3.4.2:jar (istar-entry-point) @ use-plugin ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1-istar.jar
+[INFO] 
+[INFO] --- jar:3.4.2:jar (istarscn-entry-point) @ use-plugin ---
+[INFO] Building jar: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1-istarscn.jar
+[INFO] 
+[INFO] --- shade:3.6.0:shade (plugin-runtime) @ use-plugin ---
+[INFO] Including org.antlr:antlr4-runtime:jar:4.9.3 in the shaded jar.
+[INFO] Excluding com.google.guava:guava:jar:33.5.0-jre from the shaded jar.
+[INFO] Excluding com.google.guava:failureaccess:jar:1.0.3 from the shaded jar.
+[INFO] Excluding com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava from the shaded jar.
+[INFO] Excluding org.jspecify:jspecify:jar:1.0.0 from the shaded jar.
+[INFO] Excluding com.google.errorprone:error_prone_annotations:jar:2.41.0 from the shaded jar.
+[INFO] Excluding com.google.j2objc:j2objc-annotations:jar:3.1 from the shaded jar.
+[INFO] Excluding com.ximpleware:vtd-xml:jar:2.13.4 from the shaded jar.
+[INFO] Excluding org.tzi.use:use-core:jar:7.5.0 from the shaded jar.
+[INFO] Excluding org.eclipse.jdt:org.eclipse.jdt.annotation:jar:2.2.600 from the shaded jar.
+[INFO] Excluding org.antlr:antlr-runtime:jar:3.5.3 from the shaded jar.
+[INFO] Excluding jline:jline:jar:2.14.6 from the shaded jar.
+[INFO] Excluding com.googlecode.combinatoricslib:combinatoricslib:jar:2.3 from the shaded jar.
+[INFO] Excluding org.jruby:jruby-core:jar:9.3.1.0 from the shaded jar.
+[INFO] Excluding org.jacamo:jacamo:jar:1.3.1-checkpoint-SNAPSHOT from the shaded jar.
+[INFO] Excluding org.jacamo:checkpoint-runtime:jar:1.0.0-SNAPSHOT from the shaded jar.
+[INFO] Excluding org.ow2.asm:asm:jar:9.7 from the shaded jar.
+[INFO] Excluding io.github.jason-lang:jason-interpreter:jar:3.3.2-checkpoint-SNAPSHOT from the shaded jar.
+[INFO] Excluding net.sf.ingenias:jade:jar:4.3 from the shaded jar.
+[INFO] Excluding javax.json:javax.json-api:jar:1.1.4 from the shaded jar.
+[INFO] Excluding org.jacamo:cartago:jar:3.1-checkpoint-SNAPSHOT from the shaded jar.
+[INFO] Excluding org.jacamo:jaca:jar:3.1 from the shaded jar.
+[INFO] Excluding org.jacamo:moise:jar:1.1 from the shaded jar.
+[INFO] Excluding org.jacamo:npl:jar:0.6.1-checkpoint-SNAPSHOT from the shaded jar.
+[INFO] Excluding org.jacamo:intmas:jar:1.0.0 from the shaded jar.
+[INFO] Excluding org.jacamo:sai:jar:0.5.4 from the shaded jar.
+[INFO] Excluding org.jacamo:jacamo-rest:jar:0.9-SNAPSHOT from the shaded jar.
+[INFO] Excluding org.apache.ant:ant:jar:1.10.5 from the shaded jar.
+[INFO] Excluding org.apache.ant:ant-launcher:jar:1.10.5 from the shaded jar.
+[INFO] Excluding javax.xml.bind:jaxb-api:jar:2.3.1 from the shaded jar.
+[INFO] Excluding javax.activation:javax.activation-api:jar:1.2.0 from the shaded jar.
+[INFO] Excluding com.sun.xml.bind:jaxb-core:jar:2.3.0.1 from the shaded jar.
+[INFO] Excluding com.sun.xml.bind:jaxb-impl:jar:2.3.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.containers:jersey-container-servlet:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.core:jersey-common:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2:osgi-resource-locator:jar:1.0.3 from the shaded jar.
+[INFO] Excluding com.sun.activation:jakarta.activation:jar:1.2.1 from the shaded jar.
+[INFO] Excluding jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2.external:jakarta.inject:jar:2.6.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.inject:jersey-hk2:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2:hk2-locator:jar:2.6.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2:hk2-api:jar:2.6.1 from the shaded jar.
+[INFO] Excluding org.glassfish.hk2:hk2-utils:jar:2.6.1 from the shaded jar.
+[INFO] Excluding org.javassist:javassist:jar:3.22.0-CR2 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey:jersey-bom:pom:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.core:jersey-server:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.media:jersey-media-jaxb:jar:2.29.1 from the shaded jar.
+[INFO] Excluding jakarta.annotation:jakarta.annotation-api:jar:1.3.5 from the shaded jar.
+[INFO] Excluding jakarta.validation:jakarta.validation-api:jar:2.0.2 from the shaded jar.
+[INFO] Excluding jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2 from the shaded jar.
+[INFO] Excluding jakarta.activation:jakarta.activation-api:jar:1.2.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.core:jersey-client:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.media:jersey-media-multipart:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.jvnet.mimepull:mimepull:jar:1.9.11 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.media:jersey-media-json-jackson:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.ext:jersey-entity-filtering:jar:2.29.1 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.9.9 from the shaded jar.
+[INFO] Excluding org.glassfish.jersey.containers:jersey-container-grizzly2-http:jar:2.29.1 from the shaded jar.
+[INFO] Excluding org.glassfish.grizzly:grizzly-http-server:jar:2.4.4 from the shaded jar.
+[INFO] Excluding org.glassfish.grizzly:grizzly-http:jar:2.4.4 from the shaded jar.
+[INFO] Excluding org.glassfish.grizzly:grizzly-framework:jar:2.4.4 from the shaded jar.
+[INFO] Excluding com.google.code.gson:gson:jar:2.8.5 from the shaded jar.
+[INFO] Excluding commons-io:commons-io:jar:2.6 from the shaded jar.
+[INFO] Excluding io.swagger:swagger-annotations:jar:1.6.5 from the shaded jar.
+[INFO] Excluding guru.nidi:graphviz-java:jar:0.7.0 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-rasterizer:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-svgrasterizer:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-parser:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-codec:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-awt-util:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-bridge:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-anim:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-ext:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-css:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-dom:jar:1.10 from the shaded jar.
+[INFO] Excluding xalan:xalan:jar:2.7.2 from the shaded jar.
+[INFO] Excluding xalan:serializer:jar:2.7.2 from the shaded jar.
+[INFO] Excluding xml-apis:xml-apis:jar:1.3.04 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-gvt:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-script:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-svg-dom:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-xml:jar:1.10 from the shaded jar.
+[INFO] Excluding xml-apis:xml-apis-ext:jar:1.3.04 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-transcoder:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-svggen:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-util:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-constants:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:batik-i18n:jar:1.10 from the shaded jar.
+[INFO] Excluding org.apache.xmlgraphics:xmlgraphics-commons:jar:2.3 from the shaded jar.
+[INFO] Excluding net.arnx:nashorn-promise:jar:0.1.1 from the shaded jar.
+[INFO] Excluding com.eclipsesource.j2v8:j2v8_macosx_x86_64:jar:4.6.0 from the shaded jar.
+[INFO] Excluding com.eclipsesource.j2v8:j2v8_linux_x86_64:jar:4.6.0 from the shaded jar.
+[INFO] Excluding com.eclipsesource.j2v8:j2v8_win32_x86_64:jar:4.6.0 from the shaded jar.
+[INFO] Excluding com.eclipsesource.j2v8:j2v8_win32_x86:jar:4.6.0 from the shaded jar.
+[INFO] Excluding org.apache.commons:commons-exec:jar:1.3 from the shaded jar.
+[INFO] Excluding com.google.code.findbugs:jsr305:jar:3.0.2 from the shaded jar.
+[INFO] Excluding org.slf4j:jcl-over-slf4j:jar:1.7.25 from the shaded jar.
+[INFO] Excluding org.slf4j:jul-to-slf4j:jar:1.7.25 from the shaded jar.
+[INFO] Excluding org.slf4j:slf4j-api:jar:1.7.25 from the shaded jar.
+[INFO] Excluding org.apache.logging.log4j:log4j-slf4j2-impl:jar:2.23.1 from the shaded jar.
+[INFO] Excluding org.apache.logging.log4j:log4j-api:jar:2.23.1 from the shaded jar.
+[INFO] Excluding org.apache.logging.log4j:log4j-core:jar:2.23.1 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-core:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.netty:netty-common:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-buffer:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-transport:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-handler:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-codec:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-handler-proxy:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-codec-socks:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-codec-http:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-codec-http2:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-resolver:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-resolver-dns:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding io.netty:netty-codec-dns:jar:4.1.30.Final from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-core:jar:2.9.8 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-sync:jar:3.7.0 from the shaded jar.
+[INFO] Excluding co.paralleluniverse:quasar-core:jar:jdk8:0.7.10 from the shaded jar.
+[INFO] Excluding com.esotericsoftware:kryo:jar:4.0.0 from the shaded jar.
+[INFO] Excluding com.esotericsoftware:reflectasm:jar:1.11.3 from the shaded jar.
+[INFO] Excluding com.esotericsoftware:minlog:jar:1.3.0 from the shaded jar.
+[INFO] Excluding org.objenesis:objenesis:jar:2.2 from the shaded jar.
+[INFO] Excluding de.javakaffee:kryo-serializers:jar:0.42 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-unit:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-web:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-web-common:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-auth-common:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-bridge-common:jar:3.7.0 from the shaded jar.
+[INFO] Excluding io.vertx:vertx-web-client:jar:3.7.0 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-databind:jar:2.9.8 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0 from the shaded jar.
+[INFO] Excluding org.glassfish:javax.json:jar:1.0.4 from the shaded jar.
+[WARNING] antlr4-runtime-4.9.3.jar, use-jacamo-plugin-1.0.1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-jacamo-plugin-1.0.1.jar with D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-plugin-1.0.1-shaded.jar
+[INFO] 
+[INFO] --- assembly:3.7.1:single (plugins-distribution) @ use-plugin ---
+[INFO] Reading assembly descriptor: src/assembly/plugins.xml
+[INFO] Building zip: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\target\use-modeling-tools-1.0.1-release.zip
+[INFO] 
+[INFO] ----------------------< org.tzi.use:use-assembly >----------------------
+[INFO] Building use-assembly 7.5.0                                        [5/5]
+[INFO]   from use-assembly\pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.8.1:unpack (stage-jacamo-plugin-distribution) @ use-assembly ---
+[INFO] Configured Artifact: org.tzi.use:use-plugin:release:1.0.1:zip
+[INFO] 
+[INFO] --- assembly:3.3.0:single (make-assembly) @ use-assembly ---
+[WARNING]  Parameter 'finalName' is read-only, must not be used in configuration
+[INFO] Reading assembly descriptor: src/assembly/assembly.xml
+[INFO] Building zip: D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\use-7.5.0-use-bin.zip
+[INFO] 
+[INFO] --- antrun:3.1.0:run (publish-latest-runnable-install) @ use-assembly ---
+[INFO] Executing tasks
+[INFO]    [delete] Deleting directory D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging
+[INFO]     [mkdir] Created dir: D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging
+[INFO]     [unzip] Expanding: D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\use-7.5.0-use-bin.zip into D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging
+[INFO]     [mkdir] Created dir: D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new\work
+[INFO]    [delete] Deleting directory D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] use 7.5.0 .......................................... SUCCESS [  0.000 s]
+[INFO] use-core 7.5.0 ..................................... SUCCESS [ 18.162 s]
+[INFO] use-gui 7.5.0 ...................................... SUCCESS [ 25.346 s]
+[INFO] USE CSL, OAL, iStar and JaCaMo plugins 1.0.1 ....... SUCCESS [ 11.373 s]
+[INFO] use-assembly 7.5.0 ................................. FAILURE [ 11.989 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:06 min
+[INFO] Finished at: 2026-11-24T02:17:06+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:3.1.0:run (publish-latest-runnable-install) on project use-assembly: An Ant BuildException has occured: Unable to delete file D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new\bridge\state\ant-1.10.5.jar
+[ERROR] around Ant part ...<delete dir="D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target/new" />... @ 15:82 in D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\antrun\build-main.xml
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :use-assembly

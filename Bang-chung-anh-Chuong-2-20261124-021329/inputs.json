@@ -1,0 +1,22 @@
+{
+  "auction.jcm": {
+    "source_sha256": "c766fb0dc5fc6f4085cf6c1fc26d2df09229256c2e6138dfd4d44ef21fb7d2fb",
+    "mrv_sha256": "c766fb0dc5fc6f4085cf6c1fc26d2df09229256c2e6138dfd4d44ef21fb7d2fb",
+    "same": true
+  },
+  "attribute-mapping.xml": {
+    "source_sha256": "3bc38ba17d93ecb15cc1780fb95c57d7633b124402cd64625921e7676dd534ca",
+    "mrv_sha256": "3bc38ba17d93ecb15cc1780fb95c57d7633b124402cd64625921e7676dd534ca",
+    "same": true
+  },
+  "auction.csl": {
+    "source_sha256": "a5e938c885ae350b25f5238cbd30e7524f582e9c1978c150357ab3222b0b4b18",
+    "mrv_sha256": "a5e938c885ae350b25f5238cbd30e7524f582e9c1978c150357ab3222b0b4b18",
+    "same": true
+  },
+  "auction.istar": {
+    "source_sha256": "c8e87fa3dcb9cfa44e5c608400a375ec15e1e171dd9ea474591d2f0f60de2c13",
+    "mrv_sha256": "c8e87fa3dcb9cfa44e5c608400a375ec15e1e171dd9ea474591d2f0f60de2c13",
+    "same": true
+  }
+}

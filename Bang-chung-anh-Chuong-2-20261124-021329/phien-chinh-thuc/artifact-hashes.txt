@@ -1,0 +1,10 @@
+
+Algorithm : SHA256
+Hash      : 46569E4095B9F5CCB1F7D7B7B1643611ACA11F3ADA462343503727DE2DDE3EF3
+Path      : D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\lib\plugins\use-jacamo-plugin-1.0.1.jar
+
+Algorithm : SHA256
+Hash      : AA1E7C48C8DD3015A59541B3E1715AACE3EC3B6F886820E24F0D64245E8831A7
+Path      : D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\src\main\resources\example\auction\auction.mrv
+
+
