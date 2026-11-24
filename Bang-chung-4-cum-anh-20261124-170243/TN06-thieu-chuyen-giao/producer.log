@@ -1,0 +1,42 @@
+
+
+*** The jason.jar from classpath is different than jason.jar from configuration, consider to delete the configuration (file ~/.jason/user.properties) or 'unset JASON_HOME'.
+Classpath is
+   D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jason-interpreter-3.3.2-checkpoint-SNAPSHOT.jar
+Config    is
+   /D:/_CODE_BANK/Project_/08_Thesis/use/use-assembly/target/new-staging/bridge/state/jason-interpreter-3.3.2-checkpoint-SNAPSHOT.jar
+
+
+Using the jason.jar from classpath
+
+CArtAgO Http Server running on http://192.168.0.103:3273
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Agent mind inspector is running at http://192.168.0.103:3272
+STATE_PRODUCER_READY run=0ad85523-af78-410c-8082-e51edb734f1d agents=2
+Moise Http Server running on http://192.168.0.103:3271
+STATE_CHECKPOINT sequence=1 agent= plan=INITIAL outcome=INITIAL boundary=INITIAL merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=2 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-cartago.asl:7:16:+!jcm::focus_env_art([H|T],Try) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=6 decision=APPROVE
+STATE_CHECKPOINT sequence=3 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-cartago.asl:7:16:+!jcm::focus_env_art([H|T],Try) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=6 decision=APPROVE
+STATE_CHECKPOINT sequence=4 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:19:23:+!jcm::initial_roles([H|T],Try) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=3 decision=APPROVE
+STATE_CHECKPOINT sequence=5 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:19:23:+!jcm::initial_roles([H|T],Try) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=3 decision=APPROVE
+STATE_CHECKPOINT sequence=6 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_55,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=7 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_15,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+The maintenance condition of norm n1 seems to point to a norm id (not ) that does not exit. Therefore 'not ' is considered literally as the maintenance condition!
+The maintenance condition of norm n2 seems to point to a norm id (not ) that does not exit. Therefore 'not ' is considered literally as the maintenance condition!
+The maintenance condition of norm n1 seems to point to a norm id (not ) that does not exit. Therefore 'not ' is considered literally as the maintenance condition!
+The maintenance condition of norm n2 seems to point to a norm id (not ) that does not exit. Therefore 'not ' is considered literally as the maintenance condition!
+STATE_CHECKPOINT sequence=8 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_55,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=9 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_55,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=10 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_15,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=11 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\moise-1.1.jar!/asl/org-obedient.asl:8:28:+obligation(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_59,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=12 agent=alice plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\moise-1.1.jar!/asl/org-obedient.asl:8:28:+obligation(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_59,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=13 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-moise.asl:4:20:+schemes(L)[artifact_name(GroupName),workspace(_15,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=14 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\moise-1.1.jar!/asl/org-obedient.asl:8:28:+obligation(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_19,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=15 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\moise-1.1.jar!/asl/org-obedient.asl:8:28:+obligation(Ag,Norm,committed(Ag,Mission,Scheme),Deadline)[artifact_id(ArtId),workspace(_19,W)] outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=16 agent=bob plan=file:src/agt/auction_capabilities.asl:3:1:+!do_auction(Id,P) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=17 agent=bob plan=file:src/agt/auction_capabilities.asl:3:1:+!do_auction(Id,P) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=0 decision=APPROVE
+VERIFICATION_ORACLE START running=true expected=flight_ticket(athens,paris,date(18,12,2015)) actual=flight_ticket(athens,paris,date(18,12,2015))
+VERIFICATION_ORACLE START running=true expected=flight_ticket(paris,athens,date(15,12,2015)) actual=flight_ticket(paris,athens,date(15,12,2015))
+STATE_CHECKPOINT sequence=18 agent=bob plan=jar:file:D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\moise-1.1.jar!/asl/org-obedient.asl:14:29:+obligation(Ag,Norm,What,Deadline)[artifact_id(ArtId),norm(_20,Un)] outcome=RUNNING boundary=AGENT_HANDOFF merged=3 decision=HOLD_UNVERIFIED

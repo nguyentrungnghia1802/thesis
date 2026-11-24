@@ -1,0 +1,63 @@
+{
+  "mapping": {
+    "folder": "Auction-trong-Word",
+    "run": "3ca479bf-c7a8-47ec-9432-09709c7f55a6",
+    "sequence": 45,
+    "decision": "APPROVE",
+    "boundary": "PLAN_COMPLETED",
+    "values": {
+      "a1": 12.25180855001036,
+      "a2": 61.79266359141802
+    },
+    "image": "mapping-word.png"
+  },
+  "goal": {
+    "folder": "TN05-loi-chuyen-giao",
+    "run": "8ae8adb8-127a-4207-b4d8-5b050bfe6184",
+    "sequence": 22,
+    "decision": "HOLD_FAILURE",
+    "boundary": "AGENT_HANDOFF",
+    "previous": 21,
+    "pass_count": 17,
+    "image": "goal-word.png"
+  },
+  "missing": {
+    "folder": "TN06-thieu-chuyen-giao",
+    "run": "0ad85523-af78-410c-8082-e51edb734f1d",
+    "sequence": 18,
+    "decision": "HOLD_UNVERIFIED",
+    "boundary": "AGENT_HANDOFF",
+    "image": "missing-word.png"
+  },
+  "persistent": {
+    "folder": "TN07-counter-giu-am",
+    "run": "91765262-8005-42dd-a43a-446f4c72443f",
+    "sequence": 3,
+    "decision": "HOLD_FAILURE",
+    "boundary": "PLAN_COMPLETED",
+    "witness": [
+      0,
+      1,
+      2,
+      -1
+    ],
+    "nonnegative": "FAIL",
+    "image": "persistent-word.png"
+  },
+  "restored": {
+    "folder": "TN07-counter-khoi-phuc",
+    "run": "a17facf2-536c-4977-80b5-80e1c498c6e4",
+    "sequence": 3,
+    "decision": "APPROVE",
+    "boundary": "PLAN_COMPLETED",
+    "witness": [
+      0,
+      1,
+      2,
+      -1,
+      2
+    ],
+    "nonnegative": "PASS",
+    "image": "restored-word.png"
+  }
+}

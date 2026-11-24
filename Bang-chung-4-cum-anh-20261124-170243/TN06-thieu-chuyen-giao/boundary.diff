@@ -1,0 +1,11 @@
+--- original-instrumented.asl
++++ handoff-instrumented.asl
+@@ -17,7 +17,7 @@
+ /* plans for organisational goals */
+ 
+ +!start[scheme(Sch)]
+-   <- !verification_start(Sch); !verification_after_start.
++   <- !verification_start(Sch); .send(alice,tell,verification_start_boundary); !verification_after_start.
+ +!verification_start(Sch) <- ?goalArgument(Sch,auction,"Id",Id);
+       ?goalArgument(Sch,auction,"Service",S);
+       makeArtifact(Id,"auction_env.AuctionArtifact",[],ArtId);

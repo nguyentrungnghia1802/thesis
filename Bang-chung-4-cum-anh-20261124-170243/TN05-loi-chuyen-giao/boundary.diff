@@ -1,0 +1,13 @@
+--- original-instrumented.asl
++++ handoff-instrumented.asl
+@@ -34,8 +34,8 @@
+ +!bid[scheme(Sch)]
+    <- ?goalArgument(Sch,auction,"Id",Id);
+       lookupArtifact(Id,AId); focus(AId);
+-      !verification_one_bid(AId,10); !verification_after_bid_1;
+-      !verification_one_bid(AId,20); !verification_after_bid_2.
++      !verification_one_bid(AId,10); .send(bob,tell,verification_bid_first); !verification_after_bid_1;
++      !verification_one_bid(AId,20); .send(bob,tell,verification_bid_second); !verification_after_bid_2.
+ +!verification_one_bid(AId,V) <- bid(V)[artifact_id(AId)].
+ +!verification_after_bid_1 <- verification_oracle.mark("after_bid_1").
+ +!verification_after_bid_2 <- verification_oracle.mark("after_bid_2").
