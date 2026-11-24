@@ -1,0 +1,43 @@
+{
+  "case": "valid_non_improving_bid",
+  "groundTruth": "valid",
+  "faultActivatedIndependently": false,
+  "classification": "NO_FALSE_ALARM",
+  "checkpoints": 28,
+  "exitCode": 0,
+  "decisions": {
+    "APPROVE": 28
+  },
+  "completedAuctions": 2,
+  "failedInvariants": [],
+  "violatedGoals": [],
+  "firstHoldSequence": null,
+  "expectedBlockedProbe": "",
+  "continuationProbeObserved": false,
+  "sourceOracle": {
+    "instrumented": true,
+    "bidCalls": 4,
+    "validNonImprovingCalls": 2,
+    "incorrectBidUpdates": 0,
+    "negativeBidCalls": 0,
+    "startCalls": 2,
+    "startReturnedStopped": 0,
+    "wrongServiceCalls": 0,
+    "stopCalls": 2,
+    "wrongWinnerCalls": 0,
+    "runningWithoutAuctioneerFocus": 0,
+    "nextPlanProbes": {
+      "after_start": 2,
+      "after_bid_1": 2,
+      "after_bid_2": 2
+    },
+    "maximumArtifactCount": 2,
+    "missingRequiredProperties": 0
+  },
+  "wallSeconds": 11.522,
+  "run": "84ca78e2-75a2-4799-be90-a43daa686d88",
+  "lastSequence": 28,
+  "lastBoundary": "PLAN_COMPLETED",
+  "lastDecision": "APPROVE",
+  "fullTraceSha256": "155b81667a4a88fa781cada31a8cc143a03ba65a94e8a92418bd2171ff8e251f"
+}

@@ -1,0 +1,44 @@
+{
+  "run": "b3f63357-fc16-4610-b103-b22eb791a2c1",
+  "sequence": 3,
+  "boundary": "PLAN_COMPLETED",
+  "mergedPlans": 5,
+  "snapshotValues": [
+    [
+      1,
+      [
+        0
+      ]
+    ],
+    [
+      2,
+      [
+        0
+      ]
+    ],
+    [
+      3,
+      [
+        2
+      ]
+    ]
+  ],
+  "decision": "APPROVE",
+  "checks": [
+    [
+      "Counter::Nonnegative",
+      "PASS"
+    ]
+  ],
+  "witness": [
+    "0",
+    "1",
+    "2",
+    "-1",
+    "2"
+  ],
+  "lastSequence": 3,
+  "lastBoundary": "PLAN_COMPLETED",
+  "lastDecision": "APPROVE",
+  "fullTraceSha256": "5d978a6ed0c6df81556294bb555e220d7f118c1b0675effb28cc03c51ba6c07c"
+}

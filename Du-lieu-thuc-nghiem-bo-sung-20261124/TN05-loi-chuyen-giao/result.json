@@ -1,0 +1,215 @@
+{
+  "case": "increasing_best_bid",
+  "groundTruth": "fault",
+  "faultActivatedIndependently": true,
+  "classification": "DETECTED_AND_BLOCKED",
+  "checkpoints": 22,
+  "exitCode": 0,
+  "decisions": {
+    "APPROVE": 21,
+    "HOLD_FAILURE": 1
+  },
+  "completedAuctions": 0,
+  "failedInvariants": [],
+  "violatedGoals": [
+    "BidNeverIncreases"
+  ],
+  "firstHoldSequence": 22,
+  "expectedBlockedProbe": "after_bid_2",
+  "continuationProbeObserved": false,
+  "sourceOracle": {
+    "instrumented": true,
+    "bidCalls": 4,
+    "validNonImprovingCalls": 0,
+    "incorrectBidUpdates": 2,
+    "negativeBidCalls": 0,
+    "startCalls": 2,
+    "startReturnedStopped": 0,
+    "wrongServiceCalls": 0,
+    "stopCalls": 0,
+    "wrongWinnerCalls": 0,
+    "runningWithoutAuctioneerFocus": 0,
+    "nextPlanProbes": {
+      "after_start": 2,
+      "after_bid_1": 2
+    },
+    "maximumArtifactCount": 2,
+    "missingRequiredProperties": 0
+  },
+  "run": "f4cd8445-47fc-431b-aa80-ac9a3249fad5",
+  "operatorCheckpoints": [
+    {
+      "seq": 20,
+      "agent": "alice",
+      "boundary": "AGENT_HANDOFF",
+      "complete": true,
+      "decision": "APPROVE",
+      "diagnostic": "",
+      "auctionValues": [
+        [
+          "a1",
+          10
+        ],
+        [
+          "a2",
+          10
+        ]
+      ],
+      "invariants": [
+        [
+          "Auction::RunningAuctionIsObserved",
+          "PASS"
+        ],
+        [
+          "Auction::ValidBid",
+          "PASS"
+        ],
+        [
+          "OrgContext::CslV4RoleCompatibility",
+          "PASS"
+        ],
+        [
+          "OrgContext::NoSelfMembership",
+          "PASS"
+        ],
+        [
+          "auctionGroup::AuctioneerPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::ParticipantPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::UniqueAuctionId",
+          "PASS"
+        ],
+        [
+          "auction_capabilities::NamedAgentContext",
+          "PASS"
+        ]
+      ],
+      "receiptMatches": true
+    },
+    {
+      "seq": 21,
+      "agent": "alice",
+      "boundary": "AGENT_HANDOFF",
+      "complete": true,
+      "decision": "APPROVE",
+      "diagnostic": "",
+      "auctionValues": [
+        [
+          "a1",
+          10
+        ],
+        [
+          "a2",
+          10
+        ]
+      ],
+      "invariants": [
+        [
+          "Auction::RunningAuctionIsObserved",
+          "PASS"
+        ],
+        [
+          "Auction::ValidBid",
+          "PASS"
+        ],
+        [
+          "OrgContext::CslV4RoleCompatibility",
+          "PASS"
+        ],
+        [
+          "OrgContext::NoSelfMembership",
+          "PASS"
+        ],
+        [
+          "auctionGroup::AuctioneerPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::ParticipantPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::UniqueAuctionId",
+          "PASS"
+        ],
+        [
+          "auction_capabilities::NamedAgentContext",
+          "PASS"
+        ]
+      ],
+      "receiptMatches": true
+    },
+    {
+      "seq": 22,
+      "agent": "alice",
+      "boundary": "AGENT_HANDOFF",
+      "complete": true,
+      "decision": "HOLD_FAILURE",
+      "diagnostic": "",
+      "auctionValues": [
+        [
+          "a1",
+          20
+        ],
+        [
+          "a2",
+          20
+        ]
+      ],
+      "invariants": [
+        [
+          "Auction::RunningAuctionIsObserved",
+          "PASS"
+        ],
+        [
+          "Auction::ValidBid",
+          "PASS"
+        ],
+        [
+          "OrgContext::CslV4RoleCompatibility",
+          "PASS"
+        ],
+        [
+          "OrgContext::NoSelfMembership",
+          "PASS"
+        ],
+        [
+          "auctionGroup::AuctioneerPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::ParticipantPopulation",
+          "PASS"
+        ],
+        [
+          "auctionGroup::UniqueAuctionId",
+          "PASS"
+        ],
+        [
+          "auction_capabilities::NamedAgentContext",
+          "PASS"
+        ]
+      ],
+      "receiptMatches": true
+    }
+  ],
+  "snapshotBeforeHold": [
+    [
+      "a1",
+      10
+    ],
+    [
+      "a2",
+      10
+    ]
+  ],
+  "lastSequence": 22,
+  "lastBoundary": "AGENT_HANDOFF",
+  "lastDecision": "HOLD_FAILURE",
+  "fullTraceSha256": "8018a4fe836aa3f16d4ad4aad076ab4d06086fb6fbd51b5f27956d49c90fe7ae"
+}

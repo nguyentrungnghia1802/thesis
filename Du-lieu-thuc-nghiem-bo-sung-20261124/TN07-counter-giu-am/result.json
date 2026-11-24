@@ -1,0 +1,43 @@
+{
+  "run": "8e90e323-2d2c-43f7-89d7-8e840deae297",
+  "sequence": 3,
+  "boundary": "PLAN_COMPLETED",
+  "mergedPlans": 4,
+  "snapshotValues": [
+    [
+      1,
+      [
+        0
+      ]
+    ],
+    [
+      2,
+      [
+        0
+      ]
+    ],
+    [
+      3,
+      [
+        -1
+      ]
+    ]
+  ],
+  "decision": "HOLD_FAILURE",
+  "checks": [
+    [
+      "Counter::Nonnegative",
+      "FAIL"
+    ]
+  ],
+  "witness": [
+    "0",
+    "1",
+    "2",
+    "-1"
+  ],
+  "lastSequence": 3,
+  "lastBoundary": "PLAN_COMPLETED",
+  "lastDecision": "HOLD_FAILURE",
+  "fullTraceSha256": "69a0ce771667ee94ea045e1c0e1569df72581aba7a2b7ed057c821109b836a51"
+}

@@ -1,0 +1,14 @@
+CArtAgO Http Server running on http://172.26.91.248:3273
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Agent mind inspector is running at http://172.26.91.248:3272
+STATE_PRODUCER_READY run=b3f63357-fc16-4610-b103-b22eb791a2c1 agents=1
+STATE_CHECKPOINT sequence=1 agent= plan=INITIAL outcome=INITIAL boundary=INITIAL merged=0 decision=APPROVE
+STATE_CHECKPOINT sequence=2 agent=alice plan=jar:file:/home/agent/.m2/repository/org/jacamo/jacamo/1.3.1-checkpoint-SNAPSHOT/jacamo-1.3.1-checkpoint-SNAPSHOT.jar!/templates/common-cartago.asl:7:9:+!jcm::focus_env_art([H|T],Try) outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=4 decision=APPROVE
+COUNTER_WITNESS value=0
+COUNTER_WITNESS value=1
+COUNTER_WITNESS value=2
+COUNTER_WITNESS value=-1
+COUNTER_WITNESS value=2
+STATE_CHECKPOINT sequence=3 agent=alice plan=file:src/agt/counter.asl:4:1:+!run outcome=SUCCEEDED boundary=PLAN_COMPLETED merged=5 decision=APPROVE

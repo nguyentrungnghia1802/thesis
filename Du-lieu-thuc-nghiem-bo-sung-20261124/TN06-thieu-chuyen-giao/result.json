@@ -1,0 +1,62 @@
+{
+  "case": "missing_property",
+  "groundTruth": "coverage",
+  "faultActivatedIndependently": true,
+  "classification": "UNVERIFIED_AND_BLOCKED",
+  "checkpoints": 18,
+  "exitCode": 0,
+  "decisions": {
+    "APPROVE": 17,
+    "HOLD_UNVERIFIED": 1
+  },
+  "completedAuctions": 0,
+  "failedInvariants": [],
+  "violatedGoals": [],
+  "firstHoldSequence": 18,
+  "expectedBlockedProbe": "after_start",
+  "continuationProbeObserved": false,
+  "sourceOracle": {
+    "instrumented": true,
+    "bidCalls": 0,
+    "validNonImprovingCalls": 0,
+    "incorrectBidUpdates": 0,
+    "negativeBidCalls": 0,
+    "startCalls": 2,
+    "startReturnedStopped": 0,
+    "wrongServiceCalls": 0,
+    "stopCalls": 0,
+    "wrongWinnerCalls": 0,
+    "runningWithoutAuctioneerFocus": 0,
+    "nextPlanProbes": {},
+    "maximumArtifactCount": 2,
+    "missingRequiredProperties": 2
+  },
+  "run": "1f7bdc1d-200f-4fc3-ba81-da981cd48550",
+  "operatorCheckpoints": [
+    {
+      "seq": 18,
+      "agent": "bob",
+      "boundary": "AGENT_HANDOFF",
+      "complete": true,
+      "decision": "HOLD_UNVERIFIED",
+      "diagnostic": "IllegalArgumentException:ATTRIBUTE_VALUE_MISSING:Auction.best_bid",
+      "auctionValues": [
+        [
+          "a1",
+          null
+        ],
+        [
+          "a2",
+          null
+        ]
+      ],
+      "invariants": [],
+      "receiptMatches": true
+    }
+  ],
+  "snapshotBeforeHold": [],
+  "lastSequence": 18,
+  "lastBoundary": "AGENT_HANDOFF",
+  "lastDecision": "HOLD_UNVERIFIED",
+  "fullTraceSha256": "4888d329079e14cbd41ae331adc9185ff59859951e3792efaae66ec0ef7c4ff9"
+}

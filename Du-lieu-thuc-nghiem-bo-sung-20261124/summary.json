@@ -1,0 +1,58 @@
+{
+  "TN05-hop-le-gom-plan": {
+    "run": "84ca78e2-75a2-4799-be90-a43daa686d88",
+    "lastSequence": 28,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "APPROVE",
+    "fullTraceSha256": "155b81667a4a88fa781cada31a8cc143a03ba65a94e8a92418bd2171ff8e251f"
+  },
+  "TN05-loi-gom-plan": {
+    "run": "7cd97fb6-6bee-439d-867e-b9adc7f09890",
+    "lastSequence": 27,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "APPROVE",
+    "fullTraceSha256": "e84dc91238c51b57266e9b1f66f495b6b3b1c10ed97f876737bf14b8d382ab68"
+  },
+  "TN05-hop-le-chuyen-giao": {
+    "run": "fc782eef-26c0-495a-80dc-d5ef1416d9f5",
+    "lastSequence": 31,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "APPROVE",
+    "fullTraceSha256": "0ff8da0fa3ede27720a5611ed7bc6b5daf24ffd30dc42b78fafc88c12feb0cd6"
+  },
+  "TN05-loi-chuyen-giao": {
+    "run": "f4cd8445-47fc-431b-aa80-ac9a3249fad5",
+    "lastSequence": 22,
+    "lastBoundary": "AGENT_HANDOFF",
+    "lastDecision": "HOLD_FAILURE",
+    "fullTraceSha256": "8018a4fe836aa3f16d4ad4aad076ab4d06086fb6fbd51b5f27956d49c90fe7ae"
+  },
+  "TN06-thieu-gom-plan": {
+    "run": "749062c0-b48d-4809-a11f-b6b9b1d9c966",
+    "lastSequence": 18,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "HOLD_UNVERIFIED",
+    "fullTraceSha256": "2b1608e45c37164cb6b552f8ea9aa2a9e77e749021e4ebcde68dda05b9ee9257"
+  },
+  "TN06-thieu-chuyen-giao": {
+    "run": "1f7bdc1d-200f-4fc3-ba81-da981cd48550",
+    "lastSequence": 18,
+    "lastBoundary": "AGENT_HANDOFF",
+    "lastDecision": "HOLD_UNVERIFIED",
+    "fullTraceSha256": "4888d329079e14cbd41ae331adc9185ff59859951e3792efaae66ec0ef7c4ff9"
+  },
+  "TN07-counter-giu-am": {
+    "run": "8e90e323-2d2c-43f7-89d7-8e840deae297",
+    "lastSequence": 3,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "HOLD_FAILURE",
+    "fullTraceSha256": "69a0ce771667ee94ea045e1c0e1569df72581aba7a2b7ed057c821109b836a51"
+  },
+  "TN07-counter-khoi-phuc": {
+    "run": "b3f63357-fc16-4610-b103-b22eb791a2c1",
+    "lastSequence": 3,
+    "lastBoundary": "PLAN_COMPLETED",
+    "lastDecision": "APPROVE",
+    "fullTraceSha256": "5d978a6ed0c6df81556294bb555e220d7f118c1b0675effb28cc03c51ba6c07c"
+  }
+}

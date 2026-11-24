@@ -1,0 +1,42 @@
+{
+  "case": "missing_property",
+  "groundTruth": "coverage",
+  "faultActivatedIndependently": true,
+  "classification": "COVERAGE_GUARD_FAILED",
+  "checkpoints": 18,
+  "exitCode": 0,
+  "decisions": {
+    "APPROVE": 17,
+    "HOLD_UNVERIFIED": 1
+  },
+  "completedAuctions": 0,
+  "failedInvariants": [],
+  "violatedGoals": [],
+  "firstHoldSequence": 18,
+  "expectedBlockedProbe": "after_start",
+  "continuationProbeObserved": true,
+  "sourceOracle": {
+    "instrumented": true,
+    "bidCalls": 0,
+    "validNonImprovingCalls": 0,
+    "incorrectBidUpdates": 0,
+    "negativeBidCalls": 0,
+    "startCalls": 2,
+    "startReturnedStopped": 0,
+    "wrongServiceCalls": 0,
+    "stopCalls": 0,
+    "wrongWinnerCalls": 0,
+    "runningWithoutAuctioneerFocus": 0,
+    "nextPlanProbes": {
+      "after_start": 2
+    },
+    "maximumArtifactCount": 2,
+    "missingRequiredProperties": 2
+  },
+  "wallSeconds": 11.208,
+  "run": "749062c0-b48d-4809-a11f-b6b9b1d9c966",
+  "lastSequence": 18,
+  "lastBoundary": "PLAN_COMPLETED",
+  "lastDecision": "HOLD_UNVERIFIED",
+  "fullTraceSha256": "2b1608e45c37164cb6b552f8ea9aa2a9e77e749021e4ebcde68dda05b9ee9257"
+}
