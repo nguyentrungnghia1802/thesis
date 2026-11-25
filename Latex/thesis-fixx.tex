@@ -1041,7 +1041,9 @@ Phép ánh xạ bảo toàn định danh để mỗi đối tượng có lịch 
 
 \chapter{THỰC NGHIỆM}\label{sec:3}
 
-Chương này trình bày phần mềm hiện thực hóa phương pháp ở Chương~\ref{sec:2} và đánh giá phần mềm trên hai hệ thống JaCaMo. Auction được dùng để kiểm tra phép chiếu trạng thái và theo dõi mục tiêu của hai cuộc đấu giá diễn ra trong cùng một lần chạy. Counter có một thuộc tính số, giúp đối chiếu trực tiếp thời điểm phát sinh vi phạm với thời điểm bộ kiểm chứng có thể phát hiện vi phạm. Các ca thử bao gồm lần chạy thông thường, các biến thể có lỗi hoặc thiếu dữ liệu và một lần đánh giá lại vết đã ghi. Kết quả được phân tích dựa trên hành vi kỳ vọng của từng ca và bằng chứng thu được tại nguồn lẫn trong USE.
+Phương pháp trình bày ở Chương~\ref{sec:2} được triển khai dưới dạng một phần mở rộng của USE để kiểm chứng hệ thống JaCaMo trong quá trình thực thi. Thực nghiệm trên hai chương trình Auction và Counter xem xét khả năng dựng trạng thái đối tượng từ dữ liệu quan sát, kiểm tra bất biến trên từng trạng thái và theo dõi tiến độ mục tiêu qua các lần quan sát. Kết quả kiểm chứng được đối chiếu với hành vi của JaCaMo tại các điểm dừng tương ứng.
+
+Chương này trình bày kiến trúc phần mềm, hướng dẫn cài đặt và cách thực hiện các kịch bản kiểm thử. Kết quả của từng kịch bản được phân tích theo các tiêu chí đã xác định, làm cơ sở để thảo luận phạm vi áp dụng của công cụ và những hạn chế của phương pháp.
 
 \section{Kiến trúc phần mềm}\label{sec:3-1}
 
