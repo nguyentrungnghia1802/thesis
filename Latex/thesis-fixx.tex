@@ -770,7 +770,7 @@ Trong bài báo, Task có kết quả chưa xác định khi tiền điều ki�
 \caption{Mô hình iStar đầy đủ của Auction.}\label{fig:2-4}
 \end{figure}
 
-Hình~\ref{fig:2-4} trình bày đầy đủ bốn chủ thể trong thẻ iStar Model của USE. Ở AuctionGroup, mục tiêu AuctionCompleted được tinh chỉnh theo AND thành ba nhánh mở phiên, trả giá và quyết định kết quả. Các quan hệ phụ thuộc nét đứt nối những nhánh này với mục tiêu tương ứng của hai vai trò Auctioneer và Participant. Ở phía dưới, chủ thể \texttt{auction\_capabilities} tham gia cả hai vai trò và phân rã công việc thành các nhiệm vụ cụ thể, từ tạo artifact đến quan sát mức giá và đóng phiên.
+Hình~\ref{fig:2-4} trình bày bốn chủ thể trong thẻ iStar Model của USE. Agent \emph{AuctionGroup} có nét ngang phía trên. Hai vai trò \emph{Auctioneer} và \emph{Participant} có nét cong ở đáy. Trong phạm vi của AuctionGroup, mục tiêu \emph{AuctionCompleted} được tinh chỉnh theo AND thành ba nhánh mở phiên, trả giá và quyết định kết quả. Các đường mang dấu D đi qua các phần tử được trông cậy (\emph{dependum}) để nối ba nhánh với mục tiêu tương ứng của hai vai trò. Chủ thể \texttt{auction\_capabilities} tham gia cả hai vai trò và đảm nhiệm các công việc từ tạo artifact đến quan sát mức giá và đóng phiên.
 
 Goal được vẽ bằng hình elip và ghi kiểu thời gian dưới tên. Chẳng hạn, SafeBid có kiểu Maintain và dùng điều kiện giá tốt nhất không âm. Task được vẽ bằng hình lục giác. Tùy chọn Show OCL contracts hiển thị thêm điều kiện, tiền điều kiện và hậu điều kiện trên mô hình. Khi chuyển sang thẻ iStarSCN, người dùng chọn từng đối tượng Auction để xem kết quả đánh giá riêng của đối tượng đó, như hai phiên ở Mục~\ref{sec:3-4-1}.
 
@@ -1147,7 +1147,7 @@ Bản thực nghiệm sử dụng USE 7.5.0 và plugin JaCaMo 1.0.1. Để tạo
 \begin{Verbatim}
 git clone https://github.com/nguyentrungnghia1802/use.git
 cd use
-git checkout 5b6a3542d22a67c25fdb1768de54d7cfec15781d
+git checkout 9a1e377d9802587abe4299a4247ce03f943473a6
 python3 use-plugin/tools/install-runtime.py
 mvn -B package -Dmaven.test.skip=true
 \end{Verbatim}
@@ -1212,7 +1212,7 @@ Trong TN01, hai artifact Auction được chiếu thành hai đối tượng ri�
 \caption{Tiến độ ghi nhận lượt trả giá cải thiện của a1 và a2.}\label{fig:3-auction-progress}
 \end{figure}
 
-Hai khung của Hình~\ref{fig:3-auction-progress} giữ nguyên mốc quan sát và đổi lựa chọn \emph{Execution}. Ở khung (a), a1 đã có giá tốt nhất khoảng 109,69, vì vậy nhiệm vụ ghi nhận lượt trả giá cải thiện (\emph{ObserveBid}) đã đạt. Ở khung (b), cùng nhiệm vụ của a2 còn chờ vì giá vẫn ở mức khởi tạo. JaCaMo được phép tiếp tục tại thời điểm đó. Trong vết gốc dùng cho TN02, a2 đạt nhiệm vụ trước a1. Hai thứ tự quan sát cho thấy kết quả thuộc về từng đối tượng và không phụ thuộc vào việc cuộc nào cải thiện giá trước.
+Hai khung của Hình~\ref{fig:3-auction-progress} giữ nguyên mốc quan sát và đổi lựa chọn \emph{Execution}. Ở khung (a), a1 vẫn giữ giá khởi tạo nên nhiệm vụ ghi nhận lượt trả giá cải thiện (\emph{ObserveBid}) còn chờ. Ở khung (b), a2 đã ghi nhận một lượt trả giá tốt hơn nên cùng nhiệm vụ được đánh dấu đạt. Hai trạng thái được ghi riêng theo từng phiên đấu giá. USE trả quyết định cho JaCaMo tiếp tục tại mốc này.
 
 \begin{figure}
 \centering
