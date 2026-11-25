@@ -13,3 +13,19 @@ latexmk -xelatex -outdir=build thesis-fixx.tex
 ```
 
 PDF được tạo ở `build/thesis-fixx.pdf`. Trên Overleaf, tải lên `thesis-fixx.tex` cùng thư mục `figures/`, đặt `thesis-fixx.tex` làm tệp chính và chọn XeLaTeX.
+
+## Đánh giá lại vết Auction
+
+Chạy gói mẫu `auction.mrv` trong USE. Sau khi lần chạy kết thúc, sao chép đường dẫn thư mục hiển thị sau dòng **Run evidence** trong thẻ **Console**. Từ thư mục gốc của kho USE đã đóng gói, chạy các lệnh Bash dưới đây và dán đường dẫn thư mục khi được hỏi.
+
+```bash
+read -r -p 'Run evidence: ' run_dir
+example_dir=use-assembly/target/new/examples/auction
+java -cp 'use-assembly/target/new/bridge/state/*' \
+  org.tzi.use.plugins.jacamo.entrypoint.ReplayMain \
+  "$example_dir/attribute-mapping.xml" \
+  "$example_dir/auction.csl" "$example_dir/auction.istar" \
+  "$run_dir/consumer-history.jsonl" replay.json
+```
+
+Tệp `replay.json` được ghi vào thư mục hiện hành. Để kiểm tra TN02, đối chiếu quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng mốc với vết của lần chạy gốc.

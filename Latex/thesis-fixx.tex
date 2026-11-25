@@ -1118,27 +1118,13 @@ Hình~\ref{fig:3-launch} minh họa thao tác sau khi USE mở. Trong trình đ�
 
 Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu nguồn và khung bên phải trình bày kết quả USE. Để đối chiếu một trạng thái, chọn một hàng ở thẻ \emph{Checkpoints}. Xem các dòng a1 và a2 ở thẻ \emph{Artifacts}, sau đó chuyển qua \emph{OAL State}, \emph{OCL} và \emph{iStarSCN} để lần lượt xem đối tượng đích, kết quả bất biến và trạng thái mục tiêu tại mốc đã chọn. Trong \emph{iStarSCN}, mục \emph{Execution} chọn cuộc đấu giá cần xem. \emph{Follow live} đưa cửa sổ về mốc mới nhất. Đường dẫn ghi sau dòng \emph{Run evidence} trong \emph{Console} chỉ tới thư mục chứa vết của phiên.
 
-Sau khi chạy gói mẫu, có thể đánh giá lại vết bằng tiện ích dòng lệnh của USE. Sao chép đường dẫn thư mục hiển thị sau dòng \emph{Run evidence} trong thẻ \emph{Console}. Từ thư mục gốc của kho USE đã đóng gói, chạy các lệnh Bash sau và dán đường dẫn đó khi được hỏi. Kết quả được ghi vào tệp \texttt{replay.json}.
-
-\noindent\begin{minipage}{\linewidth}
-\begin{Verbatim}
-read -r -p 'Run evidence: ' run_dir
-example_dir=use-assembly/target/new/examples/auction
-java -cp 'use-assembly/target/new/bridge/state/*' \
-  org.tzi.use.plugins.jacamo.entrypoint.ReplayMain \
-  "$example_dir/attribute-mapping.xml" \
-  "$example_dir/auction.csl" "$example_dir/auction.istar" \
-  "$run_dir/consumer-history.jsonl" replay.json
-\end{Verbatim}
-\end{minipage}
-
 \subsection{Kịch bản kiểm thử}\label{sec:3-2-2}
 
 TN là viết tắt của thực nghiệm. Bốn kịch bản dưới đây cùng sử dụng ví dụ Auction. Hai kịch bản đầu dùng gói mẫu và vết của lần chạy đó. Hai kịch bản sau thay đổi cách xử lý hoặc dữ liệu công bố để kiểm tra phản hồi của USE.
 
 TN01 theo dõi hai phiên a1 và a2 trong chu trình mở phiên, trả giá và đóng phiên. Đối chiếu giá và mức đạt mục tiêu của từng phiên khi tiến độ khác nhau và khi hai phiên kết thúc.
 
-TN02 đánh giá lại vết TN01 với cùng đặc tả và khai báo ánh xạ. Đối chiếu quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng mốc.
+TN02 đánh giá lại vết TN01 với cùng đặc tả và khai báo ánh xạ. Đối chiếu quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng mốc. \href{https://github.com/nguyentrungnghia1802/thesis/blob/main/Latex/README.md}{\ul{Hướng dẫn chạy lại TN02.}}
 
 TN03 thử hai lượt trả giá 10 rồi 20. Bản hợp lệ giữ giá tốt nhất ở 10, còn bản có lỗi ghi đè thành 20. Mỗi bản được thử với hai cách quan sát, gồm chụp cuối nhóm kế hoạch và chụp ở mốc chuyển giao sau từng lượt trả giá.
 
