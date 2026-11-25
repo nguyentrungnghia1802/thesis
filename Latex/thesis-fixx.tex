@@ -23,7 +23,7 @@
 \usepackage{caption}
 \usepackage{array,longtable,booktabs}
 \usepackage{calc}
-\usepackage{fvextra}
+\usepackage{listings}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage[nottoc]{tocbibind}
@@ -64,11 +64,16 @@
 \floatplacement{figure}{H}
 \captionsetup{font=normalsize,labelfont={bf,small},labelsep=space,justification=centering}
 \captionsetup[table]{position=top}
-\newfloat{thesisalgorithm}{H}{loa}[chapter]
+\newfloat{thesisalgorithm}{H}{loa}
 \floatname{thesisalgorithm}{Thuật toán}
-\captionsetup[thesisalgorithm]{position=top,font=small}
+\captionsetup[thesisalgorithm]{position=top,labelsep=colon,justification=raggedright,singlelinecheck=false,skip=4pt}
 \makeatletter
-\newcommand*{\l@thesisalgorithm}{\l@figure}
+\newcommand*{\l@thesisalgorithm}[2]{%
+  \begingroup
+  \let\thesis@numberline\numberline
+  \def\numberline##1{\thesis@numberline{Thuật toán ##1}}%
+  \@dottedtocline{1}{0em}{7.4em}{\bfseries #1}{#2}%
+  \endgroup}
 \makeatother
 \DeclareRobustCommand{\thesisfigure}[1]{Hình~\ref{#1}}
 \DeclareRobustCommand{\thesistable}[1]{Bảng~\ref{#1}}
@@ -76,7 +81,20 @@
   \par\smallskip\noindent\makebox[\linewidth][c]{\small\textbf{#1}\ #2}\par\nobreak}
 \providecommand{\ul}[1]{\underline{#1}}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\fvset{breaklines=true,breakanywhere=true,fontsize=\small}
+\lstdefinestyle{thesiscode}{
+  basicstyle=\ttfamily\footnotesize,
+  numberstyle=\normalfont\tiny\color{black!60},
+  numbers=left, numbersep=6pt, xleftmargin=1.7em,
+  backgroundcolor=\color{black!5},
+  columns=fullflexible, keepspaces=true, tabsize=4,
+  showstringspaces=false, breaklines=true, breakatwhitespace=false,
+  aboveskip=5pt, belowskip=5pt
+}
+\lstnewenvironment{thesiscode}[1][]{\lstset{style=thesiscode,#1}}{}
+\newenvironment{thesissteps}
+  {\par\noindent\begin{tabular}{@{\hspace{.55em}}!{\color{black!50}\vrule width .35pt}%
+    @{\hspace{.7em}}p{\dimexpr\linewidth-1.45em\relax}@{}}}
+  {\end{tabular}\par}
 \setkeys{Gin}{keepaspectratio}
 
 \newcommand*{\thesiscover}[1]{%
@@ -313,17 +331,17 @@ Hình~\ref{fig:1-1} trích hai ví dụ viết lệnh giao dịch từ sách \em
 \begin{minipage}{0.85\linewidth}
 \raggedright\small
 (a) DSL bên ngoài
-\begin{Verbatim}[fontsize=\small]
+\begin{thesiscode}
 buy IBM @ 100 for NOMURA
-\end{Verbatim}
+\end{thesiscode}
 (b) DSL nội bộ trong Groovy
-\begin{Verbatim}[fontsize=\small]
+\begin{thesiscode}
 newOrder.to.buy(100.shares.of('IBM')) {
   limitPrice   300
   allOrNone    true
   valueAs      {qty, unitPrice -> qty * unitPrice - 500}
 }
-\end{Verbatim}
+\end{thesiscode}
 \end{minipage}
 \caption{Hai cách biểu đạt lệnh giao dịch bằng DSL.}\label{fig:1-1}
 \end{figure}
@@ -616,38 +634,38 @@ Hình~\ref{fig:1-15} cho thấy một trạng thái của mô hình việc làm 
 
 \subsection{OCL và các loại ràng buộc}\label{sec:1-5-2}
 
-OCL là ngôn ngữ biểu thức có kiểu dùng để đặt điều kiện và truy vấn trên mô hình UML. Khai báo context xác định lớp hoặc thao tác mà biểu thức áp dụng, còn self chỉ thể hiện đang được xét. OCL điều hướng qua thuộc tính và liên kết, rồi dùng các phép như forAll hoặc exists để phát biểu điều kiện trên tập hợp đối tượng. Việc đánh giá chỉ đọc mô hình và trạng thái, nên một biểu thức OCL không tự sửa dữ liệu để làm cho ràng buộc trở thành đúng \cite{ref-15}.
+OCL là ngôn ngữ biểu thức có kiểu dùng để đặt điều kiện và truy vấn trên mô hình UML. Khai báo \textit{context} xác định lớp hoặc thao tác mà biểu thức áp dụng, còn \textit{self} chỉ thể hiện đang được xét. OCL điều hướng qua thuộc tính và liên kết, rồi dùng các phép như \textit{forAll} hoặc \textit{exists} để phát biểu điều kiện trên tập hợp đối tượng. Việc đánh giá chỉ đọc mô hình và trạng thái, nên một biểu thức OCL không tự sửa dữ liệu để làm cho ràng buộc trở thành đúng \cite{ref-15}.
 
-Bất biến (invariant, inv) là điều kiện Boolean phải đúng với mọi thể hiện của lớp ngữ cảnh trong mỗi trạng thái hợp lệ. Có thể viết \(\sigma\) \(\vDash\) inv(C) khi biểu thức cho kết quả true với mọi đối tượng thuộc C trong trạng thái \(\sigma\). Bất biến có thể kiểm tra cả dữ liệu của một đối tượng lẫn quan hệ giữa nhiều đối tượng, chẳng hạn tính duy nhất của một thuộc tính trong phạm vi xác định \cite{ref-15}.
+Bất biến (invariant, \textit{inv}) là điều kiện Boolean phải đúng với mọi thể hiện của lớp ngữ cảnh trong mỗi trạng thái hợp lệ. Có thể viết \(\sigma\) \(\vDash\) \textit{inv}(C) khi biểu thức cho kết quả true với mọi đối tượng thuộc C trong trạng thái \(\sigma\). Bất biến có thể kiểm tra cả dữ liệu của một đối tượng lẫn quan hệ giữa nhiều đối tượng, chẳng hạn tính duy nhất của một thuộc tính trong phạm vi xác định \cite{ref-15}.
 
 \begin{samepage}
 
-\thesisdisplaytitle{Đoạn mã 1.1}{Bất biến personNamesAreUnique}
+\thesisdisplaytitle{Đoạn mã 1.1}{Bất biến \textit{personNamesAreUnique}}
 
-\begin{Verbatim}
+\begin{thesiscode}
 context p1:Person inv personNamesAreUnique:
-Person.allInstances->forAll(p2|p1.name=p2.name implies p1=p2)
-\end{Verbatim}
+    Person.allInstances->forAll(p2|p1.name=p2.name implies p1=p2)
+\end{thesiscode}
 
 \end{samepage}
 
-Đoạn mã 1.1 lấy bất biến personNamesAreUnique từ mô hình việc làm~\cite{ref-16}. Với mỗi p1, forAll xét mọi p2 thuộc lớp Person. Phép kéo theo yêu cầu p1 và p2 là cùng một đối tượng nếu tên của chúng trùng nhau, qua đó loại bỏ trường hợp hai người khác nhau có cùng tên.
+Đoạn mã 1.1 lấy bất biến \textit{personNamesAreUnique} từ mô hình việc làm~\cite{ref-16}. Với mỗi \textit{p1}, \textit{forAll} xét mọi \textit{p2} thuộc lớp Person. Phép kéo theo yêu cầu \textit{p1} và \textit{p2} là cùng một đối tượng nếu tên của chúng trùng nhau, qua đó loại bỏ trường hợp hai người khác nhau có cùng tên.
 
-Tiền điều kiện (precondition, pre) và hậu điều kiện (postcondition, post) tạo thành hợp đồng của một thao tác. Tiền điều kiện mô tả điều mà bên gọi phải bảo đảm ngay trước lời gọi, dựa trên đối tượng nhận và các tham số. Hậu điều kiện mô tả điều thao tác phải bảo đảm khi kết thúc một lời gọi thỏa tiền điều kiện. Vì hai điều kiện được xét tại hai thời điểm khác nhau, một thuộc tính có thể xuất hiện trong hậu điều kiện ở cả giá trị sau thao tác và giá trị trước thao tác. OCL dùng @pre để đọc giá trị trước và dùng result để tham chiếu giá trị trả về nếu thao tác khai báo kiểu trả về \cite{ref-15}.
+Tiền điều kiện (precondition, \textit{pre}) và hậu điều kiện (postcondition, \textit{post}) tạo thành hợp đồng của một thao tác. Tiền điều kiện mô tả điều mà bên gọi phải bảo đảm ngay trước lời gọi, dựa trên đối tượng nhận và các tham số. Hậu điều kiện mô tả điều thao tác phải bảo đảm khi kết thúc một lời gọi thỏa tiền điều kiện. Vì hai điều kiện được xét tại hai thời điểm khác nhau, một thuộc tính có thể xuất hiện trong hậu điều kiện ở cả giá trị sau thao tác và giá trị trước thao tác. OCL dùng \textit{@pre} để đọc giá trị trước và dùng \textit{result} để tham chiếu giá trị trả về nếu thao tác khai báo kiểu trả về \cite{ref-15}.
 
 \begin{samepage}
 
-\thesisdisplaytitle{Đoạn mã 1.2}{Hợp đồng của thao tác marry}
+\thesisdisplaytitle{Đoạn mã 1.2}{Hợp đồng của thao tác \textit{marry}}
 
-\begin{Verbatim}
+\begin{thesiscode}
 marry(aSpouse:Person)
 pre isUnmarried: civstat<>#married
 post isMarried: civstat=#married
-\end{Verbatim}
+\end{thesiscode}
 
 \end{samepage}
 
-Đoạn mã 1.2 trích hai ràng buộc của thao tác marry từ đặc tả~\cite{ref-4}. Tiền điều kiện isUnmarried kiểm tra tình trạng hôn nhân trước thao tác, còn hậu điều kiện isMarried yêu cầu tình trạng sau thao tác là married. Đặc tả đầy đủ còn đặt điều kiện đối với người phối ngẫu.
+Đoạn mã 1.2 trích hai ràng buộc của thao tác \textit{marry} từ đặc tả~\cite{ref-4}. Tiền điều kiện \textit{isUnmarried} kiểm tra tình trạng hôn nhân trước thao tác, còn hậu điều kiện \textit{isMarried} yêu cầu tình trạng sau thao tác là married. Đặc tả đầy đủ còn đặt điều kiện đối với người phối ngẫu.
 
 OCL cũng cho phép đặc tả giá trị bằng biểu thức có kiểu. Mệnh đề init quy định giá trị ban đầu của thuộc tính hoặc đầu liên kết, còn derive quy định cách suy ra giá trị từ trạng thái hiện tại. Mệnh đề body định nghĩa kết quả của thao tác truy vấn và biểu thức của nó phải phù hợp với kiểu trả về. Khai báo def đặt tên cho thuộc tính hoặc thao tác phụ trợ để dùng lại khi viết ràng buộc. Những cấu trúc này cho ra giá trị theo kiểu đã khai báo, trong khi inv, pre và post yêu cầu biểu thức kiểu Boolean \cite{ref-15}.
 
@@ -753,12 +771,12 @@ Một mô hình mục tiêu mô tả kết quả mà các chủ thể mong muố
 \caption{Siêu mô hình CSL.}\label{fig:2-1}
 \end{figure}
 
-Trong siêu mô hình CSL ở Hình~\ref{fig:2-1}~\cite{ref-28}, CslModel tập hợp các khai báo Object và DataType. Object là lớp trừu tượng có tên và danh sách thuộc tính, với bốn chuyên biệt Entity, Role, OrgCtx và Association. Những khai báo này xác định cấu trúc được phép của mô hình, còn các đối tượng cụ thể xuất hiện trong từng trạng thái của mô hình~\cite{ref-28}.
+Trong siêu mô hình CSL ở Hình~\ref{fig:2-1}~\cite{ref-28}, \texttt{CslModel} tập hợp các khai báo \texttt{Object} và \texttt{DataType}. \texttt{Object} là lớp trừu tượng có tên và danh sách thuộc tính, với bốn chuyên biệt \texttt{Entity}, \texttt{Role}, \texttt{OrgCtx} và \texttt{Association}. Những khai báo này xác định cấu trúc được phép của mô hình, còn các đối tượng cụ thể xuất hiện trong từng trạng thái của mô hình~\cite{ref-28}.
 
 \begin{quote}
-Entity mô tả thực thể nghiệp vụ thụ động. Quan hệ generalization có bội số 0..1, nên mỗi kiểu Entity có tối đa một kiểu tổng quát trực tiếp. Phạm vi tổ chức được xác định bởi OrgCtx, có thể chứa các Entity, Role và OrgCtx con với bội số 0..* cho mỗi quan hệ chứa~\cite{ref-28}. Khi thực thi, một tác tử hoặc một thể hiện OrgCtx có thể đảm nhiệm Role trong một ngữ cảnh cụ thể. Nếu vai trò có trạng thái riêng, dữ liệu đó thuộc về thể hiện vai trò. Quan hệ roleGeneralization cho phép tối đa một vai trò cha, còn compatibility xác định những vai trò mà cùng một chủ thể có thể đảm nhiệm đồng thời~\cite{ref-28}.
+\texttt{Entity} mô tả thực thể nghiệp vụ thụ động. Quan hệ \texttt{generalization} có bội số 0..1, nên mỗi kiểu \texttt{Entity} có tối đa một kiểu tổng quát trực tiếp. Phạm vi tổ chức được xác định bởi \texttt{OrgCtx}, có thể chứa các \texttt{Entity}, \texttt{Role} và \texttt{OrgCtx} con với bội số 0..* cho mỗi quan hệ chứa~\cite{ref-28}. Khi thực thi, một tác tử hoặc một thể hiện \texttt{OrgCtx} có thể đảm nhiệm \texttt{Role} trong một ngữ cảnh cụ thể. Nếu vai trò có trạng thái riêng, dữ liệu đó thuộc về thể hiện vai trò. Quan hệ \texttt{roleGeneralization} cho phép tối đa một vai trò cha, còn \texttt{compatibility} xác định những vai trò mà cùng một chủ thể có thể đảm nhiệm đồng thời~\cite{ref-28}.
 
-Cấu trúc của trạng thái còn phụ thuộc vào các liên kết và thuộc tính được khai báo. Mỗi Association có ít nhất hai AssociationEnd, mỗi đầu chỉ tới đúng một kiểu Object và có thể có tên điều hướng role. Cận dưới lower và cận trên upper đều mặc định bằng 1. Tên điều hướng xác định đầu liên kết, trong khi Role xác định vị trí trong tổ chức~\cite{ref-28}. Đối với dữ liệu trên đối tượng, mỗi Attribute có tên và đúng một kiểu DataType. Hai cờ optional và mutable lần lượt cho phép giá trị vắng mặt hoặc thay đổi, mặc định đều bằng false, còn defaultValue lưu biểu diễn của giá trị mặc định nếu có~\cite{ref-28}.
+Cấu trúc của trạng thái còn phụ thuộc vào các liên kết và thuộc tính được khai báo. Mỗi \texttt{Association} có ít nhất hai \texttt{AssociationEnd}, mỗi đầu chỉ tới đúng một kiểu \texttt{Object} và có thể có tên điều hướng \texttt{role}. Cận dưới \texttt{lower} và cận trên \texttt{upper} đều mặc định bằng 1. Tên điều hướng xác định đầu liên kết, trong khi \texttt{Role} xác định vị trí trong tổ chức~\cite{ref-28}. Đối với dữ liệu trên đối tượng, mỗi \texttt{Attribute} có tên và đúng một kiểu \texttt{DataType}. Hai cờ \texttt{optional} và \texttt{mutable} lần lượt cho phép giá trị vắng mặt hoặc thay đổi, mặc định đều bằng false, còn \texttt{defaultValue} lưu biểu diễn của giá trị mặc định nếu có~\cite{ref-28}.
 \end{quote}
 
 \begin{samepage}
@@ -796,7 +814,7 @@ Bảng~\ref{tab:csl-notation} sử dụng các ký hiệu trong chú giải Hìn
 \end{tabular}
 \end{table}
 
-Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi dưới dạng tên kèm kiểu dữ liệu. Các điều kiện OCL được khai báo trong đặc tả.
+Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi dưới dạng tên kèm kiểu dữ liệu. Trong đặc tả CSL, dạng khai báo thuộc tính là \mbox{\texttt{attribute <Name> : <Type>;}} và dạng khai báo bất biến là \mbox{\texttt{context <Type> inv <Name>: <OCL>;}}. Các phần nằm trong dấu ngoặc góc được thay bằng giá trị theo mô hình.
 
 \begin{figure}
 \centering
@@ -804,7 +822,7 @@ Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi d�
 \caption{Mô hình CSL của Auction.}\label{fig:2-2}
 \end{figure}
 
-Hình~\ref{fig:2-2} cho thấy AuctionOrg chứa ngữ cảnh auctionGroup, nơi khai báo hai vai trò auctioneer, participant và thực thể Auction. Các thuộc tính running, best\_bid và winner mô tả dữ liệu của từng phiên đấu giá. Thẻ \emph{OAL State} hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục~\ref{sec:2-5} sử dụng.
+Hình~\ref{fig:2-2} cho thấy \texttt{AuctionOrg} chứa ngữ cảnh \texttt{auctionGroup}, nơi khai báo hai vai trò \texttt{auctioneer}, \texttt{participant} và thực thể \texttt{Auction}. Các thuộc tính \texttt{running}, \texttt{best\_bid} và \texttt{winner} mô tả dữ liệu của từng phiên đấu giá. Thẻ \texttt{OAL State} hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục~\ref{sec:2-5} sử dụng.
 
 \section{Đặc tả iStar mở rộng trong USE}\label{sec:2-5}
 
@@ -816,9 +834,9 @@ Trong iStar, quan hệ tinh chỉnh AND cho biết mục tiêu cha cần tất c
 \caption{Siêu mô hình iStar mở rộng.}\label{fig:2-3}
 \end{figure}
 
-Bài báo bổ sung các điều kiện đọc trạng thái cho Goal và Task, đồng thời xác định cách diễn giải kết quả của Goal qua thời gian~\cite{ref-28}. Hình~\ref{fig:2-3} cho thấy lớp Condition, các liên kết condition, precondition và postcondition, cùng thuộc tính goalType.
+Bài báo bổ sung các điều kiện đọc trạng thái cho \texttt{Goal} và \texttt{Task}, đồng thời xác định cách diễn giải kết quả của \texttt{Goal} qua thời gian~\cite{ref-28}. Hình~\ref{fig:2-3} cho thấy lớp \texttt{Condition}, các liên kết \texttt{condition}, \texttt{precondition} và \texttt{postcondition}, cùng thuộc tính \texttt{goalType}.
 
-Lớp Condition gắn bằng chứng quan sát với mục tiêu và nhiệm vụ qua hai trường condExpr và condLang. Một Goal có tối đa một condition, còn một Task có tối đa một precondition và một postcondition. Các biểu thức OCL có thể đọc thuộc tính và điều hướng qua liên kết trong trạng thái CSL. Bài báo dùng giá trị tiền điều kiện và hậu điều kiện để đánh giá Task tại một bước~\cite{ref-28}. Trong bộ kiểm chứng JaCaMo, SnapshotVerifier yêu cầu khai báo đúng một tiền điều kiện và một hậu điều kiện cho mỗi Task.
+Lớp \texttt{Condition} gắn bằng chứng quan sát với mục tiêu và nhiệm vụ qua hai trường \texttt{condExpr} và \texttt{condLang}. Một \texttt{Goal} có tối đa một \texttt{condition}, còn một \texttt{Task} có tối đa một \texttt{precondition} và một \texttt{postcondition}. Các biểu thức OCL có thể đọc thuộc tính và điều hướng qua liên kết trong trạng thái CSL. Bài báo dùng giá trị tiền điều kiện và hậu điều kiện để đánh giá \texttt{Task} tại một bước~\cite{ref-28}. Trong bộ kiểm chứng JaCaMo, \textit{SnapshotVerifier} yêu cầu khai báo đúng một tiền điều kiện và một hậu điều kiện cho mỗi \texttt{Task}.
 
 \begin{samepage}
 
@@ -840,7 +858,9 @@ Tại bước i, giá trị của phần tử lá lấy từ điều kiện, cò
 
 Trong bài báo, Task có kết quả chưa xác định khi tiền điều kiện sai. Khi tiền điều kiện đúng, hậu điều kiện xác định kết quả đạt hay vi phạm tại bước đang xét~\cite{ref-28}. Bộ kiểm chứng JaCaMo tích lũy bằng chứng qua lịch sử và có thể ghi nhận tiền điều kiện ở một checkpoint rồi ghi nhận hậu điều kiện tại một checkpoint sau. Nếu mới ghi nhận tiền điều kiện mà chưa có bằng chứng hậu điều kiện, Task ở trạng thái PENDING theo quy tắc tại Mục 2.7.2.
 
-Để đánh giá các điều kiện trên trạng thái CSL, bài báo dùng mỗi đối tượng ngữ cảnh để xác định một thể hiện của mô hình mục tiêu và cung cấp giá trị self khi đánh giá điều kiện. Cùng biểu thức có thể được đánh giá riêng cho nhiều đối tượng ngữ cảnh~\cite{ref-28}. Trong plugin JaCaMo, @csl-state xác định kiểu mặc định và @csl-context khai báo tương ứng cho từng chủ thể. SnapshotVerifier yêu cầu các chủ thể trong một đồ thị quy về cùng một kiểu CSL đã ánh xạ. Với mỗi đối tượng phù hợp, bộ kiểm chứng gán self và duy trì một GoalTaskSession riêng qua các checkpoint. Luồng này xử lý Goal và Task. Quality và Resource vẫn có mặt trong siêu mô hình của bài báo~\cite{ref-28}.
+Để đánh giá các điều kiện trên trạng thái CSL, bài báo dùng mỗi đối tượng ngữ cảnh để xác định một thể hiện của mô hình mục tiêu và cung cấp giá trị \textit{self} khi đánh giá điều kiện. Cùng biểu thức có thể được đánh giá riêng cho nhiều đối tượng ngữ cảnh~\cite{ref-28}. Trong plugin JaCaMo, \textit{@csl-state} xác định kiểu mặc định và \textit{@csl-context} khai báo tương ứng cho từng chủ thể. \textit{SnapshotVerifier} yêu cầu các chủ thể trong một đồ thị quy về cùng một kiểu CSL đã ánh xạ. Với mỗi đối tượng phù hợp, bộ kiểm chứng gán \textit{self} và duy trì một \textit{GoalTaskSession} riêng qua các checkpoint. Luồng này xử lý Goal và Task. Quality và Resource vẫn có mặt trong siêu mô hình của bài báo~\cite{ref-28}.
+
+Trong đặc tả iStar, dạng \mbox{\texttt{goal <Name> : <GoalType>}} khai báo mục tiêu có kiểu thời gian. Dạng \mbox{\texttt{task <Name> > <Parent>}} khai báo nhiệm vụ tham gia tinh chỉnh AND của phần tử cha. Tiền điều kiện và hậu điều kiện lần lượt dùng dạng \mbox{\texttt{pre \{[ <OCL> ]\}}} và \mbox{\texttt{post \{[ <OCL> ]\}}}.
 
 \begin{figure}
 \centering
@@ -848,9 +868,9 @@ Trong bài báo, Task có kết quả chưa xác định khi tiền điều ki�
 \caption{Mô hình iStar đầy đủ của Auction.}\label{fig:2-4}
 \end{figure}
 
-Hình~\ref{fig:2-4} cho thấy một phiên đấu giá được xem là hoàn thành khi cả ba mục tiêu thành phần đều đạt. Nhóm \emph{AuctionGroup} cần vai trò \emph{Auctioneer} mở phiên và quyết định kết quả, đồng thời cần vai trò \emph{Participant} thực hiện việc trả giá. Ba quan hệ phụ thuộc nối từng mục tiêu của nhóm với mục tiêu tương ứng của vai trò chịu trách nhiệm. Ở phần dưới của sơ đồ, \texttt{auction\_capabilities} cụ thể hóa công việc của hai vai trò. Nhánh mở phiên gồm tạo artifact, theo dõi artifact và mở đấu giá. Nhánh trả giá gồm thiết lập theo dõi và ghi nhận giá cải thiện. Nhánh quyết định kết quả gắn với nhiệm vụ đóng phiên.
+Hình~\ref{fig:2-4} cho thấy một phiên đấu giá được xem là hoàn thành khi cả ba mục tiêu thành phần đều đạt. Nhóm \texttt{AuctionGroup} cần vai trò \texttt{Auctioneer} mở phiên và quyết định kết quả, đồng thời cần vai trò \texttt{Participant} thực hiện việc trả giá. Ba quan hệ phụ thuộc nối từng mục tiêu của nhóm với mục tiêu tương ứng của vai trò chịu trách nhiệm. Ở phần dưới của sơ đồ, \texttt{auction\_capabilities} cụ thể hóa công việc của hai vai trò. Nhánh mở phiên gồm tạo artifact, theo dõi artifact và mở đấu giá. Nhánh trả giá gồm thiết lập theo dõi và ghi nhận giá cải thiện. Nhánh quyết định kết quả gắn với nhiệm vụ đóng phiên.
 
-Sơ đồ cũng đặt mục tiêu duy trì \emph{SafeBid} bên cạnh mục tiêu hoàn thành phiên. Với \emph{SafeBid}, điều kiện giá tốt nhất không âm được kiểm tra tại từng mốc quan sát. Với \emph{AuctionCompleted}, kết quả tổng hợp từ ba nhánh cho biết phiên đã hoàn thành hay còn bước đang chờ. Hai phiên a1 và a2 dùng cùng đặc tả này, còn USE đánh giá từng phiên dựa trên trạng thái và lịch sử của chính phiên đó. Mục~\ref{sec:3-4-1} minh họa sự khác biệt khi một phiên đã ghi nhận giá cải thiện và phiên kia vẫn chờ.
+Sơ đồ cũng đặt mục tiêu duy trì \texttt{SafeBid} bên cạnh mục tiêu hoàn thành phiên. Với \texttt{SafeBid}, điều kiện giá tốt nhất không âm được kiểm tra tại từng mốc quan sát. Với \texttt{AuctionCompleted}, kết quả tổng hợp từ ba nhánh cho biết phiên đã hoàn thành hay còn bước đang chờ. Hai phiên \texttt{a1} và \texttt{a2} dùng cùng đặc tả này, còn USE đánh giá từng phiên dựa trên trạng thái và lịch sử của chính phiên đó. Mục~\ref{sec:3-4-1} minh họa sự khác biệt khi một phiên đã ghi nhận giá cải thiện và phiên kia vẫn chờ.
 
 \section{Ánh xạ trạng thái JaCaMo sang CSL}\label{sec:2-6}
 
@@ -894,10 +914,10 @@ Artifact kiểu AuctionArtifact & Tên và bốn thuộc tính quan sát & Aucti
 
 \thesisdisplaytitle{Đoạn mã 2.1}{Luật ánh xạ giá tốt nhất}
 
-\begin{Verbatim}
+\begin{thesiscode}
 <attribute source="artifact:auction_env.AuctionArtifact/property:best_bid"
 target="Auction.best_bid"/>
-\end{Verbatim}
+\end{thesiscode}
 
 \end{samepage}
 
@@ -905,24 +925,53 @@ target="Auction.best_bid"/>
 
 \subsection{Đồng bộ JaCaMo với CSL}\label{sec:2-6-2}
 
-Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Jason ghi nhận. Thuật toán~\ref{alg:checkpoint-selection} xác định sự kiện nào tạo yêu cầu checkpoint và khi nào các sự kiện dùng chung một mốc.
+Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Jason ghi nhận. Thuật toán~\ref{alg:checkpoint-selection} xác định sự kiện nào tạo yêu cầu checkpoint và khi nào các sự kiện dùng chung một mốc. Mã Java tương ứng được trích ở Phụ lục~\hyperref[app:checkpoint-source]{A.1}.
 
 \noindent\begin{minipage}{\linewidth}
+\setstretch{.88}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\hrule
 \captionsetup{type=thesisalgorithm}
 \caption{Chọn ranh giới checkpoint và gom nhóm kế hoạch}\label{alg:checkpoint-selection}
-\small
-\setlength{\parskip}{2pt}
-\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu vào}}Sự kiện thực thi của Jason và các nhóm kế hoạch đang theo dõi.\par
-\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu ra}}Yêu cầu checkpoint nếu sự kiện tạo mốc.\par
-\begin{enumerate}
-\setlength{\itemsep}{2pt}
-\setlength{\parsep}{0pt}
-\item \textbf{Khởi tạo.} Yêu cầu \texttt{INITIAL} trước khi tác tử bắt đầu thực thi.
-\item \textbf{Bắt đầu kế hoạch.} Nếu ý định có nhóm đang thực thi, thêm kế hoạch vào nhóm. Nếu chưa có, mở nhóm với kế hoạch này làm gốc.
-\item \textbf{Kết thúc kế hoạch.} Nếu kế hoạch là gốc, đóng nhóm và yêu cầu \texttt{PLAN\_COMPLETED}. Kế hoạch con trong nhóm không tạo mốc kết thúc riêng.
-\item \textbf{Gửi thông điệp sang tác tử khác.} Nếu lần gửi thuộc nhóm, thông điệp không phải truy vấn và ý định chỉ còn các bước thoát, hoãn giao và gộp lần gửi vào mốc cuối nhóm. Các trường hợp còn lại yêu cầu \texttt{AGENT\_HANDOFF} trước khi giao.
-\item \textbf{Goal thực thi thất bại ngoài nhóm.} Yêu cầu \texttt{GOAL\_FAILED}.
-\end{enumerate}
+\textit{\underline{selectCheckpoint}}(\textit{event, intention})\par
+\textbf{Đầu vào}\quad Sự kiện Jason và ý định hiện hành.\par
+\textbf{Đầu ra}\quad Yêu cầu checkpoint khi đến ranh giới quan sát.\par
+\textbf{begin}
+\begin{thesissteps}
+\textbf{case} \textit{khởi tạo}\par
+\begin{thesissteps}
+Kiểm chứng tại \texttt{INITIAL} trước khi tác tử thực thi.
+\end{thesissteps}
+\textbf{case} \textit{vào kế hoạch}\par
+\begin{thesissteps}
+\textit{group} \(\gets\) tìm nhóm đang thực thi của ý định.\par
+\textbf{if} chưa có nhóm \textbf{then} \textit{group} \(\gets\) mở nhóm với kế hoạch hiện tại làm gốc.\par
+\textbf{else} tăng số kế hoạch con đã gộp.\par
+Gắn khung kế hoạch hiện tại với \textit{group}.
+\end{thesissteps}
+\textbf{case} \textit{kết thúc kế hoạch}\par
+\begin{thesissteps}
+Tách khung đã kết thúc khỏi nhóm theo dõi.\par
+\textbf{if} khung là gốc nhóm \textbf{then}
+\begin{thesissteps}
+Đóng nhóm và yêu cầu \texttt{PLAN\_COMPLETED}.\par
+Nếu nhóm thành công, giao các thông điệp đã gộp sau khi được phép tiếp tục.
+\end{thesissteps}
+\end{thesissteps}
+\textbf{case} \textit{gửi thông điệp}\par
+\begin{thesissteps}
+\textbf{if} gửi cho chính tác tử \textbf{then} giao trực tiếp.\par
+\textbf{else if} có nhóm, thông điệp không phải truy vấn và toàn bộ ý định chỉ còn bước thoát \textbf{then} hoãn giao và gộp vào mốc cuối nhóm.\par
+\textbf{else} yêu cầu \texttt{AGENT\_HANDOFF} trước khi giao.
+\end{thesissteps}
+\textbf{case} \textit{goal thực thi thất bại ngoài nhóm}\par
+\begin{thesissteps}
+Yêu cầu \texttt{GOAL\_FAILED} khi ghi nhận được sự kiện nguồn.
+\end{thesissteps}
+\end{thesissteps}
+\textbf{end}\par
+\smallskip\hrule
 \end{minipage}
 
 \smallskip
@@ -940,26 +989,42 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu khỏi bước cập nhật trạng thái trong USE.
+Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu khỏi bước cập nhật trạng thái trong USE. Phụ lục~\hyperref[app:projection-source]{A.2} trích hai phương thức thực thi các bước này.
 
 \noindent\begin{minipage}{\linewidth}
+\setstretch{.88}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\hrule
 \captionsetup{type=thesisalgorithm}
 \caption{Chiếu ảnh chụp nguồn sang trạng thái CSL}\label{alg:state-projection}
-\small
-\setlength{\parskip}{2pt}
-\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu vào}}Ảnh chụp đã xác nhận đúng phiên, đúng thứ tự và đầy đủ, ánh xạ XML và trạng thái CSL hiện tại.\par
-\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu ra}}Trạng thái CSL tại mốc mới hoặc lỗi chiếu.\par
-\begin{enumerate}
-\setlength{\itemsep}{2pt}
-\setlength{\parsep}{0pt}
-\item[] \textbf{Chuẩn bị phép chiếu}
-\item Lập chỉ mục dữ kiện nguồn. Áp dụng ánh xạ XML để xác định khóa, kiểu và giá trị thuộc tính của đối tượng CSL.
-\item Chuẩn bị các đối tượng vai trò và liên kết theo dữ kiện nguồn. Báo lỗi nếu giá trị hoặc đầu liên kết bắt buộc không hợp lệ, hoặc quan hệ ngữ cảnh có chu trình.
-\item[] \textbf{Cập nhật trạng thái USE}
-\item Tìm hoặc tạo đối tượng theo khóa đã chuẩn bị rồi gán các giá trị thuộc tính.
-\item Xóa liên kết cũ. Xóa các đối tượng vắng mặt trong ảnh đầy đủ và đóng phiên đánh giá tương ứng nếu có.
-\item Dựng lại các liên kết đã chuẩn bị.
-\end{enumerate}
+\textit{\underline{projectSnapshot}}(\textit{snapshot, mapping, state})\par
+\textbf{Đầu vào}\quad Ảnh chụp đã xác nhận đầy đủ, ánh xạ XML và trạng thái USE.\par
+\textbf{Đầu ra}\quad Trạng thái CSL tại checkpoint hoặc lỗi chiếu.\par
+\textbf{begin}
+\begin{thesissteps}
+\textit{sources} \(\gets\) lập chỉ mục dữ kiện từ \textit{snapshot}.\par
+\textbf{for each} nguồn trong \textit{sources} \textbf{do}
+\begin{thesissteps}
+Áp dụng \textit{mapping} để chuẩn bị khóa, kiểu và giá trị thuộc tính của các đối tượng CSL tương ứng.
+\end{thesissteps}
+Chuẩn bị đối tượng vai trò và các liên kết phạm vi, quan sát, thành viên và đảm nhiệm vai trò.\par
+\textbf{if} dữ liệu bắt buộc không hợp lệ hoặc quan hệ ngữ cảnh có chu trình \textbf{then} báo lỗi chuẩn bị.\par
+Lưu trạng thái trước cập nhật để đánh giá qua hai mốc.\par
+\textbf{for each} đối tượng đã chuẩn bị \textbf{do}
+\begin{thesissteps}
+Tìm hoặc tạo đối tượng USE theo khóa rồi gán thuộc tính.
+\end{thesissteps}
+Xóa các liên kết cũ trong \textit{state}.\par
+\textbf{for each} đối tượng vắng mặt trong ảnh đầy đủ \textbf{do}
+\begin{thesissteps}
+Xóa đối tượng và đóng phiên đánh giá tương ứng nếu có.
+\end{thesissteps}
+Dựng lại các liên kết đã chuẩn bị.\par
+\textbf{return} trạng thái đã cập nhật.
+\end{thesissteps}
+\textbf{end}\par
+\smallskip\hrule
 \end{minipage}
 
 \smallskip
@@ -971,7 +1036,7 @@ Sau khi chuẩn bị thành công, USE lưu trạng thái trước cập nhật 
 \caption{Giá tốt nhất của hai artifact Auction.}\label{fig:2-5}
 \end{figure}
 
-Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại checkpoint 47. Các dòng a1 và a2 có hai giá trị khác nhau. Để xem giá trị nào đi vào từng đối tượng CSL, có thể đối chiếu với phần (a) của Hình~\ref{fig:2-6}, được dựng từ trạng thái đã lưu ở chính checkpoint đó.
+Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại checkpoint 47. Các dòng \texttt{a1} và \texttt{a2} có hai giá trị khác nhau. Để xem giá trị nào đi vào từng đối tượng CSL, có thể đối chiếu với phần (a) của Hình~\ref{fig:2-6}, được dựng từ trạng thái đã lưu ở chính checkpoint đó.
 
 \begin{figure}
 \centering
@@ -985,7 +1050,7 @@ Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại chec
 \caption{Trạng thái Auction trong OAL State theo nhóm liên kết.}\label{fig:2-6}
 \end{figure}
 
-Hình~\ref{fig:2-6} tách các liên kết của cùng một trạng thái thành ba khung để thấy rõ đầu nối. Khung (a) cho thấy a1 và a2 là hai đối tượng riêng trong nhóm agrp và giá tốt nhất của mỗi đối tượng khớp với dữ liệu nguồn ở Hình~\ref{fig:2-5}. Khung (b) đặt mỗi thể hiện vai trò cạnh tác tử đảm nhiệm vai trò đó. Khung (c) đặt các tác tử giữa hai đối tượng đấu giá để lần theo các liên kết quan sát. Tên vai trò được rút gọn trong khung (b), còn các thuộc tính của hai đối tượng đấu giá được trình bày tập trung trong khung (a).
+Hình~\ref{fig:2-6} tách các liên kết của cùng một trạng thái thành ba khung để thấy rõ đầu nối. Khung (a) cho thấy \texttt{a1} và \texttt{a2} là hai đối tượng riêng trong nhóm \texttt{agrp} và giá tốt nhất của mỗi đối tượng khớp với dữ liệu nguồn ở Hình~\ref{fig:2-5}. Khung (b) đặt mỗi thể hiện vai trò cạnh tác tử đảm nhiệm vai trò đó. Khung (c) đặt các tác tử giữa hai đối tượng đấu giá để lần theo các liên kết quan sát. Tên vai trò được rút gọn trong khung (b), còn các thuộc tính của hai đối tượng đấu giá được trình bày tập trung trong khung (a).
 
 Phép chiếu cũng giữ việc đảm nhiệm vai trò trong nhóm. Hai ảnh dưới đây lấy trong cùng phiên Auction 26400acd, khi JaCaMo đang giữ dừng tại checkpoint 22.
 
@@ -1001,7 +1066,7 @@ Phép chiếu cũng giữ việc đảm nhiệm vai trò trong nhóm. Hai ảnh 
 \caption{Tác tử, vai trò và nhóm trong OAL State.}\label{fig:2-8}
 \end{figure}
 
-Trong Hình~\ref{fig:2-7}, mục Players ghi bob (1) đảm nhiệm vai trò auctioneer (2) ở nhóm agrp (3). Trên sơ đồ Hình~\ref{fig:2-8}, tác tử bob được biểu diễn bằng đối tượng CSL kiểu auction\_capabilities. Thể hiện vai trò auctioneer có khung bo tròn và hai đường nối tới đối tượng bob và ngữ cảnh agrp. Các ký hiệu (1), (2) và (3) nối cùng ba thành phần giữa ảnh nguồn và ảnh đích.
+Trong Hình~\ref{fig:2-7}, mục \texttt{Players} ghi \texttt{bob} (1) đảm nhiệm vai trò \texttt{auctioneer} (2) ở nhóm \texttt{agrp} (3). Trên sơ đồ Hình~\ref{fig:2-8}, tác tử \texttt{bob} được biểu diễn bằng đối tượng CSL kiểu \texttt{auction\_capabilities}. Thể hiện vai trò \texttt{auctioneer} có khung bo tròn và hai đường nối tới đối tượng \texttt{bob} và ngữ cảnh \texttt{agrp}. Các ký hiệu (1), (2) và (3) nối cùng ba thành phần giữa ảnh nguồn và ảnh đích.
 
 \section{Kiểm chứng ràng buộc và đánh giá Goal/Task}\label{sec:2-7}
 
@@ -1009,27 +1074,27 @@ Sau khi chiếu dữ liệu, USE dùng trạng thái mới để kiểm tra bấ
 
 \subsection{Đánh giá OCL trên trạng thái CSL}\label{sec:2-7-1}
 
-Gọi \(\sigma_{k}\) là trạng thái CSL sau khi áp dụng snapshot tại checkpoint k và \(\sigma_{k-1}\) là trạng thái ngay trước lần cập nhật đó. Trong SnapshotVerifier.update, công cụ lưu lại trạng thái USE trước khi gọi applySnapshot, rồi dùng StateView.pin để cố định cặp trạng thái trong khi đánh giá. NativeOclBackend.compile kiểm tra và biên dịch trước biểu thức theo kiểu ngữ cảnh của self. Khi đánh giá một biểu thức \(\varphi\) trên đối tượng o, NativeOclBackend.evaluate truyền cặp trạng thái và gán self cho o trong bộ đánh giá OCL của USE~\cite{ref-4}.
+Gọi \(\sigma_{k}\) là trạng thái CSL sau khi áp dụng snapshot tại checkpoint k và \(\sigma_{k-1}\) là trạng thái ngay trước lần cập nhật đó. Trong \textit{SnapshotVerifier.update}, công cụ lưu lại trạng thái USE trước khi gọi \textit{applySnapshot}, rồi dùng \textit{StateView.pin} để cố định cặp trạng thái trong khi đánh giá. \textit{NativeOclBackend.compile} kiểm tra và biên dịch trước biểu thức theo kiểu ngữ cảnh của \textit{self}. Khi đánh giá một biểu thức \(\varphi\) trên đối tượng o, \textit{NativeOclBackend.evaluate} truyền cặp trạng thái và gán \textit{self} cho o trong bộ đánh giá OCL của USE~\cite{ref-4}.
 
 \[v_{k}(\varphi,o) = {eval}_{OCL}\left( \varphi,\sigma_{k - 1},\sigma_{k},\{ self \mapsto o\} \right).\]
 
-Các tham chiếu thông thường đọc \(\sigma_{k}\). Trong những điều kiện cho phép dùng @pre, ký hiệu này đọc \(\sigma_{k-1}\). Vì vậy, so sánh qua @pre chỉ phản ánh cặp trạng thái mà bộ kiểm chứng quan sát được. Với bất biến \(\varphi\) khai báo trên kiểu C, checkInvariants áp dụng biểu thức cho từng đối tượng thuộc C hoặc lớp con của C.
+Các tham chiếu thông thường đọc \(\sigma_{k}\). Trong những điều kiện cho phép dùng \textit{@pre}, ký hiệu này đọc \(\sigma_{k-1}\). Vì vậy, so sánh qua \textit{@pre} chỉ phản ánh cặp trạng thái mà bộ kiểm chứng quan sát được. Với bất biến \(\varphi\) khai báo trên kiểu C, \textit{checkInvariants} áp dụng biểu thức cho từng đối tượng thuộc C hoặc lớp con của C.
 
 \[\sigma_{k} \vDash \varphi\quad \Leftrightarrow \quad\forall o \in {Inst}_{\sigma_{k}}(C):v_{k}(\varphi,o) = true.\]
 
-Bộ đánh giá trả PASS khi biểu thức đúng và FAIL khi biểu thức sai. Giá trị không xác định, lỗi và phép kiểm tra bị bỏ qua có mã riêng UNDEFINED, ERROR và SKIPPED. Một điều kiện của Goal hoặc Task nhận FAIL mới chỉ cung cấp giá trị sai cho quy tắc đánh giá tương ứng. Khi phép kiểm tra của một ngữ cảnh cho kết quả ngoài PASS và FAIL, checkGoalTasks bỏ qua cập nhật lịch sử của ngữ cảnh đó.
+Bộ đánh giá trả PASS khi biểu thức đúng và FAIL khi biểu thức sai. Giá trị không xác định, lỗi và phép kiểm tra bị bỏ qua có mã riêng UNDEFINED, ERROR và SKIPPED. Một điều kiện của Goal hoặc Task nhận FAIL mới chỉ cung cấp giá trị sai cho quy tắc đánh giá tương ứng. Khi phép kiểm tra của một ngữ cảnh cho kết quả ngoài PASS và FAIL, \textit{checkGoalTasks} bỏ qua cập nhật lịch sử của ngữ cảnh đó.
 
 \begin{samepage}
 
 \thesisdisplaytitle{Đoạn mã 2.2}{Bất biến của Auction}
 
-\begin{Verbatim}
+\begin{thesiscode}
 context Auction inv ValidBid:
-self.best_bid >= 0;
+    self.best_bid >= 0;
 context Auction inv RunningAuctionIsObserved:
-self.running implies self.focusedBy->exists(a |
-self.cslEntityScope.oclAsType(auctionGroup).auctioneer->exists(r | r.player = a));
-\end{Verbatim}
+    self.running implies self.focusedBy->exists(a |
+        self.cslEntityScope.oclAsType(auctionGroup).auctioneer->exists(r | r.player = a));
+\end{thesiscode}
 
 \end{samepage}
 
@@ -1045,17 +1110,17 @@ Task ở trạng thái UNKNOWN nếu \(Q_{k}\) = 0, PENDING nếu \(Q_{k}\) = 1 
 
 \begin{samepage}
 
-\thesisdisplaytitle{Đoạn mã 2.3}{Điều kiện của StopAuction}
+\thesisdisplaytitle{Đoạn mã 2.3}{Điều kiện của \textit{StopAuction}}
 
-\begin{Verbatim}
+\begin{thesiscode}
 task StopAuction > decide
-pre {[ self.running ]}
-post {[ not self.running ]}
-\end{Verbatim}
+    pre {[ self.running ]}
+    post {[ not self.running ]}
+\end{thesiscode}
 
 \end{samepage}
 
-Trạng thái running = false có thể chỉ một phiên chưa mở hoặc một phiên đã đóng. Bộ kiểm chứng ghi nhận StopAuction hoàn thành khi đã quan sát phiên mở và sau đó thấy chính phiên ấy đóng.
+Trạng thái \textit{running} = false có thể chỉ một phiên chưa mở hoặc một phiên đã đóng. Bộ kiểm chứng ghi nhận \textit{StopAuction} hoàn thành khi đã quan sát phiên mở và sau đó thấy chính phiên ấy đóng.
 
 \subsection{Đánh giá Goal}\label{sec:2-7-3}
 
@@ -1065,17 +1130,17 @@ Trạng thái running = false có thể chỉ một phiên chưa mở hoặc m�
 
 Khi bắt đầu đánh giá, lấy \(S_{k-1}\) = 1 và lấy \(P_{k-1}\) = 1 riêng cho Maintain, bằng 0 cho các loại khác. Achieve giữ kết quả đạt sau lần quan sát đúng đầu tiên. None theo giá trị tại mốc hiện tại. Maintain chỉ đạt khi \(P_{k}\) và \(S_{k}\) đều đúng, nên điều kiện sai ở lần đầu đã cho kết quả vi phạm. Sustain cho phép trạng thái chờ trước lần đúng đầu tiên nhưng báo vi phạm nếu mất điều kiện sau đó. Goal chưa hoạt động mang trạng thái UNKNOWN. Trong đường kiểm chứng này, SnapshotVerifier.goalTaskInputs cung cấp cờ hoạt động cho những Goal có điều kiện trực tiếp ở ngữ cảnh đang xét.
 
-Với các phần tử suy ra từ quan hệ trong mô hình, GoalTaskSession.step dựng kết quả tổng hợp từ lịch sử đã cập nhật. Công cụ gọi IStarMarking.closePending và assignGoalTask cho các phân rã, gọi GoalModelInstanceTranslator.propagateDependencies cho các phụ thuộc, rồi tính lại kết quả phân rã. Với AND, một nhánh vi phạm làm kết quả vi phạm, còn kết quả đạt cần tất cả nhánh đạt. Với OR, một nhánh đạt đủ để cho kết quả đạt. Khi chưa có nhánh đạt, một nhánh đang chờ cho kết quả chờ. Nếu chỉ có nhánh vi phạm hoặc chưa xác định và có ít nhất một nhánh vi phạm, mã hiện tại trả VIOLATED. Bảng I của \cite{ref-28} có quy tắc truyền cả kết quả đạt và vi phạm qua quan hệ phụ thuộc. Trong mã hiện tại, hàm lan truyền phụ thuộc chỉ truyền FULFILLED từ phần tử được trông cậy sang phần tử phụ thuộc.
+Với các phần tử suy ra từ quan hệ trong mô hình, \textit{GoalTaskSession.step} dựng kết quả tổng hợp từ lịch sử đã cập nhật. Công cụ gọi \textit{IStarMarking.closePending} và \textit{assignGoalTask} cho các phân rã, gọi \textit{GoalModelInstanceTranslator.propagateDependencies} cho các phụ thuộc, rồi tính lại kết quả phân rã. Với AND, một nhánh vi phạm làm kết quả vi phạm, còn kết quả đạt cần tất cả nhánh đạt. Với OR, một nhánh đạt đủ để cho kết quả đạt. Khi chưa có nhánh đạt, một nhánh đang chờ cho kết quả chờ. Nếu chỉ có nhánh vi phạm hoặc chưa xác định và có ít nhất một nhánh vi phạm, mã hiện tại trả VIOLATED. Bảng I của \cite{ref-28} có quy tắc truyền cả kết quả đạt và vi phạm qua quan hệ phụ thuộc. Trong mã hiện tại, hàm lan truyền phụ thuộc chỉ truyền FULFILLED từ phần tử được trông cậy sang phần tử phụ thuộc.
 
 \begin{samepage}
 
-\thesisdisplaytitle{Đoạn mã 2.4}{Điều kiện của BidNeverIncreases}
+\thesisdisplaytitle{Đoạn mã 2.4}{Điều kiện của \textit{BidNeverIncreases}}
 
-\begin{Verbatim}
+\begin{thesiscode}
 goal BidNeverIncreases : Maintain condition {[
-Auction.allInstances@pre()->excludes(self) or self.best_bid <= self.best_bid@pre
+    Auction.allInstances@pre()->excludes(self) or self.best_bid <= self.best_bid@pre
 ]}
-\end{Verbatim}
+\end{thesiscode}
 
 \end{samepage}
 
@@ -1083,7 +1148,7 @@ Nếu đối tượng đã tồn tại, giá tốt nhất hiện tại phải nh
 
 \subsection{Tổng hợp quyết định checkpoint}\label{sec:2-7-4}
 
-Sau khi kiểm tra bất biến và đánh giá Goal, Task, USE tổng hợp kết quả để quyết định cho JaCaMo tiếp tục hay giữ dừng tại chính checkpoint đang chờ. Gọi \(I_{k}\) là tập các lần đánh giá bất biến CSL tại checkpoint thứ k, \(C_{k}\) là tập kết quả kiểm tra gồm bất biến và điều kiện iStar, còn \(E_{k}\) là tập kết quả Goal/Task được tạo tại mốc đó. Từ các tập này, SnapshotVerifier.update xác định \(F_{k}\) để ghi nhận vi phạm đã xác định và \(U_{k}\) để ghi nhận phép kiểm tra chưa cho kết quả đúng hoặc sai.
+Sau khi kiểm tra bất biến và đánh giá Goal, Task, USE tổng hợp kết quả để quyết định cho JaCaMo tiếp tục hay giữ dừng tại chính checkpoint đang chờ. Gọi \(I_{k}\) là tập các lần đánh giá bất biến CSL tại checkpoint thứ k, \(C_{k}\) là tập kết quả kiểm tra gồm bất biến và điều kiện iStar, còn \(E_{k}\) là tập kết quả Goal/Task được tạo tại mốc đó. Từ các tập này, \textit{SnapshotVerifier.update} xác định \(F_{k}\) để ghi nhận vi phạm đã xác định và \(U_{k}\) để ghi nhận phép kiểm tra chưa cho kết quả đúng hoặc sai.
 
 \[F_{k} = \left( \exists i \in I_{k}:verdict(i) = FAIL \right) \vee \left( \exists e \in E_{k}:status(e) = VIOLATED \right).\]
 
@@ -1095,11 +1160,11 @@ HOLD\_ UNVERIFIED, & \neg F_{k} \land U_{k} \\
 APPROVE, & \neg F_{k} \land \neg U_{k}.
 \end{matrix} \right.\ \]
 
-Công thức trên áp dụng khi ảnh chụp đầy đủ và đi qua đường đánh giá. Khi ảnh chụp được đánh dấu thiếu, SnapshotVerifier.update trả HOLD\_UNVERIFIED trước bước chiếu. Nếu quá trình xử lý ảnh chụp phát sinh ngoại lệ, VerificationSession.handleCheckpoint tạo phản hồi HOLD\_UNVERIFIED thay cho kết quả đánh giá. Trong đường đánh giá thông thường, một vi phạm đã xác định được ưu tiên hơn kết quả chưa xác định ở phép kiểm tra khác. Một tiền hoặc hậu điều kiện cho kết quả FAIL có thể chỉ phản ánh tiến độ chưa đạt. Trạng thái PENDING của Task hay kết quả FAILED của plan ở metadata nguồn cũng không tự chúng được tính là vi phạm.
+Công thức trên áp dụng khi ảnh chụp đầy đủ và đi qua đường đánh giá. Khi ảnh chụp được đánh dấu thiếu, \textit{SnapshotVerifier.update} trả HOLD\_UNVERIFIED trước bước chiếu. Nếu quá trình xử lý ảnh chụp phát sinh ngoại lệ, \textit{VerificationSession.handleCheckpoint} tạo phản hồi HOLD\_UNVERIFIED thay cho kết quả đánh giá. Trong đường đánh giá thông thường, một vi phạm đã xác định được ưu tiên hơn kết quả chưa xác định ở phép kiểm tra khác. Một tiền hoặc hậu điều kiện cho kết quả FAIL có thể chỉ phản ánh tiến độ chưa đạt. Trạng thái PENDING của Task hay kết quả FAILED của plan ở metadata nguồn cũng không tự chúng được tính là vi phạm.
 
-Khi nhận quyết định từ USE, StateProducer xác thực phản hồi và dùng CheckpointProtocol.approved để đối chiếu phiên, token, mã băm yêu cầu, phạm vi giữ dừng và kết quả. JaCaMoCheckpoints.drain chỉ mở lại cổng tiếp nhận sau khi tất cả yêu cầu trong đợt giữ được phê duyệt và hàng đợi đã hết. Nếu có HOLD, hết thời gian chờ hoặc lỗi truyền, phía nguồn không mở cổng. Với mốc INITIAL, thiếu phê duyệt ngăn bước khởi chạy tác tử. Quyết định APPROVE vì vậy có hiệu lực đối với điểm giữ dừng đã được kiểm tra trong phạm vi quan sát.
+Khi nhận quyết định từ USE, \textit{StateProducer} xác thực phản hồi và dùng \textit{CheckpointProtocol.approved} để đối chiếu phiên, token, mã băm yêu cầu, phạm vi giữ dừng và kết quả. \textit{JaCaMoCheckpoints.drain} chỉ mở lại cổng tiếp nhận sau khi tất cả yêu cầu trong đợt giữ được phê duyệt và hàng đợi đã hết. Nếu có HOLD, hết thời gian chờ hoặc lỗi truyền, phía nguồn không mở cổng. Với mốc INITIAL, thiếu phê duyệt ngăn bước khởi chạy tác tử. Quyết định APPROVE vì vậy có hiệu lực đối với điểm giữ dừng đã được kiểm tra trong phạm vi quan sát.
 
-Hình~\ref{fig:2-9} cho thấy checkpoint khởi tạo và các mốc kết thúc nhóm plan ở đầu phiên chụp Auction 804fdea5. Cột Decision ghi APPROVE ở các mốc được hiển thị. Trong ca ở Mục~\ref{sec:2-2}, JaCaMo cũng được phép tiếp tục dù a1 còn chờ một lượt trả giá tốt hơn. Trạng thái PENDING khi đó phản ánh tiến độ của nhiệm vụ. Nếu USE xác định một Goal đã bị vi phạm, nó trả HOLD\_FAILURE ngay cả khi các bất biến đều đạt. Ảnh chụp, kết quả đánh giá và phản hồi được lưu tại từng checkpoint, làm cơ sở đối chiếu kết quả khi đánh giá lại cùng vết với cùng đặc tả (Mục~\ref{sec:3-4-3}).
+Hình~\ref{fig:2-9} cho thấy checkpoint khởi tạo và các mốc kết thúc nhóm plan ở đầu phiên chụp Auction 804fdea5. Cột \texttt{Decision} ghi \texttt{APPROVE} ở các mốc được hiển thị. Trong ca ở Mục~\ref{sec:2-2}, JaCaMo cũng được phép tiếp tục dù \texttt{a1} còn chờ một lượt trả giá tốt hơn. Trạng thái \texttt{PENDING} khi đó phản ánh tiến độ của nhiệm vụ. Nếu USE xác định một Goal đã bị vi phạm, nó trả \texttt{HOLD\_FAILURE} ngay cả khi các bất biến đều đạt. Ảnh chụp, kết quả đánh giá và phản hồi được lưu tại từng checkpoint, làm cơ sở đối chiếu kết quả khi đánh giá lại cùng vết với cùng đặc tả (Mục~\ref{sec:3-4-3}).
 
 \begin{figure}
 \centering
@@ -1137,7 +1202,7 @@ Trong bản USE dùng làm nền, việc kiểm tra được tổ chức thành 
 \caption{Giao diện USE trước khi tích hợp JaCaMo.}\label{fig:3-use-standard}
 \end{figure}
 
-Hình~\ref{fig:3-use-standard} chụp bản USE 7.5.0 với ví dụ \emph{CivilStatusWorld} đi kèm. Cây bên trái trình bày mô hình đã nạp. Cửa sổ \emph{Object diagram} hiển thị các đối tượng và liên kết được tạo bằng lệnh của USE, còn \emph{Class invariants} hiển thị giá trị của từng bất biến trên trạng thái đó. Đây là luồng sử dụng cơ sở mà phần mở rộng tiếp tục dùng để đánh giá trạng thái được dựng từ dữ liệu thực thi.
+Hình~\ref{fig:3-use-standard} chụp bản USE 7.5.0 với ví dụ \texttt{CivilStatusWorld} đi kèm. Cây bên trái trình bày mô hình đã nạp. Cửa sổ \texttt{Object diagram} hiển thị các đối tượng và liên kết được tạo bằng lệnh của USE, còn \texttt{Class invariants} hiển thị giá trị của từng bất biến trên trạng thái đó. Đây là luồng sử dụng cơ sở mà phần mở rộng tiếp tục dùng để đánh giá trạng thái được dựng từ dữ liệu thực thi.
 
 \subsection{Kiến trúc USE---JaCaMo}\label{sec:3-1-2}
 
@@ -1185,19 +1250,19 @@ Quyết định được gửi về đúng yêu cầu đang chờ ở tiến tr�
 \caption{Giao diện USE sau khi tích hợp JaCaMo.}\label{fig:3-use-jacamo}
 \end{figure}
 
-Hình~\ref{fig:3-use-jacamo} chụp phiên Auction trong cửa sổ thực nghiệm. Hai artifact a1 và a2 xuất hiện ở khung JaCaMo bên trái. Khung bên phải có các thẻ xem trạng thái CSL, kết quả OCL và các mốc kiểm chứng. Ở thẻ \emph{iStarSCN}, lựa chọn \emph{Execution} xác định phiên đấu giá đang xem, còn bảng \emph{Markings} ghi trạng thái của các mục tiêu và nhiệm vụ tương ứng. Cách bố trí này cho phép kiểm tra dữ liệu JaCaMo và kết quả của USE tại cùng một mốc.
+Hình~\ref{fig:3-use-jacamo} chụp phiên Auction trong cửa sổ thực nghiệm. Hai artifact \texttt{a1} và \texttt{a2} xuất hiện ở khung JaCaMo bên trái. Khung bên phải có các thẻ xem trạng thái CSL, kết quả OCL và các mốc kiểm chứng. Ở thẻ \texttt{iStarSCN}, lựa chọn \texttt{Execution} xác định phiên đấu giá đang xem, còn bảng \texttt{Markings} ghi trạng thái của các mục tiêu và nhiệm vụ tương ứng. Cách bố trí này cho phép kiểm tra dữ liệu JaCaMo và kết quả của USE tại cùng một mốc.
 
 \section{Hướng dẫn cài đặt và kịch bản kiểm thử}\label{sec:3-2}
 
 Bản thực nghiệm sử dụng USE 7.5.0 và plugin JaCaMo 1.0.1. Để tạo bản chạy từ mã nguồn, cần Git, JDK 21, Maven 3.9 và Python 3. Có thể kiểm tra phiên bản bằng \texttt{java -version}, \texttt{mvn -version} và \texttt{python3 --version}. Lệnh dưới đây tải đúng phiên bản mã nguồn được dùng để đối chiếu cách cài đặt, đưa các thư viện JaCaMo có hỗ trợ checkpoint vào kho Maven cục bộ và đóng gói bản chạy. Trên Windows, dùng \texttt{python} thay cho \texttt{python3} nếu đó là tên lệnh của Python trên máy. Các lệnh cài đặt được thực hiện từ thư mục gốc của kho USE.
 
-\begin{Verbatim}
+\begin{thesiscode}
 git clone https://github.com/nguyentrungnghia1802/use.git
 cd use
 git checkout 9a1e377d9802587abe4299a4247ce03f943473a6
 python3 use-plugin/tools/install-runtime.py
 mvn -B package -Dmaven.test.skip=true
-\end{Verbatim}
+\end{thesiscode}
 
 Khi Maven báo \texttt{BUILD SUCCESS}, bản chạy nằm tại \path{use-assembly/target/new}. Từ thư mục gốc của kho USE, trên Linux chạy \path{bash use-assembly/target/new/bin/use}. Trên Windows, chạy \path{use-assembly\target\new\bin\start_use.bat} từ Command Prompt. Bản đóng gói đã tích hợp plugin và gói mẫu Auction. Khi mở gói, USE tự chuẩn bị tiến trình JaCaMo và biên dịch mã Java của artifact.
 
@@ -1208,7 +1273,7 @@ Khi Maven báo \texttt{BUILD SUCCESS}, bản chạy nằm tại \path{use-assemb
 \caption{Lệnh chạy thực nghiệm và hộp thoại chọn gói.}\label{fig:3-launch}
 \end{figure}
 
-Hình~\ref{fig:3-launch} minh họa thao tác sau khi USE mở. Trong trình đơn \emph{Plugins}, chọn \emph{JaCaMo}, rồi \emph{Run experiment}. Hộp thoại chọn tệp mở tại thư mục các ví dụ của bản đóng gói. Chọn \path{auction/auction.mrv}, rồi bấm \emph{Run}. Trong cửa sổ thực nghiệm, dùng \emph{Stop} để dừng phiên hoặc \emph{Restart} để bắt đầu lần chạy mới với cùng gói.
+Hình~\ref{fig:3-launch} minh họa thao tác sau khi USE mở. Trong trình đơn \texttt{Plugins}, chọn \texttt{JaCaMo}, rồi \texttt{Run experiment}. Hộp thoại chọn tệp mở tại thư mục các ví dụ của bản đóng gói. Chọn \path{auction/auction.mrv}, rồi bấm \texttt{Run}. Trong cửa sổ thực nghiệm, dùng \texttt{Stop} để dừng phiên hoặc \texttt{Restart} để bắt đầu lần chạy mới với cùng gói.
 
 \begin{figure}
 \centering
@@ -1216,7 +1281,7 @@ Hình~\ref{fig:3-launch} minh họa thao tác sau khi USE mở. Trong trình đ�
 \caption{Cửa sổ thực nghiệm Auction.}\label{fig:3-workbench}
 \end{figure}
 
-Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu nguồn và khung bên phải trình bày kết quả USE. Để đối chiếu một trạng thái, chọn một hàng ở thẻ \emph{Checkpoints}. Xem các dòng a1 và a2 ở thẻ \emph{Artifacts}, sau đó chuyển qua \emph{OAL State}, \emph{OCL} và \emph{iStarSCN} để lần lượt xem đối tượng đích, kết quả bất biến và trạng thái mục tiêu tại mốc đã chọn. Trong \emph{iStarSCN}, mục \emph{Execution} chọn cuộc đấu giá cần xem. \emph{Follow live} đưa cửa sổ về mốc mới nhất. Đường dẫn ghi sau dòng \emph{Run evidence} trong \emph{Console} chỉ tới thư mục chứa vết của phiên.
+Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu nguồn và khung bên phải trình bày kết quả USE. Để đối chiếu một trạng thái, chọn một hàng ở thẻ \texttt{Checkpoints}. Xem các dòng \texttt{a1} và \texttt{a2} ở thẻ \texttt{Artifacts}, sau đó chuyển qua \texttt{OAL State}, \texttt{OCL} và \texttt{iStarSCN} để lần lượt xem đối tượng đích, kết quả bất biến và trạng thái mục tiêu tại mốc đã chọn. Trong \texttt{iStarSCN}, mục \texttt{Execution} chọn cuộc đấu giá cần xem. \texttt{Follow live} đưa cửa sổ về mốc mới nhất. Đường dẫn ghi sau dòng \texttt{Run evidence} trong \texttt{Console} chỉ tới thư mục chứa vết của phiên.
 
 Lần chạy gói Auction mẫu được dùng làm kịch bản TN01. Trong lần chạy này, hai phiên a1 và a2 được mở, nhận lượt trả giá và đóng. Vết lưu từ TN01 được dùng cho TN02 để đánh giá lại với cùng đặc tả và khai báo ánh xạ. Hai kịch bản còn lại dùng các biến thể của Auction để kiểm tra phản hồi khi giá tốt nhất bị cập nhật sai hoặc khi dữ liệu giá bị thiếu.
 
@@ -1250,7 +1315,7 @@ Trong TN01, một mốc giữa lần chạy được chọn để đối chiếu
 \caption{Hai đối tượng Auction trong OAL State.}\label{fig:3-auction-oal}
 \end{figure}
 
-Hình~\ref{fig:3-auction-oal} trích hai đối tượng từ thẻ \emph{OAL State}. Tên a1 và a2 tương ứng với hai artifact tại JaCaMo. Giá tốt nhất và trạng thái mở trên hai đối tượng khớp với dữ liệu nguồn ở cùng mốc. Phiên a1 vẫn có giá trị khởi tạo, được hiển thị dưới dạng số mũ trong hình. Giá tốt nhất của a2 đã giảm xuống khoảng 105,11 sau một lượt trả giá. Công cụ giữ hai giá trị trên hai đối tượng riêng dù chúng thuộc cùng kiểu \emph{Auction}.
+Hình~\ref{fig:3-auction-oal} trích hai đối tượng từ thẻ \texttt{OAL State}. Tên \texttt{a1} và \texttt{a2} tương ứng với hai artifact tại JaCaMo. Giá tốt nhất và trạng thái mở trên hai đối tượng khớp với dữ liệu nguồn ở cùng mốc. Phiên \texttt{a1} vẫn có giá trị khởi tạo, được hiển thị dưới dạng số mũ trong hình. Giá tốt nhất của \texttt{a2} đã giảm xuống khoảng 105,11 sau một lượt trả giá. Công cụ giữ hai giá trị trên hai đối tượng riêng dù chúng thuộc cùng kiểu \emph{Auction}.
 
 Để đánh giá nhiệm vụ ghi nhận lượt trả giá, USE dùng giá tốt nhất của từng đối tượng để kiểm tra hậu điều kiện và kết hợp với tiền điều kiện đã ghi nhận cho chính phiên đó (Mục~\ref{sec:2-7-2}). Vì vậy, mức giá khoảng 105,11 là bằng chứng hoàn thành nhiệm vụ của riêng a2. Kết quả này được thể hiện trên sơ đồ iStarSCN của phiên tương ứng.
 
@@ -1260,7 +1325,7 @@ Hình~\ref{fig:3-auction-oal} trích hai đối tượng từ thẻ \emph{OAL St
 \caption{Nhánh trả giá trong iStarSCN.}\label{fig:3-auction-scn}
 \end{figure}
 
-Hình~\ref{fig:3-auction-scn} giữ nguyên mốc trên và chọn a2 ở mục \emph{Execution}. Dấu cộng cạnh \mbox{\emph{FocusForBid}} cho biết USE đã ghi nhận một tác tử giữ vai trò người tham gia theo dõi phiên đang mở. Dấu cộng cạnh \emph{ObserveBid} cho biết USE đã quan sát được giá thấp hơn giá khởi tạo của phiên này. Kết quả của hai nhiệm vụ được tổng hợp theo quan hệ tinh chỉnh AND, nên mục tiêu trả giá (\emph{bid}) cũng được đánh dấu đạt. Bảng \emph{Markings} cho phép đối chiếu trạng thái của cùng nhiệm vụ giữa hai phiên.
+Hình~\ref{fig:3-auction-scn} giữ nguyên mốc trên và chọn \texttt{a2} ở mục \texttt{Execution}. Dấu cộng cạnh \mbox{\texttt{FocusForBid}} cho biết USE đã ghi nhận một tác tử giữ vai trò người tham gia theo dõi phiên đang mở. Dấu cộng cạnh \texttt{ObserveBid} cho biết USE đã quan sát được giá thấp hơn giá khởi tạo của phiên này. Kết quả của hai nhiệm vụ được tổng hợp theo quan hệ tinh chỉnh AND, nên mục tiêu trả giá (\texttt{bid}) cũng được đánh dấu đạt. Bảng \texttt{Markings} cho phép đối chiếu trạng thái của cùng nhiệm vụ giữa hai phiên.
 
 \begin{figure}
 \centering
@@ -1271,7 +1336,7 @@ Hình~\ref{fig:3-auction-scn} giữ nguyên mốc trên và chọn a2 ở mục 
 \caption{Tiến độ ghi nhận lượt trả giá cải thiện của a1 và a2.}\label{fig:3-auction-progress}
 \end{figure}
 
-Trong Hình~\ref{fig:3-auction-progress}, \emph{ObserveBid} còn chờ ở a1 (\texttt{PENDING}) và đã đạt ở a2 (\texttt{FULFILLED}). Hai kết quả này được hiển thị lần lượt khi chọn từng phiên ở mục \emph{Execution}. Cả hai khung đều ghi \texttt{APPROVE}, tức quyết định cho JaCaMo tiếp tục tại mốc đó.
+Trong Hình~\ref{fig:3-auction-progress}, Nhiệm vụ \texttt{ObserveBid} ở \texttt{a1} còn chờ (\texttt{PENDING}) và ở \texttt{a2} đã đạt (\texttt{FULFILLED}). Mục \texttt{Execution} cho phép chọn phiên để xem kết quả. Cả hai khung đều ghi \texttt{APPROVE}, nên JaCaMo được tiếp tục tại mốc đó.
 
 \begin{figure}
 \centering
@@ -1282,7 +1347,7 @@ Trong Hình~\ref{fig:3-auction-progress}, \emph{ObserveBid} còn chờ ở a1 (\
 \caption{Mục tiêu hoàn thành của hai cuộc đấu giá.}\label{fig:3-auction-end}
 \end{figure}
 
-Ở cuối lần chạy, hai khung của Hình~\ref{fig:3-auction-end} cho thấy mục tiêu hoàn thành cuộc đấu giá (\emph{AuctionCompleted}) đã đạt trong cả hai ngữ cảnh. Mỗi ngữ cảnh có bằng chứng riêng cho việc ghi nhận giá cải thiện và đóng phiên. Vết gốc cũng ghi đủ 58 quyết định cho tiếp tục và 58 bản xác nhận tương ứng của JaCaMo. TN01 qua đó kiểm tra được cả việc giữ riêng tiến độ theo đối tượng lẫn khả năng cho tiếp tục khi một nhiệm vụ vẫn chờ bằng chứng nhưng các điều kiện tại mốc đã được đáp ứng.
+Ở cuối lần chạy, hai khung của Hình~\ref{fig:3-auction-end} cho thấy mục tiêu hoàn thành cuộc đấu giá (\texttt{AuctionCompleted}) đã đạt trong cả hai ngữ cảnh. Mỗi ngữ cảnh có bằng chứng riêng cho việc ghi nhận giá cải thiện và đóng phiên. Vết gốc cũng ghi đủ 58 quyết định cho tiếp tục và 58 bản xác nhận tương ứng của JaCaMo. TN01 qua đó kiểm tra được cả việc giữ riêng tiến độ theo đối tượng lẫn khả năng cho tiếp tục khi một nhiệm vụ vẫn chờ bằng chứng nhưng các điều kiện tại mốc đã được đáp ứng.
 
 \subsection{Phản hồi kiểm chứng}\label{sec:3-4-2}
 
@@ -1310,7 +1375,7 @@ Trong biến thể có lỗi của TN03, hai khung ở Hình~\ref{fig:3-bid-chan
 \caption{Vi phạm mục tiêu duy trì giá trong TN03.}\label{fig:3-bid-verdict}
 \end{figure}
 
-Hình~\ref{fig:3-bid-verdict} cho thấy mục tiêu duy trì giá không tăng (\emph{BidNeverIncreases}) bị vi phạm ở ngữ cảnh a1. Cùng mốc đó, 17 lượt đánh giá bất biến đều đạt và USE vẫn trả \texttt{HOLD\_FAILURE}. Vết nguồn xác nhận phản hồi và không ghi nhận bước kế tiếp đã được đặt sau mốc chuyển giao trong kịch bản. Đối chứng hợp lệ giữ giá ở 10 và được phép tiếp tục với cả hai cách bố trí mốc. Với bản có lỗi nhưng chỉ chụp cuối nhóm, log nguồn vẫn ghi 10 rồi 20, còn ảnh chụp sau hai lượt chỉ có 20. Lần chạy đó được phép tiếp tục vì vết thiếu cặp giá làm căn cứ cho kết luận vi phạm.
+Hình~\ref{fig:3-bid-verdict} cho thấy mục tiêu duy trì giá không tăng (\texttt{BidNeverIncreases}) bị vi phạm ở ngữ cảnh \texttt{a1}. Cùng mốc đó, 17 lượt đánh giá bất biến đều đạt và USE vẫn trả \texttt{HOLD\_FAILURE}. Vết nguồn xác nhận phản hồi và không ghi nhận bước kế tiếp đã được đặt sau mốc chuyển giao trong kịch bản. Đối chứng hợp lệ giữ giá ở 10 và được phép tiếp tục với cả hai cách bố trí mốc. Với bản có lỗi nhưng chỉ chụp cuối nhóm, log nguồn vẫn ghi 10 rồi 20, còn ảnh chụp sau hai lượt chỉ có 20. Lần chạy đó được phép tiếp tục vì vết thiếu cặp giá làm căn cứ cho kết luận vi phạm.
 
 \begin{figure}
 \centering
@@ -1533,4 +1598,234 @@ I. Ayala, M. Amor, J. M. Horcas, and L. Fuentes, ``A goal-driven software produc
 D. Ghosh, \emph{DSLs in Action}. Manning Publications, 2010.
 
 \end{thebibliography}
+
+\chapter*{PHỤ LỤC. MÃ NGUỒN THỰC THI THUẬT TOÁN}
+\addcontentsline{toc}{chapter}{PHỤ LỤC. MÃ NGUỒN THỰC THI THUẬT TOÁN}
+
+\section*{A.1 Chọn ranh giới checkpoint}
+\label{app:checkpoint-source}
+
+Các đoạn dưới đây trích đầy đủ các phương thức chính của \textit{JaCaMoCheckpoints.java} từ bản USE \href{https://github.com/nguyentrungnghia1802/use/tree/9a1e377d9802587abe4299a4247ce03f943473a6}{\texttt{9a1e377d}}. Số bên trái là số dòng của tệp nguồn.
+
+\subsubsection*{\textit{initial}}
+\begin{thesiscode}[firstnumber=29]
+void initial() {
+    try {
+        long epoch = ExecutionBarrier.closeAdmission();
+        var cut = freeze(epoch);
+        if (!handler.verify(checkpoint("", "INITIAL", "", "INITIAL", "INITIAL", "", -1, 0, List.of()), cut))
+            throw new IllegalStateException("INITIAL_STATE_NOT_APPROVED");
+        ExecutionBarrier.release(epoch);
+    } catch (Exception failure) { throw new IllegalStateException("INITIAL_SOURCE_ADMISSION_FAILED", failure); }
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{group}}
+\begin{thesiscode}[firstnumber=183]
+private Group group(Intention intention) {
+    if (intention != null) for (var means : intention) {
+        var group = active.get(means); if (group != null) return group;
+        group = continuation(means);
+        if (group != null && !awaitingJoin(means)) return group;
+    }
+    return null;
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{onMarker}}
+\begin{thesiscode}[firstnumber=200]
+void onMarker(String plan, boolean entry) throws Exception {
+    Delivery reply;
+    synchronized (this) {
+        var intention = ts.getC().getSelectedIntention();
+        if (intention == null || intention.isFinished()) throw new IllegalStateException("PLAN_FRAME_MISSING");
+        var means = intention.peek();
+        if (entry) {
+            if (active.containsKey(means)) throw new IllegalStateException("PLAN_FRAME_DUPLICATE_ENTRY");
+            var parent = group(intention);
+            if (parent == null) {
+                parent = new Group(plan, means, intention);
+                roots.put(parent.invocation, parent);
+                means.getUnif().bind(continuationKey, ASSyntax.createString(parent.invocation));
+            } else {
+                parent.merged++;
+            }
+            active.put(means, parent);
+            return;
+        }
+        reply = finish(means, "SUCCEEDED");
+    }
+    if (reply != null) reply.send();
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{finish}}
+\begin{thesiscode}[firstnumber=224]
+private Delivery finish(IntendedMeans means, String outcome) {
+    var group = active.remove(means);
+    boolean isRoot = group != null && group.root == means;
+    if (group == null) { group = continuation(means); isRoot = group != null; }
+    if (!isRoot) return null;
+    var completed = group;
+    if (outcome.equals("FAILED")) for (var frame : group.intention) {
+        var parent = continuation(frame);
+        if (parent != null && parent != group) parent.childFailed = true;
+    }
+    roots.remove(group.invocation); active.values().removeIf(value -> value == completed);
+    var event = group.event(outcome, "PLAN_COMPLETED", group.messages);
+    if (group.deliveries.isEmpty() || !outcome.equals("SUCCEEDED")) {
+        submit(event);
+        return null;
+    }
+
+    // Plan completion and the final reply share a single checkpoint.
+    var deliveries = List.copyOf(group.deliveries);
+    var approval = submitForDelivery(event);
+    return () -> {
+        approval.awaitRelease();
+        try { for (var delivery : deliveries) delivery.send(); }
+        catch (Exception failure) { unavailable("MESSAGE_DELIVERY_FAILED"); throw failure; }
+    };
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{send}}
+\begin{thesiscode}[firstnumber=251]
+void send(Message message, Delivery delivery) throws Exception {
+    if (agent.equals(message.getReceiver())) {
+        delivery.send();
+        return;
+    }
+
+    Approval approval;
+    synchronized (this) {
+        var intention = ts.getC().getSelectedIntention();
+        var group = group(intention);
+        String id = message.getMsgId() + ":" + message.getReceiver();
+        if (group != null && !message.isAsk() && onlyReturnsRemain(intention)) {
+            group.messages.add(id);
+            group.deliveries.add(delivery);
+            return;
+        }
+        var event = group == null
+                ? checkpoint(agent, "SOURCE_MESSAGE", "", "RUNNING", "AGENT_HANDOFF", "", -1, 0, List.of(id))
+                : group.event("RUNNING", "AGENT_HANDOFF", List.of(id));
+        approval = submitForDelivery(event);
+    }
+    approval.awaitRelease();
+    delivery.send();
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{onlyReturnsRemain}}
+\begin{thesiscode}[firstnumber=275]
+private boolean onlyReturnsRemain(Intention intention) throws Exception {
+    for (var means : intention) {
+        var current = means.getCurrentStep();
+        if (current == null) return false;
+        for (var next = current.getBodyNext(); next != null; next = next.getBodyNext()) {
+            if (!(next.getBodyTerm() instanceof InternalActionLiteral literal)
+                    || !(literal.getIA(ts.getAg()) instanceof Marker marker) || marker.entry) return false;
+        }
+    }
+    return true;
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{goalFailed}}
+\begin{thesiscode}[firstnumber=302]
+@Override public synchronized void goalFailed(Trigger trigger, Term reason) {
+    try {
+        for (var means : new ArrayList<>(active.keySet())) if (means.getTrigger() == trigger) {
+            finish(means, "FAILED"); return;
+        }
+        var event = goals.remove(trigger);
+        if (event == null) {
+            var selected = ts.getC().getSelectedEvent();
+            if (selected != null && selected.getTrigger().equals(trigger)) event = selected;
+        }
+        if (event != null && group(event.getIntention()) == null)
+            submit(checkpoint(agent, trigger.toString(), "", "FAILED", "GOAL_FAILED", "", -1, 0, List.of()));
+    } catch (Exception failure) { unavailable("SOURCE_FAILURE_OBSERVATION_FAILED"); }
+}
+\end{thesiscode}
+
+\section*{A.2 Chiếu ảnh chụp nguồn sang trạng thái CSL}
+\label{app:projection-source}
+
+Phương thức \textit{prepare} thuộc \textit{SnapshotProjection.java}. Hai phương thức \textit{applySnapshot} và \textit{update} thuộc \textit{SnapshotVerifier.java}. Phương thức \textit{update} cho thấy thời điểm lưu trạng thái cũ trước khi áp dụng phép chiếu. Số dòng được giữ theo từng tệp.
+
+\subsubsection*{\textit{prepare}}
+\begin{thesiscode}[firstnumber=31]
+public Prepared prepare(SourceSnapshot snapshot) {
+    var sources = indexSources(snapshot);
+    var rows = new LinkedHashMap<String, ObjectRow>();
+    var bySource = new HashMap<String, List<ObjectRow>>();
+    for (var source : sources.values()) {
+        for (var row : mapObjects(snapshot, source)) {
+            rows.put(row.identity(), row);
+            bySource.computeIfAbsent(source.id(), key -> new ArrayList<>()).add(row);
+        }
+    }
+
+    var links = new LinkedHashSet<Link>();
+    addFocusLinks(snapshot, sources, bySource, links);
+    addScopeLinks(sources, bySource, links);
+    addMembershipLinks(snapshot, sources, bySource, links);
+    addEnactments(snapshot, sources, bySource, rows, links);
+    validateContextCycles(snapshot.nodes());
+    return new Prepared(List.copyOf(rows.values()), List.copyOf(links));
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{applySnapshot}}
+\begin{thesiscode}[firstnumber=142]
+private void applySnapshot(SnapshotProjection.Prepared prepared) throws Exception {
+    var retained=new HashSet<String>();
+    for(var row:prepared.objects()) {
+        retained.add(row.identity());var object=objects.get(row.identity());
+        if(object==null){object=api.createObject(row.type(),"state_"+hash(row.identity()).substring(0,24));objects.put(row.identity(),object);}
+        for(var value:row.values().entrySet())api.setAttributeValueEx(object,object.cls().attribute(value.getKey(),true),value.getValue());
+    }
+    // Links are reconstructed from each complete physical snapshot; leaving a role removes Plays/InContext.
+    for(var link:new ArrayList<>(system.state().allLinks()))api.deleteLinkEx(link);
+    for(String id:new ArrayList<>(objects.keySet()))if(!retained.contains(id)) {
+            api.deleteObjectEx(objects.remove(id));var retired=sessions.remove(id);if(retired!=null)retired.close();
+    }
+    for(var link:prepared.links())api.createLink(link.association(),objects.get(link.left()).name(),objects.get(link.right()).name());
+}
+\end{thesiscode}
+
+\subsubsection*{\textit{update}}
+\begin{thesiscode}[firstnumber=113]
+public synchronized Result update(SourceSnapshot snapshot)throws Exception {
+    if(run!=null&&!run.equals(snapshot.run()))throw new IllegalArgumentException("STATE_RUN_CHANGED");
+    if(snapshot.sequence()==lastSequence) {
+        if(!snapshot.equals(previousSnapshot))throw new IllegalArgumentException("STATE_SEQUENCE_COLLISION");
+        return previousResult;
+    }
+    if(snapshot.sequence()!=lastSequence+1)throw new IllegalArgumentException("STATE_SEQUENCE_GAP");
+    if(!snapshot.complete())return new Result(snapshot.sequence(),"HOLD_UNVERIFIED",List.of(new Check("","coverage","SOURCE_COVERAGE","","UNKNOWN","INCOMPLETE_SOURCE_SNAPSHOT")),List.of(),stateRows());
+    var prepared=projection.prepare(snapshot); // Resolve all physical identities, scopes and types before mutation.
+    MSystemState before=new MSystemState("previous-csl-state",system.state());
+    applySnapshot(prepared);
+
+    var view = StateView.pin(before, system.state());
+    var checks = new ArrayList<Check>();
+    var elements = new ArrayList<ElementStatus>();
+    checkInvariants(view, checks);
+    for (var entry : objects.entrySet()) {
+        var object = entry.getValue();
+        if (actorClasses.containsValue(object.cls().name())) {
+            checkGoalTasks(entry.getKey(), object, view, checks, elements);
+        }
+    }
+
+    boolean failed=checks.stream().anyMatch(c->c.kind().equals("CSL_INVARIANT")&&c.verdict().equals("FAIL"))||elements.stream().anyMatch(e->e.status().equals("VIOLATED"));
+    boolean unavailable=checks.stream().anyMatch(c->!Set.of("PASS","FAIL").contains(c.verdict()));
+    var result=new Result(snapshot.sequence(),failed?"HOLD_FAILURE":unavailable?"HOLD_UNVERIFIED":"APPROVE",checks,elements,stateRows());
+    run=snapshot.run();lastSequence=snapshot.sequence();previousSnapshot=snapshot;previousResult=result;return result;
+}
+\end{thesiscode}
+
 \end{document}
