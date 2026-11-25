@@ -1,0 +1,418 @@
+{
+  "DANH MỤC HÌNH": {
+    "physical": 9,
+    "label": "vi"
+  },
+  "DANH MỤC BẢNG": {
+    "physical": 9,
+    "label": "vi"
+  },
+  "MỞ ĐẦU": {
+    "physical": 10,
+    "label": "vii"
+  },
+  "CHƯƠNG 1. KIẾN THỨC NỀN TẢNG": {
+    "physical": 11,
+    "label": "1"
+  },
+  "1.1. Giới thiệu": {
+    "physical": 11,
+    "label": "1"
+  },
+  "1.2. Ngôn ngữ hướng miền": {
+    "physical": 11,
+    "label": "1"
+  },
+  "1.2.1. Khái niệm, phạm vi và lựa chọn DSL": {
+    "physical": 11,
+    "label": "1"
+  },
+  "1.2.2. Cú pháp, ngữ nghĩa và metamodel": {
+    "physical": 12,
+    "label": "2"
+  },
+  "1.2.3. ANTLR và quy trình xử lý ngôn ngữ": {
+    "physical": 14,
+    "label": "4"
+  },
+  "1.3. Hệ thống đa tác tử và JaCaMo": {
+    "physical": 16,
+    "label": "6"
+  },
+  "1.3.1. Tổng quan hệ thống đa tác tử và kiến trúc JaCaMo": {
+    "physical": 16,
+    "label": "6"
+  },
+  "1.3.2. Belief, Goal, Plan và Intention trong Jason": {
+    "physical": 17,
+    "label": "7"
+  },
+  "1.3.3. Artifact và Workspace trong CArtAgO": {
+    "physical": 19,
+    "label": "9"
+  },
+  "1.3.4. Mô hình tổ chức Moise": {
+    "physical": 21,
+    "label": "11"
+  },
+  "1.4. Mô hình mục tiêu iStar": {
+    "physical": 23,
+    "label": "13"
+  },
+  "1.4.1. Actor và các phần tử ý định": {
+    "physical": 23,
+    "label": "13"
+  },
+  "1.4.2. Refinement, Dependency và các quan hệ ý định": {
+    "physical": 24,
+    "label": "14"
+  },
+  "1.4.3. Góc nhìn và phân tích mô hình iStar": {
+    "physical": 25,
+    "label": "15"
+  },
+  "1.5. UML, OCL và công cụ USE": {
+    "physical": 27,
+    "label": "17"
+  },
+  "1.5.1. Mô hình lớp, đối tượng và trạng thái": {
+    "physical": 27,
+    "label": "17"
+  },
+  "1.5.2. OCL và các loại ràng buộc": {
+    "physical": 28,
+    "label": "18"
+  },
+  "1.5.3. Môi trường USE và khả năng mở rộng": {
+    "physical": 29,
+    "label": "19"
+  },
+  "1.6. Kiểm chứng hệ thống đa tác tử": {
+    "physical": 31,
+    "label": "21"
+  },
+  "1.6.1. Kiểm chứng mô hình (Model Checking)": {
+    "physical": 31,
+    "label": "21"
+  },
+  "1.6.2. Kiểm chứng khi thực thi (Runtime Verification)": {
+    "physical": 31,
+    "label": "21"
+  },
+  "1.6.3. Trace, snapshot và checkpoint": {
+    "physical": 31,
+    "label": "21"
+  },
+  "1.7. Các nghiên cứu liên quan": {
+    "physical": 32,
+    "label": "22"
+  },
+  "1.8. Tổng kết chương": {
+    "physical": 32,
+    "label": "22"
+  },
+  "CHƯƠNG 2. PHƯƠNG PHÁP ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ TRÊN USE": {
+    "physical": 34,
+    "label": "24"
+  },
+  "2.1. Giới thiệu": {
+    "physical": 34,
+    "label": "24"
+  },
+  "2.2. Động cơ nghiên cứu (Motivation)": {
+    "physical": 34,
+    "label": "24"
+  },
+  "2.2.1. Ví dụ Auction": {
+    "physical": 35,
+    "label": "25"
+  },
+  "2.3. Tổng quan phương pháp (Method Overview)": {
+    "physical": 35,
+    "label": "25"
+  },
+  "2.4. Đặc tả CSL trong USE": {
+    "physical": 35,
+    "label": "25"
+  },
+  "2.5. Đặc tả iStar mở rộng trong USE": {
+    "physical": 38,
+    "label": "28"
+  },
+  "2.6. Ánh xạ trạng thái JaCaMo sang CSL": {
+    "physical": 40,
+    "label": "30"
+  },
+  "2.6.1. Khai báo tương ứng bằng XML": {
+    "physical": 40,
+    "label": "30"
+  },
+  "2.6.2. Đồng bộ JaCaMo với CSL": {
+    "physical": 41,
+    "label": "31"
+  },
+  "2.6.3. Chiếu đối tượng, thuộc tính và quan hệ": {
+    "physical": 42,
+    "label": "32"
+  },
+  "2.7. Kiểm chứng ràng buộc và đánh giá Goal/Task": {
+    "physical": 44,
+    "label": "34"
+  },
+  "2.7.1. Đánh giá OCL trên trạng thái CSL": {
+    "physical": 44,
+    "label": "34"
+  },
+  "2.7.2. Đánh giá Task theo lịch sử tiền và hậu điều kiện": {
+    "physical": 45,
+    "label": "35"
+  },
+  "2.7.3. Đánh giá Goal và lan truyền kết quả": {
+    "physical": 46,
+    "label": "36"
+  },
+  "2.7.4. Tổng hợp quyết định checkpoint": {
+    "physical": 47,
+    "label": "37"
+  },
+  "2.8. Tổng kết chương": {
+    "physical": 48,
+    "label": "38"
+  },
+  "CHƯƠNG 3. TRIỂN KHAI VÀ THỰC NGHIỆM": {
+    "physical": 49,
+    "label": "39"
+  },
+  "3.1. Giới thiệu": {
+    "physical": 49,
+    "label": "39"
+  },
+  "3.2. Triển khai công cụ": {
+    "physical": 49,
+    "label": "39"
+  },
+  "3.2.1. Tổ chức các thành phần": {
+    "physical": 49,
+    "label": "39"
+  },
+  "3.2.2. Môi trường và cách khởi chạy": {
+    "physical": 50,
+    "label": "40"
+  },
+  "3.3. Kịch bản thử nghiệm": {
+    "physical": 51,
+    "label": "41"
+  },
+  "3.3.1. Chạy Auction và đánh giá lại vết": {
+    "physical": 51,
+    "label": "41"
+  },
+  "3.3.2. Vi phạm ràng buộc và thiếu dữ liệu": {
+    "physical": 51,
+    "label": "41"
+  },
+  "3.3.3. Ca đối chứng và giới hạn quan sát": {
+    "physical": 51,
+    "label": "41"
+  },
+  "3.4. Tiêu chí đánh giá": {
+    "physical": 52,
+    "label": "42"
+  },
+  "3.5. Kết quả và phân tích": {
+    "physical": 52,
+    "label": "42"
+  },
+  "3.5.1. Định danh và lịch sử của từng đối tượng": {
+    "physical": 52,
+    "label": "42"
+  },
+  "3.5.2. Quyết định kiểm chứng và giới hạn quan sát": {
+    "physical": 54,
+    "label": "44"
+  },
+  "3.5.3. Tái hiện kết quả khi đánh giá lại vết": {
+    "physical": 57,
+    "label": "47"
+  },
+  "3.6. Giới hạn và hướng mở rộng": {
+    "physical": 57,
+    "label": "47"
+  },
+  "3.7. Tổng kết chương": {
+    "physical": 58,
+    "label": "48"
+  },
+  "KẾT LUẬN": {
+    "physical": 59,
+    "label": "49"
+  },
+  "TÀI LIỆU THAM KHẢO": {
+    "physical": 60,
+    "label": "50"
+  },
+  "Hình 1.1 Phân tích cú pháp của biểu thức a%b+c": {
+    "physical": 13,
+    "label": "3"
+  },
+  "Hình 1.2 Liên kết trong siêu mô hình UML": {
+    "physical": 14,
+    "label": "4"
+  },
+  "Hình 1.3 Ngữ pháp Ex trong ANTLR": {
+    "physical": 15,
+    "label": "5"
+  },
+  "Hình 1.4 Chu trình diễn giải AgentSpeak(L)": {
+    "physical": 18,
+    "label": "8"
+  },
+  "Hình 1.5 Kế hoạch AgentSpeak cho robot thăm dò Sao Hỏa": {
+    "physical": 19,
+    "label": "9"
+  },
+  "Hình 1.6 Giao diện artifact đấu giá": {
+    "physical": 20,
+    "label": "10"
+  },
+  "Hình 1.7 Định nghĩa artifact Counter": {
+    "physical": 21,
+    "label": "11"
+  },
+  "Hình 1.8 Lược đồ mục tiêu của phương án tấn công biên": {
+    "physical": 22,
+    "label": "12"
+  },
+  "Hình 1.9 Thể hiện nhóm phòng ngự trong S-Moise+": {
+    "physical": 23,
+    "label": "13"
+  },
+  "Hình 1.10 Ký pháp iStar 2.0": {
+    "physical": 24,
+    "label": "14"
+  },
+  "Hình 1.11 Mô hình University Travel Reimbursement": {
+    "physical": 26,
+    "label": "16"
+  },
+  "Hình 1.12 Biểu đồ lớp của mô hình việc làm": {
+    "physical": 27,
+    "label": "17"
+  },
+  "Hình 1.13 Trạng thái đối tượng của mô hình việc làm": {
+    "physical": 28,
+    "label": "18"
+  },
+  "Hình 1.14 Trạng thái đối tượng và kết quả OCL trong USE": {
+    "physical": 30,
+    "label": "20"
+  },
+  "Hình 2.1 Siêu mô hình CSL": {
+    "physical": 36,
+    "label": "26"
+  },
+  "Hình 2.2 Mô hình CSL của Auction": {
+    "physical": 37,
+    "label": "27"
+  },
+  "Hình 2.3 Siêu mô hình iStar mở rộng": {
+    "physical": 38,
+    "label": "28"
+  },
+  "Hình 2.4 Mô hình mục tiêu AuctionGroup": {
+    "physical": 40,
+    "label": "30"
+  },
+  "Hình 2.5 Giá tốt nhất của hai artifact Auction": {
+    "physical": 44,
+    "label": "34"
+  },
+  "Hình 2.6 Sơ đồ đầy đủ của trạng thái Auction trong OAL State": {
+    "physical": 44,
+    "label": "34"
+  },
+  "Hình 2.7 Các checkpoint đầu của Auction": {
+    "physical": 48,
+    "label": "38"
+  },
+  "Hình 3.1 Lệnh Run experiment trong trình đơn JaCaMo": {
+    "physical": 50,
+    "label": "40"
+  },
+  "Hình 3.2 Hộp thoại chọn gói auction.mrv": {
+    "physical": 50,
+    "label": "40"
+  },
+  "Hình 3.3 Theo dõi Auction trong thẻ Checkpoints": {
+    "physical": 51,
+    "label": "41"
+  },
+  "Hình 3.4 Giá công bố khi hai cuộc đấu giá đã đạt mục tiêu": {
+    "physical": 52,
+    "label": "42"
+  },
+  "Hình 3.5 Sơ đồ iStarSCN đầy đủ của ngữ cảnh a1": {
+    "physical": 53,
+    "label": "43"
+  },
+  "Hình 3.6 Các Goal của AuctionGroup trong ngữ cảnh a1": {
+    "physical": 53,
+    "label": "43"
+  },
+  "Hình 3.7 Các Goal của AuctionGroup trong ngữ cảnh a2": {
+    "physical": 54,
+    "label": "44"
+  },
+  "Hình 3.8 Vi phạm bất biến Nonnegative trong TN03": {
+    "physical": 54,
+    "label": "44"
+  },
+  "Hình 3.9 Giá tốt nhất trước lượt trả giá kém hơn trong TN05": {
+    "physical": 55,
+    "label": "45"
+  },
+  "Hình 3.10 Giá tốt nhất sau lượt trả giá kém hơn trong TN05": {
+    "physical": 55,
+    "label": "45"
+  },
+  "Hình 3.11 Quyết định HOLD_FAILURE trong TN05": {
+    "physical": 55,
+    "label": "45"
+  },
+  "Hình 3.12 Vi phạm Goal BidNeverIncreases trong ngữ cảnh a1": {
+    "physical": 55,
+    "label": "45"
+  },
+  "Hình 3.13 Kết quả các bất biến CSL trong TN05": {
+    "physical": 55,
+    "label": "45"
+  },
+  "Hình 3.14 Quyết định HOLD_UNVERIFIED trong TN06": {
+    "physical": 56,
+    "label": "46"
+  },
+  "Hình 3.15 Chẩn đoán thiếu thuộc tính Auction.best_bid": {
+    "physical": 56,
+    "label": "46"
+  },
+  "Hình 3.16 Giá trị quan sát trong Console của phiên Counter giữ âm": {
+    "physical": 56,
+    "label": "46"
+  },
+  "Hình 3.17 Bất biến Nonnegative khi Counter giữ giá trị âm": {
+    "physical": 56,
+    "label": "46"
+  },
+  "Hình 3.18 Giá trị quan sát trong Console của phiên Counter khôi phục": {
+    "physical": 57,
+    "label": "47"
+  },
+  "Hình 3.19 Bất biến Nonnegative sau khi Counter khôi phục giá trị": {
+    "physical": 57,
+    "label": "47"
+  },
+  "Bảng 2.1 Luật ánh xạ thuộc tính của Auction": {
+    "physical": 41,
+    "label": "31"
+  }
+}

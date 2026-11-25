@@ -1,0 +1,24 @@
+USE version 7.5.0, Copyright (C) 1999-2025 University of Bremen & University of Applied Sciences Hamburg
+PACKAGED_PLUGINS_OK engine=file:/D:/_CODE_BANK/Project_/08_Thesis/use/use-assembly/target/new-staging/lib/plugins/use-jacamo-plugin-1.0.1.jar
+STATE_WORKBENCH work=C:\WINDOWS\TEMP\use-jacamo-3812971766002268393 pid=21056
+CSL_STATE sequence=1 decision=APPROVE diagnostic=
+CSL_STATE sequence=2 decision=APPROVE diagnostic=
+CSL_STATE sequence=3 decision=APPROVE diagnostic=
+CSL_STATE sequence=4 decision=APPROVE diagnostic=
+CSL_STATE sequence=5 decision=APPROVE diagnostic=
+CSL_STATE sequence=6 decision=APPROVE diagnostic=
+CSL_STATE sequence=7 decision=APPROVE diagnostic=
+CSL_STATE sequence=8 decision=APPROVE diagnostic=
+CSL_STATE sequence=9 decision=APPROVE diagnostic=
+CSL_STATE sequence=10 decision=APPROVE diagnostic=
+CSL_STATE sequence=11 decision=APPROVE diagnostic=
+CSL_STATE sequence=12 decision=APPROVE diagnostic=
+CSL_STATE sequence=13 decision=APPROVE diagnostic=
+CSL_STATE sequence=14 decision=APPROVE diagnostic=
+CSL_STATE sequence=15 decision=APPROVE diagnostic=
+CSL_STATE sequence=16 decision=APPROVE diagnostic=
+CSL_STATE sequence=17 decision=APPROVE diagnostic=
+CSL_STATE sequence=18 decision=HOLD_UNVERIFIED diagnostic=IllegalArgumentException:ATTRIBUTE_VALUE_MISSING:Auction.best_bid
+View hold.png 916x74
+View diagnostic.png 572x20
+EMBEDDED_USE_SMOKE_PASS case=auction evidence=C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-hinh-USE-20261125-100422\missing-final

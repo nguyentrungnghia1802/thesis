@@ -1,0 +1,178 @@
+{
+  "source": {
+    "chapter": 2,
+    "number": "2.5",
+    "path": "auction-layout/artifacts.png",
+    "title": "Giá tốt nhất của hai artifact Auction",
+    "note": "phiên 804fdea5, checkpoint 47",
+    "width": 15.7
+  },
+  "oal": {
+    "chapter": 2,
+    "number": "2.6",
+    "path": "auction-layout/oal-compact.png",
+    "title": "Sơ đồ đầy đủ của trạng thái Auction trong OAL State",
+    "note": "phiên 804fdea5, checkpoint 47",
+    "width": 15.7
+  },
+  "cuts": {
+    "chapter": 2,
+    "number": "2.7",
+    "path": "auction-layout/timeline.png",
+    "title": "Các checkpoint đầu của Auction",
+    "note": "phiên 804fdea5, checkpoint 1–8",
+    "width": 15.7
+  },
+  "menu": {
+    "chapter": 3,
+    "number": "3.1",
+    "path": "auction-layout/menu.png",
+    "title": "Lệnh Run experiment trong trình đơn JaCaMo",
+    "note": "",
+    "width": 5.2
+  },
+  "mrv": {
+    "chapter": 3,
+    "number": "3.2",
+    "path": "auction-layout/mrv.png",
+    "title": "Hộp thoại chọn gói auction.mrv",
+    "note": "",
+    "width": 10
+  },
+  "history": {
+    "chapter": 3,
+    "number": "3.3",
+    "path": "auction-layout/terminal-timeline.png",
+    "title": "Theo dõi Auction trong thẻ Checkpoints",
+    "note": "phiên 804fdea5, đến checkpoint 58",
+    "width": 15.7
+  },
+  "prices": {
+    "chapter": 3,
+    "number": "3.4",
+    "path": "auction-layout/terminal-artifacts.png",
+    "title": "Giá công bố khi hai cuộc đấu giá đã đạt mục tiêu",
+    "note": "phiên 804fdea5, checkpoint 58",
+    "width": 15.7
+  },
+  "scn": {
+    "chapter": 3,
+    "number": "3.5",
+    "path": "auction-layout/istar-a1-compact.png",
+    "title": "Sơ đồ iStarSCN đầy đủ của ngữ cảnh a1",
+    "note": "phiên 804fdea5, checkpoint 58",
+    "width": 15.7
+  },
+  "a1": {
+    "chapter": 3,
+    "number": "3.6",
+    "path": "auction-layout/auctiongroup-a1.png",
+    "title": "Các Goal của AuctionGroup trong ngữ cảnh a1",
+    "note": "phiên 804fdea5, checkpoint 58",
+    "width": 9.2
+  },
+  "a2": {
+    "chapter": 3,
+    "number": "3.7",
+    "path": "auction-layout/auctiongroup-a2.png",
+    "title": "Các Goal của AuctionGroup trong ngữ cảnh a2",
+    "note": "phiên 804fdea5, checkpoint 58",
+    "width": 9.2
+  },
+  "base": {
+    "chapter": 3,
+    "number": "3.8",
+    "path": "counterbase/ocl.png",
+    "title": "Vi phạm bất biến Nonnegative trong TN03",
+    "note": "phiên d6df3077, checkpoint 3",
+    "width": 10.4
+  },
+  "before": {
+    "chapter": 3,
+    "number": "3.9",
+    "path": "goal/before.png",
+    "title": "Giá tốt nhất trước lượt trả giá kém hơn trong TN05",
+    "note": "phiên 9c465412, checkpoint 21",
+    "width": 15.7
+  },
+  "after": {
+    "chapter": 3,
+    "number": "3.10",
+    "path": "goal/after.png",
+    "title": "Giá tốt nhất sau lượt trả giá kém hơn trong TN05",
+    "note": "phiên 9c465412, checkpoint 22",
+    "width": 15.7
+  },
+  "hold": {
+    "chapter": 3,
+    "number": "3.11",
+    "path": "goal/hold.png",
+    "title": "Quyết định HOLD_FAILURE trong TN05",
+    "note": "phiên 9c465412, checkpoint 22",
+    "width": 15.7
+  },
+  "violated": {
+    "chapter": 3,
+    "number": "3.12",
+    "path": "goal/auctiongroup.png",
+    "title": "Vi phạm Goal BidNeverIncreases trong ngữ cảnh a1",
+    "note": "phiên 9c465412, checkpoint 22",
+    "width": 9.2
+  },
+  "invariants": {
+    "chapter": 3,
+    "number": "3.13",
+    "path": "goal/invariants.png",
+    "title": "Kết quả các bất biến CSL trong TN05",
+    "note": "phiên 9c465412, checkpoint 22",
+    "width": 13.6
+  },
+  "unverified": {
+    "chapter": 3,
+    "number": "3.14",
+    "path": "missing-final/hold.png",
+    "title": "Quyết định HOLD_UNVERIFIED trong TN06",
+    "note": "phiên c94699f1, checkpoint 18",
+    "width": 15.7
+  },
+  "diagnostic": {
+    "chapter": 3,
+    "number": "3.15",
+    "path": "missing-final/diagnostic.png",
+    "title": "Chẩn đoán thiếu thuộc tính Auction.best_bid",
+    "note": "phiên c94699f1, checkpoint 18",
+    "width": 15.7
+  },
+  "negative-log": {
+    "chapter": 3,
+    "number": "3.16",
+    "path": "counter/console.png",
+    "title": "Giá trị quan sát trong Console của phiên Counter giữ âm",
+    "note": "phiên 98ba754b, trước checkpoint 3",
+    "width": 5.6
+  },
+  "negative-ocl": {
+    "chapter": 3,
+    "number": "3.17",
+    "path": "counter/ocl.png",
+    "title": "Bất biến Nonnegative khi Counter giữ giá trị âm",
+    "note": "phiên 98ba754b, checkpoint 3",
+    "width": 10.4
+  },
+  "restored-log": {
+    "chapter": 3,
+    "number": "3.18",
+    "path": "restored-final/console.png",
+    "title": "Giá trị quan sát trong Console của phiên Counter khôi phục",
+    "note": "phiên 2c2c05ea, trước checkpoint 3",
+    "width": 5.6
+  },
+  "restored-ocl": {
+    "chapter": 3,
+    "number": "3.19",
+    "path": "restored-final/ocl.png",
+    "title": "Bất biến Nonnegative sau khi Counter khôi phục giá trị",
+    "note": "phiên 2c2c05ea, checkpoint 3",
+    "width": 10.4
+  }
+}

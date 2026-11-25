@@ -1,0 +1,87 @@
+USE version 7.5.0, Copyright (C) 1999-2025 University of Bremen & University of Applied Sciences Hamburg
+PACKAGED_PLUGINS_OK engine=file:/D:/_CODE_BANK/Project_/08_Thesis/use/use-assembly/target/new-staging/lib/plugins/use-jacamo-plugin-1.0.1.jar
+View menu.png 141x26
+View mrv.png 500x326
+STATE_WORKBENCH work=C:\WINDOWS\TEMP\use-jacamo-12310005827629193228 pid=21740
+CSL_STATE sequence=1 decision=APPROVE diagnostic=
+CSL_STATE sequence=2 decision=APPROVE diagnostic=
+CSL_STATE sequence=3 decision=APPROVE diagnostic=
+CSL_STATE sequence=4 decision=APPROVE diagnostic=
+CSL_STATE sequence=5 decision=APPROVE diagnostic=
+CSL_STATE sequence=6 decision=APPROVE diagnostic=
+CSL_STATE sequence=7 decision=APPROVE diagnostic=
+CSL_STATE sequence=8 decision=APPROVE diagnostic=
+CSL_STATE sequence=9 decision=APPROVE diagnostic=
+CSL_STATE sequence=10 decision=APPROVE diagnostic=
+CSL_STATE sequence=11 decision=APPROVE diagnostic=
+CSL_STATE sequence=12 decision=APPROVE diagnostic=
+CSL_STATE sequence=13 decision=APPROVE diagnostic=
+CSL_STATE sequence=14 decision=APPROVE diagnostic=
+CSL_STATE sequence=15 decision=APPROVE diagnostic=
+CSL_STATE sequence=16 decision=APPROVE diagnostic=
+CSL_STATE sequence=17 decision=APPROVE diagnostic=
+CSL_STATE sequence=18 decision=APPROVE diagnostic=
+CSL_STATE sequence=19 decision=APPROVE diagnostic=
+CSL_STATE sequence=20 decision=APPROVE diagnostic=
+CSL_STATE sequence=21 decision=APPROVE diagnostic=
+CSL_STATE sequence=22 decision=APPROVE diagnostic=
+CSL_STATE sequence=23 decision=APPROVE diagnostic=
+CSL_STATE sequence=24 decision=APPROVE diagnostic=
+CSL_STATE sequence=25 decision=APPROVE diagnostic=
+CSL_STATE sequence=26 decision=APPROVE diagnostic=
+CSL_STATE sequence=27 decision=APPROVE diagnostic=
+CSL_STATE sequence=28 decision=APPROVE diagnostic=
+CSL_STATE sequence=29 decision=APPROVE diagnostic=
+CSL_STATE sequence=30 decision=APPROVE diagnostic=
+CSL_STATE sequence=31 decision=APPROVE diagnostic=
+CSL_STATE sequence=32 decision=APPROVE diagnostic=
+CSL_STATE sequence=33 decision=APPROVE diagnostic=
+CSL_STATE sequence=34 decision=APPROVE diagnostic=
+CSL_STATE sequence=35 decision=APPROVE diagnostic=
+CSL_STATE sequence=36 decision=APPROVE diagnostic=
+CSL_STATE sequence=37 decision=APPROVE diagnostic=
+CSL_STATE sequence=38 decision=APPROVE diagnostic=
+CSL_STATE sequence=39 decision=APPROVE diagnostic=
+CSL_STATE sequence=40 decision=APPROVE diagnostic=
+CSL_STATE sequence=41 decision=APPROVE diagnostic=
+CSL_STATE sequence=42 decision=APPROVE diagnostic=
+CSL_STATE sequence=43 decision=APPROVE diagnostic=
+CSL_STATE sequence=44 decision=APPROVE diagnostic=
+CSL_STATE sequence=45 decision=APPROVE diagnostic=
+CSL_STATE sequence=46 decision=APPROVE diagnostic=
+CSL_STATE sequence=47 decision=APPROVE diagnostic=
+CSL_STATE sequence=48 decision=APPROVE diagnostic=
+CSL_STATE sequence=49 decision=APPROVE diagnostic=
+CSL_STATE sequence=50 decision=APPROVE diagnostic=
+CSL_STATE sequence=51 decision=APPROVE diagnostic=
+CSL_STATE sequence=52 decision=APPROVE diagnostic=
+CSL_STATE sequence=53 decision=APPROVE diagnostic=
+CSL_STATE sequence=54 decision=APPROVE diagnostic=
+View artifacts.png 709x56
+CSL_STATE sequence=55 decision=APPROVE diagnostic=
+CSL_STATE sequence=56 decision=APPROVE diagnostic=
+CSL_STATE sequence=57 decision=APPROVE diagnostic=
+CSL_STATE sequence=58 decision=APPROVE diagnostic=
+View oal.png 1818x481
+View oal.png 1818x481
+View oal-compact.png 1312x649
+View timeline.png 872x164
+View terminal-timeline.png 868x110
+View terminal-artifacts.png 694x56
+View terminal-oal.png 1818x481
+View terminal-oal.png 1818x481
+View istar-a1.png 2851x415
+View istar-a1.png 2851x415
+iStar native nodes=[dependum:15:D_decide, O_bid, O_decide, StopAuction, BidNeverIncreases, SafeBid, CreateAuctionArtifact, Auctioneer.decide, StartAuction, auction_capabilities.bid, RolesConsistent, Auctioneer.start, O_start, ObserveBid, auction_capabilities.start, dependum:11:D_start, Auctioneer, Participant, auction_capabilities, dependum:13:D_bid, Participant.bid, FocusForBid, auction_capabilities.decide, AuctionGroup, AuctionCompleted, FocusAuctionArtifact]
+View istar-a1-compact.png 1476x1037
+View markings-a1.png 378x362
+View istar-a2.png 1466x1027
+View istar-a2.png 1466x1027
+iStar native nodes=[dependum:15:D_decide, O_bid, O_decide, StopAuction, BidNeverIncreases, SafeBid, CreateAuctionArtifact, Auctioneer.decide, StartAuction, auction_capabilities.bid, RolesConsistent, Auctioneer.start, O_start, ObserveBid, auction_capabilities.start, dependum:11:D_start, Auctioneer, Participant, auction_capabilities, dependum:13:D_bid, Participant.bid, FocusForBid, auction_capabilities.decide, AuctionGroup, AuctionCompleted, FocusAuctionArtifact]
+View istar-a2-compact.png 1476x1037
+View markings-a2.png 378x362
+View csl.png 652x351
+View csl.png 652x351
+View istar-model.png 2851x415
+View istar-model.png 2851x415
+EMBEDDED_USE_SMOKE_PASS case=auction evidence=C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-hinh-USE-20261125-100422\auction
