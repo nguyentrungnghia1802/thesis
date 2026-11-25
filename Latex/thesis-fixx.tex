@@ -38,6 +38,8 @@
 \renewcommand{\contentsname}{MỤC LỤC}
 \renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
 \renewcommand{\listtablename}{DANH MỤC BẢNG BIỂU}
+\newcommand{\listalgorithmname}{DANH MỤC THUẬT TOÁN}
+\newcommand{\listnotationname}{DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}
 \renewcommand{\figurename}{Hình}
 \renewcommand{\tablename}{Bảng}
 \renewcommand{\bibname}{TÀI LIỆU THAM KHẢO}
@@ -62,6 +64,12 @@
 \floatplacement{figure}{H}
 \captionsetup{font=normalsize,labelfont={bf,small},labelsep=space,justification=centering}
 \captionsetup[table]{position=top}
+\newfloat{thesisalgorithm}{H}{loa}[chapter]
+\floatname{thesisalgorithm}{Thuật toán}
+\captionsetup[thesisalgorithm]{position=top,font=small}
+\makeatletter
+\newcommand*{\l@thesisalgorithm}{\l@figure}
+\makeatother
 \DeclareRobustCommand{\thesisfigure}[1]{Hình~\ref{#1}}
 \DeclareRobustCommand{\thesistable}[1]{Bảng~\ref{#1}}
 \newcommand{\thesisdisplaytitle}[2]{%
@@ -175,8 +183,66 @@ Em xin chân thành cảm ơn tất cả những người đã luôn đồng hà
 \setlength{\parskip}{0pt}
 \tableofcontents
 \endgroup
+
+\chapter*{\listnotationname}
+\addcontentsline{toc}{chapter}{\listnotationname}
+
+\begingroup
+\fontsize{11.5}{14.5}\selectfont
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.05}
+\noindent\textbf{Chữ viết tắt}\par\nopagebreak[4]
+\noindent
+\begin{tabular}{@{}p{.14\linewidth}>{\raggedright\arraybackslash}p{.41\linewidth}>{\raggedright\arraybackslash}p{.39\linewidth}@{}}
+\toprule
+\textbf{Viết tắt} & \textbf{Tên đầy đủ} & \textbf{Ý nghĩa} \\
+\midrule
+AI & Artificial Intelligence & Trí tuệ nhân tạo \\
+ANTLR & ANother Tool for Language Recognition & Công cụ sinh bộ phân tích ngôn ngữ \\
+AST & Abstract Syntax Tree & Cây cú pháp trừu tượng \\
+BDI & Belief--Desire--Intention & Kiến trúc niềm tin, mong muốn và ý định \\
+BPMN & Business Process Model and Notation & Mô hình và ký pháp quy trình nghiệp vụ \\
+CSL & Composite State Language & Ngôn ngữ trạng thái hợp thành \\
+DAI & Distributed Artificial Intelligence & Trí tuệ nhân tạo phân tán \\
+DSL & Domain-Specific Language & Ngôn ngữ hướng miền \\
+EBNF & Extended Backus--Naur Form & Dạng Backus--Naur mở rộng \\
+FIPA & Foundation for Intelligent Physical Agents & Tổ chức xây dựng tiêu chuẩn cho tác tử thông minh \\
+JDK & Java Development Kit & Bộ công cụ phát triển Java \\
+MAS & Multi-Agent System & Hệ thống đa tác tử \\
+OCL & Object Constraint Language & Ngôn ngữ ràng buộc đối tượng \\
+UML & Unified Modeling Language & Ngôn ngữ mô hình hóa thống nhất \\
+USE & UML-based Specification Environment & Môi trường đặc tả dựa trên UML \\
+XML & Extensible Markup Language & Ngôn ngữ đánh dấu mở rộng \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\noindent\textbf{Ký hiệu}\par\nopagebreak[4]
+\noindent
+\begin{tabular}{@{}p{.20\linewidth}>{\raggedright\arraybackslash}p{.77\linewidth}@{}}
+\toprule
+\textbf{Ký hiệu} & \textbf{Ý nghĩa} \\
+\midrule
+\(k\) & Chỉ số checkpoint. \\
+\(\sigma_{k-1}, \sigma_k\) & Trạng thái CSL trước và sau lần cập nhật tại checkpoint \(k\). \\
+\(\Phi\) & Tập ràng buộc OCL trong mô hình CSL. \\
+\(\sigma \vDash \varphi\) & Trạng thái \(\sigma\) thỏa ràng buộc \(\varphi\). \\
+\(\mu_i(x)\) & Giá trị đánh dấu phần tử ý định \(x\) tại bước \(i\). \\
+\(\bot,\,?,\,\top\) & Lần lượt biểu thị vi phạm, chưa xác định và đạt. \\
+\(\land,\,\lor,\,\neg\) & Lần lượt là phép hội, phép tuyển và phép phủ định. \\
+\texttt{@pre} & Tham chiếu trạng thái trước trong điều kiện OCL cho phép sử dụng ký hiệu này. \\
+\(p_k, r_k\) & Giá trị của tiền điều kiện và hậu điều kiện của Task tại checkpoint \(k\). \\
+\(Q_k, R_k\) & Cờ ghi nhớ đã thấy tiền điều kiện và đã thấy hậu điều kiện từ mốc thỏa tiền điều kiện. \\
+\(F_k, U_k\) & Cờ báo vi phạm đã xác định và cờ báo phép kiểm tra chưa xác định. \\
+\(D_k\) & Quyết định kiểm chứng tại checkpoint \(k\). \\
+\bottomrule
+\end{tabular}
+\par
+\endgroup
+
 \listoffigures
 \listoftables
+\tocfile{\listalgorithmname}{loa}
 
 \chapter*{MỞ ĐẦU}\label{mo-dau}
 \addcontentsline{toc}{chapter}{MỞ ĐẦU}
@@ -843,10 +909,10 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán 2.1 trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ.
+Thuật toán~\ref{alg:state-projection} trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ.
 
 \noindent\begin{minipage}{\linewidth}
-\thesisdisplaytitle{Thuật toán 2.1}{Mã Java chiếu ảnh chụp sang trạng thái CSL}
+\captionof{thesisalgorithm}{Mã Java chiếu ảnh chụp sang trạng thái CSL}\label{alg:state-projection}
 
 \noindent\textit{(a) Chuẩn bị đối tượng và liên kết}
 \begin{Verbatim}[fontsize=\footnotesize]
@@ -876,7 +942,7 @@ public Prepared prepare(SourceSnapshot snapshot) {
 Trong phần (a), \texttt{indexSources} lập chỉ mục các dữ kiện theo định danh nguồn. \texttt{mapObjects} áp dụng các khai báo XML để xác định kiểu CSL và giá trị thuộc tính của từng đối tượng. Bộ chiếu dùng kết quả đó để giải các đầu liên kết chứa, quan sát, thành viên và đảm nhiệm vai trò. Phương thức trả về đối tượng cùng liên kết đã chuẩn bị sau khi kiểm tra chu trình ngữ cảnh. Nếu phần chuẩn bị báo lỗi, trạng thái USE vẫn ở trước lần cập nhật.
 
 \noindent\begin{minipage}{\linewidth}
-\thesisdisplaytitle{Thuật toán 2.1 (tiếp)}{Áp dụng phép chiếu}
+\thesisdisplaytitle{Thuật toán~\ref{alg:state-projection} (tiếp)}{Áp dụng phép chiếu}
 \noindent\textit{(b) Cập nhật trạng thái trong USE}
 \begin{Verbatim}[fontsize=\footnotesize]
 private void applySnapshot(SnapshotProjection.Prepared prepared)
