@@ -641,7 +641,7 @@ Nghiên cứu tiếp thu cách dùng chung trạng thái từ công trình ``On 
 
 Mục tiêu của phương pháp là kiểm tra trạng thái JaCaMo, theo dõi tiến độ Goal và Task, rồi quyết định việc thực thi có thể tiếp tục từ checkpoint đang xét hay cần giữ dừng. Phần động cơ đặt bài toán qua một tình huống thực tế. Phần tổng quan xác định bốn bước và kết quả của từng bước trước khi trình bày chi tiết.
 
-\section{Động cơ nghiên cứu (Motivation)}\label{sec:2-2}
+\section{Động cơ nghiên cứu}\label{sec:2-2}
 
 Trong JaCaMo, hành vi của hệ thống được hình thành khi các tác tử chọn kế hoạch, thực hiện thao tác trên artifact và phối hợp theo tổ chức \cite{ref-2}. Trạng thái của một hoạt động chung vì thế có thể phụ thuộc vào dữ liệu do nhiều tác tử cập nhật và diễn biến qua nhiều lượt thực thi. Động lực của nghiên cứu là giúp người vận hành nhận biết, ngay khi một hoạt động còn có thể được giữ dừng, liệu dữ liệu nghiệp vụ có hợp lệ và liệu các mục tiêu đặt ra cho hoạt động đó đã có đủ bằng chứng để kết luận hay chưa.
 
@@ -653,7 +653,7 @@ Các công trình được khảo sát giải quyết những phần khác nhau 
 
 Nghiên cứu tiếp cận khoảng trống đó bằng cách xác định cùng một biểu diễn trạng thái cho kiểm tra OCL và đánh giá mục tiêu. Dữ liệu của artifact, tác tử và tổ chức được chiếu vào CSL với định danh ổn định qua các lần quan sát. Các điều kiện iStar mở rộng đọc dữ liệu trên đúng đối tượng và dùng những bằng chứng đã ghi nhận để đánh giá tiến độ. Thu thập tại checkpoint cho phép phản hồi kết quả ngay tại ranh giới thực thi liên quan. Phương pháp ở Mục~\ref{sec:2-3} vì vậy phải giữ hai phiên độc lập khi cùng dùng một đặc tả, phân biệt tính hợp lệ của trạng thái với tiến độ mục tiêu và nhận ra khi dữ liệu quan sát chưa đủ để kết luận.
 
-\section{Tổng quan phương pháp (Method Overview)}\label{sec:2-3}
+\section{Tổng quan phương pháp}\label{sec:2-3}
 
 Phương pháp nối hệ JaCaMo đang chạy với hai mô hình trong USE. Mô hình CSL cung cấp cách biểu diễn trạng thái hệ thống, còn iStar mở rộng mô tả các mục tiêu và nhiệm vụ được đánh giá dựa trên trạng thái đó. Bốn bước gồm xây dựng hai đặc tả trước khi chạy và sử dụng chúng để ánh xạ, kiểm chứng tại các checkpoint trong khi hệ thống vận hành.
 
