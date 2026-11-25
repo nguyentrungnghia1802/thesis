@@ -697,35 +697,28 @@ Trạng thái \(\sigma\) của một mô hình CSL ghi các thể hiện đang t
 
 Khi nạp đặc tả CSL vào USE, CslFrontend.compile đọc và kiểm tra mô hình. Sau bước này, CslModelCompiler.compile tạo các lớp, thuộc tính, liên kết và bất biến trong USE. CslContextSchema.installObservations bổ sung các liên kết để điều hướng từ một thực thể tới ngữ cảnh chứa nó hoặc tới tác tử đang quan sát nó. Mục~\ref{sec:2-6} trình bày cách dựng các thể hiện từ dữ liệu JaCaMo. Mục~\ref{sec:2-7} giải thích cách kiểm tra bất biến và đánh giá các điều kiện iStar trên trạng thái đã dựng.
 
-Bảng~\ref{tab:csl-notation} trình bày các hình dạng và đường nối dùng khi đọc biểu đồ CSL. Các hình dạng, dấu tổng quát hóa và dấu hợp thành được trích từ Hình~7 của Nguyen và cộng sự~\cite{ref-28}. Các đường nối còn lại lấy từ bộ vẽ của thẻ \emph{CSL Model} trong USE, gồm cả ký hiệu bổ sung để biểu diễn ánh xạ.
+Bảng~\ref{tab:csl-notation} sử dụng các ký hiệu trong chú giải Hình~7 của Nguyen và cộng sự~\cite{ref-28}.
 
 \begin{table}[H]
 \centering
 \small
 \renewcommand{\arraystretch}{1.15}
-\caption{Ký pháp thành phần và quan hệ của CSL}\label{tab:csl-notation}
+\caption{Ký pháp thành phần CSL}\label{tab:csl-notation}
 \begin{tabular}{@{}>{\centering\arraybackslash}m{.19\linewidth}
   >{\raggedright\arraybackslash}m{.22\linewidth}
   >{\raggedright\arraybackslash}m{.53\linewidth}@{}}
 \toprule
-\textbf{Ký pháp} & \textbf{Thành phần} & \textbf{Cách đọc} \\
+\textbf{Ký pháp} & \textbf{Thành phần} & \textbf{Ý nghĩa} \\
 \midrule
-\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-entity.png} & Entity & Khung chữ nhật biểu diễn một kiểu thực thể nghiệp vụ. \\
-\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-orgctx.png} & OrgCtx & Khung có tai biểu diễn ngữ cảnh tổ chức. \\
-\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-role.png} & Role & Khung bo tròn biểu diễn một vai trò trong tổ chức. \\
-\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-datatype.png} & DataType & Khung phân ngăn của kiểu dữ liệu. Với kiểu liệt kê, ngăn dưới ghi các giá trị. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-association.png} & Liên kết & Nét liền biểu diễn quan hệ. Tên đầu liên kết và bội số có thể ghi cạnh các đầu. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-generalization.png} & Tổng quát hóa & Tam giác rỗng chỉ về kiểu tổng quát của thực thể hoặc vai trò. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-composition.png} & Hợp thành & Hình thoi đặc đặt ở phía kiểu bao chứa. USE dùng dấu này cho khai báo lồng trong OrgCtx. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-aggregation.png} & Kết tập & Hình thoi rỗng đặt ở phía kiểu tập hợp thành phần. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-owner.png} & Sở hữu & Ô vuông rỗng đánh dấu phía chủ sở hữu. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-compatibility.png} & Tương thích & Vòng tròn rỗng đánh dấu vai trò tương thích. Hai đầu tròn biểu thị hai chiều. Nét đứt chỉ phạm vi liên nhóm. \\
-\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-enactment.png} & Có thể đảm nhiệm & Nét đứt có nhãn may enact hướng tới vai trò được phép đảm nhiệm theo ánh xạ. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-entity.png} & Entity & Kiểu thực thể nghiệp vụ thụ động. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-orgctx.png} & OrgCtx & Ngữ cảnh chứa thực thể, vai trò và ngữ cảnh con. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-role.png} & Role & Vai trò mà chủ thể có thể đảm nhiệm. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-datatype.png} & Datatype & Kiểu dữ liệu của thuộc tính. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi dưới dạng tên kèm kiểu dữ liệu. Các điều kiện OCL được khai báo trong đặc tả. Đường \emph{may enact} chỉ khả năng đảm nhiệm theo ánh xạ, còn thể hiện vai trò thực tế được quan sát trong thẻ \emph{OAL State}.
+Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi dưới dạng tên kèm kiểu dữ liệu. Các điều kiện OCL được khai báo trong đặc tả.
 
 \begin{figure}
 \centering
