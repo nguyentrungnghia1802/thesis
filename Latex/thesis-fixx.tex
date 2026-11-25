@@ -1201,7 +1201,25 @@ Thực nghiệm đánh giá mức độ đáp ứng của công cụ đối vớ
 
 \subsection{Bảo toàn trạng thái}\label{sec:3-4-1}
 
-Trong TN01, hai artifact Auction được chiếu thành hai đối tượng riêng và giữ được liên hệ với dữ liệu nguồn khi giá thay đổi. Phép đối chiếu trực tiếp giữa giá do JaCaMo công bố và giá trên sơ đồ đối tượng ở Hình~\ref{fig:2-5} và Hình~\ref{fig:2-6} minh họa cách kiểm tra phần ánh xạ. Tiến độ được kiểm tra ở thời điểm hai cuộc đấu giá có kết quả khác nhau dù đang dùng cùng đặc tả.
+Trong TN01, một mốc giữa lần chạy được chọn để đối chiếu phép chiếu trạng thái với kết quả đánh giá mục tiêu. Ở mốc này, hai phiên đấu giá vẫn mở và mới chỉ một phiên có giá tốt nhất thay đổi. Đây là thời điểm có thể kiểm tra công cụ ghi nhận bằng chứng đúng cho phiên đã nhận lượt trả giá cải thiện.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figures/auction-oal-state.png}
+\caption{Hai đối tượng Auction trong OAL State.}\label{fig:3-auction-oal}
+\end{figure}
+
+Hình~\ref{fig:3-auction-oal} trích hai đối tượng từ thẻ \emph{OAL State}. Tên a1 và a2 tương ứng với hai artifact tại JaCaMo. Giá tốt nhất và trạng thái mở trên hai đối tượng khớp với dữ liệu nguồn ở cùng mốc. Phiên a1 vẫn có giá trị khởi tạo, được hiển thị dưới dạng số mũ trong hình. Giá tốt nhất của a2 đã giảm xuống khoảng 105,11 sau một lượt trả giá. Công cụ giữ hai giá trị trên hai đối tượng riêng dù chúng thuộc cùng kiểu \emph{Auction}.
+
+Để đánh giá nhiệm vụ ghi nhận lượt trả giá, USE dùng giá tốt nhất của từng đối tượng để kiểm tra hậu điều kiện và kết hợp với tiền điều kiện đã ghi nhận cho chính phiên đó (Mục~\ref{sec:2-7-2}). Vì vậy, mức giá khoảng 105,11 là bằng chứng hoàn thành nhiệm vụ của riêng a2. Kết quả này được thể hiện trên sơ đồ iStarSCN của phiên tương ứng.
+
+\begin{figure}
+\centering
+\includegraphics[width=.88\linewidth]{figures/auction-istar-scn.png}
+\caption{Nhánh trả giá trong iStarSCN.}\label{fig:3-auction-scn}
+\end{figure}
+
+Hình~\ref{fig:3-auction-scn} giữ nguyên mốc trên và chọn a2 ở mục \emph{Execution}. Dấu cộng cạnh \mbox{\emph{FocusForBid}} cho biết USE đã ghi nhận một tác tử giữ vai trò người tham gia theo dõi phiên đang mở. Dấu cộng cạnh \emph{ObserveBid} cho biết USE đã quan sát được giá thấp hơn giá khởi tạo của phiên này. Kết quả của hai nhiệm vụ được tổng hợp theo quan hệ tinh chỉnh AND, nên mục tiêu trả giá (\emph{bid}) cũng được đánh dấu đạt. Bảng \emph{Markings} cho phép đối chiếu trạng thái của cùng nhiệm vụ giữa hai phiên.
 
 \begin{figure}
 \centering
@@ -1212,7 +1230,7 @@ Trong TN01, hai artifact Auction được chiếu thành hai đối tượng ri�
 \caption{Tiến độ ghi nhận lượt trả giá cải thiện của a1 và a2.}\label{fig:3-auction-progress}
 \end{figure}
 
-Hai khung của Hình~\ref{fig:3-auction-progress} giữ nguyên mốc quan sát và đổi lựa chọn \emph{Execution}. Ở khung (a), a1 vẫn giữ giá khởi tạo nên nhiệm vụ ghi nhận lượt trả giá cải thiện (\emph{ObserveBid}) còn chờ. Ở khung (b), a2 đã ghi nhận một lượt trả giá tốt hơn nên cùng nhiệm vụ được đánh dấu đạt. Hai trạng thái được ghi riêng theo từng phiên đấu giá. USE trả quyết định cho JaCaMo tiếp tục tại mốc này.
+Trong Hình~\ref{fig:3-auction-progress}, \emph{ObserveBid} còn chờ ở a1 (\texttt{PENDING}) và đã đạt ở a2 (\texttt{FULFILLED}). Hai kết quả này được hiển thị lần lượt khi chọn từng phiên ở mục \emph{Execution}. Cả hai khung đều ghi \texttt{APPROVE}, tức quyết định cho JaCaMo tiếp tục tại mốc đó.
 
 \begin{figure}
 \centering
