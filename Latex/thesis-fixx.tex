@@ -253,15 +253,31 @@ Phạm vi biểu đạt của DSL phụ thuộc vào nhóm vấn đề mà ngôn
 
 Fowler phân biệt DSL nội bộ và DSL bên ngoài theo quan hệ của chúng với ngôn ngữ chủ~\cite{ref-27}. DSL nội bộ biểu đạt khái niệm miền bằng các cấu trúc hợp lệ của ngôn ngữ chủ, nên dùng được cơ chế phân tích cùng các công cụ sẵn có và đồng thời chịu ràng buộc của cú pháp đó. DSL bên ngoài có cú pháp riêng phù hợp với miền, vì vậy phải xác định riêng cách đọc và diễn giải đặc tả~\cite{ref-27}.
 
-Khi xác định phạm vi của DSL, người thiết kế cần chọn những khái niệm có thể biểu đạt trực tiếp trong ngôn ngữ. Hình~\ref{fig:1-1} minh họa lựa chọn đó bằng mô hình CSL lấy từ công trình của Nguyen và cộng sự \cite{ref-28}.
+Hình~\ref{fig:1-1} trích hai ví dụ viết lệnh giao dịch từ sách \emph{DSLs in Action}~\cite{ref-43}. Cả hai cách viết đều dùng thuật ngữ của miền giao dịch, với cú pháp và tập thông tin phù hợp với loại lệnh mà mỗi DSL đặc tả.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.6299in,height=\textheight]{figures/fig-1-1.png}
-\caption{Mô hình trạng thái viết bằng CSL.}\label{fig:1-1}
+\begin{minipage}{0.85\linewidth}
+\raggedright\small
+(a) DSL bên ngoài
+\begin{Verbatim}[fontsize=\small]
+buy IBM @ 100 for NOMURA
+\end{Verbatim}
+(b) DSL nội bộ trong Groovy
+\begin{Verbatim}[fontsize=\small]
+newOrder.to.buy(100.shares.of('IBM')) {
+  limitPrice   300
+  allOrNone    true
+  valueAs      {qty, unitPrice -> qty * unitPrice - 500}
+}
+\end{Verbatim}
+\end{minipage}
+\caption{Hai cách biểu đạt lệnh giao dịch bằng DSL.}\label{fig:1-1}
 \end{figure}
 
-Mô hình phân biệt dữ liệu nghiệp vụ, như các bản sửa và kết quả thẩm định, với ngữ cảnh và vai trò chịu trách nhiệm xử lý dữ liệu. Kiểu liệt kê giới hạn các giá trị mà trạng thái hoặc quyết định có thể nhận. CSL nhờ đó cung cấp từ vựng để đặc tả cấu trúc của miền và dùng lại cấu trúc ấy khi đánh giá các điều kiện trên trạng thái \cite{ref-28}.
+Trong Hình~\ref{fig:1-1}(a), người dùng đặc tả lệnh mua cổ phiếu IBM ở giá 100 cho tài khoản NOMURA. Cú pháp của ngôn ngữ quy định riêng vị trí của mã chứng khoán, giá và tài khoản. Ở Hình~\ref{fig:1-1}(b), giá trị 100 là số lượng cổ phiếu IBM cần mua và 300 là giá giới hạn. Đoạn này dùng lời gọi phương thức và khối lệnh hợp lệ của Groovy để khai báo lệnh, yêu cầu khớp toàn bộ số lượng và chỉ định cách tính giá trị lệnh~\cite{ref-43}.
+
+Hai ví dụ cho thấy phạm vi biểu đạt được xác định qua những khái niệm miền mà người dùng có thể viết trực tiếp. Khi lựa chọn cách xây dựng DSL, cú pháp riêng cho phép thiết kế ký pháp theo nghiệp vụ và cần có bộ phân tích phù hợp. Cách nhúng trong ngôn ngữ chủ cho phép tận dụng cú pháp và khả năng xử lý biểu thức sẵn có của ngôn ngữ đó~\cite{ref-27}.
 
 Với DSL dùng để mô hình hóa, có thể xem đặc tả là một biểu diễn của mô hình. Thao tác đọc đặc tả xác định mô hình mà văn bản đang mô tả~\cite{ref-27}, còn việc đánh giá một ràng buộc xác định điều kiện đó có đúng trên một trạng thái cụ thể hay không~\cite{ref-15}. Sự phân biệt giữa biểu diễn, mô hình và trạng thái được dùng xuyên suốt phần UML và OCL.
 
@@ -1328,7 +1344,7 @@ Kết quả có hiệu lực trong phạm vi những trạng thái và điều k
 
 Các hướng tiếp theo gồm mở rộng dữ kiện quan sát và thử nghiệm có kiểm soát với chính sách checkpoint ở những ranh giới khác nhau. Một hướng khác là đánh giá phương pháp trên hệ đa tác tử có cấu trúc tổ chức và mô hình dữ liệu khác Auction, đồng thời đo chi phí kiểm chứng qua nhiều lần chạy với cùng cấu hình.
 
-\begin{thebibliography}{42}
+\begin{thebibliography}{43}
 \small\raggedright
 
 \bibitem{ref-1}
@@ -1498,6 +1514,10 @@ J. Pimentel và J. Castro, ``piStar Tool -- A Pluggable Online Tool for Goal Mod
 \bibitem{ref-42}
 
 I. Ayala, M. Amor, J. M. Horcas và L. Fuentes, ``A goal-driven software product line approach for evolving multi-agent systems in the Internet of Things,'' Knowledge-Based Systems, vol. 184, bài 104883, 2019. DOI 10.1016/j.knosys.2019.104883. Siêu mô hình iStar 2.0 đi kèm nghiên cứu. \href{https://github.com/jmhorcas/istar2fm/blob/48168790574308a08649df62c54f2fef872a30dd/metamodels/iStarMetamodel.ecore}{\ul{Nguồn.}}
+
+\bibitem{ref-43}
+
+D. Ghosh, \emph{DSLs in Action}. Manning Publications, 2010. \href{https://github.com/debasishg/dsls_in_action/blob/9017441151a77b03bd47f104a8d2bd424d4e3798/chapter7/order_dsl_antlr/order/data/sample.txt\#L1}{\ul{Ví dụ DSL bên ngoài.}} \href{https://github.com/debasishg/dsls_in_action/blob/9017441151a77b03bd47f104a8d2bd424d4e3798/chapter2/order_dsl_groovy/order/src/main/groovy/ch2/order/order.dsl\#L2-L6}{\ul{Ví dụ DSL nội bộ.}}
 
 \end{thebibliography}
 \end{document}

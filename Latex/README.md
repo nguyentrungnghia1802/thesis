@@ -1,6 +1,6 @@
 # Bản LaTeX của khóa luận
 
-Bản này dùng [thesis - fixx.docx](../thesis%20-%20fixx.docx) ở commit `0ce43a9`. Tệp chính là `thesis-fixx.tex`, thư mục `figures/` chứa ảnh dùng trong tài liệu và `thesis-fixx.pdf` là bản đã xuất. Mục lục, danh mục hình và danh mục bảng được cập nhật khi biên dịch.
+Chỉnh sửa trực tiếp trong `thesis-fixx.tex`. Thư mục `figures/` chứa ảnh minh họa, còn `thesis-fixx.pdf` là bản đã xuất. Mục lục, danh mục hình và danh mục bảng được cập nhật khi biên dịch.
 
 Hình 3.8 dùng ảnh kiểm tra bất biến và ảnh quyết định từ phiên TN03 `d6df3077`, đối chiếu với ảnh chụp trạng thái tại checkpoint 3. [Bằng chứng TN03](../Bang-chung-hinh-USE-20261125-100422/counterbase/).
 
