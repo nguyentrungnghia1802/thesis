@@ -198,29 +198,29 @@ Em xin chân thành cảm ơn tất cả những người đã luôn đồng hà
 \chapter*{MỞ ĐẦU}\label{mo-dau}
 \addcontentsline{toc}{chapter}{MỞ ĐẦU}
 
-Trong hệ thống đa tác tử, các tác tử tự chủ phối hợp để thực hiện mục tiêu chung~\cite{ref-1}. JaCaMo cung cấp các thành phần để lập trình tác tử, môi trường và tổ chức~\cite{ref-2}. Kiểm chứng giúp phát hiện sai lệch trong trạng thái và xác định các mục tiêu phối hợp đã đạt đến đâu.
+Trong hệ thống đa tác tử, các tác tử tự chủ phối hợp để thực hiện công việc chung~\cite{ref-1}. JaCaMo là nền tảng lập trình cho các hệ thống này, kết hợp tác tử, môi trường dùng chung và tổ chức phân vai~\cite{ref-2}. Khi kết quả của một bên là đầu vào của bên khác, cách phối hợp ảnh hưởng trực tiếp đến tiến độ chung.
 
-Khi các hành động xen kẽ, dữ liệu nghiệp vụ và quan hệ tổ chức có thể thay đổi ở nhiều thành phần. Một bất biến có thể được kiểm tra trên trạng thái đang quan sát, trong khi việc đạt hoặc duy trì mục tiêu có thể cần bằng chứng qua nhiều trạng thái~\cite{ref-5}. Kết luận còn bị giới hạn nếu dữ liệu ở các mốc quan sát không đầy đủ~\cite{ref-23}.
+Khi các hành động xen kẽ, một tác tử có thể làm thay đổi dữ liệu mà tác tử khác đang dùng. Trạng thái có thể thỏa quy tắc nghiệp vụ dù một nhiệm vụ còn dang dở. Việc đánh giá tiến độ vì vậy cần xét cả trạng thái hiện tại và diễn biến trước đó~\cite{ref-5}.
 
-RV4JaCa dùng thông điệp giữa các tác tử để kiểm tra giao thức tương tác~\cite{ref-24}. Với dữ liệu được biểu diễn ở mức mô hình, USE đánh giá ràng buộc OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar mô tả mục tiêu, nhiệm vụ và quan hệ ý định~\cite{ref-12}. Vấn đề đặt ra trong phạm vi nghiên cứu này là chuyển dữ liệu JaCaMo thành trạng thái có thể kiểm tra và duy trì lịch sử riêng cho từng đối tượng để đánh giá mục tiêu.
+RV4JaCa kiểm chứng giao thức JaCaMo qua thông điệp khi hệ thống chạy~\cite{ref-24}. USE kiểm tra bất biến OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar mô tả mục tiêu và nhiệm vụ~\cite{ref-12}. Để đánh giá cả ràng buộc lẫn tiến độ trong cùng một lần chạy, cần dựng trạng thái từ dữ liệu JaCaMo và giữ lịch sử riêng của từng đối tượng.
 
-Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa ngôn ngữ CSL (Composite State Language) và cách gắn điều kiện vào iStar từ công trình kiểm tra sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, plugin ánh xạ dữ liệu JaCaMo sang trạng thái CSL, dùng OCL kiểm tra bất biến và đánh giá điều kiện Goal và Task theo lịch sử. USE trả quyết định cho JaCaMo tiếp tục hoặc giữ dừng tại checkpoint đó.
+Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa CSL (Composite State Language) và cách gắn điều kiện vào iStar từ công trình về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, plugin dựng trạng thái CSL từ ảnh chụp JaCaMo. USE kiểm tra bất biến OCL, cập nhật Goal và Task theo lịch sử rồi trả quyết định tiếp tục hoặc giữ dừng.
 
-Thực nghiệm Auction và Counter phân biệt trường hợp có vi phạm quan sát được với trường hợp thiếu dữ liệu. Khi đánh giá lại một vết Auction với cùng đặc tả, các quyết định và tập Goal và Task đã đạt đều khớp ở cả 58 checkpoint (Mục 3.5).
+Thực nghiệm cho thấy công cụ giữ lịch sử riêng cho hai phiên Auction và phân biệt vi phạm với trường hợp thiếu dữ liệu. Khi đánh giá lại cùng một vết Auction với cùng đặc tả, các quyết định và tập mục tiêu, nhiệm vụ đã đạt đều khớp ở cả 58 checkpoint (Mục 3.5).
 
-Ba đóng góp chính gồm phép ánh xạ bảo toàn định danh, bộ đánh giá điều kiện theo lịch sử và cơ chế phản hồi tại checkpoint. Nghiên cứu trả lời ba câu hỏi.
+Các đóng góp gồm phép ánh xạ bảo toàn định danh, bộ đánh giá theo lịch sử và cơ chế phản hồi tại checkpoint. Nghiên cứu trả lời ba câu hỏi.
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
 \item
-  Làm thế nào để ánh xạ dữ liệu JaCaMo sang CSL và duy trì lịch sử riêng cho từng đối tượng?
+  Làm thế nào để ánh xạ dữ liệu JaCaMo sang CSL và giữ định danh, lịch sử của từng đối tượng?
 \item
-  Làm thế nào để tổng hợp kết quả OCL và iStar tại checkpoint, đồng thời phân biệt vi phạm với thiếu bằng chứng?
+  Làm thế nào để tổng hợp kết quả OCL và iStar tại checkpoint, đồng thời phân biệt vi phạm với thiếu dữ liệu?
 \item
-  Khi đánh giá lại cùng một vết với cùng đặc tả, quyết định và tập Goal và Task đã đạt có được tái hiện ở từng checkpoint không?
+  Đánh giá lại cùng một vết với cùng đặc tả có tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng checkpoint không?
 \end{enumerate}
 
-Chương 1 trình bày kiến thức nền tảng và các nghiên cứu liên quan. Chương 2 trình bày phương pháp đặc tả và kiểm chứng trên USE. Chương 3 mô tả triển khai, kết quả thực nghiệm và giới hạn của phương pháp.
+Chương 1 trình bày kiến thức nền tảng và các nghiên cứu liên quan. Chương 2 mô tả phương pháp đặc tả và kiểm chứng trên USE. Chương 3 trình bày triển khai, kết quả thực nghiệm và giới hạn của phương pháp.
 
 \clearpage
 \pagenumbering{arabic}
