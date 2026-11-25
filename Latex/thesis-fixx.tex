@@ -42,8 +42,9 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 \setlength{\parindent}{0.75cm}
-\setlength{\parskip}{3pt plus 1pt}
-\setstretch{1.30}
+\setlength{\parskip}{2pt plus 1pt}
+\setstretch{1.25}
+\raggedbottom
 \clubpenalty=10000
 \widowpenalty=10000
 \emergencystretch=2em
@@ -165,7 +166,7 @@ Tất cả các tài liệu tham khảo đều được em trích dẫn và ghi 
 
 Bên cạnh đó, trong quá trình nghiên cứu, phát triển hệ thống và hoàn thiện khóa luận, em có sử dụng một số công cụ trí tuệ nhân tạo (AI) như ChatGPT, Gemini nhằm hỗ trợ tìm hiểu kiến thức, tham khảo ý tưởng, phân tích và phát triển mã nguồn, kiểm tra lỗi cũng như cải thiện cách diễn đạt. Tuy nhiên, các công cụ này chỉ đóng vai trò hỗ trợ; em trực tiếp xem xét, đánh giá và kiểm chứng các nội dung, giải pháp và kết quả được sử dụng trong khóa luận, đồng thời chịu trách nhiệm về tính chính xác, trung thực của toàn bộ công trình nghiên cứu.
 
-\emph{Hà Nội, ngày .\ldots. tháng 12 năm 2026}
+\emph{Hà Nội, ngày ..... tháng 12 năm 2026}
 
 \textbf{Sinh viên}
 
@@ -185,13 +186,18 @@ Cuối cùng, em xin gửi lời cảm ơn đến Trường Đại học Công n
 
 Em xin chân thành cảm ơn tất cả những người đã luôn đồng hành, giúp đỡ và động viên em trong suốt quá trình thực hiện khóa luận tốt nghiệp.
 
-\emph{Hà Nội, ngày .\ldots. tháng 12 năm 2026}
+\emph{Hà Nội, ngày ..... tháng 12 năm 2026}
 
 \textbf{Sinh viên}
 
 \textbf{NGUYỄN TRUNG NGHĨA}
 
+\begingroup
+\small
+\setstretch{1.08}
+\setlength{\parskip}{0pt}
 \tableofcontents
+\endgroup
 \listoffigures
 \listoftables
 
@@ -206,7 +212,7 @@ RV4JaCa kiểm chứng giao thức JaCaMo qua thông điệp khi hệ thống ch
 
 Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa CSL (Composite State Language) và cách gắn điều kiện vào iStar từ công trình về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, plugin dựng trạng thái CSL từ ảnh chụp JaCaMo. USE kiểm tra bất biến OCL, cập nhật Goal và Task theo lịch sử rồi trả quyết định tiếp tục hoặc giữ dừng.
 
-Thực nghiệm cho thấy công cụ giữ lịch sử riêng cho hai phiên Auction và phân biệt vi phạm với trường hợp thiếu dữ liệu. Khi đánh giá lại cùng một vết Auction với cùng đặc tả, các quyết định và tập mục tiêu, nhiệm vụ đã đạt đều khớp ở cả 58 checkpoint (Mục 3.5).
+Thực nghiệm cho thấy công cụ giữ lịch sử riêng cho hai phiên Auction và phân biệt vi phạm với trường hợp thiếu dữ liệu. Khi đánh giá lại cùng một vết Auction với cùng đặc tả, các quyết định và tập mục tiêu, nhiệm vụ đã đạt đều khớp ở cả 58 checkpoint (Mục~\ref{sec:3-5}).
 
 Các đóng góp gồm phép ánh xạ bảo toàn định danh, bộ đánh giá theo lịch sử và cơ chế phản hồi tại checkpoint. Nghiên cứu trả lời ba câu hỏi.
 
@@ -235,7 +241,7 @@ Trong hệ đa tác tử, hoạt động của các tác tử, biến đổi c�
 
 Khi dữ liệu cần thiết đã có, một bất biến có thể được kiểm tra ngay trên trạng thái đang xét~\cite{ref-4}. Với yêu cầu phụ thuộc thời gian, bằng chứng còn nằm ở thứ tự xuất hiện của các trạng thái. Chẳng hạn, một mục tiêu chỉ cần đạt một lần và một mục tiêu phải duy trì sau khi đạt có thể cho kết quả khác nhau trên cùng một vết~\cite{ref-28}. Vì vết quan sát hữu hạn, kết luận còn phụ thuộc vào những gì đã xảy ra và những diễn biến còn có thể tiếp nối~\cite{ref-18}.
 
-Phần kiến thức nền tảng bắt đầu với DSL và cách JaCaMo tổ chức hệ đa tác tử (Mục 1.2--1.3). Để mô tả mục tiêu và trạng thái của hệ thống, Mục 1.4--1.5 trình bày iStar cùng UML, OCL và USE. Từ các mô hình đó, Mục 1.6 giải thích phạm vi của từng cách kiểm chứng, làm cơ sở đối chiếu các nghiên cứu ở Mục 1.7.
+Phần kiến thức nền tảng bắt đầu với DSL và cách JaCaMo tổ chức hệ đa tác tử (Mục~\ref{sec:1-2}--1.3). Để mô tả mục tiêu và trạng thái của hệ thống, Mục~\ref{sec:1-4}--1.5 trình bày iStar cùng UML, OCL và USE. Từ các mô hình đó, Mục~\ref{sec:1-6} giải thích phạm vi của từng cách kiểm chứng, làm cơ sở đối chiếu các nghiên cứu ở Mục 1.7.
 
 \section{Ngôn ngữ hướng miền}\label{sec:1-2}
 
@@ -247,6 +253,16 @@ Phạm vi biểu đạt của DSL phụ thuộc vào nhóm vấn đề mà ngôn
 
 Fowler phân biệt DSL nội bộ và DSL bên ngoài theo quan hệ của chúng với ngôn ngữ chủ~\cite{ref-27}. DSL nội bộ biểu đạt khái niệm miền bằng các cấu trúc hợp lệ của ngôn ngữ chủ, nên dùng được cơ chế phân tích cùng các công cụ sẵn có và đồng thời chịu ràng buộc của cú pháp đó. DSL bên ngoài có cú pháp riêng phù hợp với miền, vì vậy phải xác định riêng cách đọc và diễn giải đặc tả~\cite{ref-27}.
 
+Khi xác định phạm vi của DSL, người thiết kế cần chọn những khái niệm có thể biểu đạt trực tiếp trong ngôn ngữ. Hình~\ref{fig:1-1} minh họa lựa chọn đó bằng mô hình CSL lấy từ công trình của Nguyen và cộng sự \cite{ref-28}.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.6299in,height=\textheight]{figures/fig-1-1.png}
+\caption{Mô hình trạng thái viết bằng CSL.}\label{fig:1-1}
+\end{figure}
+
+Mô hình phân biệt dữ liệu nghiệp vụ, như các bản sửa và kết quả thẩm định, với ngữ cảnh và vai trò chịu trách nhiệm xử lý dữ liệu. Kiểu liệt kê giới hạn các giá trị mà trạng thái hoặc quyết định có thể nhận. CSL nhờ đó cung cấp từ vựng để đặc tả cấu trúc của miền và dùng lại cấu trúc ấy khi đánh giá các điều kiện trên trạng thái \cite{ref-28}.
+
 Với DSL dùng để mô hình hóa, có thể xem đặc tả là một biểu diễn của mô hình. Thao tác đọc đặc tả xác định mô hình mà văn bản đang mô tả~\cite{ref-27}, còn việc đánh giá một ràng buộc xác định điều kiện đó có đúng trên một trạng thái cụ thể hay không~\cite{ref-15}. Sự phân biệt giữa biểu diễn, mô hình và trạng thái được dùng xuyên suốt phần UML và OCL.
 
 \subsection{Cú pháp, ngữ nghĩa và metamodel}\label{sec:1-2-2}
@@ -257,11 +273,11 @@ Trong DSL dạng văn bản, quy tắc từ vựng nhận diện các đơn vị
 
 \begin{figure}
 \centering
-\includegraphics[width=3.189in,height=\textheight]{figures/fig-1-1.png}
-\caption{Phân tích cú pháp của biểu thức a\%b+c.}\label{fig:1-1}
+\includegraphics[width=3.189in,height=\textheight]{figures/fig-1-2.png}
+\caption{Phân tích cú pháp của biểu thức a\%b+c.}\label{fig:1-2}
 \end{figure}
 
-Trong ví dụ ở \thesisfigure{fig:1-1}~\cite{ref-30}, hai cây cùng nhận chuỗi a\%b+c nhưng nhóm toán hạng theo hai cách. Cây bên trái nhóm a\%b trước khi cộng với c, còn cây bên phải nhóm b+c thành toán hạng của phép \%. Nếu \% có độ ưu tiên cao hơn +, cách nhóm thứ nhất được chọn. Ví dụ cho thấy một chuỗi có thể thuộc ngôn ngữ dù vẫn cần thêm quy tắc để xác định cấu trúc của nó.
+Trong ví dụ ở Hình~\ref{fig:1-2}~\cite{ref-30}, hai cây cùng nhận chuỗi a\%b+c nhưng nhóm toán hạng theo hai cách. Cây bên trái nhóm a\%b trước khi cộng với c, còn cây bên phải nhóm b+c thành toán hạng của phép \%. Nếu \% có độ ưu tiên cao hơn +, cách nhóm thứ nhất được chọn. Ví dụ cho thấy một chuỗi có thể thuộc ngôn ngữ dù vẫn cần thêm quy tắc để xác định cấu trúc của nó.
 
 Cú pháp trừu tượng giữ lại những thông tin mà việc kiểm tra và diễn giải cần đến. Chẳng hạn, nút phép toán trong cây cú pháp trừu tượng (Abstract Syntax Tree, AST) phải ghi toán tử và các toán hạng, nhưng có thể bỏ dấu ngoặc nếu cấu trúc cây đã thể hiện cách nhóm~\cite{ref-27}. Với DSL mô hình hóa, cú pháp trừu tượng còn có thể là một mô hình gồm các phần tử liên kết với nhau, trong đó một phần tử có thể tham chiếu đến khai báo ở nơi khác~\cite{ref-27}.
 
@@ -269,11 +285,11 @@ Siêu mô hình (metamodel) định nghĩa các loại phần tử có thể xu�
 
 \begin{figure}
 \centering
-\includegraphics[width=5.9843in,height=\textheight]{figures/fig-1-2.png}
-\caption{Liên kết trong siêu mô hình UML.}\label{fig:1-2}
+\includegraphics[width=5.9843in,height=\textheight]{figures/fig-1-3.png}
+\caption{Liên kết trong siêu mô hình UML.}\label{fig:1-3}
 \end{figure}
 
-\thesisfigure{fig:1-2} trích một phần siêu mô hình UML về liên kết~\cite{ref-14}. Trong đó, bội số 2..* của memberEnd yêu cầu mỗi Association có ít nhất hai đầu, mỗi đầu là một Property xác định kiểu của đầu tương ứng. Vì AssociationClass kế thừa cả Association và Class, nó có thể biểu diễn một liên kết mang thuộc tính riêng. Đây là các yêu cầu được kiểm tra trên mô hình lớp trước khi xét một trạng thái đối tượng cụ thể~\cite{ref-14}.
+Hình~\ref{fig:1-3} trích một phần siêu mô hình UML về liên kết~\cite{ref-14}. Trong đó, bội số 2..* của memberEnd yêu cầu mỗi Association có ít nhất hai đầu, mỗi đầu là một Property xác định kiểu của đầu tương ứng. Vì AssociationClass kế thừa cả Association và Class, nó có thể biểu diễn một liên kết mang thuộc tính riêng. Đây là các yêu cầu được kiểm tra trên mô hình lớp trước khi xét một trạng thái đối tượng cụ thể~\cite{ref-14}.
 
 Ngữ nghĩa tĩnh quy định những điều kiện có thể kiểm tra ngay trên đặc tả, như sự hợp lệ của tên tham chiếu hoặc kiểu của biểu thức~\cite{ref-15}. Ngữ nghĩa động giải thích các khai báo được hiểu như thế nào trên trạng thái hoặc qua những lần chuyển trạng thái. Với Association trong UML, yêu cầu về số đầu thuộc cấu trúc của mô hình. Khi xét một trạng thái cụ thể, liên kết được biểu diễn bằng một bộ các thể hiện phù hợp với kiểu của từng đầu~\cite{ref-14}. Trên trạng thái đó, OCL cho phép đánh giá thêm những bất biến do người đặc tả khai báo~\cite{ref-15}.
 
@@ -283,11 +299,11 @@ ANTLR (ANother Tool for Language Recognition) sinh bộ phân tích từ vựng 
 
 \begin{figure}
 \centering
-\includegraphics[width=5.1969in,height=\textheight]{figures/fig-1-3.png}
-\caption{Ngữ pháp Ex trong ANTLR.}\label{fig:1-3}
+\includegraphics[width=5.1969in,height=\textheight]{figures/fig-1-4.png}
+\caption{Ngữ pháp Ex trong ANTLR.}\label{fig:1-4}
 \end{figure}
 
-Ngữ pháp Ex trong \thesisfigure{fig:1-3}~\cite{ref-30} cho thấy cách hai nhóm quy tắc phối hợp. Ở bước phân tích từ vựng, ID nhận diện định danh gồm một hoặc nhiều chữ cái, còn WS nhận diện dãy ký tự trắng để bỏ qua bằng lệnh skip. Sau khi nhận token, parser dùng stat, expr và id để nhận diện câu lệnh, biểu thức và vị trí của định danh. Hai phương án của stat cùng bắt đầu bằng expr và kết thúc bằng dấu chấm phẩy, nên parser cần xem các token tiếp theo để nhận ra đó là phép gán hay một biểu thức đứng độc lập~\cite{ref-30}.
+Ngữ pháp Ex trong Hình~\ref{fig:1-4}~\cite{ref-30} cho thấy cách hai nhóm quy tắc phối hợp. Ở bước phân tích từ vựng, ID nhận diện định danh gồm một hoặc nhiều chữ cái, còn WS nhận diện dãy ký tự trắng để bỏ qua bằng lệnh skip. Sau khi nhận token, parser dùng stat, expr và id để nhận diện câu lệnh, biểu thức và vị trí của định danh. Hai phương án của stat cùng bắt đầu bằng expr và kết thúc bằng dấu chấm phẩy, nên parser cần xem các token tiếp theo để nhận ra đó là phép gán hay một biểu thức đứng độc lập~\cite{ref-30}.
 
 Lexer chuyển luồng ký tự thành dãy token có loại, nội dung và vị trí, nhờ đó công cụ có thể chỉ ra nơi phát sinh lỗi~\cite{ref-31}. Với a=b+c; trong ngữ pháp Ex, lexer xếp a, b và c vào loại ID. Parser bắt đầu ở stat, nhận diện phương án gán rồi áp dụng expr cho hai vế~\cite{ref-30}. Cây phân tích ghi lại quy tắc được áp dụng và các token được nhận diện. Vì parser có thể phục hồi sau một số lỗi để tiếp tục chẩn đoán, cần đọc thông báo lỗi cùng với cây trước khi kết luận đầu vào hợp lệ~\cite{ref-31}.
 
@@ -309,6 +325,16 @@ Từ bài toán phân chia công việc chung, nghiên cứu mở rộng sang vi
 
 Lập trình hệ đa tác tử cần mô tả cách tác tử chọn hành động, môi trường mà hành động tác động tới và những quy tắc phối hợp trong tổ chức. Boissier và cộng sự tích hợp ba chiều đó trong JaCaMo, được trình bày trong công trình công bố năm 2013~\cite{ref-2}. Sách Multi-Agent Oriented Programming sau đó trình bày cách vận dụng nền tảng qua các bài tập và ví dụ lập trình~\cite{ref-36}.
 
+\begin{figure}
+\centering
+\includegraphics[width=4.6457in,height=.70\textheight]{figures/fig-1-5-a.png}
+\par\smallskip
+\includegraphics[width=6.1800in,height=.70\textheight]{figures/fig-1-5-b.png}
+\caption{Siêu mô hình JaCaMo.}\label{fig:1-5}
+\end{figure}
+
+Hình~\ref{fig:1-5} trình bày các khái niệm của ba chiều trong một siêu mô hình. Ở phía tác tử, mỗi Plan gắn với một Event kích hoạt và có thể gồm nhiều Action. Ở phía môi trường, Workspace chứa Artifact. Mỗi Artifact công bố các Property và Operation. Phần tổ chức nối Group với Role, còn Scheme tổ chức các mục tiêu thông qua Mission. Norm chỉ ra quan hệ giữa vai trò và nhiệm vụ theo hình thức nghĩa vụ hoặc quyền. Cách đọc ba chiều này phù hợp với kiến trúc JaCaMo trình bày trong \cite{ref-2}. Hình lấy từ tệp \href{https://github.com/nguyentrungnghia1802/thesis/blob/main/1\%2C\%20Tham\%20Kh\%E1\%BA\%A3o/jacamo-metamodel.png}{jacamo-metamodel.png}.
+
 Ba chiều của JaCaMo cung cấp thông tin khác nhau về cùng một hoạt động. Jason hỗ trợ tác tử suy luận bằng belief, goal, plan và intention. Một hành động được chọn trong plan có thể gọi thao tác của artifact trong CArtAgO hoặc góp phần thực hiện nhiệm vụ đã cam kết trong tổ chức Moise~\cite{ref-2}. Workspace xác định phạm vi sử dụng và quan sát artifact, còn nhóm, vai trò và mission mô tả cách phối hợp để đạt mục tiêu chung. Sự phân chia này giúp nhận diện một hoạt động đã thay đổi thông tin mà tác tử sử dụng, dữ liệu môi trường hay quan hệ đảm nhiệm vai trò~\cite{ref-2}.
 
 \subsection{Belief, Goal, Plan và Intention trong Jason}\label{sec:1-3-2}
@@ -321,19 +347,19 @@ Một kế hoạch (plan) có dạng te : ct \textless- h, trong đó te là s�
 
 \begin{figure}
 \centering
-\includegraphics[width=6.2in,height=\textheight]{figures/fig-1-4.png}
-\caption{Chu trình diễn giải AgentSpeak(L).}\label{fig:1-4}
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-1-6.png}
+\caption{Chu trình diễn giải AgentSpeak(L).}\label{fig:1-6}
 \end{figure}
 
-\thesisfigure{fig:1-4} dùng sơ đồ của Machado và Bordini (2002) để mô tả chu trình diễn giải của AgentSpeak(L)~\cite{ref-37}. Cảm nhận từ môi trường có thể cập nhật niềm tin và sinh sự kiện. Bộ thông dịch chọn sự kiện (\(S_{e}\)), tìm các kế hoạch có sự kiện kích hoạt phù hợp và xét ngữ cảnh để chọn kế hoạch áp dụng được (\(S_{o}\)). Kế hoạch này tạo hoặc cập nhật ý định. Sau đó, bộ thông dịch chọn ý định (\(S_{i}\)) để thực hiện bước kế tiếp, chẳng hạn tác động lên môi trường, truy vấn niềm tin hoặc tạo mục tiêu con~\cite{ref-37}.
+Hình~\ref{fig:1-6} dùng sơ đồ của Machado và Bordini (2002) để mô tả chu trình diễn giải của AgentSpeak(L)~\cite{ref-37}. Cảm nhận từ môi trường có thể cập nhật niềm tin và sinh sự kiện. Bộ thông dịch chọn sự kiện (\(S_{e}\)), tìm các kế hoạch có sự kiện kích hoạt phù hợp và xét ngữ cảnh để chọn kế hoạch áp dụng được (\(S_{o}\)). Kế hoạch này tạo hoặc cập nhật ý định. Sau đó, bộ thông dịch chọn ý định (\(S_{i}\)) để thực hiện bước kế tiếp, chẳng hạn tác động lên môi trường, truy vấn niềm tin hoặc tạo mục tiêu con~\cite{ref-37}.
 
 \begin{figure}
 \centering
-\includegraphics[width=4.1732in,height=\textheight]{figures/fig-1-5.png}
-\caption{Kế hoạch AgentSpeak cho robot thăm dò Sao Hỏa.}\label{fig:1-5}
+\includegraphics[width=4.1732in,height=\textheight]{figures/fig-1-7.png}
+\caption{Kế hoạch AgentSpeak cho robot thăm dò Sao Hỏa.}\label{fig:1-7}
 \end{figure}
 
-Các kế hoạch cho robot thăm dò Sao Hỏa ở \thesisfigure{fig:1-5} là một ví dụ về AgentSpeak~\cite{ref-29}. Kế hoạch đầu tiên được xét khi niềm tin green\_patch(Rock) xuất hiện và được áp dụng nếu tác tử chưa tin rằng pin đang yếu. Kế hoạch truy vấn tọa độ mẫu đá bằng ?location rồi đặt mục tiêu di chuyển tới mẫu và kiểm tra nó. Với sự kiện +!traverse, hai kế hoạch kiểm tra hai điều kiện khác nhau về độ an toàn của đường đi, vì vậy cùng một mục tiêu có thể dẫn đến những hành động khác nhau tùy vào thông tin hiện có~\cite{ref-29}.
+Các kế hoạch cho robot thăm dò Sao Hỏa ở Hình~\ref{fig:1-7} là một ví dụ về AgentSpeak~\cite{ref-29}. Kế hoạch đầu tiên được xét khi niềm tin green\_patch(Rock) xuất hiện và được áp dụng nếu tác tử chưa tin rằng pin đang yếu. Kế hoạch truy vấn tọa độ mẫu đá bằng ?location rồi đặt mục tiêu di chuyển tới mẫu và kiểm tra nó. Với sự kiện +!traverse, hai kế hoạch kiểm tra hai điều kiện khác nhau về độ an toàn của đường đi, vì vậy cùng một mục tiêu có thể dẫn đến những hành động khác nhau tùy vào thông tin hiện có~\cite{ref-29}.
 
 \subsection{Artifact và Workspace trong CArtAgO}\label{sec:1-3-3}
 
@@ -345,21 +371,21 @@ Giao diện của artifact cung cấp các thao tác (operation) mà tác tử c
 
 \begin{figure}
 \centering
-\includegraphics[width=5.5906in,height=\textheight]{figures/fig-1-6.png}
-\caption{Giao diện artifact đấu giá.}\label{fig:1-6}
+\includegraphics[width=5.5906in,height=\textheight]{figures/fig-1-8.png}
+\caption{Giao diện artifact đấu giá.}\label{fig:1-8}
 \end{figure}
 
-Artifact trong \thesisfigure{fig:1-6} thuộc ca xây nhà, trong đó chủ nhà Giacomo tạo một cuộc đấu giá cho từng công việc xây dựng~\cite{ref-39}. Mỗi công ty có thể đọc mô tả công việc, mức giá tối đa, bên đang dẫn đầu và giá tốt nhất, rồi gọi thao tác bid để gửi giá. Nhiều công ty có thể theo dõi cùng một cuộc đấu giá. Các cuộc đấu giá dùng chung giao diện nhưng mỗi thể hiện giữ dữ liệu riêng của nó~\cite{ref-39}.
+Artifact trong Hình~\ref{fig:1-8} thuộc ca xây nhà, trong đó chủ nhà Giacomo tạo một cuộc đấu giá cho từng công việc xây dựng~\cite{ref-39}. Mỗi công ty có thể đọc mô tả công việc, mức giá tối đa, bên đang dẫn đầu và giá tốt nhất, rồi gọi thao tác bid để gửi giá. Nhiều công ty có thể theo dõi cùng một cuộc đấu giá. Các cuộc đấu giá dùng chung giao diện nhưng mỗi thể hiện giữ dữ liệu riêng của nó~\cite{ref-39}.
 
 Một tác tử bắt đầu theo dõi artifact bằng focus với định danh của artifact đó. Khi kết hợp với Jason, các thuộc tính quan sát được trở thành belief của tác tử và được cập nhật khi giá trị thay đổi~\cite{ref-38}. Tín hiệu cũng có thể làm phát sinh sự kiện để tác tử chọn kế hoạch phù hợp. Tín hiệu không tự động được lưu thành belief~\cite{ref-38}.
 
 \begin{figure}
 \centering
-\includegraphics[width=4.6457in,height=\textheight]{figures/fig-1-7.png}
-\caption{Định nghĩa artifact Counter.}\label{fig:1-7}
+\includegraphics[width=4.6457in,height=\textheight]{figures/fig-1-9.png}
+\caption{Định nghĩa artifact Counter.}\label{fig:1-9}
 \end{figure}
 
-Ví dụ Counter ở \thesisfigure{fig:1-7} cho thấy sự khác biệt giữa giá trị và sự kiện quan sát từ artifact~\cite{ref-38}. Khi khởi tạo, Counter công bố thuộc tính count với giá trị 0. Mỗi lần thực hiện inc, bộ đếm tăng và artifact phát tín hiệu tick. Tác tử đang theo dõi có thể đọc count để biết giá trị hiện hành hoặc phản ứng với tick khi có một lần tăng.
+Ví dụ Counter ở Hình~\ref{fig:1-9} cho thấy sự khác biệt giữa giá trị và sự kiện quan sát từ artifact~\cite{ref-38}. Khi khởi tạo, Counter công bố thuộc tính count với giá trị 0. Mỗi lần thực hiện inc, bộ đếm tăng và artifact phát tín hiệu tick. Tác tử đang theo dõi có thể đọc count để biết giá trị hiện hành hoặc phản ứng với tick khi có một lần tăng.
 
 \subsection{Mô hình tổ chức Moise}\label{sec:1-3-4}
 
@@ -371,11 +397,11 @@ Moise+ mô hình hóa cách một tập tác tử phối hợp để đạt mụ
 
 \begin{figure}
 \centering
-\includegraphics[width=5.9843in,height=\textheight]{figures/fig-1-8.png}
-\caption{Lược đồ mục tiêu của phương án tấn công biên.}\label{fig:1-8}
+\includegraphics[width=5.9843in,height=\textheight]{figures/fig-1-10.png}
+\caption{Lược đồ mục tiêu của phương án tấn công biên.}\label{fig:1-10}
 \end{figure}
 
-Trong lược đồ ở \thesisfigure{fig:1-8}~\cite{ref-40}, mục tiêu ghi bàn được phân rã thành những bước như giành bóng, đưa bóng tới khu vực tấn công và dứt điểm. Mission m3 gắn việc có mặt trong khu vực cầu môn đối phương và dứt điểm với mục tiêu chung là ghi bàn.
+Trong lược đồ ở Hình~\ref{fig:1-10}~\cite{ref-40}, mục tiêu ghi bàn được phân rã thành những bước như giành bóng, đưa bóng tới khu vực tấn công và dứt điểm. Mission m3 gắn việc có mặt trong khu vực cầu môn đối phương và dứt điểm với mục tiêu chung là ghi bàn.
 
 Đặc tả nghĩa vụ kết nối vai trò với mission. Một quyền (permission) cho phép tác tử giữ vai trò tương ứng cam kết với mission, còn nghĩa vụ (obligation) yêu cầu cam kết khi luật áp dụng~\cite{ref-40}. Trong lược đồ tấn công biên, hậu vệ được phép cam kết với m1, còn tiền vệ và tiền đạo lần lượt có nghĩa vụ với m2 và m3. Thứ tự thực hiện vẫn do lược đồ quy định, chẳng hạn tiền vệ theo đuổi mục tiêu có mặt ở giữa sân sau khi mục tiêu giành bóng đã đạt~\cite{ref-40}.
 
@@ -383,11 +409,11 @@ Thực thể tổ chức (Organisational Entity, OE) là một thể hiện củ
 
 \begin{figure}
 \centering
-\includegraphics[width=4.4252in,height=\textheight]{figures/fig-1-9.png}
-\caption{Thể hiện nhóm phòng ngự trong S-Moise+.}\label{fig:1-9}
+\includegraphics[width=4.4252in,height=\textheight]{figures/fig-1-11.png}
+\caption{Thể hiện nhóm phòng ngự trong S-Moise+.}\label{fig:1-11}
 \end{figure}
 
-Thể hiện nhóm phòng ngự ở \thesisfigure{fig:1-9}~\cite{ref-40} có tác tử Marcos đảm nhiệm vai trò thủ môn, nhưng chưa có hậu vệ nào so với mức tối thiểu là ba. Ví dụ này cho thấy cách dùng đặc tả làm tiêu chí và dùng dữ liệu của thực thể tổ chức để đánh giá nhóm tại một thời điểm.
+Thể hiện nhóm phòng ngự ở Hình~\ref{fig:1-11}~\cite{ref-40} có tác tử Marcos đảm nhiệm vai trò thủ môn, nhưng chưa có hậu vệ nào so với mức tối thiểu là ba. Ví dụ này cho thấy cách dùng đặc tả làm tiêu chí và dùng dữ liệu của thực thể tổ chức để đánh giá nhóm tại một thời điểm.
 
 \section{Mô hình mục tiêu iStar}\label{sec:1-4}
 
@@ -399,15 +425,46 @@ Actor biểu diễn chủ thể có ý định và có thể hành động để
 
 Trong phạm vi của một chủ thể, Goal ghi nhận trạng thái mong muốn có tiêu chí đạt tương đối rõ, còn Task chỉ một cách thực hiện công việc. Hai loại phần tử này lần lượt được vẽ bằng hình chữ nhật bo góc và hình lục giác~\cite{ref-12}. Một tài nguyên vật chất hoặc thông tin được biểu diễn bằng Resource có hình chữ nhật. Khi cần mô tả đặc tính mong muốn của quá trình, kết quả hay tài nguyên, mô hình dùng Quality có hai cạnh uốn lượn~\cite{ref-12}.
 
+\begin{table}[H]
+\centering
+\small
+\setstretch{1.12}
+\caption{Ký pháp các chủ thể và phần tử ý định trong iStar 2.0}\label{tab:1-1}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1355}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1709}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6935}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Ký pháp}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Phần tử}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Ý nghĩa}
+\end{minipage} \\
+\midrule\noalign{}
+\includegraphics[width=0.1616in,height=\textheight]{figures/tab-1-1-1.png} & Actor & Chủ thể có ý định, có thể chịu trách nhiệm về một kết quả. \\
+\includegraphics[width=0.1535in,height=\textheight]{figures/tab-1-1-2.png} & Agent & Cá nhân hoặc hệ thống cụ thể có thể tham gia vào mô hình. \\
+\includegraphics[width=0.1575in,height=\textheight]{figures/tab-1-1-3.png} & Role & Vai trò gắn với hành vi hoặc trách nhiệm trong một ngữ cảnh. \\
+\includegraphics[width=0.3661in,height=\textheight]{figures/tab-1-1-4.png} & Goal & Trạng thái mong muốn có tiêu chí để xác định mức đạt. \\
+\includegraphics[width=0.3661in,height=\textheight]{figures/tab-1-1-5.png} & Task & Cách thực hiện một công việc trong phạm vi của chủ thể. \\
+\includegraphics[width=0.3661in,height=\textheight]{figures/tab-1-1-6.png} & Resource & Vật thể hoặc thông tin cần có để thực hiện công việc. \\
+\includegraphics[width=0.3661in,height=\textheight]{figures/tab-1-1-7.png} & Quality & Đặc tính mong muốn của kết quả, công việc hoặc tài nguyên. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Bảng~\ref{tab:1-1} tổng hợp ký pháp và ý nghĩa của các phần tử theo hướng dẫn iStar 2.0 \cite{ref-12}. Các ký hiệu được trích từ chú giải của mô hình trong \cite{ref-28}, riêng ký hiệu Resource lấy từ bộ ký hiệu của piStar \cite{ref-41}. Sự khác nhau giữa các hình giúp người đọc nhận ra chủ thể nào được mô tả và phần tử bên trong đường bao ghi nhận mục tiêu, công việc, tài nguyên hay đặc tính chất lượng.
+
 Siêu mô hình Ecore của Ayala và cộng sự hiện thực hóa các kiểu được mô tả trong hướng dẫn iStar 2.0~\cite{ref-12}. Trong tệp đó, Agent và Role chuyên biệt hóa Actor, còn tham chiếu wants nối chủ thể với các phần tử ý định. Goal, Task, Resource và Quality cùng chuyên biệt hóa IntentionalElement~\cite{ref-42}. Quan hệ Dependency là một lớp riêng với ba tham chiếu bắt buộc depender, dependee và dependum. Hai tham chiếu dependerElmt và dependeeElmt là tùy chọn, qua đó siêu mô hình giới hạn những cấu trúc phụ thuộc hợp lệ~\cite{ref-42}.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.063in,height=\textheight]{figures/fig-1-10.png}
-\caption{Ký pháp iStar 2.0.}\label{fig:1-10}
+\includegraphics[width=6.063in,height=\textheight]{figures/fig-1-12.png}
+\caption{Ký pháp iStar 2.0.}\label{fig:1-12}
 \end{figure}
 
-\thesisfigure{fig:1-10} xuất phát từ ví dụ ``Every iStar 2.0 element and link'' của piStar~\cite{ref-41}. Hình dạng của phần tử nằm giữa hai đầu phụ thuộc cho biết bên phụ thuộc cần kết quả thuộc kiểu nào. Chẳng hạn, Dependum D có hình chữ nhật của Resource, còn Dependum C có hình lục giác của Task.
+Hình~\ref{fig:1-12} xuất phát từ ví dụ ``Every iStar 2.0 element and link'' của piStar~\cite{ref-41}. Hình dạng của phần tử nằm giữa hai đầu phụ thuộc cho biết bên phụ thuộc cần kết quả thuộc kiểu nào. Chẳng hạn, Dependum D có hình chữ nhật của Resource, còn Dependum C có hình lục giác của Task.
 
 \subsection{Refinement, Dependency và các quan hệ ý định}\label{sec:1-4-2}
 
@@ -429,11 +486,11 @@ Có thể đọc mô hình từ các quan hệ giữa chủ thể trước, rồ
 
 \begin{figure}
 \centering
-\includegraphics[width=6.063in,height=\textheight]{figures/fig-1-11.png}
-\caption{Mô hình University Travel Reimbursement.}\label{fig:1-11}
+\includegraphics[width=6.063in,height=\textheight]{figures/fig-1-13.png}
+\caption{Mô hình University Travel Reimbursement.}\label{fig:1-13}
 \end{figure}
 
-\thesisfigure{fig:1-11} lấy ví dụ University Travel Reimbursement của iStar 2.0 Language Guide~\cite{ref-12} và được xuất từ mô hình do piStar cung cấp~\cite{ref-41}. Student là vai trò trung tâm, PhD student chuyên biệt hóa Student và tác tử Mike White tham gia với vai trò PhD student. Trong đường bao của Student, Travel organized dùng hai nhánh AND là Authorization obtained và Trip booked, nên việc đặt chuyến đi chỉ đáp ứng một phần của mục tiêu này~\cite{ref-12}. Nhánh Trip booked dùng OR-refinement để sinh viên chọn giữa đặt từng phần (Trip parts booked) và đặt theo gói (Bundle booked). Nếu tự đặt vé, sinh viên cần tài nguyên Credit card cho tác vụ Pay for tickets theo liên kết NeededBy. Nếu điền biểu mẫu trực tuyến, sinh viên còn phụ thuộc vào hệ thống quản lý chuyến đi của trường để đạt Online form processed~\cite{ref-12}.
+Hình~\ref{fig:1-13} lấy ví dụ University Travel Reimbursement của iStar 2.0 Language Guide~\cite{ref-12} và được xuất từ mô hình do piStar cung cấp~\cite{ref-41}. Student là vai trò trung tâm, PhD student chuyên biệt hóa Student và tác tử Mike White tham gia với vai trò PhD student. Trong đường bao của Student, Travel organized dùng hai nhánh AND là Authorization obtained và Trip booked, nên việc đặt chuyến đi chỉ đáp ứng một phần của mục tiêu này~\cite{ref-12}. Nhánh Trip booked dùng OR-refinement để sinh viên chọn giữa đặt từng phần (Trip parts booked) và đặt theo gói (Bundle booked). Nếu tự đặt vé, sinh viên cần tài nguyên Credit card cho tác vụ Pay for tickets theo liên kết NeededBy. Nếu điền biểu mẫu trực tuyến, sinh viên còn phụ thuộc vào hệ thống quản lý chuyến đi của trường để đạt Online form processed~\cite{ref-12}.
 
 Mô hình cũng cho phép so sánh các phương án theo đặc tính chất lượng. Fill in online form có quan hệ help với No errors, còn Fill in paper form có quan hệ hurt với cùng đặc tính~\cite{ref-41}. Hai cách điền đều góp phần đạt Request prepared, nhưng mô hình ghi nhận tác động khác nhau lên khả năng tránh lỗi. Việc đọc đồng thời Refinement, Dependency và Contribution cho phép giải thích lựa chọn theo mục tiêu, sự phối hợp với chủ thể khác và chất lượng mong muốn~\cite{ref-12}.
 
@@ -447,23 +504,25 @@ Mô hình lớp xác định kiểu đối tượng, thuộc tính, thao tác, l
 
 \begin{figure}
 \centering
-\includegraphics[width=5.7087in,height=\textheight]{figures/fig-1-12.png}
-\caption{Biểu đồ lớp của mô hình việc làm.}\label{fig:1-12}
+\includegraphics[width=5.7087in,height=\textheight]{figures/fig-1-14.png}
+\caption{Biểu đồ lớp của mô hình việc làm.}\label{fig:1-14}
 \end{figure}
 
-Mô hình việc làm ở \thesisfigure{fig:1-12}~\cite{ref-16} gồm ba lớp Person, Company và Job. Mỗi Job gắn một công việc cụ thể với người lao động và công ty, còn liên kết BossWorker biểu diễn quan hệ cấp trên và cấp dưới giữa các công việc.
+Mô hình việc làm ở Hình~\ref{fig:1-14}~\cite{ref-16} gồm ba lớp Person, Company và Job. Mỗi Job gắn một công việc cụ thể với người lao động và công ty, còn liên kết BossWorker biểu diễn quan hệ cấp trên và cấp dưới giữa các công việc.
 
 \begin{figure}
 \centering
-\includegraphics[width=4.9606in,height=\textheight]{figures/fig-1-13.png}
-\caption{Trạng thái đối tượng của mô hình việc làm.}\label{fig:1-13}
+\includegraphics[width=4.9606in,height=\textheight]{figures/fig-1-15.png}
+\caption{Trạng thái đối tượng của mô hình việc làm.}\label{fig:1-15}
 \end{figure}
 
-\thesisfigure{fig:1-13} cho thấy một trạng thái của mô hình việc làm được tạo từ tệp twoRoleTC.cmd~\cite{ref-16}. Cher làm việc tại hai công ty, nên mỗi công việc được ghi bằng một đối tượng Job có định danh và mức lương riêng.
+Hình~\ref{fig:1-15} cho thấy một trạng thái của mô hình việc làm được tạo từ tệp twoRoleTC.cmd~\cite{ref-16}. Cher làm việc tại hai công ty, nên mỗi công việc được ghi bằng một đối tượng Job có định danh và mức lương riêng.
 
 \subsection{OCL và các loại ràng buộc}\label{sec:1-5-2}
 
-OCL là ngôn ngữ biểu thức khai báo có kiểu, với phép đánh giá không gây tác dụng phụ. Ngữ cảnh cho biết biểu thức áp dụng cho kiểu đối tượng hay thao tác nào và từ khóa self tham chiếu tới đối tượng nào~\cite{ref-15}. Biểu thức có thể xét các tập hợp như Set, Bag và Sequence bằng phép lượng hóa hoặc truy vấn. Trong một trạng thái hợp lệ, bất biến của lớp phải đúng đối với từng đối tượng thuộc ngữ cảnh lớp đó~\cite{ref-15}.
+OCL là ngôn ngữ biểu thức có kiểu dùng để đặt điều kiện và truy vấn trên mô hình UML. Khai báo context xác định lớp hoặc thao tác mà biểu thức áp dụng, còn self chỉ thể hiện đang được xét. OCL điều hướng qua thuộc tính và liên kết, rồi dùng các phép như forAll hoặc exists để phát biểu điều kiện trên tập hợp đối tượng. Việc đánh giá chỉ đọc mô hình và trạng thái, nên một biểu thức OCL không tự sửa dữ liệu để làm cho ràng buộc trở thành đúng \cite{ref-15}.
+
+Bất biến (invariant, inv) là điều kiện Boolean phải đúng với mọi thể hiện của lớp ngữ cảnh trong mỗi trạng thái hợp lệ. Có thể viết \(\sigma\) \(\vDash\) inv(C) khi biểu thức cho kết quả true với mọi đối tượng thuộc C trong trạng thái \(\sigma\). Bất biến có thể kiểm tra cả dữ liệu của một đối tượng lẫn quan hệ giữa nhiều đối tượng, chẳng hạn tính duy nhất của một thuộc tính trong phạm vi xác định \cite{ref-15}.
 
 \begin{samepage}
 
@@ -478,7 +537,7 @@ Person.allInstances->forAll(p2|p1.name=p2.name implies p1=p2)
 
 Đoạn mã 1.1 lấy bất biến personNamesAreUnique từ mô hình việc làm~\cite{ref-16}. Với mỗi p1, forAll xét mọi p2 thuộc lớp Person. Phép kéo theo yêu cầu p1 và p2 là cùng một đối tượng nếu tên của chúng trùng nhau, qua đó loại bỏ trường hợp hai người khác nhau có cùng tên.
 
-Tiền điều kiện của một thao tác được xét trước khi thao tác thực hiện. Hậu điều kiện được xét trên kết quả thực hiện và có thể tham chiếu giá trị cũ qua @pre ở những vị trí được OCL cho phép \cite{ref-15}.
+Tiền điều kiện (precondition, pre) và hậu điều kiện (postcondition, post) tạo thành hợp đồng của một thao tác. Tiền điều kiện mô tả điều mà bên gọi phải bảo đảm ngay trước lời gọi, dựa trên đối tượng nhận và các tham số. Hậu điều kiện mô tả điều thao tác phải bảo đảm khi kết thúc một lời gọi thỏa tiền điều kiện. Vì hai điều kiện được xét tại hai thời điểm khác nhau, một thuộc tính có thể xuất hiện trong hậu điều kiện ở cả giá trị sau thao tác và giá trị trước thao tác. OCL dùng @pre để đọc giá trị trước và dùng result để tham chiếu giá trị trả về nếu thao tác khai báo kiểu trả về \cite{ref-15}.
 
 \begin{samepage}
 
@@ -494,7 +553,9 @@ post isMarried: civstat=#married
 
 Đoạn mã 1.2 trích hai ràng buộc của thao tác marry từ đặc tả~\cite{ref-4}. Tiền điều kiện isUnmarried kiểm tra tình trạng hôn nhân trước thao tác, còn hậu điều kiện isMarried yêu cầu tình trạng sau thao tác là married. Đặc tả đầy đủ còn đặt điều kiện đối với người phối ngẫu.
 
-Trong OCL, false là giá trị Boolean, null cho biết giá trị vắng mặt và invalid biểu thị kết quả đánh giá không hợp lệ. Bất biến chỉ được thỏa khi biểu thức cho kết quả true~\cite{ref-15}. Sự phân biệt này cho phép bộ kiểm chứng ghi nhận riêng kết quả sai và trường hợp không thể đánh giá điều kiện.
+OCL cũng cho phép đặc tả giá trị bằng biểu thức có kiểu. Mệnh đề init quy định giá trị ban đầu của thuộc tính hoặc đầu liên kết, còn derive quy định cách suy ra giá trị từ trạng thái hiện tại. Mệnh đề body định nghĩa kết quả của thao tác truy vấn và biểu thức của nó phải phù hợp với kiểu trả về. Khai báo def đặt tên cho thuộc tính hoặc thao tác phụ trợ để dùng lại khi viết ràng buộc. Những cấu trúc này cho ra giá trị theo kiểu đã khai báo, trong khi inv, pre và post yêu cầu biểu thức kiểu Boolean \cite{ref-15}.
+
+Kết quả false xác nhận điều kiện Boolean sai. Giá trị null biểu thị sự vắng mặt của một giá trị, còn invalid biểu thị lỗi trong quá trình đánh giá, chẳng hạn khi một phép tính không xác định. Chỉ true xác nhận một bất biến được thỏa. Việc phân biệt các kết quả này giúp người kiểm tra nhận ra điều kiện nào đã sai và điều kiện nào chưa có kết quả Boolean dùng được \cite{ref-15}.
 
 \subsection{Môi trường USE và khả năng mở rộng}\label{sec:1-5-3}
 
@@ -502,11 +563,11 @@ USE (UML-based Specification Environment) hỗ trợ nạp mô hình lớp UML/O
 
 \begin{figure}
 \centering
-\includegraphics[width=6.0236in,height=\textheight]{figures/fig-1-14.png}
-\caption{Trạng thái đối tượng và kết quả OCL trong USE.}\label{fig:1-14}
+\includegraphics[width=6.0236in,height=\textheight]{figures/fig-1-16.png}
+\caption{Trạng thái đối tượng và kết quả OCL trong USE.}\label{fig:1-16}
 \end{figure}
 
-\thesisfigure{fig:1-14} minh họa cách USE trình bày dữ liệu và kết quả kiểm tra~\cite{ref-4}. Biểu đồ đối tượng cho thấy dữ liệu trạng thái, Class Invariants liệt kê kết quả kiểm tra và Evaluation Browser cho phép xem từng giá trị tham gia đánh giá biểu thức.
+Hình~\ref{fig:1-16} minh họa cách USE trình bày dữ liệu và kết quả kiểm tra~\cite{ref-4}. Biểu đồ đối tượng cho thấy dữ liệu trạng thái, Class Invariants liệt kê kết quả kiểm tra và Evaluation Browser cho phép xem từng giá trị tham gia đánh giá biểu thức.
 
 Sinh trạng thái trong USE hỗ trợ khảo sát tính nhất quán và tính độc lập của các bất biến~\cite{ref-16}. Cho \(M\) là một mô hình lớp, \(Inst(M)\) là tập các trạng thái phù hợp với cấu trúc của \(M\), và \(\Phi\) là tập bất biến. Tính nhất quán có thể được chứng minh bằng một trạng thái làm chứng \(s \in Inst(M)\) sao cho \(s \vDash \Phi\). Để kiểm tra tính độc lập của bất biến \(\varphi \in \Phi\), gọi \(\Psi\) là tập các bất biến còn lại sau khi bỏ \(\varphi\). Một trạng thái thỏa mãn \(\Psi\) nhưng bác bỏ \(\varphi\) là bằng chứng cho thấy \(\varphi\) độc lập với các bất biến còn lại~\cite{ref-4}.
 
@@ -532,7 +593,7 @@ Một tính chất an toàn yêu cầu sự kiện xấu không bao giờ xuất
 
 \subsection{Trace, snapshot và checkpoint}\label{sec:1-6-3}
 
-Vết thực thi (trace) là chuỗi sự kiện hoặc trạng thái có thứ tự~\cite{ref-5}, còn ảnh chụp trạng thái (snapshot) ghi thông tin tại một mốc quan sát~\cite{ref-21}. Trong phương pháp ở Mục 2.6.2, checkpoint xác định ranh giới thu thập dữ liệu và nhận quyết định kiểm chứng. Một dãy snapshot có thể dùng làm vết trạng thái, và những gì có thể kết luận phụ thuộc vào dữ kiện ghi được trong dãy đó~\cite{ref-23}.
+Vết thực thi (trace) là chuỗi sự kiện hoặc trạng thái có thứ tự~\cite{ref-5}, còn ảnh chụp trạng thái (snapshot) ghi thông tin tại một mốc quan sát~\cite{ref-21}. Trong phương pháp ở Mục~\ref{sec:2-6-2}, checkpoint xác định ranh giới thu thập dữ liệu và nhận quyết định kiểm chứng. Một dãy snapshot có thể dùng làm vết trạng thái, và những gì có thể kết luận phụ thuộc vào dữ kiện ghi được trong dãy đó~\cite{ref-23}.
 
 Hai lần quan sát liên tiếp có thể cho cùng giá trị của một thuộc tính mặc dù thuộc tính đó đã thay đổi trong khoảng giữa. Vì vậy, một bất biến đúng ở mọi snapshot quan sát được cung cấp bằng chứng tại những mốc đã quan sát~\cite{ref-23}. Để kết luận về toàn bộ diễn biến, cần có thêm giả thiết hoặc bằng chứng về các trạng thái trung gian~\cite{ref-5}.
 
@@ -544,7 +605,7 @@ Trong nghiên cứu về USE, việc kiểm tra một trạng thái cụ thể c
 
 Đối với hệ đa tác tử, các công trình model checking xét thuộc tính trên mô hình hoặc chương trình tác tử được biểu diễn dưới dạng thích hợp~\cite{ref-22}. RV4JaCa đưa giám sát giao thức tương tác vào JaCaMo và đánh giá trao đổi quan sát được trong phiên thực thi~\cite{ref-24}. Hướng kết hợp kiểm chứng mô hình và kiểm chứng khi thực thi khai thác các loại bằng chứng khác nhau để phân tích tính chất của hệ đa tác tử~\cite{ref-25}.
 
-Các công trình vừa khảo sát dùng những loại bằng chứng khác nhau, từ trạng thái đối tượng đến mô hình ý định và vết tương tác. Nghiên cứu kết nối những cách tiếp cận này bằng cách dựng trạng thái đối tượng trong USE từ dữ liệu JaCaMo. Trạng thái đó vừa dùng để kiểm tra ràng buộc, vừa cung cấp dữ liệu cho việc đánh giá mục tiêu (Mục 2.3).
+Các công trình vừa khảo sát dùng những loại bằng chứng khác nhau, từ trạng thái đối tượng đến mô hình ý định và vết tương tác. Nghiên cứu kết nối những cách tiếp cận này bằng cách dựng trạng thái đối tượng trong USE từ dữ liệu JaCaMo. Trạng thái đó vừa dùng để kiểm tra ràng buộc, vừa cung cấp dữ liệu cho việc đánh giá mục tiêu (Mục~\ref{sec:2-3}).
 
 \section{Tổng kết chương}\label{sec:1-8}
 
@@ -564,23 +625,27 @@ Mục tiêu của phương pháp là kiểm tra trạng thái JaCaMo, theo dõi 
 
 \section{Động cơ nghiên cứu (Motivation)}\label{sec:2-2}
 
-Trong hệ thống đa tác tử, mỗi tác tử có thể chọn hành động dựa trên thông tin cục bộ \cite{ref-1}. Trong JaCaMo, các tác tử trao đổi thông điệp, thao tác trên artifact dùng chung và đảm nhiệm vai trò trong tổ chức. Các hoạt động có thể xen kẽ và làm thay đổi trạng thái ở nhiều thành phần \cite{ref-2}. Vì vậy, kết quả thành công của một thao tác chỉ cung cấp một phần bằng chứng về trạng thái và tiến độ chung của hệ thống.
+Trong JaCaMo, hành vi của hệ thống được hình thành khi các tác tử chọn kế hoạch, thực hiện thao tác trên artifact và phối hợp theo tổ chức \cite{ref-2}. Trạng thái của một hoạt động chung vì thế có thể phụ thuộc vào dữ liệu do nhiều tác tử cập nhật và diễn biến qua nhiều lượt thực thi. Động lực của nghiên cứu là giúp người vận hành nhận biết, ngay khi một hoạt động còn có thể được giữ dừng, liệu dữ liệu nghiệp vụ có hợp lệ và liệu các mục tiêu đặt ra cho hoạt động đó đã có đủ bằng chứng để kết luận hay chưa.
 
-Các công trình trước đã kiểm tra những loại bằng chứng khác nhau trong hệ đa tác tử. Bordini và cộng sự xét các diễn biến có thể có trong mô hình chương trình~\cite{ref-19}, còn RV4JaCa kiểm tra giao thức từ thông điệp thu trong một lần chạy~\cite{ref-24}. Ở mức mô hình đặc tả, USE dùng trạng thái đối tượng để đánh giá ràng buộc OCL~\cite{ref-4}, trong khi iStar biểu diễn mục tiêu, nhiệm vụ và các quan hệ ý định~\cite{ref-12}.
+Có thể thấy vấn đề này trong ca Auction trình bày ở Chương 3. Bob đóng vai trò người tổ chức và khởi tạo hai phiên a1 và a2. Mỗi phiên có một lược đồ điều phối và một artifact riêng để lưu trạng thái mở hoặc đóng, giá tốt nhất và người thắng. Alice, Maria, François và Giacomo đảm nhiệm vai trò người tham gia. Khi kế hoạch trả giá được kích hoạt, tác tử tìm và quan sát artifact của đúng phiên, sau đó có thể gửi một mức giá. Vì đây là đấu giá chọn giá thấp hơn, artifact chỉ thay giá tốt nhất khi nhận được mức thấp hơn giá đang giữ. Khi đến lượt quyết định, Bob đóng phiên và artifact công bố kết quả.
 
-Một chuỗi thông điệp đúng giao thức vẫn có thể thiếu dữ kiện về thuộc tính của artifact, vai trò đang được đảm nhiệm và tiến độ thực hiện nhiệm vụ. Việc thỏa bất biến tại một thời điểm cũng chưa đủ để kết luận một nhiệm vụ đã hoàn thành~\cite{ref-28}. Vì vậy, bộ kiểm chứng cần nối dữ liệu JaCaMo với đúng đối tượng và liên kết CSL qua các lần quan sát, đồng thời phân biệt trường hợp thiếu bằng chứng với vi phạm đã xác định~\cite{ref-23}.
+Một thao tác trả giá có thể kết thúc bình thường dù giá gửi đến kém hơn và giá tốt nhất vẫn như cũ. Lược đồ Moise điều phối các mục tiêu tổ chức như mở phiên, trả giá và quyết định. Mã ví dụ còn cho phép người tổ chức đánh dấu bước trả giá để lược đồ tiếp tục khi nghĩa vụ của người tham gia quá hạn. Các cơ chế đó điều phối tiến trình thực thi. Mục tiêu do người phân tích đặc tả trong iStar cần bằng chứng khác, chẳng hạn đã xuất hiện một giá thấp hơn giá khởi tạo của phiên hoặc giá tốt nhất được duy trì không tăng qua các lần quan sát. Nếu a2 đã có giá phù hợp trong khi a1 vẫn chờ, kết quả đạt của a2 chỉ có giá trị với chính phiên đó. Cả hai phiên vẫn có thể thỏa bất biến về giá không âm. Sự khác biệt về tiến độ giữa a1 và a2 được đối chiếu với kết quả kiểm tra bất biến trong TN01 (Mục~\ref{sec:3-5-1}).
 
-\subsection{Ví dụ Auction}\label{sec:2-2-1}
+Các công trình được khảo sát giải quyết những phần khác nhau của vấn đề. Kiểm chứng mô hình chương trình đa tác tử xét các diễn biến có thể có của mô hình thực thi \cite{ref-19}. RV4JaCa đánh giá giao thức tương tác từ chuỗi thông điệp được quan sát \cite{ref-24}. Đối với dữ liệu nghiệp vụ, USE đánh giá được bất biến OCL khi đã có trạng thái đối tượng \cite{ref-4}. Nguyen và cộng sự dùng CSL làm trạng thái chung để kiểm tra sự phù hợp giữa kịch bản BPMN và mô hình iStar có điều kiện thực thi \cite{ref-28}. Trong phạm vi các công trình này, vẫn cần xác định cách đưa dữ liệu và quan hệ tổ chức đang chạy trong JaCaMo vào một trạng thái có kiểu, theo dõi lịch sử theo từng phiên và dùng kết quả ngay ở mốc đã thu dữ liệu.
 
-Auction chạy hai phiên đấu giá a1 và a2 đồng thời. Tại checkpoint 39, cả hai đang chờ mức giá tốt hơn. Đến checkpoint 42, chỉ a2 nhận được giá tốt hơn. Các bất biến đều đạt ở hai mốc và JaCaMo được phép tiếp tục. Kết quả của mỗi phiên được theo dõi riêng (Mục 3.5.1).
-
-Trong một ca thử khác, giá tăng từ 10 lên 20. Các bất biến vẫn đạt nhưng mục tiêu giữ giá không tăng đã bị vi phạm, nên JaCaMo nhận quyết định giữ dừng (\thesisfigure{fig:3-8}). Quyết định vì vậy phụ thuộc cả vào trạng thái hiện tại và diễn biến của từng phiên.
+Nghiên cứu tiếp cận khoảng trống đó bằng cách xác định cùng một biểu diễn trạng thái cho kiểm tra OCL và đánh giá mục tiêu. Dữ liệu của artifact, tác tử và tổ chức được chiếu vào CSL với định danh ổn định qua các lần quan sát. Các điều kiện iStar mở rộng đọc dữ liệu trên đúng đối tượng và dùng những bằng chứng đã ghi nhận để đánh giá tiến độ. Thu thập tại checkpoint cho phép phản hồi kết quả ngay tại ranh giới thực thi liên quan. Phương pháp ở Mục~\ref{sec:2-3} vì vậy phải giữ hai phiên độc lập khi cùng dùng một đặc tả, phân biệt tính hợp lệ của trạng thái với tiến độ mục tiêu và nhận ra khi dữ liệu quan sát chưa đủ để kết luận.
 
 \section{Tổng quan phương pháp (Method Overview)}\label{sec:2-3}
 
-Phương pháp gồm bốn bước, bắt đầu bằng việc xác định mô hình và điều kiện kiểm chứng trước khi chạy JaCaMo. Đặc tả CSL mô tả dữ liệu nghiệp vụ và cấu trúc tổ chức thông qua các kiểu đối tượng, thuộc tính, liên kết và bất biến. USE biên dịch đặc tả này thành mô hình cấu trúc dùng chung cho ánh xạ và kiểm chứng (Mục 2.4). Trên các kiểu ngữ cảnh CSL đã xác định, đặc tả iStar mở rộng gắn điều kiện OCL cho Goal và Task. Kiểu mục tiêu cùng các điều kiện này cho biết cần quan sát dữ liệu nào để đánh giá tiến độ của từng đối tượng (Mục 2.5). Luật XML dùng để đưa dữ liệu JaCaMo vào cấu trúc đã khai báo cũng được chuẩn bị trước khi khởi chạy.
+Phương pháp nối hệ JaCaMo đang chạy với hai mô hình trong USE. Mô hình CSL cung cấp cách biểu diễn trạng thái hệ thống, còn iStar mở rộng mô tả các mục tiêu và nhiệm vụ được đánh giá dựa trên trạng thái đó. Bốn bước gồm xây dựng hai đặc tả trước khi chạy và sử dụng chúng để ánh xạ, kiểm chứng tại các checkpoint trong khi hệ thống vận hành.
 
-Hai bước còn lại được thực hiện tại mỗi checkpoint. Khi có ảnh chụp trạng thái JaCaMo, bộ ánh xạ dùng luật XML để gán giá trị thuộc tính và dùng dữ liệu cấu trúc từ ảnh để dựng các liên kết tương ứng. Nếu cập nhật thành công, kết quả là cặp trạng thái CSL trước và sau lần cập nhật (Mục 2.6). Từ đó, USE kiểm tra bất biến trên trạng thái hiện tại và đánh giá Goal, Task dựa trên các điều kiện cùng lịch sử của từng ngữ cảnh. Công cụ tổng hợp kết quả để phản hồi về đúng checkpoint. Dữ liệu thiếu hoặc lỗi phép chiếu dẫn đến giữ dừng vì chưa đủ căn cứ kiểm chứng (Mục 2.7).
+Ở bước thứ nhất, người đặc tả chọn các khái niệm nghiệp vụ và tổ chức cần quan sát, rồi biểu diễn chúng trong CSL bằng thực thể, ngữ cảnh, vai trò, thuộc tính và liên kết. Các bất biến OCL xác định những điều kiện mà trạng thái hợp lệ phải thỏa. USE biên dịch đặc tả thành mô hình có kiểu, dùng để xác định những đối tượng và liên kết có thể được dựng từ JaCaMo. Mục~\ref{sec:2-4} trình bày cấu trúc CSL và cách đưa cấu trúc đó vào USE.
+
+Bước thứ hai dùng chính các kiểu CSL đã khai báo để xác định ngữ cảnh của Goal và Task trong mô hình iStar mở rộng. Điều kiện của Goal mô tả bằng chứng cần quan sát để xác nhận một kết quả hoặc kiểm tra việc duy trì kết quả đó. Tiền và hậu điều kiện của Task mô tả trạng thái cho phép theo dõi nhiệm vụ và trạng thái cung cấp bằng chứng hoàn thành. Các quan hệ giữa phần tử cho biết cách tổng hợp kết quả cấp dưới thành kết quả cấp trên. Kết quả của bước này là đặc tả đánh giá có thể áp dụng riêng cho từng đối tượng phù hợp với ngữ cảnh (Mục~\ref{sec:2-5}).
+
+Bước thứ ba kết nối các đặc tả với lần chạy. Người đặc tả chọn nguồn của từng thuộc tính trong cấu hình ánh xạ trước khi khởi chạy. Tại mỗi checkpoint, bộ thu ghi dữ liệu JaCaMo trong phạm vi quan sát, sau đó USE dùng cấu hình thuộc tính cùng các luật dựng quan hệ để cập nhật trạng thái CSL. Định danh ổn định giúp các ảnh kế tiếp cập nhật cùng đối tượng, còn cặp trạng thái trước và sau lần cập nhật cung cấp dữ liệu cho các điều kiện cần đối chiếu hai thời điểm. Mục~\ref{sec:2-6} trình bày dữ liệu nguồn, quy tắc ánh xạ và cách đồng bộ trạng thái.
+
+Ở bước cuối, USE kiểm tra các bất biến trên trạng thái vừa dựng và cập nhật kết quả Goal, Task theo điều kiện cùng lịch sử của từng ngữ cảnh. Kết quả của hai phép đánh giá sau đó được tổng hợp để quyết định cho thực thi tiếp tục hay giữ dừng, kể cả trường hợp ảnh chụp hoặc phép chiếu chưa cung cấp đủ căn cứ. Phản hồi gắn với đúng checkpoint đang chờ. Mục~\ref{sec:2-7} trình bày cách đánh giá và điều kiện ra quyết định trước khi vòng quan sát tiếp theo bắt đầu.
 
 \section{Đặc tả CSL trong USE}\label{sec:2-4}
 
@@ -592,7 +657,7 @@ Một mô hình mục tiêu mô tả kết quả mà các chủ thể mong muố
 \caption{Siêu mô hình CSL.}\label{fig:2-1}
 \end{figure}
 
-Trong siêu mô hình CSL ở \thesisfigure{fig:2-1}~\cite{ref-28}, CslModel tập hợp các khai báo Object và DataType. Object là lớp trừu tượng có tên và danh sách thuộc tính, với bốn chuyên biệt Entity, Role, OrgCtx và Association. Những khai báo này xác định cấu trúc được phép của mô hình, còn các đối tượng cụ thể xuất hiện trong từng trạng thái của mô hình~\cite{ref-28}.
+Trong siêu mô hình CSL ở Hình~\ref{fig:2-1}~\cite{ref-28}, CslModel tập hợp các khai báo Object và DataType. Object là lớp trừu tượng có tên và danh sách thuộc tính, với bốn chuyên biệt Entity, Role, OrgCtx và Association. Những khai báo này xác định cấu trúc được phép của mô hình, còn các đối tượng cụ thể xuất hiện trong từng trạng thái của mô hình~\cite{ref-28}.
 
 \begin{quote}
 Entity mô tả thực thể nghiệp vụ thụ động. Quan hệ generalization có bội số 0..1, nên mỗi kiểu Entity có tối đa một kiểu tổng quát trực tiếp. Phạm vi tổ chức được xác định bởi OrgCtx, có thể chứa các Entity, Role và OrgCtx con với bội số 0..* cho mỗi quan hệ chứa~\cite{ref-28}. Khi thực thi, một tác tử hoặc một thể hiện OrgCtx có thể đảm nhiệm Role trong một ngữ cảnh cụ thể. Nếu vai trò có trạng thái riêng, dữ liệu đó thuộc về thể hiện vai trò. Quan hệ roleGeneralization cho phép tối đa một vai trò cha, còn compatibility xác định những vai trò mà cùng một chủ thể có thể đảm nhiệm đồng thời~\cite{ref-28}.
@@ -612,7 +677,7 @@ Trong biểu diễn hình thức của CSL~\cite{ref-28}, O\_S là tập các đ
 
 Trạng thái \(\sigma\) của một mô hình CSL ghi các thể hiện đang tồn tại, giá trị thuộc tính, liên kết và việc đảm nhiệm vai trò. Trong công trình của Nguyen và cộng sự, các trạng thái đưa vào kịch bản phải thỏa mọi ràng buộc trong \(\Phi\), ký hiệu \(\sigma\) \(\vDash\) \(\Phi\)~\cite{ref-28}. Khi kiểm chứng JaCaMo, bộ thu có thể ghi lại cả trạng thái vi phạm \(\Phi\). Một mô hình CSL vì vậy được dùng để đánh giá lần lượt nhiều ảnh chụp từ thực thi.
 
-Khi nạp đặc tả CSL vào USE, CslFrontend.compile đọc và kiểm tra mô hình. Sau bước này, CslModelCompiler.compile tạo các lớp, thuộc tính, liên kết và bất biến trong USE. CslContextSchema.installObservations bổ sung các liên kết để điều hướng từ một thực thể tới ngữ cảnh chứa nó hoặc tới tác tử đang quan sát nó. Mục 2.6 trình bày cách dựng các thể hiện từ dữ liệu JaCaMo. Mục 2.7 giải thích cách kiểm tra bất biến và đánh giá các điều kiện iStar trên trạng thái đã dựng.
+Khi nạp đặc tả CSL vào USE, CslFrontend.compile đọc và kiểm tra mô hình. Sau bước này, CslModelCompiler.compile tạo các lớp, thuộc tính, liên kết và bất biến trong USE. CslContextSchema.installObservations bổ sung các liên kết để điều hướng từ một thực thể tới ngữ cảnh chứa nó hoặc tới tác tử đang quan sát nó. Mục~\ref{sec:2-6} trình bày cách dựng các thể hiện từ dữ liệu JaCaMo. Mục~\ref{sec:2-7} giải thích cách kiểm tra bất biến và đánh giá các điều kiện iStar trên trạng thái đã dựng.
 
 \begin{figure}
 \centering
@@ -620,7 +685,7 @@ Khi nạp đặc tả CSL vào USE, CslFrontend.compile đọc và kiểm tra m�
 \caption{Mô hình CSL của Auction.}\label{fig:2-2}
 \end{figure}
 
-\thesisfigure{fig:2-2} cho thấy AuctionOrg chứa ngữ cảnh auctionGroup, nơi khai báo hai vai trò auctioneer, participant và thực thể Auction. Các thuộc tính running, best\_bid và winner mô tả dữ liệu của từng phiên đấu giá. Để đọc mô hình trong thẻ CSL Model, có thể nhận ra Entity qua khung chữ nhật ghi «entity» và ngăn thuộc tính. OrgCtx dùng khung có tai ghi «OrgCtx», Role dùng khung bo tròn có biểu tượng người, còn kiểu liệt kê đặt các giá trị bên dưới tên. Trên các đường nối, tam giác rỗng chỉ kiểu tổng quát, hình thoi đặc chỉ hợp thành và hình thoi rỗng chỉ kết tập. Vòng tròn rỗng biểu thị quan hệ tương thích và ô vuông rỗng biểu thị sở hữu. Khả năng đảm nhiệm vai trò được vẽ bằng nét đứt có nhãn may enact. Các ký hiệu này diễn tả cấu trúc khai báo. Thẻ OAL State hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục 2.5 sử dụng.
+Hình~\ref{fig:2-2} cho thấy AuctionOrg chứa ngữ cảnh auctionGroup, nơi khai báo hai vai trò auctioneer, participant và thực thể Auction. Các thuộc tính running, best\_bid và winner mô tả dữ liệu của từng phiên đấu giá. Để đọc mô hình trong thẻ CSL Model, có thể nhận ra Entity qua khung chữ nhật ghi «entity» và ngăn thuộc tính. OrgCtx dùng khung có tai ghi «OrgCtx», Role dùng khung bo tròn có biểu tượng người, còn kiểu liệt kê đặt các giá trị bên dưới tên. Trên các đường nối, tam giác rỗng chỉ kiểu tổng quát, hình thoi đặc chỉ hợp thành và hình thoi rỗng chỉ kết tập. Vòng tròn rỗng biểu thị quan hệ tương thích và ô vuông rỗng biểu thị sở hữu. Khả năng đảm nhiệm vai trò được vẽ bằng nét đứt có nhãn may enact. Các ký hiệu này diễn tả cấu trúc khai báo. Thẻ OAL State hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục~\ref{sec:2-5} sử dụng.
 
 \section{Đặc tả iStar mở rộng trong USE}\label{sec:2-5}
 
@@ -632,7 +697,7 @@ Trong iStar, quan hệ tinh chỉnh AND cho biết mục tiêu cha cần tất c
 \caption{Siêu mô hình iStar mở rộng.}\label{fig:2-3}
 \end{figure}
 
-Bài báo bổ sung các điều kiện đọc trạng thái cho Goal và Task, đồng thời xác định cách diễn giải kết quả của Goal qua thời gian~\cite{ref-28}. \thesisfigure{fig:2-3} cho thấy lớp Condition, các liên kết condition, precondition và postcondition, cùng thuộc tính goalType.
+Bài báo bổ sung các điều kiện đọc trạng thái cho Goal và Task, đồng thời xác định cách diễn giải kết quả của Goal qua thời gian~\cite{ref-28}. Hình~\ref{fig:2-3} cho thấy lớp Condition, các liên kết condition, precondition và postcondition, cùng thuộc tính goalType.
 
 Lớp Condition gắn bằng chứng quan sát với mục tiêu và nhiệm vụ qua hai trường condExpr và condLang. Một Goal có tối đa một condition, còn một Task có tối đa một precondition và một postcondition. Các biểu thức OCL có thể đọc thuộc tính và điều hướng qua liên kết trong trạng thái CSL. Bài báo dùng giá trị tiền điều kiện và hậu điều kiện để đánh giá Task tại một bước~\cite{ref-28}. Trong bộ kiểm chứng JaCaMo, SnapshotVerifier yêu cầu khai báo đúng một tiền điều kiện và một hậu điều kiện cho mỗi Task.
 
@@ -664,23 +729,29 @@ Trong bài báo, Task có kết quả chưa xác định khi tiền điều ki�
 \caption{Mô hình mục tiêu AuctionGroup.}\label{fig:2-4}
 \end{figure}
 
-Trong mô hình AuctionGroup ở \thesisfigure{fig:2-4}, mục tiêu AuctionCompleted có ba nhánh AND dành cho mở phiên, trả giá và quyết định kết quả. Goal SafeBid có kiểu Maintain và dùng điều kiện giá tốt nhất không âm. Bộ kiểm chứng theo dõi các điều kiện này riêng cho mỗi đối tượng Auction, như hai phiên được đối chiếu trong Mục 3.5.1. Trên biểu đồ của thẻ iStar Model, USE biểu diễn Goal bằng hình elip, Task bằng hình lục giác và ghi kiểu thời gian dưới tên Goal. Khi bật Show OCL contracts, các nhãn condition, pre và post phân biệt điều kiện của Goal với tiền và hậu điều kiện của Task. Đường tinh chỉnh ghi nhãn AND hoặc OR. Quan hệ phụ thuộc nối các chủ thể qua phần tử được phụ thuộc bằng nét đứt. Trong thẻ iStarSCN, người đọc chọn ngữ cảnh để xem trạng thái đánh giá trong phiên chạy. Kiểu thời gian thuộc đặc tả, còn trạng thái đánh giá được xác định qua quan sát.
+Trong mô hình AuctionGroup ở Hình~\ref{fig:2-4}, mục tiêu AuctionCompleted có ba nhánh AND dành cho mở phiên, trả giá và quyết định kết quả. Goal SafeBid có kiểu Maintain và dùng điều kiện giá tốt nhất không âm. Bộ kiểm chứng theo dõi các điều kiện này riêng cho mỗi đối tượng Auction, như hai phiên được đối chiếu trong Mục 3.5.1. Trên biểu đồ của thẻ iStar Model, USE biểu diễn Goal bằng hình elip, Task bằng hình lục giác và ghi kiểu thời gian dưới tên Goal. Khi bật Show OCL contracts, các nhãn condition, pre và post phân biệt điều kiện của Goal với tiền và hậu điều kiện của Task. Đường tinh chỉnh ghi nhãn AND hoặc OR. Quan hệ phụ thuộc nối các chủ thể qua phần tử được phụ thuộc bằng nét đứt. Trong thẻ iStarSCN, người đọc chọn ngữ cảnh để xem trạng thái đánh giá trong phiên chạy. Kiểu thời gian thuộc đặc tả, còn trạng thái đánh giá được xác định qua quan sát.
 
 \section{Ánh xạ trạng thái JaCaMo sang CSL}\label{sec:2-6}
 
-Để chuyển dữ liệu JaCaMo về cấu trúc CSL đã mô tả ở Mục 2.4, người đặc tả khai báo nguồn và đích của từng luật trong XML. USE kiểm tra các luật trước khi khởi chạy. Tại mỗi checkpoint, bộ thu đồng bộ dữ liệu nguồn để bộ chiếu áp dụng các luật đó và dựng trạng thái đối tượng trong USE.
+Phép ánh xạ chuyển một ảnh chụp thực thi của JaCaMo thành trạng thái đối tượng theo mô hình CSL đã biên dịch trong USE. Ảnh nguồn mô tả artifact của CArtAgO, tác tử Jason, tổ chức và nhóm Moise cùng các quan hệ đang tồn tại giữa chúng. Trạng thái đích cần biểu diễn những dữ kiện mà bất biến và điều kiện Goal, Task sử dụng. Để dùng lại phép chiếu cho nhiều hệ thống, phương pháp đặt phần tương ứng theo miền trong tệp XML và dùng chung các quy tắc dựng đối tượng, định danh và quan hệ trong bộ chiếu.
 
 \subsection{Khai báo tương ứng bằng XML}\label{sec:2-6-1}
 
-Mỗi luật xác định loại và kiểu của nguồn, trường cần đọc và thuộc tính đích. Nguồn có dạng category:sourceType/property:member đối với thuộc tính quan sát hoặc category:sourceType/identity:member đối với thông tin định danh. Loại nguồn gồm artifact, agent, organization, group. Trường định danh hỗ trợ name, uuid, workspace. Đích có dạng CslType.attribute.
+Một khai báo trong XML chọn loại nguồn, kiểu nguồn và trường dữ liệu, sau đó chỉ ra thuộc tính CSL nhận giá trị. Đối với artifact, kiểu nguồn lấy từ lớp Java của artifact và kiểu đích phải là Entity. Đối với tác tử, tổ chức và nhóm, kiểu nguồn được nhận diện từ chương trình AgentSpeak hoặc đặc tả Moise, còn kiểu đích phải là OrgContext. Một trường nguồn có thể là thuộc tính quan sát hoặc thông tin định danh như tên, mã định danh và workspace. Vì luật khớp theo kiểu, cùng một khai báo được áp dụng cho mọi thể hiện phù hợp.
 
-Một luật chỉ áp dụng cho thể hiện có cả loại và kiểu nguồn khớp với khai báo. Giá trị đọc từ trường nguồn được chuyển sang kiểu USE của thuộc tính đích trước khi gán. AttributeMapping.read kiểm tra namespace và cấu trúc XML, đồng thời từ chối hai luật ghi cùng thuộc tính đích hoặc hai cặp loại và kiểu nguồn khác nhau cùng khai báo thể hiện cho một kiểu CSL. Khi khởi tạo, SnapshotProjection kiểm tra artifact tương ứng với Entity, còn tác tử, tổ chức và nhóm tương ứng với OrgContext. Thuộc tính đích phải tồn tại và có thể gán.
+USE kiểm tra tệp cấu hình và đối chiếu với mô hình CSL trước khi chạy. Mỗi thuộc tính đích chỉ nhận giá trị từ một khai báo và phải tồn tại trong kiểu đích, đồng thời cho phép gán. Mỗi kiểu thực thể hoặc ngữ cảnh phải có nguồn thể hiện được khai báo. XML là nơi chỉ định các tương ứng theo miền. Các quan hệ phạm vi, quan sát, thành viên và đảm nhiệm vai trò được dựng từ dữ kiện thực thi và khai báo CSL theo các quy tắc chung ở Mục 2.6.3.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2207}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2276}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5379}}@{}}
-\caption{Luật ánh xạ thuộc tính của Auction}\label{tab:2-1}\tabularnewline
+Bảng~\ref{tab:2-1} trình bày các tương ứng dùng trong ca Auction. Ba nguồn tổ chức, nhóm và tác tử được nhận diện bằng tên định danh. Artifact của mỗi phiên cung cấp tên phiên cùng các giá trị quan sát về tiến trình và kết quả đấu giá.
+
+\begin{table}[H]
+\centering
+\small
+\setstretch{1.12}
+\caption{Luật ánh xạ thuộc tính của Auction}\label{tab:2-1}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2472}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2472}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5057}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Loại và kiểu nguồn}
@@ -690,26 +761,13 @@ Một luật chỉ áp dụng cho thể hiện có cả loại và kiểu nguồ
 \textbf{Thuộc tính đích trong CSL}
 \end{minipage} \\
 \midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Loại và kiểu nguồn}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Dữ liệu đọc}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Thuộc tính đích trong CSL}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
 Tổ chức auction & Tên tổ chức & AuctionOrg.name \\
 Nhóm auctionGroup & Tên nhóm & auctionGroup.name \\
 Tác tử auction\_capabilities & Tên tác tử & auction\_capabilities.name \\
 Artifact kiểu AuctionArtifact & Tên và bốn thuộc tính quan sát & Auction.id, Auction.running, Auction.task, Auction.best\_bid, Auction.winner \\
-\end{longtable}
-
-XML quy định cách lấy một giá trị từ nguồn và gán vào thuộc tính đích. Các liên kết như quan sát, thành viên và đảm nhiệm vai trò được dựng từ những quan hệ thực tế trong ảnh chụp. \thesistable{tab:2-1} liệt kê các luật gán thuộc tính dùng trong Auction.
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{samepage}
 
@@ -722,31 +780,27 @@ target="Auction.best_bid"/>
 
 \end{samepage}
 
-Đoạn mã 2.1 đọc giá tốt nhất từ artifact và gán vào thuộc tính tương ứng của đối tượng Auction trong CSL. Cùng một luật có thể áp dụng cho nhiều artifact cùng lớp. Khi đó mỗi giá trị vẫn được gán cho đối tượng của chính artifact đã cung cấp giá trị. Quy tắc xác định đối tượng đích được trình bày ở Mục 2.6.3.
+Đoạn mã 2.1 trích một khai báo trong cấu hình của Auction. Nó yêu cầu lấy giá tốt nhất quan sát được ở mỗi artifact thuộc lớp đấu giá rồi gán cho thuộc tính cùng ý nghĩa trên đối tượng Auction tương ứng. Vì a1 và a2 là hai artifact riêng, luật này điền giá cho hai đối tượng độc lập.
 
 \subsection{Đồng bộ JaCaMo với CSL}\label{sec:2-6-2}
 
-Bộ theo dõi chọn checkpoint dựa trên các sự kiện thực thi của Jason. Sau khi chọn ranh giới, bộ điều phối tạm giữ phần hoạt động thuộc phạm vi theo dõi để thu dữ liệu tại mốc đó. Trước khi các tác tử bắt đầu, JaCaMoCheckpoints.initial tạo checkpoint INITIAL. Khi một plan gốc thực thi, các plan con đồng bộ được theo dõi trong cùng nhóm. Monitor.finish tạo mốc PLAN\_COMPLETED khi nhóm kết thúc, gồm trường hợp hoàn thành, lỗi hoặc hủy được theo dõi. Một plan chạy trong intention độc lập tạo nhóm riêng. Khi một goal thất bại mà không có nhóm phù hợp đang xử lý sự kiện, bộ theo dõi có thể tạo GOAL\_FAILED. Nếu nguồn không còn quan sát được theo yêu cầu, nó tạo SOURCE\_UNAVAILABLE và đánh dấu ảnh chụp thiếu.
+Việc đồng bộ bắt đầu khi JaCaMo đến ranh giới thực thi cần quan sát. Hệ thống thu một ảnh ban đầu trước khi các tác tử thực thi. Trong khi chạy, mốc thường dùng là thời điểm một nhóm kế hoạch kết thúc. Kế hoạch gốc và các kế hoạch con đồng bộ được theo dõi chung. Một ý định độc lập có thể tạo nhóm riêng. Bộ theo dõi còn có thể đặt mốc khi giao thông điệp hoặc khi một goal thực thi thất bại ngoài nhóm đang xử lý. Nếu việc giao thông điệp có thể chờ đến khi nhóm kết thúc theo chính sách của hệ thống, hai ranh giới có thể dùng cùng mốc quan sát.
 
-Khi gửi thông điệp cho tác tử khác, Monitor.send có thể giữ việc giao thông điệp tại AGENT\_HANDOFF. Nếu thông điệp không phải yêu cầu hỏi và chỉ còn các bước kết thúc nhóm, việc giao có thể dùng chung mốc PLAN\_COMPLETED. Mục 2.7.4 trình bày điều kiện để việc giao tiếp tục. Do chính sách chọn mốc dựa trên ranh giới thực thi, một thay đổi xuất hiện rồi biến mất bên trong nhóm plan có thể không có mặt trong các ảnh chụp.
+Ở mốc đã chọn, bộ điều phối tạm ngừng tiếp nhận hoạt động mới trong phạm vi theo dõi và đợi các hoạt động đã được cấp phép cùng các công việc đang chờ đạt trạng thái ổn định. Bộ thu đọc các workspace cục bộ, thuộc tính của artifact được khai báo, quan hệ quan sát của tác tử và thông tin tổ chức. Dữ kiện thành viên và đảm nhiệm vai trò được lấy từ trạng thái đang chạy. Nhờ thu trong cùng đợt giữ, bộ chiếu có thể dùng các dữ kiện này để giải các đầu liên kết trong một ảnh.
 
-JaCaMoCheckpoints.submit đưa yêu cầu vào hàng đợi và đóng tiếp nhận công việc mới bằng ExecutionBarrier.closeAdmission. Luồng điều phối đợi ExecutionBarrier.awaitFrozen xác nhận các hoạt động nguồn đã được cấp phép và các công việc chờ được theo dõi đã đạt trạng thái ổn định. StateProducer chỉ thu ảnh chụp khi có xác nhận đúng phiên, cổng tiếp nhận đã đóng, đồng hồ logic đã đóng băng và không còn hoạt động đang chạy hoặc công việc đang chờ trong phạm vi theo dõi. Các yêu cầu ở cùng đợt giữ có thể dùng chung một lần đóng băng nhưng mỗi checkpoint vẫn có token và số thứ tự riêng.
-
-StateProducer.Connection.capture duyệt cây workspace cục bộ và thu các artifact đã khai báo trong ánh xạ, gồm định danh, lớp Java, thuộc tính quan sát và tác tử đang quan sát artifact. Hàm cũng lấy định danh tác tử, kiểu từ tên nguồn AgentSpeak, kiểu tổ chức và nhóm từ đặc tả Moise, cùng dữ kiện thành viên và đảm nhiệm vai trò từ trạng thái chạy. Giá trị thuộc tính đơn được giữ ở dạng số, chuỗi hoặc Boolean. Atom đơn và giá trị enum được chuyển thành tên tương ứng. Thông tin niềm tin, plan và intention dành cho màn hình quan sát và truy vết.
-
-Mỗi yêu cầu mang mã lần chạy, số thứ tự ảnh, cờ complete, token và thông tin đợt giữ dừng. CheckpointProtocol.encodeSnapshot và decodeSnapshot chuyển đổi biểu diễn truyền nhận. Cờ complete cho biết lần thu có đầy đủ theo phạm vi quan sát hay không. Bước chiếu ở Mục 2.6.3 kiểm tra từng giá trị mà mô hình yêu cầu. \thesisfigure{fig:2-6} ở Mục 2.7.4 minh họa các mốc thu trạng thái và quyết định tương ứng.
+Mỗi ảnh gửi tới USE mang định danh lần chạy, thứ tự, dấu hiệu độ đầy đủ và mã phản hồi cho checkpoint. Dấu hiệu độ đầy đủ phản ánh phạm vi dữ liệu mà bộ thu quản lý. Nếu nguồn cần quan sát bị gián đoạn, ảnh được đánh dấu thiếu. Ranh giới theo nhóm kế hoạch cũng xác định độ phân giải của vết. Một thay đổi xảy ra rồi được phục hồi trước khi nhóm kết thúc có thể vắng mặt trong ảnh, như đối chứng ở Mục 3.5.2.
 
 \subsection{Chiếu đối tượng, thuộc tính và quan hệ}\label{sec:2-6-3}
 
-Phép chiếu nhận ảnh chụp JaCaMo và dùng các luật đã khai báo ở Mục 2.6.1. SnapshotVerifier.update kiểm tra mã lần chạy và thứ tự ảnh trước khi chiếu dữ liệu. Nếu số thứ tự và nội dung trùng với ảnh vừa xử lý, USE có thể trả lại kết quả đã có. Khi complete=false, công cụ giữ nguyên trạng thái đối tượng và chuyển sang quyết định HOLD\_UNVERIFIED ở Mục 2.7.4.
-
-Với một ảnh chụp đầy đủ, SnapshotProjection.prepare tạo tập hàng đối tượng và tập liên kết. indexSources lập chỉ mục theo định danh nguồn và từ chối định danh trùng. mapObjects chọn các luật theo loại và kiểu, rồi gọi decodeValue để chuyển giá trị theo kiểu USE đã khai báo. Số nguyên phải biểu diễn chính xác trong miền 32 bit, giá trị Real phải hữu hạn, còn giá trị enum phải khớp tên một hằng đã khai báo. Giá trị thiếu hoặc sai kiểu làm phép chiếu không thực hiện được. Với mã lần chạy r, định danh nguồn u và kiểu đích C, khóa của một đối tượng được xác định theo bộ sau.
+USE kiểm tra lần chạy, thứ tự và độ đầy đủ của ảnh trước khi dựng đối tượng. Một yêu cầu lặp lại đúng nội dung của ảnh vừa xử lý có thể nhận kết quả đã ghi. Với ảnh không đầy đủ, công cụ giữ lại trạng thái đã có và chuyển sang quyết định chưa đủ căn cứ kiểm chứng. Ảnh đầy đủ được lập chỉ mục theo định danh nguồn, sau đó các luật XML được áp dụng cho từng nguồn phù hợp. Giá trị phải có mặt và chuyển được sang kiểu của thuộc tính đích, chẳng hạn giá trị giá phải chuyển được sang Real hữu hạn. Với mã lần chạy r, định danh nguồn u và kiểu CSL C, bộ chiếu nhận diện đối tượng bằng khóa sau.
 
 \[K(r,u,C) = (r,u,C)\]
 
-Vì vậy, nhiều thể hiện cùng kiểu vẫn tạo các đối tượng riêng. Việc quan sát lại cùng thể hiện giữ nguyên khóa và cho phép cập nhật đúng đối tượng. Đối với quan hệ, addFocusLinks đọc dữ kiện quan sát để dựng CslFocuses, addScopeLinks giải ngữ cảnh sở hữu theo vị trí nguồn và khai báo CSL, còn addMembershipLinks đọc quan hệ thành viên đã thu. addEnactments tạo thể hiện vai trò từ dữ kiện đảm nhiệm và nối với ngữ cảnh, chủ thể tương ứng qua InContext và Plays. Nếu một đầu liên kết cần thiết bị thiếu hoặc có nhiều cách xác định, phép chiếu báo lỗi.
+Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, đồng thời đưa các giá trị quan sát lại của cùng một nguồn về đúng đối tượng. Một thể hiện vai trò được xác định từ loại vai trò, chủ thể đảm nhiệm và ngữ cảnh tổ chức. Nhờ đó, một chủ thể có thể đảm nhiệm vai trò ở hai ngữ cảnh mà mỗi lần đảm nhiệm vẫn được biểu diễn riêng.
 
-Sau khi chuẩn bị hàng đối tượng và liên kết, SnapshotVerifier.applySnapshot tạo hoặc tìm đối tượng theo khóa, gán giá trị và dựng lại các liên kết từ dữ liệu đã chuẩn bị. Đối tượng vắng mặt trong ảnh đầy đủ được xóa cùng phiên theo dõi Goal và Task của đối tượng đó, nếu có. Bước này tạo trạng thái USE dùng ở Mục 2.7.
+Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
+
+Thuật toán 2.1 tổng hợp trình tự kiểm tra ảnh, chuẩn bị đối tượng và liên kết, rồi cập nhật trạng thái USE. Bước chuẩn bị kiểm tra dữ liệu trước khi sửa trạng thái. Khi phép chiếu chuẩn bị thành công, USE lưu trạng thái trước cập nhật, tìm hoặc tạo đối tượng theo khóa, gán các giá trị mới và dựng các liên kết đã xác định.
 
 \begin{samepage}
 
@@ -769,21 +823,43 @@ hoặc chẩn đoán chưa đủ căn cứ kiểm chứng
 
 \end{samepage}
 
-Có thể tách đường xử lý thành bước chuẩn bị phép chiếu và bước áp dụng vào USE. Trong bước đầu, SnapshotProjection.prepare xác định kiểu đích, chuyển đổi giá trị và giải các đầu liên kết trên biểu diễn trung gian. Chỉ sau khi các kiểm tra đó thành công, SnapshotVerifier.update mới lưu trạng thái trước và gọi applySnapshot. Thuật toán 2.1 tóm tắt các bước quan trọng theo thứ tự thực hiện.
-
-Sự vắng mặt của một đối tượng chỉ có ý nghĩa khi snapshot đầy đủ. Ví dụ, một chế độ quan sát bị gián đoạn có thể trả danh sách rỗng, nhưng điều đó chưa chứng minh đối tượng đã biến mất. Vì vậy bước kiểm tra độ đầy đủ chạy trước khi chiếu. Với snapshot đầy đủ đến được bước áp dụng, lịch sử của đối tượng bị xóa cũng được kết thúc. Việc kiểm tra trước khi áp dụng chặn các lỗi dữ liệu được phát hiện trong bước chuẩn bị. Nếu lỗi xảy ra trong lúc áp dụng trực tiếp vào MSystem, mã hiện hành có thể đã thay đổi một phần trạng thái trước khi trả giữ dừng.
+Một đối tượng chỉ bị xóa vì vắng mặt trong ảnh đã được xác nhận đầy đủ. Khi đối tượng bị xóa, lịch sử đánh giá gắn với đối tượng đó cũng kết thúc. Cách xử lý này tránh coi một lần mất dữ liệu là sự kiện đối tượng rời hệ thống. Nếu phát sinh lỗi khi áp dụng trực tiếp vào USE, bộ kiểm chứng giữ dừng để chẩn đoán, vì trạng thái có thể đã được cập nhật một phần. Khi cập nhật thành công, cặp trạng thái trước và sau được đưa tới bước đánh giá ở Mục 2.7.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-2-5.png}
-\caption{Trạng thái Auction trong JaCaMo và USE.}\label{fig:2-5}
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-2-5.png}
+\caption{Giá tốt nhất của hai artifact Auction (phiên 804fdea5, checkpoint 47).}\label{fig:2-5}
 \end{figure}
 
-\thesisfigure{fig:2-5} ghi lại checkpoint 45 của phiên Auction 3ca479bf. Thẻ Artifacts hiển thị giá 12,25180855001036 cho a1 và 61,79266359141802 cho a2. Hai đối tượng CSL trong OAL State giữ đúng các giá trị tương ứng.
+Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại checkpoint 47. Các dòng a1 và a2 có hai giá trị khác nhau. Để xem giá trị nào đi vào từng đối tượng CSL, có thể đối chiếu với sơ đồ trạng thái của chính checkpoint đó ở Hình 2.6.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-2-6.png}
+\caption{Sơ đồ đầy đủ của trạng thái Auction trong OAL State (phiên 804fdea5, checkpoint 47).}\label{fig:2-6}
+\end{figure}
+
+Trong Hình~\ref{fig:2-6}, mỗi giá trị xuất hiện ở đối tượng Auction của đúng phiên. Sơ đồ OAL cũng biểu diễn những đối tượng tổ chức và vai trò trong cùng trạng thái, tạo cơ sở để đánh giá điều kiện tham chiếu cả dữ liệu đấu giá và cơ cấu tổ chức.
+
+Phép chiếu cũng giữ việc đảm nhiệm vai trò trong nhóm. Hai ảnh dưới đây lấy trong cùng phiên Auction 26400acd, khi JaCaMo đang giữ dừng tại checkpoint 22.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.5827in,height=\textheight]{figures/fig-2-7.png}
+\caption{Vai trò trong nhóm agrp trên Moise (phiên 26400acd, checkpoint 22).}\label{fig:2-7}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=3.5433in,height=\textheight]{figures/fig-2-8.png}
+\caption{Tác tử, vai trò và nhóm trong OAL State (phiên 26400acd, checkpoint 22).}\label{fig:2-8}
+\end{figure}
+
+Trong Hình~\ref{fig:2-7}, mục Players ghi bob (1) đảm nhiệm vai trò auctioneer (2) ở nhóm agrp (3). Trên sơ đồ Hình~\ref{fig:2-8}, tác tử bob được biểu diễn bằng đối tượng CSL kiểu auction\_capabilities. Thể hiện vai trò auctioneer có khung bo tròn và hai đường nối tới đối tượng bob và ngữ cảnh agrp. Các ký hiệu (1), (2) và (3) nối cùng ba thành phần giữa ảnh nguồn và ảnh đích.
 
 \section{Kiểm chứng ràng buộc và đánh giá Goal/Task}\label{sec:2-7}
 
-Sau khi chiếu dữ liệu, USE dùng trạng thái mới để kiểm tra bất biến và dùng cặp trạng thái trước và sau lần cập nhật, cùng lịch sử của từng ngữ cảnh, để đánh giá Goal và Task. Kết quả của các phép đánh giá được chuyển sang bước tổng hợp quyết định tại checkpoint (Mục 2.7.4).
+Sau khi chiếu dữ liệu, USE dùng trạng thái mới để kiểm tra bất biến và dùng cặp trạng thái trước và sau lần cập nhật, cùng lịch sử của từng ngữ cảnh, để đánh giá Goal và Task. Kết quả của các phép đánh giá được chuyển sang bước tổng hợp quyết định tại checkpoint (Mục~\ref{sec:2-7-4}).
 
 \subsection{Đánh giá OCL trên trạng thái CSL}\label{sec:2-7-1}
 
@@ -877,13 +953,13 @@ Công thức trên áp dụng khi ảnh chụp đầy đủ và đi qua đườn
 
 Khi nhận quyết định từ USE, StateProducer xác thực phản hồi và dùng CheckpointProtocol.approved để đối chiếu phiên, token, mã băm yêu cầu, phạm vi giữ dừng và kết quả. JaCaMoCheckpoints.drain chỉ mở lại cổng tiếp nhận sau khi tất cả yêu cầu trong đợt giữ được phê duyệt và hàng đợi đã hết. Nếu có HOLD, hết thời gian chờ hoặc lỗi truyền, phía nguồn không mở cổng. Với mốc INITIAL, thiếu phê duyệt ngăn bước khởi chạy tác tử. Quyết định APPROVE vì vậy có hiệu lực đối với điểm giữ dừng đã được kiểm tra trong phạm vi quan sát.
 
+Hình~\ref{fig:2-9} cho thấy checkpoint khởi tạo và các mốc kết thúc nhóm plan ở đầu phiên chụp Auction 804fdea5. Cột Decision ghi APPROVE ở các mốc được hiển thị. Trong ca ở Mục~\ref{sec:2-2}, JaCaMo cũng được phép tiếp tục dù a1 còn chờ một lượt trả giá tốt hơn. Trạng thái PENDING khi đó phản ánh tiến độ của nhiệm vụ. Nếu USE xác định một Goal đã bị vi phạm, nó trả HOLD\_FAILURE ngay cả khi các bất biến đều đạt. Ảnh chụp, kết quả đánh giá và phản hồi được lưu tại từng checkpoint, làm cơ sở đối chiếu kết quả khi đánh giá lại cùng vết với cùng đặc tả (Mục~\ref{sec:3-5-3}).
+
 \begin{figure}
 \centering
-\includegraphics[width=6.09in,height=\textheight]{figures/fig-2-6.png}
-\caption{Các checkpoint của Auction.}\label{fig:2-6}
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-2-9.png}
+\caption{Các checkpoint đầu của Auction (phiên 804fdea5, checkpoint 1--8).}\label{fig:2-9}
 \end{figure}
-
-\thesisfigure{fig:2-6} cho thấy checkpoint khởi tạo và các mốc kết thúc nhóm plan trong một lần chạy Auction. Cột Decision ghi APPROVE ở các mốc được hiển thị. Trong ca ở Mục 2.2.1, JaCaMo cũng được phép tiếp tục dù a1 còn chờ một lượt trả giá tốt hơn. Trạng thái PENDING khi đó phản ánh tiến độ của nhiệm vụ. Nếu USE xác định một Goal đã bị vi phạm, nó trả HOLD\_FAILURE ngay cả khi các bất biến đều đạt. Ảnh chụp, kết quả đánh giá và phản hồi được lưu tại từng checkpoint, làm cơ sở đối chiếu kết quả khi đánh giá lại cùng vết với cùng đặc tả (Mục 3.5.3).
 
 \section{Tổng kết chương}\label{sec:2-8}
 
@@ -893,177 +969,351 @@ Phép ánh xạ bảo toàn định danh để mỗi đối tượng có lịch 
 
 \chapter{TRIỂN KHAI VÀ THỰC NGHIỆM}\label{sec:3}
 
-Công cụ được triển khai dưới dạng plugin USE. Một tiến trình JaCaMo cung cấp dữ liệu thực thi cho bộ kiểm chứng tại từng checkpoint. Chương này trình bày cách tổ chức công cụ và các ca dùng để đối chiếu phương pháp với kết quả thực thi.
+Thực nghiệm đưa phương pháp ở Chương 2 vào hai chương trình JaCaMo là Auction và Counter. Auction có nhiều đối tượng cùng dùng một đặc tả, còn Counter cho phép theo dõi một thay đổi qua các mốc kiểm chứng. Chương này trình bày thao tác trên công cụ, cách bố trí từng ca và dữ liệu dùng để đối chiếu với kết quả.
 
 \section{Giới thiệu}\label{sec:3-1}
 
-Thực nghiệm xem xét cách phương pháp ở Chương 2 hoạt động khi nhiều đối tượng cùng kiểu được kiểm chứng trong một phiên chạy. Việc giữ định danh và lịch sử riêng cho từng đối tượng cho phép đối chiếu quyết định tại một checkpoint với bằng chứng của chính đối tượng đó. Đánh giá lại cùng vết với cùng cấu hình còn cho phép kiểm tra liệu các quyết định và trạng thái Goal, Task có được tái hiện tại từng mốc hay không.
+Câu hỏi thứ nhất là liệu bộ kiểm chứng có giữ đúng giá trị và lịch sử Goal, Task của từng cuộc đấu giá khi nhiều phiên dùng chung mô hình hay không. Hai đối tượng a1 và a2 cho phép đối chiếu cùng một nhiệm vụ tại một checkpoint mà tiến độ giữa hai phiên khác nhau.
 
-TN01 theo dõi hai cuộc đấu giá trong USE, còn TN02 đánh giá lại chính vết đã ghi. TN03 và TN04 lần lượt tạo một vi phạm bất biến và một ảnh chụp được báo là thiếu dữ liệu. TN05--TN07 bổ sung các tình huống vi phạm Goal, thiếu một thuộc tính bắt buộc và sai lệch xuất hiện giữa hai mốc quan sát. Ba ca bổ sung thu vết qua dòng lệnh, còn các lần chụp giao diện dùng cấu hình tương ứng để minh họa kết quả.
+Câu hỏi thứ hai là trong những tình huống nào JaCaMo tiếp tục, bị giữ dừng do vi phạm hoặc bị giữ dừng vì thiếu dữ liệu. Để trả lời, các ca thử thay đổi giá trị, mức độ đầy đủ của ảnh chụp và vị trí checkpoint. Kết quả được đối chiếu với phản hồi mà phía JaCaMo đã ghi nhận.
 
-Các ca thử được thực hiện trên công cụ mô tả ở Mục 3.2, theo cấu hình và tiêu chí đánh giá trình bày tại Mục 3.3--3.4. Mục 3.5 phân tích bằng chứng thu được từ các lần chạy, qua đó xác định phạm vi kết luận và các hướng mở rộng trong Mục 3.6.
+Câu hỏi thứ ba là khi giữ nguyên các ảnh trạng thái và đặc tả, bộ kiểm chứng có tái hiện được quyết định và kết quả Goal, Task đã đạt ở từng mốc hay không. Ca đánh giá lại dùng chính vết Auction đã lưu để kiểm tra điều này.
 
 \section{Triển khai công cụ}\label{sec:3-2}
 
-Công cụ kết nối JaCaMo với USE qua cơ chế checkpoint. Cách tổ chức plugin quyết định nơi lưu trạng thái kiểm chứng, còn cấu hình đầu vào xác định dữ liệu nào được sử dụng trong mỗi phiên.
+Người dùng mở một gói thực nghiệm, khởi chạy chương trình nguồn và chọn checkpoint cần xem. Tại mốc được chọn, cửa sổ thực nghiệm đặt dữ liệu JaCaMo và các kết quả kiểm chứng trong cùng một màn hình.
 
 \subsection{Tổ chức các thành phần}\label{sec:3-2-1}
 
-Công cụ được đóng gói thành bản USE có thể chạy được qua module Maven use-assembly. Trong tiến trình USE, giao diện do use-gui cung cấp nạp plugin từ use-plugin và làm việc với mô hình, trạng thái đối tượng và bộ đánh giá OCL của use-core. Mỗi phiên có một MSystem riêng trong tiến trình chính để giữ mô hình và kết quả kiểm chứng. Trong khi đó, JaCaMo chạy trong JVM con để nạp runtime và mã Java của các artifact. Plugin xử lý ảnh chụp từ tiến trình con và trả quyết định về nguồn. Cách tổ chức này cho phép giao diện USE tiếp tục hiển thị kết quả khi JaCaMo đang chờ phản hồi tại checkpoint.
+USE nạp đặc tả CSL và iStar cùng luật ánh xạ. Đặc tả CSL quy định kiểu đối tượng, liên kết và bất biến. Đặc tả iStar ghi các Goal, Task và điều kiện dùng để đánh giá tiến độ. Luật ánh xạ xác định dữ kiện nguồn nào cung cấp giá trị cho từng thuộc tính CSL.
 
-VerificationSession kiểm tra các tệp cấu hình và khởi chạy JaCaMo. Công cụ kiểm tra ảnh chụp khởi tạo trước khi cho các tác tử chạy. Ở các mốc sau, bộ thu chờ phần thực thi thuộc phạm vi theo dõi đi đến điểm ổn định rồi gửi ảnh chụp. SnapshotVerifier dựng trạng thái CSL, kiểm tra bất biến và đưa kết quả điều kiện vào bộ đánh giá Goal/Task. USE lưu kết quả và phản hồi tại đúng checkpoint. JaCaMo xác nhận phản hồi trước khi tiếp tục nếu được phê duyệt.
+JaCaMo chạy trong một tiến trình riêng. Tại checkpoint, chương trình nguồn giữ thực thi trong phạm vi được theo dõi rồi gửi ảnh trạng thái sang USE. Bộ kiểm chứng dựng trạng thái CSL, đánh giá bất biến và cập nhật Goal, Task theo lịch sử của từng đối tượng. Phản hồi gắn với checkpoint đang chờ và được JaCaMo xác nhận trước khi cho phép tiếp tục. Người dùng vẫn có thể xem dữ liệu và kết quả trên USE khi phía thực thi đang giữ dừng.
 
 \subsection{Môi trường và cách khởi chạy}\label{sec:3-2-2}
 
-TN01 và TN03 chạy trên Windows 11 với JDK 21, USE 7.5.0 và plugin 1.0.1. Ba ca TN05--TN07 chạy qua dòng lệnh trên Debian với cùng phiên bản mã USE và runtime kiểm chứng.
+Các phiên chụp mới chạy trên Windows 11 với JDK 21.0.5, USE 7.5.0 và plugin JaCaMo 1.0.1. Với JDK 21, Maven 3.9 và các thư viện JaCaMo đã chuẩn bị, lệnh mvn -B package -Dmaven.test.skip=true đóng gói bản chạy. Trên Windows, người dùng mở USE bằng start\_use.bat trong thư mục bin của bản đóng gói. TN02 sử dụng chức năng đánh giá lại qua dòng lệnh và TN04 chạy ở cấp bộ kiểm chứng.
+
+Để mở phiên, người dùng vào trình đơn Plugins của USE, chọn JaCaMo như trong Hình~3.1.
 
 \begin{figure}
 \centering
-\includegraphics[width=3.95in,height=\textheight]{figures/fig-3-1.png}
-\caption{Trình đơn thực nghiệm JaCaMo.}\label{fig:3-1}
+\includegraphics[width=2.0472in,height=\textheight]{figures/fig-3-1.png}
+\caption{Mở chức năng thực nghiệm JaCaMo.}\label{fig:3-1}
 \end{figure}
 
-\thesisfigure{fig:3-1} cho thấy lệnh chạy thực nghiệm trong trình đơn Plugins của USE. Sau khi chọn JaCaMo và Run experiment, người dùng cung cấp các tệp mô tả phiên chạy.
+Lệnh Run experiment mở hộp thoại chọn gói. Chọn auction.mrv và bấm Run như trong Hình~3.2.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.03in,height=\textheight]{figures/fig-3-2.png}
-\caption{Cấu hình đầu vào của TN01.}\label{fig:3-2}
+\includegraphics[width=3.5433in,height=\textheight]{figures/fig-3-2.png}
+\caption{Hộp thoại chọn gói Auction.}\label{fig:3-2}
 \end{figure}
 
-\thesisfigure{fig:3-2} trình bày bốn tệp đầu vào của TN01 gồm dự án JaCaMo (.jcm), đặc tả CSL, mô hình iStar và luật XML ánh xạ. Khi ô Artifact Java sources để trống, công cụ tìm mã Java trong thư mục src/env cạnh tệp .jcm. Sau khi khởi chạy, cửa sổ thực nghiệm hiển thị dữ liệu JaCaMo ở bên trái và kết quả kiểm chứng của USE ở bên phải. Người dùng chọn một hàng ở Checkpoints để đối chiếu dữ liệu nguồn, đối tượng CSL và kết quả iStar tại cùng một mốc.
+Hộp thoại lọc tệp theo định dạng .mrv. Một gói chứa dự án JaCaMo và mã nguồn đi kèm, mô hình CSL, mô hình iStar và luật ánh xạ. USE mở các thành phần theo cấu trúc được ghi trong gói và chuẩn bị tiến trình JaCaMo của phiên.
 
-Vết của USE ghi dữ liệu gửi đến và kết quả kiểm chứng. Sau khi nhận và xác nhận phản hồi, JaCaMo ghi một bản xác nhận cho checkpoint tương ứng. Log của chương trình nguồn giúp đối chiếu các thao tác phát sinh giữa hai lần chụp.
+Khi cửa sổ thực nghiệm xuất hiện, chọn một hàng ở thẻ Checkpoints như tại Hình~3.3.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-3-3.png}
+\caption{Cửa sổ thực nghiệm tại checkpoint được chọn (phiên 5acdfd2b, checkpoint 58).}\label{fig:3-3}
+\end{figure}
+
+Bên phải Hình~\ref{fig:3-3}, dòng trên các thẻ ghi checkpoint đang xem và cột Decision trong bảng cho biết quyết định. Bên trái, các dòng a1 và a2 của thẻ Artifacts hiển thị trạng thái do JaCaMo công bố ở mốc đó. Khi chuyển sang OAL State, OCL hoặc iStarSCN ở khung bên phải, người dùng lần lượt xem đối tượng CSL, kết quả ràng buộc hoặc trạng thái Goal, Task của cùng checkpoint. Tùy chọn Follow live trở lại chế độ theo dõi mốc mới nhất.
 
 \section{Kịch bản thử nghiệm}\label{sec:3-3}
 
-Các ca thử bắt đầu bằng việc chạy Auction và đánh giá lại dữ liệu đã thu. Các biến thể sau đó tạo vi phạm hoặc giới hạn dữ liệu quan sát để kiểm tra cách công cụ phản hồi tại từng checkpoint.
+Các ca TN01 và TN02 kiểm tra việc theo dõi theo đối tượng và đánh giá lại một vết đã thu. Các ca còn lại thay đổi dữ liệu hoặc thời điểm lấy mẫu để xem bộ kiểm chứng phản hồi thế nào khi bằng chứng khác đi.
 
 \subsection{Chạy Auction và đánh giá lại vết}\label{sec:3-3-1}
 
-\begin{figure}
-\centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-3.png}
-\caption{Giao diện theo dõi Auction.}\label{fig:3-3}
-\end{figure}
+Trong TN01, hai cuộc đấu giá a1 và a2 dùng chung luật ánh xạ và đặc tả mục tiêu. Mỗi cuộc có artifact riêng lưu trạng thái mở hoặc đóng và giá tốt nhất. Cần quan sát một mốc khi một cuộc đã có giá cải thiện còn cuộc kia chưa có, rồi xem lại cả hai ở mốc hoàn thành. Kỳ vọng là mỗi đối tượng CSL nhận đúng giá và mỗi tiến độ được ghi nhận cho đúng cuộc đấu giá.
 
-TN01 chạy Auction với hai phiên a1 và a2 dùng chung cấu trúc, điều kiện mục tiêu và luật ánh xạ. Ca thử kiểm tra liệu từng phiên có giữ được giá và tiến độ riêng qua các checkpoint hay không. \thesisfigure{fig:3-3} minh họa cửa sổ theo dõi tại checkpoint 58. Để kiểm tra khả năng tái hiện trên chính dữ liệu đó, TN02 dùng lại chuỗi snapshot và các tệp đặc tả của TN01. Bộ đánh giá xử lý lần lượt các ảnh đã ghi để so sánh quyết định và các phần tử đạt tại từng checkpoint.
+TN02 dùng chuỗi ảnh gốc của TN01 kèm ba tệp đặc tả và ánh xạ đã lưu cùng lần chạy. Bộ đánh giá đọc các ảnh theo thứ tự từ mốc khởi tạo đến hết vết hoặc đến quyết định giữ dừng đầu tiên. Nếu kết quả tái hiện trên vết này, quyết định và tập Goal, Task đã đạt theo từng ngữ cảnh sẽ khớp ở mỗi mốc.
 
 \subsection{Vi phạm ràng buộc và thiếu dữ liệu}\label{sec:3-3-2}
 
-TN03 dùng Counter với bất biến Nonnegative, yêu cầu giá trị bộ đếm không âm. Chương trình đặt giá trị thành −1 trước khi nhóm plan kết thúc. Tại mốc cuối, USE được kỳ vọng nhận biết vi phạm và giữ dừng. TN04 bổ sung tình huống mà ảnh chụp được báo là chưa đầy đủ nên công cụ chưa có đủ căn cứ để kiểm chứng. Bộ kiểm chứng nhận trước một đối tượng hợp lệ rồi nhận ảnh thiếu dữ liệu. Ca thử xác nhận đối tượng cũ vẫn còn và kết quả là HOLD\_UNVERIFIED. Khi thay ảnh thiếu bằng ảnh đầy đủ ở cùng mốc, công cụ được kỳ vọng phê duyệt.
+TN03 dùng Counter với bất biến Nonnegative, yêu cầu giá trị bộ đếm không âm. Chương trình để giá trị −1 tồn tại ở cuối nhóm kế hoạch. Kỳ vọng bộ kiểm chứng nhìn thấy giá trị đó, phát hiện bất biến sai và trả quyết định giữ dừng cho JaCaMo.
+
+TN04 dùng một bộ kiểm thử gửi ảnh trạng thái vào bộ kiểm chứng theo thứ tự xác định. Ảnh đầu có một đối tượng Gauge hợp lệ. Ảnh tiếp theo được báo chưa đầy đủ và danh sách thực thể rỗng. Kỳ vọng là bộ kiểm chứng giữ dừng vì thiếu dữ liệu và vẫn giữ đối tượng đã biết. Bộ kiểm thử sau đó đưa ảnh đầy đủ vào cùng số thứ tự để kiểm tra đối tượng có được cập nhật tiếp hay không.
 
 \subsection{Ca đối chứng và giới hạn quan sát}\label{sec:3-3-3}
 
-TN05 so sánh hai cách xử lý lượt trả giá kém hơn. Bản đối chứng giữ giá tốt nhất ở 10 khi nhận giá 20. Bản có lỗi thay giá tốt nhất bằng 20. Cả hai cách được thử khi các lượt trả giá nằm trong một nhóm plan và khi có thêm checkpoint chuyển giao giữa các lần cập nhật. Giá 20 vẫn thỏa bất biến yêu cầu giá không âm. Khi vết ghi cả giá 10 và 20 của cùng đối tượng, Goal BidNeverIncreases phải phát hiện bước tăng. So sánh hai cấu hình giúp xác định ảnh hưởng của ranh giới quan sát.
+TN05 chủ động gửi giá 10 rồi giá 20 cho từng cuộc đấu giá. Vì Auction chọn giá thấp hơn, bản xử lý hợp lệ giữ giá tốt nhất ở 10. Bản có lỗi ghi đè thành 20. Mỗi cách xử lý được thử ở hai cấu hình ranh giới. Một cấu hình thu ở cuối nhóm kế hoạch, cấu hình còn lại có checkpoint chuyển giao giữa hai lần cập nhật. Nếu bộ kiểm chứng quan sát được 10 rồi 20 trên cùng đối tượng, Goal BidNeverIncreases phải ghi vi phạm dù giá vẫn không âm.
 
-Hai ca còn lại khảo sát những giới hạn khác nhau của dữ liệu quan sát. Trong TN06, thuộc tính best\_bid bị bỏ khỏi bản sao của chương trình đấu giá, trong khi luật ánh xạ vẫn yêu cầu thuộc tính đó. Tình huống này cho phép kiểm tra cách công cụ phản hồi khi đã quan sát được đối tượng nguồn nhưng thiếu giá trị để dựng trạng thái CSL. TN07 xét giới hạn của thời điểm quan sát. Cả hai bản Counter đều đặt bộ đếm thành −1 như được ghi trong log nguồn. Một bản giữ giá trị đến cuối nhóm plan, còn bản kia đưa bộ đếm trở lại 2 trước khi nhóm kết thúc.
+TN06 tạo tình huống thiếu thông tin trên nguồn đã quan sát được. Biến thể Auction bỏ công bố giá tốt nhất, trong khi luật ánh xạ vẫn yêu cầu giá này để dựng đối tượng CSL. Bộ kiểm chứng được kỳ vọng giữ dừng vì thiếu dữ liệu ngay tại ảnh đầu tiên cần giá trị đó.
+
+TN07 dùng hai biến thể Counter để đối chiếu log thay đổi với trạng thái cuối nhóm. Cả hai cùng ghi nhận bộ đếm có lúc bằng −1. Một biến thể giữ giá trị đến checkpoint, còn biến thể kia đưa giá trị trở lại 2 trong cùng nhóm. Kỳ vọng là bất biến chỉ báo vi phạm ở ca còn giá trị âm tại mốc được kiểm tra.
 
 \section{Tiêu chí đánh giá}\label{sec:3-4}
 
-Việc đánh giá bắt đầu bằng đối chiếu mỗi artifact JaCaMo với đối tượng CSL và lịch sử Goal, Task tương ứng. Tên, định danh và giá trị được so sánh tại cùng checkpoint rồi theo dõi qua nhiều mốc để phát hiện trường hợp dữ liệu của hai phiên bị trộn. Sau khi xác nhận sự kiện trong log nguồn và dữ liệu quan sát được trong snapshot, kết quả bất biến hoặc Goal được đối chiếu với quyết định của USE và bản xác nhận của JaCaMo. Qua đó có thể phân biệt quyết định giữ dừng vì có vi phạm với trường hợp thiếu căn cứ kiểm chứng. Khả năng tái hiện được đánh giá bằng cách xử lý lại cùng vết và cùng đặc tả, rồi so sánh quyết định và tập Goal, Task đã đạt ở mỗi checkpoint theo đúng đối tượng và chủ thể.
+Để kiểm tra ánh xạ, đối chiếu giá của artifact JaCaMo với giá trên đối tượng CSL tại cùng checkpoint. Vết ở nhiều mốc cho biết bộ kiểm chứng có dùng lại đúng đối tượng của a1 và a2 hay không. Trong thẻ iStarSCN, mục Execution xác định ngữ cảnh đang xem. Hàng của cùng một nhiệm vụ trong hai ngữ cảnh cho biết tiến độ có được theo dõi riêng hay không.
+
+Để giải thích một quyết định, trước hết dùng log nguồn để xác nhận thao tác đã xảy ra, rồi dùng ảnh trạng thái để xem bộ kiểm chứng thực sự nhận giá trị nào. Kết quả bất biến và Goal, Task được đọc tại cùng mốc. Với ca chạy trực tiếp, quyết định chỉ được ghi nhận là đã đến JaCaMo khi bản xác nhận của tiến trình nguồn khớp với yêu cầu và phản hồi trong vết USE. Với TN04, đối tượng trước và sau khi nhận ảnh thiếu được lấy từ vết của bộ kiểm thử.
+
+Để đánh giá khả năng tái hiện, ghép các bản ghi gốc với kết quả đánh giá lại theo số thứ tự checkpoint. Ở mỗi cặp, so sánh quyết định và tập phần tử đã đạt theo ba thành phần là ngữ cảnh, chủ thể và Goal hoặc Task. Việc đối chiếu theo ngữ cảnh giúp phát hiện trường hợp hai phiên cùng dùng tên phần tử nhưng kết quả bị gán nhầm.
 
 \section{Kết quả và phân tích}\label{sec:3-5}
 
-Các kết quả được phân tích từ dữ liệu quan sát của từng đối tượng đến quyết định mà công cụ trả tại checkpoint. Việc đánh giá lại cùng vết cho biết các kết quả đó có được tái hiện khi dữ liệu đầu vào được giữ nguyên hay không.
+Kết quả dưới đây đối chiếu tình huống đã tạo với giá trị JaCaMo ghi nhận, trạng thái USE đánh giá và quyết định gửi về nguồn. Chú thích phân biệt mã phiên và checkpoint của ảnh chụp mới với vết đối chứng đã lưu.
 
 \subsection{Định danh và lịch sử của từng đối tượng}\label{sec:3-5-1}
 
-Trong TN01, hai artifact được ánh xạ thành hai đối tượng Auction tách biệt. USE giữ ổn định định danh đích qua các lần cập nhật. Ở checkpoint 39, cả hai phiên còn chờ lượt trả giá cải thiện. Đến checkpoint 42, a2 đã có mức giá tốt hơn trong khi a1 vẫn chờ. Kết quả cho thấy cùng một nhiệm vụ được theo dõi riêng cho từng phiên.
+Ở phiên chụp 98170b4f, checkpoint 41 cho phép quan sát a1 và a2 khi hai cuộc đấu giá có tiến độ khác nhau. Thẻ iStarSCN cho phép giữ nguyên mốc và đổi đối tượng ở mục Execution.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.9500in]{figures/fig-3-4-a.png}
-\par\smallskip
-\includegraphics[width=6.1000in]{figures/fig-3-4-b.png}
-\caption{Giá của hai phiên Auction trong USE.}\label{fig:3-4}
+\includegraphics[width=4.8819in,height=\textheight]{figures/fig-3-4.png}
+\caption{Tiến độ ObserveBid của a1 (phiên 98170b4f, checkpoint 41).}\label{fig:3-4}
 \end{figure}
 
-Tại checkpoint 58, \thesisfigure{fig:3-4} đối chiếu giá trong Artifacts và OAL State. Giá của mỗi artifact xuất hiện đúng trên đối tượng CSL tương ứng.
+Trong Hình~\ref{fig:3-4}, mục Execution chọn a1. Cột Status của nhiệm vụ ghi nhận lượt trả giá cải thiện (ObserveBid) ghi đã đạt (FULFILLED). Vết JaCaMo ghi giá tốt nhất của a1 vào khoảng 109,69 và đối tượng CSL tương ứng giữ đúng giá trị đó. Mục tiêu kết thúc phiên (AuctionCompleted) vẫn chưa xác định (UNKNOWN) ở mốc này.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-5.png}
-\caption{Kết quả AuctionCompleted của phiên a1.}\label{fig:3-5}
+\includegraphics[width=4.8819in,height=\textheight]{figures/fig-3-5.png}
+\caption{Tiến độ ObserveBid của a2 (phiên 98170b4f, checkpoint 41).}\label{fig:3-5}
 \end{figure}
 
-Ở cùng checkpoint, mục tiêu AuctionCompleted của phiên a1 đã đạt, như thể hiện trong \thesisfigure{fig:3-5}. Mục tiêu của phiên a2 được đánh giá trên ngữ cảnh riêng.
+Hình~\ref{fig:3-5} giữ checkpoint 41 và chuyển Execution sang a2. Dòng ObserveBid ghi đang chờ (PENDING). Giá tốt nhất của a2 vẫn ở giá trị khởi tạo trong cả ảnh nguồn và trạng thái CSL. Bộ kiểm chứng ghi nhận 26 lượt đánh giá bất biến đều đạt và trả APPROVE tại mốc này. Trạng thái chờ cho biết a2 chưa có bằng chứng giá cải thiện, trong khi các điều kiện để tiếp tục tại checkpoint vẫn được đáp ứng.
+
+Vết gốc 3868eb28 cũng cho thấy hai tiến độ tách biệt. Cả hai phiên còn chờ ở checkpoint 39, rồi a2 có giá cải thiện ở checkpoint 42 trong khi a1 vẫn chờ. Lần chụp mới quan sát a1 cải thiện trước a2.
+
+Hai đối tượng giữ định danh riêng từ giữa phiên đến khi cả hai cuộc đấu giá đạt mục tiêu. Các hình sau ghi mốc 58 của chính phiên chụp đó.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-6.png}
-\caption{Kết quả AuctionCompleted của phiên a2.}\label{fig:3-6}
+\includegraphics[width=4.8819in,height=\textheight]{figures/fig-3-6.png}
+\caption{Kết quả AuctionCompleted của a1 (phiên 98170b4f, checkpoint 58).}\label{fig:3-6}
 \end{figure}
 
-\thesisfigure{fig:3-6} ghi nhận AuctionCompleted cũng đã đạt ở phiên a2. Trong TN01, JaCaMo xác nhận đủ cả 58 quyết định APPROVE.
+Ở Hình~\ref{fig:3-6}, dòng AuctionCompleted của a1 đã chuyển sang FULFILLED. Các dòng ObserveBid và StopAuction cũng ghi đã đạt, tương ứng với việc quan sát được giá cải thiện và sau đó quan sát được phiên đóng.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.8819in,height=\textheight]{figures/fig-3-7.png}
+\caption{Kết quả AuctionCompleted của a2 (phiên 98170b4f, checkpoint 58).}\label{fig:3-7}
+\end{figure}
+
+Ở Hình~\ref{fig:3-7}, cùng dòng AuctionCompleted ghi đã đạt cho a2, với a2 được chọn ở mục Execution. Hai ảnh cuối xác nhận kết quả đóng của từng cuộc đấu giá. Sự khác nhau về tiến độ được chứng minh bằng hai ảnh ở checkpoint 41. Trong phiên chụp, JaCaMo có bản xác nhận cho cả 58 checkpoint. Vết gốc 3868eb28 cho TN02 là một lần chạy riêng.
 
 \subsection{Quyết định kiểm chứng và giới hạn quan sát}\label{sec:3-5-2}
 
-Câu hỏi thứ hai xét đồng thời nguyên nhân quyết định và bằng chứng quyết định được chuyển về nguồn. TN03 kiểm tra một vi phạm còn quan sát được ở cuối nhóm plan. TN04 kiểm tra trường hợp ảnh chụp chưa đầy đủ và việc giữ đối tượng đã biết. Các ca bổ sung tiếp tục tách vi phạm Goal, thiếu thuộc tính và sự kiện chỉ xảy ra giữa hai lần chụp.
+TN03--TN07 lần lượt tách vi phạm bất biến, vi phạm Goal và hai nguyên nhân thiếu dữ liệu. Log và vết trạng thái trong TN07 cũng cho phép đối chiếu một thay đổi bên trong nhóm kế hoạch với dữ liệu còn tồn tại khi chụp.
+
+Trong TN03, Counter kết thúc nhóm kế hoạch với giá trị −1.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-7.png}
-\caption{Vi phạm bất biến của Counter.}\label{fig:3-7}
+\includegraphics[width=5.0in]{figures/fig-3-8-a.png}
+\par\smallskip
+\includegraphics[width=6.18in]{figures/fig-3-8-b.png}
+\caption{Kết quả bất biến và quyết định TN03 (phiên d6df3077, checkpoint 3).}\label{fig:3-8}
 \end{figure}
 
-Trong TN03 ở \thesisfigure{fig:3-7}, hai mốc đầu cho thấy bộ đếm bằng 0 và bất biến được thỏa. Tại mốc 3, nhóm plan kết thúc bình thường, nhưng trạng thái quan sát có giá trị −1. USE phát hiện vi phạm Nonnegative và trả HOLD\_FAILURE. Goal SafeValue cũng bị vi phạm tại mốc này, nên TN05 được dùng để xem xét riêng tác động của một Goal.
+Ảnh phía trên của Hình~\ref{fig:3-8} ghi bất biến Nonnegative cho kết quả sai (FAIL). Trong ảnh phía dưới, hàng checkpoint 3 cho thấy kế hoạch đã kết thúc thành công và USE trả quyết định giữ dừng do vi phạm (HOLD\_FAILURE). Ảnh chụp trạng thái tại cùng mốc ghi giá trị bộ đếm là −1. Vết JaCaMo cũng ghi nhận quyết định giữ dừng. Điều kiện của mục tiêu SafeValue cũng cho kết quả sai. TN05 xét riêng tình huống mà mọi bất biến đều đạt.
 
-TN04 trả HOLD\_UNVERIFIED khi nhận ảnh chụp thiếu và vẫn giữ một đối tượng đã quan sát. Bộ kiểm chứng phê duyệt sau khi nhận ảnh đầy đủ thay thế tại cùng mốc.
+TN04 được chạy bằng một phép thử JUnit. Báo cáo ghi một phép thử đạt. Chạy lại cùng ba đầu vào trên bộ kiểm chứng cho kết quả chi tiết trong Bảng~3.1.
 
-TN05 xét vi phạm mục tiêu BidNeverIncreases. Khi hai lượt trả giá nằm trong cùng nhóm plan, log cho thấy giá tăng từ 10 lên 20 và snapshot chỉ ghi giá cuối. USE phê duyệt cả 27 checkpoint. Bản đối chứng giữ giá 10 sau lượt trả giá 20 và được phê duyệt ở cả 28 checkpoint.
+\begin{table}[H]
+\centering
+\small
+\setstretch{1.12}
+\caption{Phản hồi với ảnh trạng thái thiếu trong TN04}\label{tab:3-1}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1709}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1519}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2278}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3101}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Lần gửi}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Ảnh đầy đủ}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Giá trị nguồn}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Gauge trong USE}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Quyết định}
+\end{minipage} \\
+\midrule\noalign{}
+Mốc 1 & Có & 1 & 1 & APPROVE \\
+Mốc 2 & Không & Danh sách rỗng & 1 (giữ nguyên) & HOLD\_UNVERIFIED \\
+Mốc 2 gửi lại & Có & 2 & 2 (cùng đối tượng) & APPROVE \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Hàng thứ hai của Bảng~\ref{tab:3-1} cho thấy ảnh được báo chưa đầy đủ và không chứa đối tượng nguồn. Bộ kiểm chứng trả quyết định giữ dừng vì thiếu dữ liệu (HOLD\_UNVERIFIED), trong khi cùng đối tượng Gauge vẫn giữ giá trị 1. Ở lần thử lại mốc 2, ảnh đầy đủ chứa giá trị 2. Bộ kiểm chứng cập nhật đúng đối tượng đó và trả APPROVE. Đây là kết quả ở cấp bộ kiểm chứng với đầu vào do bộ thử cung cấp.
+
+TN05 kiểm tra trường hợp giá tốt nhất tăng sau khi xử lý lượt trả giá kém hơn. Phiên chụp 26400acd ghi hai ảnh liên tiếp quanh lần thay đổi.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-8.png}
-\caption{Vi phạm BidNeverIncreases trong TN05.}\label{fig:3-8}
+\includegraphics[width=6.063in,height=\textheight]{figures/fig-3-9.png}
+\caption{Giá tốt nhất trước lượt trả giá kém hơn (phiên 26400acd, checkpoint 21).}\label{fig:3-9}
 \end{figure}
 
-Khi có thêm mốc chuyển giao, USE quan sát được giá 10 ở checkpoint 21 và 20 ở checkpoint 22. Mục tiêu BidNeverIncreases bị vi phạm, JaCaMo nhận HOLD\_FAILURE và log không ghi hoạt động sau điểm dừng. Phiên đối chứng dùng cùng ranh giới và tiếp tục ở cả 31 checkpoint. \thesisfigure{fig:3-8} ghi lại kết quả của phiên chụp 8ae8adb8. Tại checkpoint 22, cả 17 lượt đánh giá bất biến đều PASS, còn mục tiêu BidNeverIncreases có trạng thái VIOLATED.
+Ở Hình~\ref{fig:3-9}, cột thuộc tính quan sát trên hai dòng a1 và a2 ghi giá tốt nhất bằng 10 tại checkpoint 21.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.1in,height=\textheight]{figures/fig-3-9.png}
-\caption{Thiếu giá tốt nhất trong TN06.}\label{fig:3-9}
+\includegraphics[width=6.063in,height=\textheight]{figures/fig-3-10.png}
+\caption{Giá tốt nhất sau lượt trả giá kém hơn (phiên 26400acd, checkpoint 22).}\label{fig:3-10}
 \end{figure}
 
-Trong TN06, cả hai phiên đều thu được đối tượng Auction nhưng thiếu giá tốt nhất để ánh xạ vào Auction.best\_bid. USE trả HOLD\_UNVERIFIED tại checkpoint 18 và JaCaMo xác nhận phản hồi. Ở phiên gom plan, thao tác đánh dấu đã diễn ra trước khi chụp. Khi đưa checkpoint chuyển giao lên trước thao tác đó, log không còn ghi thao tác. \thesisfigure{fig:3-9} minh họa checkpoint chuyển giao (AGENT\_HANDOFF) của phiên 0ad85523. Dòng có dấu hỏi trong bảng tương ứng với checkpoint 18 ở cửa sổ Console.
+Cũng tại hai dòng đó, Hình~\ref{fig:3-10} ghi giá 20 ở checkpoint 22. Hai ảnh có cùng định danh artifact. Chênh lệch 10 lên 20 vì thế có thể được kiểm tra trên chính đối tượng của từng cuộc đấu giá.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.76in,height=\textheight]{figures/fig-3-10.png}
-\caption{Giá trị âm của Counter tại checkpoint.}\label{fig:3-10}
+\includegraphics[width=4.8819in,height=\textheight]{figures/fig-3-11.png}
+\caption{Vi phạm mục tiêu giữ giá không tăng (phiên 26400acd, checkpoint 22).}\label{fig:3-11}
 \end{figure}
 
-\thesisfigure{fig:3-10} đối chiếu log và OCL trong phiên giữ âm 91765262 của TN07. Tại checkpoint 3, Counter vẫn có giá trị −1, bất biến Nonnegative cho kết quả FAIL và USE trả HOLD\_FAILURE. Đối chứng dùng một phiên riêng để kiểm tra điều gì xảy ra khi giá trị được sửa trong cùng nhóm plan.
+Trong Hình~\ref{fig:3-11}, mục Execution chọn a1. Dòng BidNeverIncreases ghi vi phạm (VIOLATED). Điều kiện duy trì giá không tăng nhận giá trị sai vì giá mới 20 lớn hơn giá ở ảnh trước là 10.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.76in,height=\textheight]{figures/fig-3-11.png}
-\caption{Khôi phục giá trị Counter trước checkpoint.}\label{fig:3-11}
+\includegraphics[width=5.3937in,height=\textheight]{figures/fig-3-12.png}
+\caption{Kết quả bất biến CSL trong TN05 (phiên 26400acd, checkpoint 22).}\label{fig:3-12}
 \end{figure}
 
-Trong phiên khôi phục a17facf2 ở \thesisfigure{fig:3-11}, Console ghi bộ đếm lần lượt nhận −1 rồi 2. Tại checkpoint 3, Nonnegative cho kết quả PASS và USE trả APPROVE. Giá trị −1 chỉ xuất hiện trong log nguồn vì bộ đếm đã được khôi phục trước khi chụp ở cuối nhóm plan.
+Hình~\ref{fig:3-12} liệt kê 17 lượt đánh giá bất biến tại checkpoint 22. Cột Value đều ghi đạt (PASS), kể cả các dòng ValidBid vì 20 vẫn là giá không âm. Dữ liệu này tách nguyên nhân giữ dừng do Goal khỏi trường hợp vi phạm bất biến trong TN03.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-3-13.png}
+\caption{Quyết định tại mốc chuyển giao trong TN05 (phiên 26400acd, checkpoint 22).}\label{fig:3-13}
+\end{figure}
+
+Hàng cuối của Hình~\ref{fig:3-13} ghi quyết định giữ dừng do vi phạm (HOLD\_FAILURE) tại mốc chuyển giao. Bản xác nhận của JaCaMo khớp với phản hồi USE tại checkpoint 22. Mốc này giữ việc chuyển giao đang chờ và log nguồn không có dấu hiệu bước kế tiếp của biến thể đã được thực thi.
+
+Bốn vết đối chứng trong Bảng~\ref{tab:3-2} cung cấp dữ liệu để đánh giá vai trò của ranh giới. Các vết đã thu trước phiên chụp mới và dùng hai cách cập nhật giá cùng hai vị trí chụp ở cùng tình huống thử.
+
+\begin{table}[H]
+\centering
+\small
+\setstretch{1.12}
+\caption{Đối chứng theo cách cập nhật giá và ranh giới TN05}\label{tab:3-2}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2342}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2215}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2152}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3291}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Cập nhật giá}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Ranh giới}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Giá trong ảnh}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Quyết định}
+\end{minipage} \\
+\midrule\noalign{}
+Giữ giá 10 & Cuối nhóm & 10 & 28 mốc cho tiếp tục \\
+Thay bằng 20 & Cuối nhóm & Chỉ thấy 20 sau hai lượt & 27 mốc cho tiếp tục \\
+Giữ giá 10 & Tách chuyển giao & 10 ở cả hai mốc & 31 mốc cho tiếp tục \\
+Thay bằng 20 & Tách chuyển giao & 10 lên 20 ở hai mốc & Giữ dừng ở mốc 22 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Trong bản có lỗi chụp cuối nhóm, log ghi giá lần lượt 10 và 20. Ảnh chứa giá đã cập nhật chỉ ghi 20. Bộ kiểm chứng vì vậy không có cặp giá 10 và 20 trên cùng đối tượng để phát hiện bước tăng bằng điều kiện so sánh hai checkpoint. Khi tách mốc chuyển giao, vết giữ được cả hai giá và xuất hiện quyết định giữ dừng. Hai bản cập nhật hợp lệ luôn giữ giá 10 sau lượt trả giá 20 và đều được cho tiếp tục. Kết quả đối chứng cho thấy việc tách mốc có ích khi nó cung cấp thêm giá trị cần cho điều kiện đánh giá.
+
+Trong TN06, biến thể vẫn công bố thông tin về phiên đấu giá nhưng bỏ thuộc tính giá tốt nhất. Bộ thu báo ảnh đã đầy đủ trong phạm vi theo dõi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-3-14.png}
+\caption{Giữ dừng vì thiếu giá tốt nhất trong TN06 (phiên b8241f0f, checkpoint 18).}\label{fig:3-14}
+\end{figure}
+
+Bên trái Hình~\ref{fig:3-14}, các dòng a1 và a2 có trạng thái mở, công việc và thông tin về người thắng. Giá tốt nhất vắng mặt. Thanh trạng thái báo thiếu Auction.best\_bid và ghi HOLD\_UNVERIFIED. Hàng có dấu hỏi ở cuối thẻ Checkpoints là yêu cầu chuyển giao tại checkpoint 18 trong vết của lần chụp. JaCaMo có bản xác nhận cho quyết định ở mốc này. Trong TN04, bộ thu đã báo thiếu ảnh nên bộ kiểm chứng giữ lại trạng thái trước bước chiếu. Trong TN06, thiếu dữ liệu được phát hiện khi dựng trạng thái CSL từ ảnh đã thu.
+
+TN07 đặt thay đổi của Counter vào bên trong một nhóm kế hoạch. Trước hết, xét phiên giữ giá trị âm 54271a7f.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.2441in,height=\textheight]{figures/fig-3-15.png}
+\caption{Log giá trị của phiên Counter giữ âm (phiên 54271a7f, trước checkpoint 3).}\label{fig:3-15}
+\end{figure}
+
+Trong Hình~\ref{fig:3-15}, dòng cuối của log Console ghi giá trị −1 sau các giá trị 0, 1 và 2. Log xác nhận thao tác nguồn đã tạo giá trị âm.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-3-16.png}
+\caption{Giá trị âm tại checkpoint của TN07 (phiên 54271a7f, checkpoint 3).}\label{fig:3-16}
+\end{figure}
+
+Ở Hình~\ref{fig:3-16}, Artifacts vẫn ghi −1 tại checkpoint 3. Dòng Nonnegative cho FAIL và quyết định là HOLD\_FAILURE. JaCaMo xác nhận phản hồi ngay tại mốc giữ dừng. Khi giá trị âm còn tồn tại trong ảnh, bộ kiểm chứng có căn cứ để đánh giá bất biến là sai.
+
+Phiên khôi phục 769f1728 cũng đi qua giá trị âm bên trong nhóm kế hoạch.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.2441in,height=\textheight]{figures/fig-3-17.png}
+\caption{Log giá trị của phiên Counter khôi phục (phiên 769f1728, trước checkpoint 3).}\label{fig:3-17}
+\end{figure}
+
+Hai dòng cuối Hình~\ref{fig:3-17} ghi −1 rồi 2. Thứ tự trong log cho thấy Counter đã được đưa về giá trị hợp lệ trước mốc chụp tiếp theo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18in,height=\textheight]{figures/fig-3-18.png}
+\caption{Giá trị đã khôi phục tại checkpoint (phiên 769f1728, checkpoint 3).}\label{fig:3-18}
+\end{figure}
+
+Trong Hình~\ref{fig:3-18}, cột thuộc tính quan sát ghi 2 tại checkpoint 3. Nonnegative cho PASS và JaCaMo xác nhận quyết định APPROVE. Hai ca đều có giá trị âm trong log, nhưng ảnh chụp cuối nhóm chỉ còn giá trị âm ở ca giữ −1. Phạm vi phát hiện phụ thuộc vào việc giá trị vi phạm có xuất hiện trong ảnh được đánh giá hay không.
 
 \subsection{Tái hiện kết quả khi đánh giá lại vết}\label{sec:3-5-3}
 
-TN02 đánh giá lại cùng vết và cùng đặc tả của TN01. Quyết định và tập Goal/Task đã đạt khớp ở cả 58 checkpoint. Tại mốc 58, lần chạy gốc và lần đánh giá lại cùng ghi nhận AuctionCompleted cho hai phiên riêng biệt. Kết quả xác nhận khả năng tái hiện trên vết đã ghi. Một lần chạy mới có thể sinh vết khác nếu thứ tự thực thi của tác tử thay đổi.
+TN02 đánh giá lại vết gốc 3868eb28 của TN01 cùng các đặc tả đã dùng khi thu vết. Lệnh báo đã đánh giá 58 checkpoint và kết thúc với APPROVE. Kết quả trong Bảng~\ref{tab:3-3} được tính bằng cách so từng bản ghi với vết gốc và kiểm tra các bản xác nhận của JaCaMo.
+
+\begin{table}[H]
+\centering
+\small
+\setstretch{1.12}
+\caption{Đối chiếu vết gốc và kết quả đánh giá lại trong TN02}\label{tab:3-3}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4937}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5063}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Nội dung đối chiếu}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Kết quả}
+\end{minipage} \\
+\midrule\noalign{}
+Số checkpoint được lệnh đọc và đánh giá & 58 \\
+Quyết định khớp vết gốc & 58/58 \\
+Tập Goal, Task đã đạt khớp theo ngữ cảnh & 58/58 \\
+Bản xác nhận JaCaMo khớp vết gốc & 58/58 \\
+Kết quả ở checkpoint cuối & APPROVE, a1 và a2 đều đạt AuctionCompleted \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Các quyết định và tập Goal, Task đã đạt theo ngữ cảnh đều khớp ở 58 checkpoint. Ở mốc cuối, AuctionCompleted đạt riêng cho a1 và a2 trong cả vết gốc và kết quả đánh giá lại. Phép so sánh xác nhận tính tái hiện khi giữ nguyên dãy ảnh và đặc tả. Thứ tự hoạt động và giá đấu trong lần khởi chạy JaCaMo khác có thể tạo một vết khác.
 
 \section{Giới hạn và hướng mở rộng}\label{sec:3-6}
 
-Độ hạt checkpoint ảnh hưởng tới điểm phát hiện. TN03 phát hiện −1 ở cuối plan cha. Các giá trị 1 và 2 được tạo trong cùng nhóm plan con có thể không xuất hiện ở biên. Một hướng mở rộng là bổ sung điểm quan sát có chủ đích, xác định ảnh hưởng lên điều phối và đo chi phí trên các vết có thể so sánh.
+Checkpoint giới hạn những gì bộ kiểm chứng quan sát được. TN05 cho thấy một mốc chuyển giao có thể cung cấp giá trước để so với giá sau. TN07 cho thấy một lần sai lệch có thể chỉ có trong log nguồn nếu giá trị được khôi phục trước khi nhóm kế hoạch kết thúc. Có thể mở rộng cách chọn mốc tại những ranh giới nghiệp vụ cần theo dõi. Việc tăng số mốc cần được đánh giá thêm về tác động lên thực thi.
 
-Trong Auction, best\_bid cho biết giá đã được cải thiện và winner phản ánh nội dung thuộc tính được công bố. Để kiểm tra người thắng ứng với giá giữ lại, cần dữ liệu về chủ sở hữu của từng bid hoặc best-bidder và ràng buộc kiểm tra quan hệ đó. Việc xác nhận dịch vụ thực hiện đúng yêu cầu cũng cần ánh xạ Request/Scheme hoặc dữ liệu có ý nghĩa tương ứng. Các hướng này cần những ca đối chứng có thay đổi được xác định trước.
+Trong Auction, công cụ đọc giá tốt nhất và người thắng do artifact công bố. Để kiểm tra rằng người thắng thực sự là người đã đưa ra mức giá được giữ lại, cần quan sát mỗi lượt trả giá cùng định danh người gửi, thứ tự và quy tắc xử lý khi các giá bằng nhau. Cần đặc tả thêm điều kiện liên kết người thắng với lượt trả giá được chọn. Kết quả AuctionCompleted hiện xác nhận các điều kiện mở phiên, trả giá và đóng phiên đã được quan sát theo đặc tả đã dùng.
 
-Bằng chứng thực nghiệm áp dụng cho workspace cục bộ, những thuộc tính và ràng buộc đã khai báo, cùng kết quả Goal, Task được đánh giá trên một kiểu ngữ cảnh trong mỗi đồ thị. Auction cho phép đối chiếu nhiều thể hiện cùng kiểu. TN04 và TN06 kiểm tra hai điểm khác nhau khi xử lý dữ liệu thiếu. Counter cô lập ảnh hưởng của ranh giới quan sát với một biến, qua đó TN07 xác định giới hạn lấy mẫu trong một tình huống cụ thể. Việc đánh giá lại chỉ bao phủ phần vết đã thu. Khả năng áp dụng cho hệ khác còn phụ thuộc vào cấu trúc tổ chức, dữ liệu được công bố và các luật ánh xạ cần khai báo. Một bước tiếp theo là chọn hệ đa tác tử có cấu trúc nhóm và loại thuộc tính khác Auction.
-
-Để đối chiếu kết quả giữa hai công cụ, dữ kiện dùng làm mốc kiểm tra được lưu ở cả log nguồn và vết USE. Log bổ sung được đặt sau thao tác nguồn để xác nhận biến thể đã tạo đúng tình huống. Tuy nhiên, một số biến thể chủ động kiểm soát giá và lịch thao tác. Khi đọc kết quả, cần xét phiên bản runtime, phạm vi hook được theo dõi và việc một trường hợp có đúng điều kiện kích hoạt hay không. Kết quả theo từng ca chưa cung cấp số đo chi phí thời gian hay độ mở rộng. Những nhận định đó cần một nghiên cứu riêng có số lần lặp, tải và mốc đo xác định trước.
+Việc đánh giá lại kiểm tra đúng các checkpoint đã ghi với cùng mô hình và luật ánh xạ. Các thao tác ngoài checkpoint có thể chỉ được xác nhận qua log nguồn. Kết quả thực nghiệm cũng phụ thuộc phạm vi dữ liệu JaCaMo được thu, các kiểu đối tượng đã ánh xạ và các điều kiện đã khai báo. Các ca thử trong chương dùng workspace cục bộ và các biến thể có điều kiện được kiểm soát. Khả năng áp dụng cho chương trình khác cần được đối chiếu trên cấu trúc tổ chức và nguồn dữ liệu của chương trình đó.
 
 \section{Tổng kết chương}\label{sec:3-7}
 
-TN01 cho thấy công cụ duy trì định danh, giá trị và lịch sử Goal/Task của từng phiên đấu giá. Khi đánh giá lại vết TN01, TN02 tái hiện quyết định và tập Goal/Task đã đạt ở cả 58 checkpoint. TN03 và TN05 xác nhận việc giữ dừng trước vi phạm đã quan sát, kể cả khi một Goal vi phạm trong lúc mọi bất biến đều đạt. TN04 và TN06 cho thấy công cụ phân biệt các trường hợp thiếu dữ liệu với vi phạm đã xác định.
+TN01 trả lời câu hỏi về định danh và tiến độ. Giá tốt nhất của hai cuộc đấu giá đi vào hai đối tượng CSL riêng. Trạng thái ObserveBid có thể khác nhau tại cùng checkpoint, và kết quả đạt sau cùng được ghi trên từng đối tượng.
 
-TN07 cho thấy một thay đổi đã được khôi phục trước mốc quan sát có thể chỉ xuất hiện trong log nguồn. Phạm vi kết luận vì vậy phụ thuộc vào vị trí checkpoint và dữ liệu có trong đặc tả, chẳng hạn quan hệ giữa người thắng và giá được giữ trong Auction.
+TN03--TN07 giải thích các quyết định tại ranh giới quan sát. Bộ kiểm chứng giữ dừng khi thấy bất biến sai hoặc Goal vi phạm và cũng giữ dừng khi thiếu căn cứ. Khi một giá trị vi phạm đã được phục hồi trước lúc chụp, kết quả tại checkpoint phản ánh giá trị sau phục hồi.
+
+TN02 trả lời câu hỏi về tái hiện. Đánh giá lại cùng vết và đặc tả cho quyết định và tập Goal, Task đã đạt khớp ở 58 trên 58 checkpoint của vết gốc.
 
 \chapter*{KẾT LUẬN}\label{ket-luan}
 \addcontentsline{toc}{chapter}{KẾT LUẬN}
@@ -1083,35 +1333,35 @@ Các hướng tiếp theo gồm mở rộng dữ kiện quan sát và thử nghi
 
 \bibitem{ref-1}
 
-M. Wooldridge và N. R. Jennings, ``Intelligent agents: Theory and practice,'' The Knowledge Engineering Review, vol.~10, no. 2, pp.~115--152, 1995. DOI: 10.1017/S0269888900008122.
+M. Wooldridge và N. R. Jennings, ``Intelligent agents: Theory and practice,'' The Knowledge Engineering Review, vol. 10, no. 2, pp. 115--152, 1995. DOI: 10.1017/S0269888900008122.
 
 \bibitem{ref-2}
 
-O. Boissier, R. H. Bordini, J. F. Hübner, A. Ricci và A. Santi, ``Multi-agent oriented programming with JaCaMo,'' Science of Computer Programming, vol.~78, no. 6, pp.~747--761, 2013. DOI: 10.1016/j.scico.2011.10.004.
+O. Boissier, R. H. Bordini, J. F. Hübner, A. Ricci và A. Santi, ``Multi-agent oriented programming with JaCaMo,'' Science of Computer Programming, vol. 78, no. 6, pp. 747--761, 2013. DOI: 10.1016/j.scico.2011.10.004.
 
 \bibitem{ref-3}
 
-D. C. Schmidt, ``Guest editor's introduction: Model-driven engineering,'' Computer, vol.~39, no. 2, pp.~25--31, 2006. DOI: 10.1109/MC.2006.58.
+D. C. Schmidt, ``Guest editor's introduction: Model-driven engineering,'' Computer, vol. 39, no. 2, pp. 25--31, 2006. DOI: 10.1109/MC.2006.58.
 
 \bibitem{ref-4}
 
-M. Gogolla, F. Büttner và M. Richters, ``USE: A UML-based specification environment for validating UML and OCL,'' Science of Computer Programming, vol.~69, nos. 1--3, pp.~27--34, 2007. DOI: 10.1016/j.scico.2007.01.013. \href{https://github.com/useocl/use/blob/612df7cdcb290f9e3f39e36f42f773665338f71f/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE/Gogolla_2007_SCP.pdf}{\ul{Bản PDF trong kho USE.}}
+M. Gogolla, F. Büttner và M. Richters, ``USE: A UML-based specification environment for validating UML and OCL,'' Science of Computer Programming, vol. 69, nos. 1--3, pp. 27--34, 2007. DOI: 10.1016/j.scico.2007.01.013. \href{https://github.com/useocl/use/blob/612df7cdcb290f9e3f39e36f42f773665338f71f/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE/Gogolla_2007_SCP.pdf}{\ul{Bản PDF trong kho USE.}}
 
 \bibitem{ref-5}
 
-M. Leucker và C. Schallhart, ``A brief account of runtime verification,'' Journal of Logic and Algebraic Programming, vol.~78, no. 5, pp.~293--303, 2009. DOI: 10.1016/j.jlap.2008.08.004.
+M. Leucker và C. Schallhart, ``A brief account of runtime verification,'' Journal of Logic and Algebraic Programming, vol. 78, no. 5, pp. 293--303, 2009. DOI: 10.1016/j.jlap.2008.08.004.
 
 \bibitem{ref-6}
 
-M. Mernik, J. Heering và A. M. Sloane, ``When and how to develop domain-specific languages,'' ACM Computing Surveys, vol.~37, no. 4, pp.~316--344, 2005. DOI: 10.1145/1118890.1118892.
+M. Mernik, J. Heering và A. M. Sloane, ``When and how to develop domain-specific languages,'' ACM Computing Surveys, vol. 37, no. 4, pp. 316--344, 2005. DOI: 10.1145/1118890.1118892.
 
 \bibitem{ref-7}
 
-T. Parr, S. Harwell và K. Fisher, ``Adaptive LL(*) parsing: The power of dynamic analysis,'' in Proceedings of the 2014 ACM International Conference on Object Oriented Programming Systems Languages \& Applications (OOPSLA), pp.~579--598, 2014. DOI: 10.1145/2660193.2660202.
+T. Parr, S. Harwell và K. Fisher, ``Adaptive LL(*) parsing: The power of dynamic analysis,'' in Proceedings of the 2014 ACM International Conference on Object Oriented Programming Systems Languages \& Applications (OOPSLA), pp. 579--598, 2014. DOI: 10.1145/2660193.2660202.
 
 \bibitem{ref-8}
 
-R. H. Bordini và J. F. Hübner, ``BDI agent programming in AgentSpeak using Jason,'' in Computational Logic in Multi-Agent Systems (CLIMA 2005), Lecture Notes in Computer Science, vol.~3900, pp.~143--164, Springer, 2006. DOI: 10.1007/11750734\_9.
+R. H. Bordini và J. F. Hübner, ``BDI agent programming in AgentSpeak using Jason,'' in Computational Logic in Multi-Agent Systems (CLIMA 2005), Lecture Notes in Computer Science, vol. 3900, pp. 143--164, Springer, 2006. DOI: 10.1007/11750734\_9.
 
 \bibitem{ref-9}
 
@@ -1119,11 +1369,11 @@ R. H. Bordini, J. F. Hübner và M. Wooldridge, Programming Multi-Agent Systems 
 
 \bibitem{ref-10}
 
-A. Ricci, M. Piunti và M. Viroli, ``Environment programming in multi-agent systems: An artifact-based perspective,'' Autonomous Agents and Multi-Agent Systems, vol.~23, pp.~158--192, 2011. DOI: 10.1007/s10458-010-9140-7.
+A. Ricci, M. Piunti và M. Viroli, ``Environment programming in multi-agent systems: An artifact-based perspective,'' Autonomous Agents and Multi-Agent Systems, vol. 23, pp. 158--192, 2011. DOI: 10.1007/s10458-010-9140-7.
 
 \bibitem{ref-11}
 
-J. F. Hübner, J. S. Sichman và O. Boissier, ``Developing organised multiagent systems using the MOISE+ model: Programming issues at the system and agent levels,'' International Journal of Agent-Oriented Software Engineering, vol.~1, nos. 3/4, pp.~370--395, 2007. DOI: 10.1504/IJAOSE.2007.016266.
+J. F. Hübner, J. S. Sichman và O. Boissier, ``Developing organised multiagent systems using the MOISE+ model: Programming issues at the system and agent levels,'' International Journal of Agent-Oriented Software Engineering, vol. 1, nos. 3/4, pp. 370--395, 2007. DOI: 10.1504/IJAOSE.2007.016266.
 
 \bibitem{ref-12}
 
@@ -1131,7 +1381,7 @@ F. Dalpiaz, X. Franch và J. Horkoff, ``iStar 2.0 language guide,'' arXiv:1605.0
 
 \bibitem{ref-13}
 
-A. van Lamsweerde, ``Goal-oriented requirements engineering: A guided tour,'' in Proceedings of the Fifth IEEE International Symposium on Requirements Engineering, pp.~249--262, 2001. DOI: 10.1109/ISRE.2001.948567.
+A. van Lamsweerde, ``Goal-oriented requirements engineering: A guided tour,'' in Proceedings of the Fifth IEEE International Symposium on Requirements Engineering, pp. 249--262, 2001. DOI: 10.1109/ISRE.2001.948567.
 
 \bibitem{ref-14}
 
@@ -1143,47 +1393,47 @@ Object Management Group (OMG), Object Constraint Language (OCL), Version 2.4, 20
 
 \bibitem{ref-16}
 
-M. Gogolla, J. Böhling và M. Richters, ``Validating UML and OCL models in USE by automatic snapshot generation,'' Software and Systems Modeling, vol.~4, no. 4, pp.~386--398, 2005. DOI: 10.1007/s10270-005-0089-y. \href{https://github.com/useocl/use/blob/612df7cdcb290f9e3f39e36f42f773665338f71f/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE/Gogolla_2005_SOSYM.pdf}{\ul{Bản PDF trong kho USE.}}
+M. Gogolla, J. Böhling và M. Richters, ``Validating UML and OCL models in USE by automatic snapshot generation,'' Software and Systems Modeling, vol. 4, no. 4, pp. 386--398, 2005. DOI: 10.1007/s10270-005-0089-y. \href{https://github.com/useocl/use/blob/612df7cdcb290f9e3f39e36f42f773665338f71f/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE/Gogolla_2005_SOSYM.pdf}{\ul{Bản PDF trong kho USE.}}
 
 \bibitem{ref-17}
 
-F. Hilken và L. Hamann, ``History of the USE tool: 20 years of UML/OCL modeling made in Germany,'' Journal of Object Technology, vol.~19, no. 3, pp.~3:1--3:13, 2020. DOI: 10.5381/jot.2020.19.3.a20.
+F. Hilken và L. Hamann, ``History of the USE tool: 20 years of UML/OCL modeling made in Germany,'' Journal of Object Technology, vol. 19, no. 3, pp. 3:1--3:13, 2020. DOI: 10.5381/jot.2020.19.3.a20.
 
 \bibitem{ref-18}
 
-A. Bauer, M. Leucker và C. Schallhart, ``Runtime verification for LTL and TLTL,'' ACM Transactions on Software Engineering and Methodology, vol.~20, no. 4, Article 14, 2011. DOI: 10.1145/2000799.2000800.
+A. Bauer, M. Leucker và C. Schallhart, ``Runtime verification for LTL and TLTL,'' ACM Transactions on Software Engineering and Methodology, vol. 20, no. 4, Article 14, 2011. DOI: 10.1145/2000799.2000800.
 
 \bibitem{ref-19}
 
-R. H. Bordini, M. Fisher, W. Visser và M. Wooldridge, ``Verifying multi-agent programs by model checking,'' Autonomous Agents and Multi-Agent Systems, vol.~12, no. 2, pp.~239--256, 2006. DOI: 10.1007/s10458-006-5955-7.
+R. H. Bordini, M. Fisher, W. Visser và M. Wooldridge, ``Verifying multi-agent programs by model checking,'' Autonomous Agents and Multi-Agent Systems, vol. 12, no. 2, pp. 239--256, 2006. DOI: 10.1007/s10458-006-5955-7.
 
 \bibitem{ref-20}
 
-A. Lomuscio, H. Qu và F. Raimondi, ``MCMAS: An open-source model checker for the verification of multi-agent systems,'' International Journal on Software Tools for Technology Transfer, vol.~19, pp.~9--30, 2017. DOI: 10.1007/s10009-015-0378-x.
+A. Lomuscio, H. Qu và F. Raimondi, ``MCMAS: An open-source model checker for the verification of multi-agent systems,'' International Journal on Software Tools for Technology Transfer, vol. 19, pp. 9--30, 2017. DOI: 10.1007/s10009-015-0378-x.
 
 \bibitem{ref-21}
 
-K. M. Chandy và L. Lamport, ``Distributed snapshots: Determining global states of distributed systems,'' ACM Transactions on Computer Systems, vol.~3, no. 1, pp.~63--75, 1985. DOI: 10.1145/214451.214456.
+K. M. Chandy và L. Lamport, ``Distributed snapshots: Determining global states of distributed systems,'' ACM Transactions on Computer Systems, vol. 3, no. 1, pp. 63--75, 1985. DOI: 10.1145/214451.214456.
 
 \bibitem{ref-22}
 
-R. H. Bordini, L. A. Dennis, B. Farwer và M. Fisher, ``Directions for agent model checking,'' in Specification and Verification of Multi-Agent Systems, pp.~103--123, Springer, 2010. DOI: 10.1007/978-1-4419-6984-2\_4.
+R. H. Bordini, L. A. Dennis, B. Farwer và M. Fisher, ``Directions for agent model checking,'' in Specification and Verification of Multi-Agent Systems, pp. 103--123, Springer, 2010. DOI: 10.1007/978-1-4419-6984-2\_4.
 
 \bibitem{ref-23}
 
-R. Taleb, S. Hallé và R. Khoury, ``Uncertainty in runtime verification: A survey,'' Computer Science Review, vol.~50, Article 100594, 2023. DOI: 10.1016/j.cosrev.2023.100594.
+R. Taleb, S. Hallé và R. Khoury, ``Uncertainty in runtime verification: A survey,'' Computer Science Review, vol. 50, Article 100594, 2023. DOI: 10.1016/j.cosrev.2023.100594.
 
 \bibitem{ref-24}
 
-D. C. Engelmann, A. Ferrando, A. R. Panisson, D. Ancona, R. H. Bordini và V. Mascardi, ``RV4JaCa---Towards Runtime Verification of Multi-Agent Systems and Robotic Applications,'' Robotics, vol.~12, no. 2, art. 49, 2023. DOI: 10.3390/robotics12020049.
+D. C. Engelmann, A. Ferrando, A. R. Panisson, D. Ancona, R. H. Bordini và V. Mascardi, ``RV4JaCa---Towards Runtime Verification of Multi-Agent Systems and Robotic Applications,'' Robotics, vol. 12, no. 2, art. 49, 2023. DOI: 10.3390/robotics12020049.
 
 \bibitem{ref-25}
 
-A. Ferrando và V. Malvone, ``Towards the Combination of Model Checking and Runtime Verification on Multi-agent Systems,'' in Advances in Practical Applications of Agents, Multi-Agent Systems, and Complex Systems Simulation, LNCS 13616, pp.~140--152, Springer, 2022. DOI: 10.1007/978-3-031-18192-4\_12.
+A. Ferrando và V. Malvone, ``Towards the Combination of Model Checking and Runtime Verification on Multi-agent Systems,'' in Advances in Practical Applications of Agents, Multi-Agent Systems, and Complex Systems Simulation, LNCS 13616, pp. 140--152, Springer, 2022. DOI: 10.1007/978-3-031-18192-4\_12.
 
 \bibitem{ref-26}
 
-M. Fisher et al., ``Towards a framework for certification of reliable autonomous systems,'' Autonomous Agents and Multi-Agent Systems, vol.~35, art. 8, 2021. DOI: 10.1007/s10458-020-09487-2.
+M. Fisher et al., ``Towards a framework for certification of reliable autonomous systems,'' Autonomous Agents and Multi-Agent Systems, vol. 35, art. 8, 2021. DOI: 10.1007/s10458-020-09487-2.
 
 \bibitem{ref-27}
 
@@ -1211,7 +1461,7 @@ A. H. Bond và L. Gasser (biên tập), Readings in Distributed Artificial Intel
 
 \bibitem{ref-33}
 
-R. G. Smith, ``The Contract Net Protocol: High-Level Communication and Control in a Distributed Problem Solver,'' IEEE Transactions on Computers, vol.~C-29, no. 12, pp.~1104--1113, 1980. DOI: 10.1109/TC.1980.1675516.
+R. G. Smith, ``The Contract Net Protocol: High-Level Communication and Control in a Distributed Problem Solver,'' IEEE Transactions on Computers, vol. C-29, no. 12, pp. 1104--1113, 1980. DOI: 10.1109/TC.1980.1675516.
 
 \bibitem{ref-34}
 
@@ -1227,7 +1477,7 @@ O. Boissier, R. H. Bordini, J. F. Hübner và A. Ricci, Multi-Agent Oriented Pro
 
 \bibitem{ref-37}
 
-R. H. Bordini và J. F. Hübner, Jason: A Java-based interpreter for an extended version of AgentSpeak, release 0.9.5, Feb.~2007. \href{https://github.com/jason-lang/jason-lang.github.io/blob/6f9bbfd69bc5a6b737eddf8050c88e0289b07dba/doc/Jason.pdf}{\ul{Nguồn.}}
+R. H. Bordini và J. F. Hübner, Jason: A Java-based interpreter for an extended version of AgentSpeak, release 0.9.5, Feb. 2007. \href{https://github.com/jason-lang/jason-lang.github.io/blob/6f9bbfd69bc5a6b737eddf8050c88e0289b07dba/doc/Jason.pdf}{\ul{Nguồn.}}
 
 \bibitem{ref-38}
 
@@ -1247,7 +1497,7 @@ J. Pimentel và J. Castro, ``piStar Tool -- A Pluggable Online Tool for Goal Mod
 
 \bibitem{ref-42}
 
-I. Ayala, M. Amor, J. M. Horcas và L. Fuentes, ``A goal-driven software product line approach for evolving multi-agent systems in the Internet of Things,'' Knowledge-Based Systems, vol.~184, bài 104883, 2019. DOI 10.1016/j.knosys.2019.104883. Siêu mô hình iStar 2.0 đi kèm nghiên cứu. \href{https://github.com/jmhorcas/istar2fm/blob/48168790574308a08649df62c54f2fef872a30dd/metamodels/iStarMetamodel.ecore}{\ul{Nguồn.}}
+I. Ayala, M. Amor, J. M. Horcas và L. Fuentes, ``A goal-driven software product line approach for evolving multi-agent systems in the Internet of Things,'' Knowledge-Based Systems, vol. 184, bài 104883, 2019. DOI 10.1016/j.knosys.2019.104883. Siêu mô hình iStar 2.0 đi kèm nghiên cứu. \href{https://github.com/jmhorcas/istar2fm/blob/48168790574308a08649df62c54f2fef872a30dd/metamodels/iStarMetamodel.ecore}{\ul{Nguồn.}}
 
 \end{thebibliography}
 \end{document}

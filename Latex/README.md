@@ -1,6 +1,8 @@
 # Bản LaTeX của khóa luận
 
-Bản này được chuyển từ [thesis - fixx.docx](../thesis%20-%20fixx.docx) ở commit `61ff2b7`. Tệp chính là `thesis-fixx.tex`, còn `figures/` chứa ảnh dùng trong tài liệu. Mục lục, danh mục hình và danh mục bảng được cập nhật khi biên dịch.
+Bản này dùng [thesis - fixx.docx](../thesis%20-%20fixx.docx) ở commit `0ce43a9`. Tệp chính là `thesis-fixx.tex`, thư mục `figures/` chứa ảnh dùng trong tài liệu và `thesis-fixx.pdf` là bản đã xuất. Mục lục, danh mục hình và danh mục bảng được cập nhật khi biên dịch.
+
+Hình 3.8 dùng ảnh kiểm tra bất biến và ảnh quyết định từ phiên TN03 `d6df3077`, đối chiếu với ảnh chụp trạng thái tại checkpoint 3. [Bằng chứng TN03](../Bang-chung-hinh-USE-20261125-100422/counterbase/).
 
 Từ thư mục `Latex`, chạy lệnh sau với TeX Live hoặc MiKTeX có XeLaTeX và latexmk.
 
@@ -8,4 +10,4 @@ Từ thư mục `Latex`, chạy lệnh sau với TeX Live hoặc MiKTeX có XeLa
 latexmk -xelatex -outdir=build thesis-fixx.tex
 ```
 
-PDF được tạo ở `build/thesis-fixx.pdf`. Trên Overleaf, tải lên tệp `thesis-fixx.tex` cùng thư mục `figures/`, đặt tệp chính là `thesis-fixx.tex` và chọn XeLaTeX.
+PDF được tạo ở `build/thesis-fixx.pdf`. Trên Overleaf, tải lên `thesis-fixx.tex` cùng thư mục `figures/`, đặt `thesis-fixx.tex` làm tệp chính và chọn XeLaTeX.
