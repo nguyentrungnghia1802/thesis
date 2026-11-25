@@ -72,7 +72,7 @@
   \begingroup
   \let\thesis@numberline\numberline
   \def\numberline##1{\thesis@numberline{Thuật toán ##1}}%
-  \@dottedtocline{1}{0em}{7.4em}{\bfseries #1}{#2}%
+  \@dottedtocline{1}{1.5em}{7.4em}{#1}{#2}%
   \endgroup}
 \makeatother
 \DeclareRobustCommand{\thesisfigure}[1]{Hình~\ref{#1}}
@@ -925,7 +925,7 @@ target="Auction.best_bid"/>
 
 \subsection{Đồng bộ JaCaMo với CSL}\label{sec:2-6-2}
 
-Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Jason ghi nhận. Thuật toán~\ref{alg:checkpoint-selection} xác định sự kiện nào tạo yêu cầu checkpoint và khi nào các sự kiện dùng chung một mốc. Mã Java tương ứng được trích ở Phụ lục~\hyperref[app:checkpoint-source]{A.1}.
+Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Jason ghi nhận. Thuật toán~\ref{alg:checkpoint-selection} xác định sự kiện nào tạo yêu cầu checkpoint và khi nào các sự kiện dùng chung một mốc. Trong giả mã, \textit{submitForDelivery} đưa yêu cầu vào hàng đợi và chỉ giao thông điệp sau khi JaCaMo được phép tiếp tục. Mã Java tương ứng được trích ở Phụ lục~\hyperref[app:checkpoint-source]{A.1}.
 
 \noindent\begin{minipage}{\linewidth}
 \setstretch{.88}
@@ -934,41 +934,59 @@ Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Ja
 \hrule
 \captionsetup{type=thesisalgorithm}
 \caption{Chọn ranh giới checkpoint và gom nhóm kế hoạch}\label{alg:checkpoint-selection}
-\textit{\underline{selectCheckpoint}}(\textit{event, intention})\par
-\textbf{Đầu vào}\quad Sự kiện Jason và ý định hiện hành.\par
-\textbf{Đầu ra}\quad Yêu cầu checkpoint khi đến ranh giới quan sát.\par
+\textit{\underline{selectCheckpoint}}(\textit{event})\par
+\textbf{Đầu vào}\quad Sự kiện \textit{event} và trạng thái theo dõi các nhóm kế hoạch.\par
+\textbf{Đầu ra}\quad Nhóm kế hoạch cập nhật và yêu cầu checkpoint, nếu có.\par
 \textbf{begin}
 \begin{thesissteps}
-\textbf{case} \textit{khởi tạo}\par
+\textbf{switch} \textit{event.kind}\par
 \begin{thesissteps}
-Kiểm chứng tại \texttt{INITIAL} trước khi tác tử thực thi.
-\end{thesissteps}
-\textbf{case} \textit{vào kế hoạch}\par
+\textbf{case} \texttt{STARTUP}\par
 \begin{thesissteps}
-\textit{group} \(\gets\) tìm nhóm đang thực thi của ý định.\par
-\textbf{if} chưa có nhóm \textbf{then} \textit{group} \(\gets\) mở nhóm với kế hoạch hiện tại làm gốc.\par
-\textbf{else} tăng số kế hoạch con đã gộp.\par
-Gắn khung kế hoạch hiện tại với \textit{group}.
+\textit{verifyInitial}(\texttt{INITIAL})
 \end{thesissteps}
-\textbf{case} \textit{kết thúc kế hoạch}\par
+\textbf{case} \texttt{PLAN\_ENTRY}\par
 \begin{thesissteps}
-Tách khung đã kết thúc khỏi nhóm theo dõi.\par
-\textbf{if} khung là gốc nhóm \textbf{then}
+\textit{g} \(\gets\) \textit{group}(\textit{event.intention})\par
+\textbf{if} \(g = \varnothing\) \textbf{then} \textit{g} \(\gets\) \textit{openGroup}(\textit{event.frame})\par
+\textbf{else} \textit{g.merged} \(\gets\) \textit{g.merged} \(+\,1\)\par
+\textbf{end if}\par
+\textit{active}[\textit{event.frame}] \(\gets\) \textit{g}
+\end{thesissteps}
+\textbf{case} \texttt{PLAN\_EXIT}\par
 \begin{thesissteps}
-Đóng nhóm và yêu cầu \texttt{PLAN\_COMPLETED}.\par
-Nếu nhóm thành công, giao các thông điệp đã gộp sau khi được phép tiếp tục.
-\end{thesissteps}
-\end{thesissteps}
-\textbf{case} \textit{gửi thông điệp}\par
+\((g,\mathit{isRoot}) \gets \mathit{detachFrame}(\mathit{event.frame})\)\par
+\textbf{if} \textit{isRoot} \textbf{then}
 \begin{thesissteps}
-\textbf{if} gửi cho chính tác tử \textbf{then} giao trực tiếp.\par
-\textbf{else if} có nhóm, thông điệp không phải truy vấn và toàn bộ ý định chỉ còn bước thoát \textbf{then} hoãn giao và gộp vào mốc cuối nhóm.\par
-\textbf{else} yêu cầu \texttt{AGENT\_HANDOFF} trước khi giao.
+\textit{closeGroup}(\textit{g})\par
+\textit{c} \(\gets\) \textit{checkpoint}(\texttt{PLAN\_COMPLETED}, \textit{g}, \textit{event.outcome})\par
+\textbf{if} \textit{g.deliveries} \(\ne \varnothing\) \(\land\) \textit{event.outcome} \(=\) \texttt{SUCCEEDED}\par
+\quad \textbf{then} \textit{submitForDelivery}(\textit{c}, \textit{g.deliveries})\par
+\textbf{else} \textit{submit}(\textit{c})\par
+\textbf{end if}
 \end{thesissteps}
-\textbf{case} \textit{goal thực thi thất bại ngoài nhóm}\par
+\textbf{end if}
+\end{thesissteps}
+\textbf{case} \texttt{SEND}\par
 \begin{thesissteps}
-Yêu cầu \texttt{GOAL\_FAILED} khi ghi nhận được sự kiện nguồn.
+\textit{m} \(\gets\) \textit{event.message}\par
+\textit{g} \(\gets\) \textit{group}(\textit{event.intention})\par
+\textbf{if} \textit{m.receiver} \(=\) \textit{event.agent} \textbf{then} \textit{deliver}(\textit{m})\par
+\textbf{else if} \(g \ne \varnothing \land \neg\mathit{isAsk}(m)\)\par
+\quad \(\land\;\mathit{onlyReturnsRemain}(\mathit{event.intention})\) \textbf{then} \textit{defer}(\textit{g}, \textit{m})\par
+\textbf{else} \textit{submitForDelivery}(\textit{checkpoint}(\texttt{AGENT\_HANDOFF}, \textit{g}, \textit{m}), \textit{m})\par
+\textbf{end if}
 \end{thesissteps}
+\textbf{case} \texttt{GOAL\_FAILURE}\par
+\begin{thesissteps}
+\textit{f} \(\gets\) \textit{findActiveFrame}(\textit{event.trigger})\par
+\textbf{if} \(f \ne \varnothing\) \textbf{then} \textit{finish}(\textit{f}, \texttt{FAILED})\par
+\textbf{else if} \textit{sourceEventKnown}(\textit{event}) \(\land\) \textit{group}(\textit{event.intention}) \(=\varnothing\)\par
+\quad \textbf{then} \textit{submit}(\textit{checkpoint}(\texttt{GOAL\_FAILED}, \textit{event}))\par
+\textbf{end if}
+\end{thesissteps}
+\end{thesissteps}
+\textbf{end switch}
 \end{thesissteps}
 \textbf{end}\par
 \smallskip\hrule
@@ -989,7 +1007,7 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu khỏi bước cập nhật trạng thái trong USE. Phụ lục~\hyperref[app:projection-source]{A.2} trích hai phương thức thực thi các bước này.
+Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu khỏi bước cập nhật trạng thái trong USE. Phụ lục~\hyperref[app:projection-source]{A.2} trích các phương thức thực thi. Trong giả mã, \(R\) là tập bản ghi đối tượng và \(L\) là tập liên kết đã chuẩn bị. Lỗi khi ánh xạ, dựng liên kết hoặc kiểm tra chu trình kết thúc phép chuẩn bị trước khi sửa trạng thái.
 
 \noindent\begin{minipage}{\linewidth}
 \setstretch{.88}
@@ -999,29 +1017,42 @@ Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu
 \captionsetup{type=thesisalgorithm}
 \caption{Chiếu ảnh chụp nguồn sang trạng thái CSL}\label{alg:state-projection}
 \textit{\underline{projectSnapshot}}(\textit{snapshot, mapping, state})\par
-\textbf{Đầu vào}\quad Ảnh chụp đã xác nhận đầy đủ, ánh xạ XML và trạng thái USE.\par
-\textbf{Đầu ra}\quad Trạng thái CSL tại checkpoint hoặc lỗi chiếu.\par
+\textbf{Đầu vào}\quad Ảnh đã xác nhận đúng phiên, đúng thứ tự và đầy đủ, ánh xạ XML và trạng thái USE.\par
+\textbf{Đầu ra}\quad Cặp trạng thái trước và sau phép chiếu hoặc lỗi chiếu.\par
 \textbf{begin}
 \begin{thesissteps}
-\textit{sources} \(\gets\) lập chỉ mục dữ kiện từ \textit{snapshot}.\par
-\textbf{for each} nguồn trong \textit{sources} \textbf{do}
+\(S \gets \mathit{indexSources}(\mathit{snapshot})\)\par
+\(R \gets \varnothing,\quad L \gets \varnothing\)\par
+\textbf{for each} \(s \in S\) \textbf{do}
 \begin{thesissteps}
-Áp dụng \textit{mapping} để chuẩn bị khóa, kiểu và giá trị thuộc tính của các đối tượng CSL tương ứng.
+\(R \gets R \cup \mathit{mapObjects}(\mathit{snapshot},s,\mathit{mapping})\)
 \end{thesissteps}
-Chuẩn bị đối tượng vai trò và các liên kết phạm vi, quan sát, thành viên và đảm nhiệm vai trò.\par
-\textbf{if} dữ liệu bắt buộc không hợp lệ hoặc quan hệ ngữ cảnh có chu trình \textbf{then} báo lỗi chuẩn bị.\par
-Lưu trạng thái trước cập nhật để đánh giá qua hai mốc.\par
-\textbf{for each} đối tượng đã chuẩn bị \textbf{do}
+\textbf{end for}\par
+\textit{addFocusLinks}(\textit{snapshot}, \(S,R,L\))\par
+\textit{addScopeLinks}(\(S,R,L\))\par
+\textit{addMembershipLinks}(\textit{snapshot}, \(S,R,L\))\par
+\textit{addEnactments}(\textit{snapshot}, \(S,R,L\))\par
+\textit{validateContextCycles}(\textit{snapshot.nodes})\par
+\textit{before} \(\gets\) \textit{copy}(\textit{state})\par
+\textbf{for each} \(r \in R\) \textbf{do}
 \begin{thesissteps}
-Tìm hoặc tạo đối tượng USE theo khóa rồi gán thuộc tính.
+\textit{o} \(\gets\) \textit{findOrCreate}(\textit{state}, \textit{r.key}, \textit{r.type})\par
+\textit{setAttributes}(\textit{o}, \textit{r.values})
 \end{thesissteps}
-Xóa các liên kết cũ trong \textit{state}.\par
-\textbf{for each} đối tượng vắng mặt trong ảnh đầy đủ \textbf{do}
+\textbf{end for}\par
+\textit{deleteAllLinks}(\textit{state})\par
+\textbf{for each} \(k \in \mathit{objectKeys}(\mathit{state}) \mathbin{\text{\textbackslash}} \mathit{keys}(R)\) \textbf{do}
 \begin{thesissteps}
-Xóa đối tượng và đóng phiên đánh giá tương ứng nếu có.
+\textit{deleteObject}(\textit{state}, \(k\))\par
+\textbf{if} \textit{hasSession}(\(k\)) \textbf{then} \textit{closeSession}(\(k\)) \textbf{end if}
 \end{thesissteps}
-Dựng lại các liên kết đã chuẩn bị.\par
-\textbf{return} trạng thái đã cập nhật.
+\textbf{end for}\par
+\textbf{for each} \(\ell \in L\) \textbf{do}
+\begin{thesissteps}
+\textit{createLink}(\textit{state}, \(\ell.\mathit{association}, \ell.\mathit{left}, \ell.\mathit{right}\))
+\end{thesissteps}
+\textbf{end for}\par
+\textbf{return} \((\mathit{before},\mathit{state})\)
 \end{thesissteps}
 \textbf{end}\par
 \smallskip\hrule
