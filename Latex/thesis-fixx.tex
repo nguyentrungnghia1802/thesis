@@ -114,6 +114,21 @@
   \end{titlepage}%
 }
 
+\newlength{\thesissignaturewidth}
+\newcommand*{\thesissignature}{%
+  \par\begingroup
+  \settowidth{\thesissignaturewidth}{\emph{Hà Nội, ngày ..... tháng 12 năm 2026}}%
+  \begin{minipage}[t]{\thesissignaturewidth}
+    \centering
+    \setlength{\parskip}{6pt}%
+    \emph{Hà Nội, ngày ..... tháng 12 năm 2026}\par
+    \textbf{Sinh viên}\par
+    \vspace{2\baselineskip}
+    \textbf{NGUYỄN TRUNG NGHĨA}\par
+  \end{minipage}%
+  \par\endgroup
+}
+
 \begin{document}
 \thesiscover{1}
 \thesiscover{2}
@@ -137,12 +152,7 @@ Tất cả các tài liệu tham khảo đều được em trích dẫn và ghi 
 
 Bên cạnh đó, trong quá trình nghiên cứu, phát triển hệ thống và hoàn thiện khóa luận, em có sử dụng một số công cụ trí tuệ nhân tạo (AI) như ChatGPT, Gemini nhằm hỗ trợ tìm hiểu kiến thức, tham khảo ý tưởng, phân tích và phát triển mã nguồn, kiểm tra lỗi cũng như cải thiện cách diễn đạt. Tuy nhiên, các công cụ này chỉ đóng vai trò hỗ trợ; em trực tiếp xem xét, đánh giá và kiểm chứng các nội dung, giải pháp và kết quả được sử dụng trong khóa luận, đồng thời chịu trách nhiệm về tính chính xác, trung thực của toàn bộ công trình nghiên cứu.
 
-\emph{Hà Nội, ngày ..... tháng 12 năm 2026}
-
-\textbf{Sinh viên}
-\par\nopagebreak[4]\vspace{2\baselineskip}
-
-\textbf{NGUYỄN TRUNG NGHĨA}
+\thesissignature
 
 \chapter*{LỜI CẢM ƠN}
 
@@ -158,12 +168,7 @@ Cuối cùng, em xin gửi lời cảm ơn đến Trường Đại học Công n
 
 Em xin chân thành cảm ơn tất cả những người đã luôn đồng hành, giúp đỡ và động viên em trong suốt quá trình thực hiện khóa luận tốt nghiệp.
 
-\emph{Hà Nội, ngày ..... tháng 12 năm 2026}
-
-\textbf{Sinh viên}
-\par\nopagebreak[4]\vspace{2\baselineskip}
-
-\textbf{NGUYỄN TRUNG NGHĨA}
+\thesissignature
 
 \titlespacing{\chapter}{0pt}{-20pt}{35pt}
 \begingroup
