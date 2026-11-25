@@ -741,11 +741,13 @@ Trong bài báo, Task có kết quả chưa xác định khi tiền điều ki�
 
 \begin{figure}
 \centering
-\includegraphics[width=6.09in,height=\textheight]{figures/fig-2-4.png}
-\caption{Mô hình mục tiêu AuctionGroup.}\label{fig:2-4}
+\includegraphics[width=\linewidth,height=.83\textheight]{figures/fig-2-4.png}
+\caption{Mô hình iStar đầy đủ của Auction.}\label{fig:2-4}
 \end{figure}
 
-Trong mô hình AuctionGroup ở Hình~\ref{fig:2-4}, mục tiêu AuctionCompleted có ba nhánh AND dành cho mở phiên, trả giá và quyết định kết quả. Goal SafeBid có kiểu Maintain và dùng điều kiện giá tốt nhất không âm. Bộ kiểm chứng theo dõi các điều kiện này riêng cho mỗi đối tượng Auction, như hai phiên được đối chiếu trong Mục 3.5.1. Trên biểu đồ của thẻ iStar Model, USE biểu diễn Goal bằng hình elip, Task bằng hình lục giác và ghi kiểu thời gian dưới tên Goal. Khi bật Show OCL contracts, các nhãn condition, pre và post phân biệt điều kiện của Goal với tiền và hậu điều kiện của Task. Đường tinh chỉnh ghi nhãn AND hoặc OR. Quan hệ phụ thuộc nối các chủ thể qua phần tử được phụ thuộc bằng nét đứt. Trong thẻ iStarSCN, người đọc chọn ngữ cảnh để xem trạng thái đánh giá trong phiên chạy. Kiểu thời gian thuộc đặc tả, còn trạng thái đánh giá được xác định qua quan sát.
+Hình~\ref{fig:2-4} trình bày đầy đủ bốn chủ thể trong thẻ iStar Model của USE. Ở AuctionGroup, mục tiêu AuctionCompleted được tinh chỉnh theo AND thành ba nhánh mở phiên, trả giá và quyết định kết quả. Các quan hệ phụ thuộc nét đứt nối những nhánh này với mục tiêu tương ứng của hai vai trò Auctioneer và Participant. Ở phía dưới, chủ thể \texttt{auction\_capabilities} tham gia cả hai vai trò và phân rã công việc thành các nhiệm vụ cụ thể, từ tạo artifact đến quan sát mức giá và đóng phiên.
+
+Goal được vẽ bằng hình elip và ghi kiểu thời gian dưới tên. Chẳng hạn, SafeBid có kiểu Maintain và dùng điều kiện giá tốt nhất không âm. Task được vẽ bằng hình lục giác. Tùy chọn Show OCL contracts hiển thị thêm điều kiện, tiền điều kiện và hậu điều kiện trên mô hình. Khi chuyển sang thẻ iStarSCN, người dùng chọn từng đối tượng Auction để xem kết quả đánh giá riêng của đối tượng đó, như hai phiên ở Mục~\ref{sec:3-5-1}.
 
 \section{Ánh xạ trạng thái JaCaMo sang CSL}\label{sec:2-6}
 
@@ -816,30 +818,76 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán 2.1 tổng hợp trình tự kiểm tra ảnh, chuẩn bị đối tượng và liên kết, rồi cập nhật trạng thái USE. Bước chuẩn bị kiểm tra dữ liệu trước khi sửa trạng thái. Khi phép chiếu chuẩn bị thành công, USE lưu trạng thái trước cập nhật, tìm hoặc tạo đối tượng theo khóa, gán các giá trị mới và dựng các liên kết đã xác định.
+Thuật toán 2.1 trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/use-plugin/src/main/java/org/tzi/use/plugins/jacamo/bridge/mapping/SnapshotProjection.java\#L31-L49}{\ul{Mã chuẩn bị phép chiếu.}} \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/use-plugin/src/main/java/org/tzi/use/plugins/jacamo/session/SnapshotVerifier.java\#L113-L155}{\ul{Mã tiếp nhận và áp dụng ảnh.}}
 
-\begin{samepage}
+\noindent\begin{minipage}{\linewidth}
+\thesisdisplaytitle{Thuật toán 2.1}{Mã Java chiếu ảnh chụp sang trạng thái CSL}
 
-\thesisdisplaytitle{Thuật toán 2.1}{Chiếu ảnh chụp sang trạng thái CSL}
+\noindent\textit{(a) Chuẩn bị đối tượng và liên kết}
+\begin{Verbatim}[fontsize=\footnotesize]
+public Prepared prepare(SourceSnapshot snapshot) {
+    var sources = indexSources(snapshot);
+    var rows = new LinkedHashMap<String, ObjectRow>();
+    var bySource = new HashMap<String, List<ObjectRow>>();
+    for (var source : sources.values()) {
+        for (var row : mapObjects(snapshot, source)) {
+            rows.put(row.identity(), row);
+            bySource.computeIfAbsent(source.id(), key -> new ArrayList<>())
+                    .add(row);
+        }
+    }
 
-\begin{Verbatim}[fontfamily=\rmdefault]
-Đầu vào: snapshot s, mô hình CSL đã biên dịch, ánh xạ M,
-trạng thái USE và lịch sử đánh giá của phiên
-Đầu ra: trạng thái CSL mới và ảnh trạng thái trước,
-hoặc chẩn đoán chưa đủ căn cứ kiểm chứng
-1. Kiểm tra lần chạy, thứ tự và độ đầy đủ của s.
-2. Lập chỉ mục dữ kiện nguồn theo định danh.
-3. Với mỗi nguồn phù hợp M, giải kiểu đích và giải mã giá trị.
-4. Tạo hàng đối tượng theo khóa K và xác định các liên kết.
-5. Nếu không giải được giá trị hoặc đầu liên kết, trả chẩn đoán.
-6. Lưu trạng thái USE trước. Tạo hoặc cập nhật các đối tượng.
-7. Xóa liên kết cũ và các đối tượng vắng mặt trong snapshot đủ.
-8. Dựng lại liên kết đã chuẩn bị. Trả cặp trạng thái trước và sau.
+    var links = new LinkedHashSet<Link>();
+    addFocusLinks(snapshot, sources, bySource, links);
+    addScopeLinks(sources, bySource, links);
+    addMembershipLinks(snapshot, sources, bySource, links);
+    addEnactments(snapshot, sources, bySource, rows, links);
+    validateContextCycles(snapshot.nodes());
+    return new Prepared(List.copyOf(rows.values()), List.copyOf(links));
+}
 \end{Verbatim}
+\end{minipage}
 
-\end{samepage}
+Trong phần (a), \texttt{indexSources} lập chỉ mục các dữ kiện theo định danh nguồn. \texttt{mapObjects} áp dụng các khai báo XML để xác định kiểu CSL và giá trị thuộc tính của từng đối tượng. Bộ chiếu dùng kết quả đó để giải các đầu liên kết chứa, quan sát, thành viên và đảm nhiệm vai trò. Phương thức trả về đối tượng cùng liên kết đã chuẩn bị sau khi kiểm tra chu trình ngữ cảnh. Nếu phần chuẩn bị báo lỗi, trạng thái USE vẫn ở trước lần cập nhật.
 
-Một đối tượng chỉ bị xóa vì vắng mặt trong ảnh đã được xác nhận đầy đủ. Khi đối tượng bị xóa, lịch sử đánh giá gắn với đối tượng đó cũng kết thúc. Cách xử lý này tránh coi một lần mất dữ liệu là sự kiện đối tượng rời hệ thống. Nếu phát sinh lỗi khi áp dụng trực tiếp vào USE, bộ kiểm chứng giữ dừng để chẩn đoán, vì trạng thái có thể đã được cập nhật một phần. Khi cập nhật thành công, cặp trạng thái trước và sau được đưa tới bước đánh giá ở Mục 2.7.
+\noindent\begin{minipage}{\linewidth}
+\thesisdisplaytitle{Thuật toán 2.1 (tiếp)}{Áp dụng phép chiếu}
+\noindent\textit{(b) Cập nhật trạng thái trong USE}
+\begin{Verbatim}[fontsize=\footnotesize]
+private void applySnapshot(SnapshotProjection.Prepared prepared)
+        throws Exception {
+    var retained = new HashSet<String>();
+    for (var row : prepared.objects()) {
+        retained.add(row.identity());
+        var object = objects.get(row.identity());
+        if (object == null) {
+            object = api.createObject(row.type(),
+                    "state_" + hash(row.identity()).substring(0, 24));
+            objects.put(row.identity(), object);
+        }
+        for (var value : row.values().entrySet())
+            api.setAttributeValueEx(object,
+                    object.cls().attribute(value.getKey(), true), value.getValue());
+    }
+    // Links are reconstructed from each complete physical snapshot;
+    // leaving a role removes Plays/InContext.
+    for (var link : new ArrayList<>(system.state().allLinks()))
+        api.deleteLinkEx(link);
+    for (String id : new ArrayList<>(objects.keySet()))if (!retained.contains(id)) {
+        api.deleteObjectEx(objects.remove(id));
+        var retired = sessions.remove(id);
+        if (retired != null) retired.close();
+    }
+    for (var link : prepared.links())
+        api.createLink(link.association(), objects.get(link.left()).name(),
+                objects.get(link.right()).name());
+}
+\end{Verbatim}
+\end{minipage}
+
+Trong phần (b), công cụ tìm lại đối tượng theo khóa định danh đã giải ở phần (a). Nếu khóa chưa có đối tượng trong trạng thái đang lưu, USE tạo đối tượng rồi gán giá trị thuộc tính của ảnh. USE thay các liên kết cũ bằng các liên kết trong ảnh đầy đủ và đóng lịch sử đánh giá của những đối tượng đã rời trạng thái. Giá trị của trạng thái trước cập nhật được lưu ở phương thức gọi để đánh giá các điều kiện cần đối chiếu hai mốc ở Mục~\ref{sec:2-7-1}.
+
+Việc xóa dựa trên ảnh đã được xác nhận đầy đủ, qua đó tránh coi mất dữ liệu là sự kiện đối tượng rời hệ thống. Nếu lỗi phát sinh trong lúc áp dụng trực tiếp vào USE, bộ kiểm chứng giữ dừng để chẩn đoán vì một phần trạng thái có thể đã thay đổi.
 
 \begin{figure}
 \centering
@@ -847,15 +895,21 @@ Một đối tượng chỉ bị xóa vì vắng mặt trong ảnh đã được
 \caption{Giá tốt nhất của hai artifact Auction (phiên 804fdea5, checkpoint 47).}\label{fig:2-5}
 \end{figure}
 
-Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại checkpoint 47. Các dòng a1 và a2 có hai giá trị khác nhau. Để xem giá trị nào đi vào từng đối tượng CSL, có thể đối chiếu với sơ đồ trạng thái của chính checkpoint đó ở Hình 2.6.
+Hình~\ref{fig:2-5} ghi giá tốt nhất mà hai artifact công bố tại checkpoint 47. Các dòng a1 và a2 có hai giá trị khác nhau. Để xem giá trị nào đi vào từng đối tượng CSL, có thể đối chiếu với phần (a) của Hình~\ref{fig:2-6}, được dựng từ trạng thái đã lưu ở chính checkpoint đó.
 
 \begin{figure}
 \centering
-\includegraphics[width=6.18in,height=\textheight]{figures/fig-2-6.png}
-\caption{Sơ đồ đầy đủ của trạng thái Auction trong OAL State (phiên 804fdea5, checkpoint 47).}\label{fig:2-6}
+\small
+(a) Phạm vi của tổ chức, nhóm và hai đối tượng đấu giá\par\smallskip
+\includegraphics[width=.94\linewidth]{figures/fig-2-6-a.png}\par\medskip
+(b) Thành viên và việc đảm nhiệm vai trò\par\smallskip
+\includegraphics[width=.94\linewidth]{figures/fig-2-6-b.png}\par\medskip
+(c) Tác tử quan sát hai artifact\par\smallskip
+\includegraphics[width=.94\linewidth]{figures/fig-2-6-c.png}
+\caption{Trạng thái Auction trong OAL State theo nhóm liên kết (phiên 804fdea5, checkpoint 47).}\label{fig:2-6}
 \end{figure}
 
-Trong Hình~\ref{fig:2-6}, mỗi giá trị xuất hiện ở đối tượng Auction của đúng phiên. Sơ đồ OAL cũng biểu diễn những đối tượng tổ chức và vai trò trong cùng trạng thái, tạo cơ sở để đánh giá điều kiện tham chiếu cả dữ liệu đấu giá và cơ cấu tổ chức.
+Hình~\ref{fig:2-6} tách các liên kết của cùng một trạng thái thành ba khung để thấy rõ đầu nối. Khung (a) cho thấy a1 và a2 là hai đối tượng riêng trong nhóm agrp và giá tốt nhất của mỗi đối tượng khớp với dữ liệu nguồn ở Hình~\ref{fig:2-5}. Khung (b) đặt mỗi thể hiện vai trò cạnh tác tử đảm nhiệm vai trò đó. Khung (c) đặt các tác tử giữa hai đối tượng đấu giá để lần theo các liên kết quan sát. Tên vai trò được rút gọn trong khung (b), còn các thuộc tính của hai đối tượng đấu giá được trình bày tập trung trong khung (a).
 
 Phép chiếu cũng giữ việc đảm nhiệm vai trò trong nhóm. Hai ảnh dưới đây lấy trong cùng phiên Auction 26400acd, khi JaCaMo đang giữ dừng tại checkpoint 22.
 
