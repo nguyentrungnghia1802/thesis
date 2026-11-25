@@ -1,15 +1,20 @@
 % Biên dịch bằng XeLaTeX.
 \documentclass[12pt,a4paper,oneside]{extreport}
-\usepackage[left=3.1cm,right=2.1cm,top=2.4cm,bottom=2.3cm]{geometry}
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.8cm,footskip=24pt]{geometry}
+\usepackage{fontsize}
+\changefontsize[18.72pt]{13pt}
+\usepackage{indentfirst}
 \usepackage{fontspec}
 \usepackage{amsmath}
 \usepackage{unicode-math}
-\IfFontExistsTF{Times New Roman}
-  {\setmainfont{Times New Roman}}
-  {\IfFontExistsTF{Liberation Serif}{\setmainfont{Liberation Serif}}{\setmainfont{TeX Gyre Termes}}}
-\IfFontExistsTF{Liberation Mono}
-  {\setmonofont{Liberation Mono}[Scale=MatchLowercase]}
-  {\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]}
+\IfFontExistsTF{texgyretermes-regular.otf}
+  {\setmainfont{texgyretermes}[
+    Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+    ItalicFont=*-italic,BoldItalicFont=*-bolditalic]}
+  {\IfFontExistsTF{Times New Roman}
+    {\setmainfont{Times New Roman}}
+    {\setmainfont{Liberation Serif}}}
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
 \setmathfont{Latin Modern Math}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -31,28 +36,31 @@
 
 \renewcommand{\chaptername}{CHƯƠNG}
 \renewcommand{\contentsname}{MỤC LỤC}
-\renewcommand{\listfigurename}{DANH MỤC HÌNH}
-\renewcommand{\listtablename}{DANH MỤC BẢNG}
+\renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
+\renewcommand{\listtablename}{DANH MỤC BẢNG BIỂU}
 \renewcommand{\figurename}{Hình}
 \renewcommand{\tablename}{Bảng}
 \renewcommand{\bibname}{TÀI LIỆU THAM KHẢO}
-\titleformat{\chapter}[block]{\normalfont\centering\Large\bfseries}
+\titleformat{\chapter}[block]{\normalfont\centering\fontsize{16}{20}\selectfont\bfseries}
   {\chaptername\ \thechapter.}{0.55em}{}
-\titlespacing*{\chapter}{0pt}{0pt}{18pt}
-\titlespacing*{\section}{0pt}{2ex plus .4ex}{.8ex}
-\titlespacing*{\subsection}{0pt}{1.6ex plus .3ex}{.7ex}
+\titleformat{\section}[hang]{\normalfont\fontsize{14}{18.72}\selectfont\bfseries}
+  {\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+\titlespacing{\chapter}{0pt}{-20pt}{35pt}
+\titlespacing{\section}{0pt}{2.1ex plus .4ex}{.8ex}
+\titlespacing{\subsection}{0pt}{1.6ex plus .3ex}{.7ex}
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
-\setlength{\parindent}{0.75cm}
-\setlength{\parskip}{2pt plus 1pt}
-\setstretch{1.25}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{6pt plus 1pt}
 \raggedbottom
 \clubpenalty=10000
 \widowpenalty=10000
 \emergencystretch=2em
 
 \floatplacement{figure}{H}
-\captionsetup{font=small,labelfont=bf,labelsep=space,justification=centering}
+\captionsetup{font=normalsize,labelfont={bf,small},labelsep=space,justification=centering}
 \captionsetup[table]{position=top}
 \DeclareRobustCommand{\thesisfigure}[1]{Hình~\ref{#1}}
 \DeclareRobustCommand{\thesistable}[1]{Bảng~\ref{#1}}
@@ -63,97 +71,58 @@
 \fvset{breaklines=true,breakanywhere=true,fontsize=\small}
 \setkeys{Gin}{keepaspectratio}
 
+\newcommand*{\thesiscover}[1]{%
+  \begin{titlepage}
+  \thispagestyle{empty}
+  \null
+  \begin{tikzpicture}[remember picture,overlay,
+    cover text/.style={anchor=north,inner sep=0pt,align=center,font=\bfseries},
+    institution/.style={cover text,font={\fontsize{12}{18.7}\selectfont\bfseries}},
+    cover line/.style={cover text,font={\fontsize{14}{18.7}\selectfont\bfseries}}]
+    \draw[line width=3pt] ([xshift=3cm,yshift=-2cm]current page.north west)
+      rectangle ([xshift=-2cm,yshift=2.5cm]current page.south east);
+    \draw[line width=.5pt] ([xshift=3.1cm,yshift=-2.1cm]current page.north west)
+      rectangle ([xshift=-2.1cm,yshift=2.6cm]current page.south east);
+    \node[institution] at ([xshift=11cm,yshift=-3.11cm]current page.north west)
+      {ĐẠI HỌC QUỐC GIA HÀ NỘI\\TRƯỜNG ĐẠI HỌC CÔNG NGHỆ};
+
+    \ifnum#1=1
+      \node[anchor=north,inner sep=0pt] at ([xshift=11cm,yshift=-6.9cm]current page.north west)
+        {\includegraphics[width=3.8cm]{figures/logo.png}};
+      \node[cover line] at ([xshift=11cm,yshift=-12.05cm]current page.north west) {Nguyễn Trung Nghĩa};
+      \def\covertitley{14.14cm}
+      \def\coverdegreey{18.06cm}
+      \def\coverdatey{19.63cm}
+    \else
+      \node[cover line] at ([xshift=11cm,yshift=-6.12cm]current page.north west) {Nguyễn Trung Nghĩa};
+      \def\covertitley{8.2cm}
+      \def\coverdegreey{13.13cm}
+      \def\coverdatey{26.05cm}
+    \fi
+
+    \node[cover text,font={\fontsize{18}{24.8}\selectfont\bfseries},text width=15.55cm]
+      at ([xshift=11cm,yshift=-\covertitley]current page.north west)
+      {NGHIÊN CỨU MỞ RỘNG CÔNG CỤ USE HỖ TRỢ\\ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ};
+    \node[cover line] at ([xshift=11cm,yshift=-\coverdegreey]current page.north west)
+      {KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY\\Ngành: Công nghệ thông tin};
+    \ifnum#1=2
+      \node[cover line,anchor=north west] at ([xshift=3.43cm,yshift=-17.27cm]current page.north west)
+        {Cán bộ hướng dẫn: PGS. TS. Đặng Đức Hạnh};
+    \fi
+    \node[institution] at ([xshift=11cm,yshift=-\coverdatey]current page.north west) {HÀ NỘI - 2026};
+  \end{tikzpicture}
+  \end{titlepage}%
+}
+
 \begin{document}
-\begin{titlepage}
-\centering
-
-\vspace*{0.20cm}
-{\large\bfseries
-
-ĐẠI HỌC QUỐC GIA HÀ NỘI
-
-TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
-
-\par}
-
-\vspace{1cm}
-
-\includegraphics[width=1.2008in,height=\textheight]{figures/logo.png}
-
-\vspace{0.65cm}
-
-Nguyễn Trung Nghĩa
-
-\vspace{0.85cm}
-{\Large\bfseries
-
-NGHIÊN CỨU MỞ RỘNG CÔNG CỤ USE HỖ TRỢ ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ
-
-\par}
-
-\vspace{0.95cm}
-{\large\bfseries
-
-KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
-
-\par}
-
-\vspace{0.30cm}
-
-Ngành: Công nghệ thông tin
-
-\vfill
-
-HÀ NỘI - 2026
-
-\end{titlepage}
-
-\begin{titlepage}
-\centering
-
-\vspace*{0.20cm}
-{\large\bfseries
-
-ĐẠI HỌC QUỐC GIA HÀ NỘI
-
-TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
-
-\par}
-
-\vspace{2.0cm}
-
-Nguyễn Trung Nghĩa
-
-\vspace{0.85cm}
-{\Large\bfseries
-
-NGHIÊN CỨU MỞ RỘNG CÔNG CỤ USE HỖ TRỢ ĐẶC TẢ VÀ KIỂM CHỨNG HỆ THỐNG ĐA TÁC TỬ
-
-\par}
-
-\vspace{0.95cm}
-{\large\bfseries
-
-KHÓA LUẬN TỐT NGHIỆP HỆ CHÍNH QUY
-
-\par}
-
-\vspace{0.30cm}
-
-Ngành: Công nghệ thông tin
-
-Cán bộ hướng dẫn: PGS. TS. Đặng Đức Hạnh
-
-\vfill
-
-HÀ NỘI - 2026
-
-\end{titlepage}
+\thesiscover{1}
+\thesiscover{2}
 
 \clearpage
 \pagenumbering{roman}
 \hypersetup{pageanchor=true}
 
+\titlespacing{\chapter}{0pt}{-20pt}{2pt}
 \chapter*{TÓM TẮT}
 
 Trong các hệ thống đa tác tử, nhiều tác tử hoạt động tự chủ và phối hợp để thực hiện các mục tiêu chung. Tuy nhiên, sự tương tác giữa các tác tử khiến việc xác định tính đúng đắn của hệ thống và mức độ đạt được các mục tiêu trở nên phức tạp. Các phương pháp đặc tả và kiểm chứng dựa trên mô hình, kết hợp với ngôn ngữ ràng buộc OCL, cung cấp cơ sở để đánh giá tính hợp lệ của trạng thái hệ thống. Bên cạnh đó, mô hình iStar hỗ trợ biểu diễn và phân tích các mục tiêu, nhiệm vụ cùng mối quan hệ giữa chúng. Tuy nhiên, thách thức đặt ra là làm thế nào để kết nối các mô hình đặc tả với trạng thái thực tế của hệ thống đa tác tử trong quá trình thực thi. Nghiên cứu này mở rộng công cụ USE để hỗ trợ đặc tả và kiểm chứng hệ thống đa tác tử xây dựng trên JaCaMo. Phương pháp sử dụng CSL để mô tả cấu trúc và ràng buộc, kết hợp iStar để đánh giá tiến độ thực hiện mục tiêu và nhiệm vụ. Thông qua cơ chế thu thập, ánh xạ và kiểm chứng trạng thái tại các điểm kiểm tra trong quá trình thực thi, nghiên cứu hướng tới hỗ trợ phát hiện vi phạm và theo dõi mức độ đạt mục tiêu, góp phần nâng cao khả năng kiểm soát và đánh giá hệ thống đa tác tử.
@@ -194,9 +163,8 @@ Em xin chân thành cảm ơn tất cả những người đã luôn đồng hà
 
 \textbf{NGUYỄN TRUNG NGHĨA}
 
+\titlespacing{\chapter}{0pt}{-20pt}{35pt}
 \begingroup
-\small
-\setstretch{1.08}
 \setlength{\parskip}{0pt}
 \tableofcontents
 \endgroup
@@ -335,7 +303,7 @@ Chương trình có thể xử lý cây phân tích bằng listener hoặc visit
 
 Hệ thống đa tác tử (Multi-Agent System, MAS) gồm nhiều tác tử có khả năng hành động và tương tác. Tính tự chủ, khả năng tương tác xã hội, tính phản ứng và khả năng chủ động theo đuổi mục tiêu là những đặc trưng thường dùng để mô tả tác tử~\cite{ref-1}. Trong một MAS, kết quả của hành động còn phụ thuộc vào môi trường mà tác tử tác động tới và cách tổ chức hoạt động của các tác tử~\cite{ref-2}.
 
-\subsection{Tổng quan hệ thống đa tác tử và kiến trúc JaCaMo}\label{sec:1-3-1}
+\subsection{Tổng quan MAS và JaCaMo}\label{sec:1-3-1}
 
 Hệ thống đa tác tử có nguồn gốc từ hướng trí tuệ nhân tạo phân tán (Distributed Artificial Intelligence, DAI) vào cuối thập niên 1970 và đầu thập niên 1980. Các công trình ban đầu xem xét cách nhiều thành phần tính toán phối hợp giải một bài toán khi mỗi thành phần chỉ có một phần thông tin hoặc năng lực xử lý~\cite{ref-32}. Một mốc tiêu biểu là giao thức Contract Net do Reid G. Smith công bố năm 1980. Giao thức này phân công việc bằng cách công bố nhiệm vụ, nhận đề xuất từ các nút có khả năng thực hiện rồi giao nhiệm vụ cho nút phù hợp~\cite{ref-33}. Đến năm 1988, Alan H. Bond và Les Gasser tập hợp các công trình của hướng nghiên cứu trên trong cuốn Readings in Distributed Artificial Intelligence~\cite{ref-32}.
 
@@ -355,7 +323,7 @@ Hình~\ref{fig:1-5} trình bày các khái niệm của ba chiều trong một s
 
 Ba chiều của JaCaMo cung cấp thông tin khác nhau về cùng một hoạt động. Jason hỗ trợ tác tử suy luận bằng belief, goal, plan và intention. Một hành động được chọn trong plan có thể gọi thao tác của artifact trong CArtAgO hoặc góp phần thực hiện nhiệm vụ đã cam kết trong tổ chức Moise~\cite{ref-2}. Workspace xác định phạm vi sử dụng và quan sát artifact, còn nhóm, vai trò và mission mô tả cách phối hợp để đạt mục tiêu chung. Sự phân chia này giúp nhận diện một hoạt động đã thay đổi thông tin mà tác tử sử dụng, dữ liệu môi trường hay quan hệ đảm nhiệm vai trò~\cite{ref-2}.
 
-\subsection{Belief, Goal, Plan và Intention trong Jason}\label{sec:1-3-2}
+\subsection{Mô hình tác tử Jason}\label{sec:1-3-2}
 
 Jason là trình thông dịch cho một phiên bản mở rộng của AgentSpeak~\cite{ref-8}. Trong cách lập trình dựa trên kiến trúc Belief--Desire--Intention (BDI), tác tử suy luận từ cơ sở niềm tin (belief base) và có thể phân biệt niềm tin do cảm nhận với niềm tin do tác tử khác cung cấp~\cite{ref-9}. Mục tiêu đạt được (achievement goal), ký hiệu bằng !, khiến tác tử tìm một kế hoạch để thực hiện. Mục tiêu truy vấn (test goal), ký hiệu bằng ?, tìm dữ liệu trong cơ sở niềm tin có thể hợp nhất với biểu thức cần kiểm tra~\cite{ref-37}.
 
@@ -484,7 +452,7 @@ Siêu mô hình Ecore của Ayala và cộng sự hiện thực hóa các kiểu
 
 Hình~\ref{fig:1-12} xuất phát từ ví dụ ``Every iStar 2.0 element and link'' của piStar~\cite{ref-41}. Hình dạng của phần tử nằm giữa hai đầu phụ thuộc cho biết bên phụ thuộc cần kết quả thuộc kiểu nào. Chẳng hạn, Dependum D có hình chữ nhật của Resource, còn Dependum C có hình lục giác của Task.
 
-\subsection{Refinement, Dependency và các quan hệ ý định}\label{sec:1-4-2}
+\subsection{Các quan hệ ý định}\label{sec:1-4-2}
 
 Quan hệ is-a nối chủ thể cụ thể hơn với chủ thể tổng quát hơn, còn participates-in mô tả một chủ thể tham gia vào chủ thể khác, chẳng hạn một Agent đảm nhiệm một Role~\cite{ref-12}. Khi một chủ thể cần chủ thể khác cung cấp kết quả, mô hình dùng Dependency với tối đa năm thành phần. Depender là bên cần kết quả, dependee là bên được trông cậy, còn dependum mô tả tài nguyên, công việc, trạng thái hoặc đặc tính chất lượng cần được cung cấp~\cite{ref-12}. Mỗi đầu phụ thuộc cũng có thể chỉ tới một phần tử ý định của chủ thể tương ứng qua dependerElmt hoặc dependeeElmt~\cite{ref-42}.
 
@@ -597,13 +565,13 @@ Khi việc sinh trạng thái giới hạn số thể hiện hoặc miền giá 
 
 Kiểm chứng mô hình (model checking) xem xét hành vi của hệ thống thông qua một mô hình chuyển trạng thái. Trong hệ đa tác tử, cách mô hình hóa lịch thực thi ảnh hưởng đến những hành vi được xét~\cite{ref-19}. Kiểm chứng khi thực thi (runtime verification) rút kết luận từ vết của một lần chạy cụ thể~\cite{ref-5}. Vì vậy, dữ kiện môi trường nằm ngoài phạm vi quan sát có thể làm giới hạn kết luận của bộ kiểm chứng~\cite{ref-23}.
 
-\subsection{Kiểm chứng mô hình (Model Checking)}\label{sec:1-6-1}
+\subsection{Kiểm chứng mô hình}\label{sec:1-6-1}
 
 Một cách biểu diễn hệ chuyển trạng thái là cấu trúc Kripke \(K = \left( S,S_{0},R,L \right)\). Trong đó \(S\) là tập trạng thái, \(S_{0}\) là tập trạng thái khởi đầu, \(R \subseteq S \times S\) là quan hệ chuyển và \(L\) gán cho mỗi trạng thái tập mệnh đề nguyên tử đúng tại trạng thái đó~\cite{ref-19}. Với một công thức thuộc tính \(\varphi\), ký hiệu \(K \vDash \varphi\) diễn tả rằng mô hình thỏa mãn \(\varphi\) theo ngữ nghĩa của logic được sử dụng. Kết luận được xác định trên các trạng thái khởi đầu và các hành vi của chính mô hình~\cite{ref-19}.
 
 Khi thuộc tính an toàn được phát biểu bằng một điều kiện luôn phải đúng, đường đi từ trạng thái khởi đầu đến trạng thái vi phạm là một phản ví dụ~\cite{ref-19}. Với tính chất thời gian hoặc chiến lược, bằng chứng cần thiết còn phụ thuộc vào logic và thuật toán kiểm tra. Chẳng hạn, MCMAS dùng interpreted systems để biểu diễn hệ đa tác tử và kiểm tra thuộc tính về thời gian, tri thức hoặc chiến lược~\cite{ref-20}. Phạm vi kết luận do mức trừu tượng và không gian trạng thái được kiểm tra quyết định~\cite{ref-22}.
 
-\subsection{Kiểm chứng khi thực thi (Runtime Verification)}\label{sec:1-6-2}
+\subsection{Kiểm chứng khi thực thi}\label{sec:1-6-2}
 
 Trong runtime verification, bộ giám sát đánh giá một đặc tả trên vết thực thi quan sát được~\cite{ref-5}. Với ngữ nghĩa ba giá trị cho một tiền tố hữu hạn \(u\) của vết, kết quả phụ thuộc vào các phần tiếp nối có thể có. Công thức \(\varphi\) nhận giá trị đúng nếu mọi phần tiếp nối vô hạn của \(u\) đều thỏa mãn \(\varphi\). Công thức nhận giá trị sai nếu không có phần tiếp nối nào thỏa mãn. Kết quả chưa xác định khi tồn tại cả hai loại phần tiếp nối~\cite{ref-18}.
 
@@ -961,7 +929,7 @@ self.cslEntityScope.oclAsType(auctionGroup).auctioneer->exists(r | r.player = a)
 
 ValidBid kiểm tra giá tốt nhất của đối tượng đang xét. RunningAuctionIsObserved yêu cầu khi đấu giá đang mở phải có ít nhất một tác tử quan sát artifact và đảm nhiệm vai trò auctioneer trong nhóm tương ứng.
 
-\subsection{Đánh giá Task theo lịch sử tiền và hậu điều kiện}\label{sec:2-7-2}
+\subsection{Đánh giá Task}\label{sec:2-7-2}
 
 Bảng I của \cite{ref-28} xác định giá trị tức thời của Task từ tiền và hậu điều kiện. Phiên bản kiểm chứng JaCaMo dùng TaskMarking.update để tích lũy bằng chứng qua các checkpoint. Với một Task trong một ngữ cảnh, gọi \(p_{k}\) và \(r_{k}\) là giá trị Boolean của tiền điều kiện và hậu điều kiện tại checkpoint k. Hai cờ \(Q_{k}\) và \(R_{k}\) ghi nhớ đã thấy tiền điều kiện và đã thấy hậu điều kiện ở hoặc sau mốc thỏa tiền điều kiện. Khởi đầu \(Q_{0}\) = \(R_{0}\) = 0. Khi Task được yêu cầu và cả hai giá trị đều xác định, công cụ cập nhật.
 
@@ -983,7 +951,7 @@ post {[ not self.running ]}
 
 Trạng thái running = false có thể chỉ một phiên chưa mở hoặc một phiên đã đóng. Bộ kiểm chứng ghi nhận StopAuction hoàn thành khi đã quan sát phiên mở và sau đó thấy chính phiên ấy đóng.
 
-\subsection{Đánh giá Goal và lan truyền kết quả}\label{sec:2-7-3}
+\subsection{Đánh giá Goal}\label{sec:2-7-3}
 
 Đối với Goal có điều kiện OCL trực tiếp, GoalMarking.update dùng bộ ba (\(A_{k}\), \(P_{k}\), \(S_{k}\)). \(A_{k}\) cho biết Goal đang hoạt động, \(P_{k}\) ghi nhận giá trị điều kiện theo loại Goal và \(S_{k}\) ghi nhận điều kiện có giữ được sau khi đã đúng hay không. Gọi \(b_{k}\) là kết quả OCL đã xác định. Với Achieve, \(P_{k}\) = \(P_{k-1}\) \(\lor\) \(b_{k}\). Với Maintain, Sustain và None, \(P_{k}\) = \(b_{k}\). Cờ ổn định được tính theo quy tắc~\cite{ref-28}.
 
@@ -1053,9 +1021,21 @@ Mục~\ref{sec:3-1} trình bày kiến trúc phần mềm. Mục~\ref{sec:3-2} h
 
 Kiến trúc tích hợp dựa trên bộ máy UML/OCL của USE và chia công việc giữa hai tiến trình. USE quản lý mô hình và thực hiện đánh giá, còn JaCaMo cung cấp dữ liệu tại các ranh giới đã chọn. Cách phân chia này xuất phát từ vai trò của lõi và giao diện trong USE trước khi mở rộng.
 
-\subsection{Kiến trúc của USE trước khi mở rộng}\label{sec:3-1-1}
+\subsection{USE trước khi mở rộng}\label{sec:3-1-1}
 
 Trong bản USE dùng làm nền, việc kiểm tra được tổ chức thành hai thành phần chính. Lõi phần mềm (\texttt{use-core}) đọc đặc tả UML/OCL, quản lý mô hình lớp và trạng thái đối tượng, đồng thời cung cấp bộ đánh giá biểu thức OCL. Một mô hình xác định các lớp, thuộc tính, liên kết và ràng buộc; trạng thái đối tượng cung cấp các thể hiện cụ thể trên đó ràng buộc được tính. Tầng tương tác (\texttt{use-gui}) sử dụng lõi để thực hiện lệnh của người dùng và hiển thị các góc nhìn như biểu đồ lớp, biểu đồ đối tượng và kết quả bất biến. USE còn cung cấp cơ chế nạp plugin và đưa chức năng bổ sung vào trình đơn~\cite{ref-17}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figures/use-standard.png}
+\caption{Giao diện USE trước khi tích hợp JaCaMo.}\label{fig:3-use-standard}
+\end{figure}
+
+Hình~\ref{fig:3-use-standard} chụp bản USE 7.5.0 với ví dụ \emph{CivilStatusWorld} đi kèm. Cây bên trái trình bày mô hình đã nạp. Cửa sổ \emph{Object diagram} hiển thị các đối tượng và liên kết được tạo bằng lệnh của USE, còn \emph{Class invariants} hiển thị giá trị của từng bất biến trên trạng thái đó. Đây là luồng sử dụng cơ sở mà phần mở rộng tiếp tục dùng để đánh giá trạng thái được dựng từ dữ liệu thực thi. \href{https://github.com/useocl/use/tree/af444c47534c4ef9254f24034757e5a499edf660/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE}{\ul{Ví dụ đi kèm USE.}}
+
+\subsection{Kiến trúc USE–JaCaMo}\label{sec:3-1-2}
+
+Phần mở rộng giữ lại bộ máy UML/OCL và bổ sung cơ chế thu thập, chuyển đổi và đánh giá trạng thái của JaCaMo. Hình~\ref{fig:3-architecture} thể hiện vị trí của các thành phần tham gia luồng này.
 
 \begin{figure}
 \centering
@@ -1085,10 +1065,6 @@ Trong bản USE dùng làm nền, việc kiểm tra được tổ chức thành 
 \caption{Kiến trúc tích hợp USE và JaCaMo.}\label{fig:3-architecture}
 \end{figure}
 
-Hàng trên của Hình~\ref{fig:3-architecture} biểu diễn hai thành phần có sẵn của USE. Trong luồng sử dụng thông thường, người dùng nạp mô hình UML/OCL và tạo hoặc sửa trạng thái bằng lệnh hay bằng các công cụ của USE. Với JaCaMo, trạng thái cần đánh giá phát sinh trong một tiến trình khác, còn một số điều kiện phụ thuộc vào các giá trị đã quan sát ở mốc trước. Phần mở rộng đảm nhiệm việc đưa dữ liệu từ tiến trình đó vào mô hình đối tượng và duy trì lịch sử đánh giá qua các mốc.
-
-\subsection{Phần mở rộng USE–JaCaMo}\label{sec:3-1-2}
-
 Phần trong đường nét đứt của Hình~\ref{fig:3-architecture} nằm trong mô đun \texttt{use-plugin}. Cửa sổ thực nghiệm tiếp nhận một gói \texttt{.mrv}, mở các đặc tả và điều phối vòng đời của lần chạy. Gói chứa cấu hình JaCaMo, mã nguồn của ca thử, mô hình CSL, mô hình iStar và khai báo tương ứng XML. Hai mô hình có thể được xem riêng, trong khi trạng thái đối tượng CSL và kết quả đánh dấu Goal/Task được xem theo từng mốc trong cửa sổ thực nghiệm. Giao diện đăng ký bốn điểm vào để mở mô hình hoặc trạng thái CSL, iStar và một điểm vào để chạy thực nghiệm. Cả năm dùng chung một mô đun triển khai. Mô đun \texttt{use-assembly} đóng gói lõi, giao diện, plugin, thư viện JaCaMo cần thiết và các ví dụ thành một bản chạy. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/doc/ARCHITECTURE.md}{\ul{Kiến trúc mã nguồn của phần mở rộng.}}
 
 Phía JaCaMo được khởi chạy trong một tiến trình Java do phiên thực nghiệm quản lý. Jason tiếp tục thực thi kế hoạch tác tử, CArtAgO quản lý artifact và Moise quản lý tổ chức. Bộ theo dõi quan sát các ranh giới thực thi mà phương pháp chọn, điều phối việc giữ dừng và thu dữ kiện từ các thành phần trong phạm vi quan sát. Tách tiến trình cho phép USE quản lý phiên và nhận dữ liệu mà vẫn giữ thư viện thực thi JaCaMo riêng với môi trường nạp plugin của giao diện.
@@ -1097,11 +1073,19 @@ Phía USE, bộ điều phối chuyển ảnh đã nhận vào bộ kiểm chứ
 
 Quyết định được gửi về đúng yêu cầu đang chờ ở tiến trình nguồn. USE ghi lại trạng thái và phản hồi để người dùng xem lại các mốc đã kiểm tra trong cùng cửa sổ. Cùng bộ kiểm chứng có thể đọc các ảnh đã lưu theo thứ tự để đánh giá lại mà không mở một tiến trình JaCaMo mới. Sự phân tách giữa khâu thu ảnh và khâu đánh giá cho phép kiểm thử riêng bộ xử lý trạng thái, đồng thời kiểm thử toàn bộ luồng khi chạy trực tiếp.
 
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figures/use-jacamo.png}
+\caption{Giao diện USE sau khi tích hợp JaCaMo.}\label{fig:3-use-jacamo}
+\end{figure}
+
+Hình~\ref{fig:3-use-jacamo} chụp phiên Auction trong cửa sổ thực nghiệm. Hai artifact a1 và a2 xuất hiện ở khung JaCaMo bên trái. Khung bên phải có các thẻ xem trạng thái CSL, kết quả OCL và các mốc kiểm chứng. Ở thẻ \emph{iStarSCN}, lựa chọn \emph{Execution} xác định phiên đấu giá đang xem, còn bảng \emph{Markings} ghi trạng thái của các mục tiêu và nhiệm vụ tương ứng. Cách bố trí này cho phép kiểm tra dữ liệu JaCaMo và kết quả của USE tại cùng một mốc.
+
 \section{Hướng dẫn cài đặt và kịch bản kiểm thử}\label{sec:3-2}
 
 Việc kiểm thử bắt đầu bằng một lần chạy Auction với gói mẫu. Lần chạy này cung cấp vết để đánh giá lại và làm cơ sở đối chiếu với các biến thể có lỗi cập nhật giá hoặc thiếu dữ liệu.
 
-\subsection{Chuẩn bị và khởi chạy phần mềm}\label{sec:3-2-1}
+\subsection{Cài đặt và khởi chạy}\label{sec:3-2-1}
 
 Bản thực nghiệm sử dụng USE 7.5.0 và plugin JaCaMo 1.0.1. Để tạo bản chạy từ mã nguồn, cần Git, JDK 21, Maven 3.9 và Python 3. Có thể kiểm tra phiên bản bằng \texttt{java -version}, \texttt{mvn -version} và \texttt{python3 --version}. Lệnh dưới đây tải đúng phiên bản mã nguồn được dùng để đối chiếu cách cài đặt, đưa các thư viện JaCaMo có hỗ trợ checkpoint vào kho Maven cục bộ và đóng gói bản chạy. Trên Windows, dùng \texttt{python} thay cho \texttt{python3} nếu đó là tên lệnh của Python trên máy. Các lệnh cài đặt được thực hiện từ thư mục gốc của kho USE.
 
@@ -1132,13 +1116,7 @@ Hình~\ref{fig:3-launch} minh họa thao tác sau khi USE mở. Trong trình đ�
 
 Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu nguồn và khung bên phải trình bày kết quả USE. Để đối chiếu một trạng thái, chọn một hàng ở thẻ \emph{Checkpoints}. Xem các dòng a1 và a2 ở thẻ \emph{Artifacts}, sau đó chuyển qua \emph{OAL State}, \emph{OCL} và \emph{iStarSCN} để lần lượt xem đối tượng đích, kết quả bất biến và trạng thái mục tiêu tại mốc đã chọn. Trong \emph{iStarSCN}, mục \emph{Execution} chọn cuộc đấu giá cần xem. \emph{Follow live} đưa cửa sổ về mốc mới nhất. Đường dẫn ghi sau dòng \emph{Run evidence} trong \emph{Console} chỉ tới thư mục chứa vết của phiên.
 
-\subsection{Các kịch bản kiểm thử trên Auction}\label{sec:3-2-2}
-
-Chữ TN là viết tắt của thực nghiệm. Bốn mã từ TN01 đến TN04 tương ứng với bốn kịch bản trên cùng ca nghiên cứu Auction. Hai kịch bản đầu sử dụng gói mẫu đi kèm bản cài USE. Hai kịch bản sau sử dụng các biến thể của gói mẫu để đối chiếu phản hồi tại những mốc kiểm chứng khác nhau.
-
-Kịch bản theo dõi hai cuộc đấu giá (TN01) sử dụng chu trình mở phiên, trả giá và đóng phiên của gói mẫu. Chạy Auction và chọn một mốc khi chỉ một trong hai cuộc đấu giá đã có giá cải thiện. Lần lượt chọn a1 và a2 để đối chiếu giá do artifact công bố với đối tượng CSL và xem trạng thái của nhiệm vụ ghi nhận lượt trả giá. Ở cuối lần chạy, kiểm tra bằng chứng đóng phiên và mục tiêu hoàn thành của từng cuộc đấu giá.
-
-Kịch bản đánh giá lại vết (TN02) sử dụng dữ liệu do USE ghi ở TN01 cùng các tệp đặc tả và ánh xạ đi kèm gói mẫu. Sau khi Auction chạy xong, sao chép đường dẫn thư mục hiển thị sau dòng \emph{Run evidence} trong thẻ \emph{Console}. Thư mục đó chứa tệp vết \path{consumer-history.jsonl}. Từ thư mục gốc của kho USE đã đóng gói, chạy các lệnh Bash dưới đây, rồi dán đường dẫn vừa sao chép khi được hỏi.
+Sau khi chạy gói mẫu, có thể đánh giá lại vết bằng tiện ích dòng lệnh của USE. Sao chép đường dẫn thư mục hiển thị sau dòng \emph{Run evidence} trong thẻ \emph{Console}. Từ thư mục gốc của kho USE đã đóng gói, chạy các lệnh Bash sau và dán đường dẫn đó khi được hỏi. Kết quả được ghi vào tệp \texttt{replay.json}.
 
 \noindent\begin{minipage}{\linewidth}
 \begin{Verbatim}
@@ -1152,37 +1130,41 @@ java -cp 'use-assembly/target/new/bridge/state/*' \
 \end{Verbatim}
 \end{minipage}
 
-Tệp \texttt{replay.json} lưu kết quả đánh giá lại. Ở mỗi mốc, đối chiếu quyết định và tập Goal/Task đã đạt trong tệp này với vết của lần chạy Auction vừa thực hiện.
+\subsection{Kịch bản kiểm thử}\label{sec:3-2-2}
 
-Kịch bản vi phạm quy tắc giá không tăng (TN03) đưa lần lượt hai mức giá 10 và 20 vào từng cuộc đấu giá. Bản hợp lệ giữ giá tốt nhất ở 10. Bản có lỗi ghi đè giá tốt nhất thành 20. Mỗi bản được thử với hai cách bố trí mốc. Cách thứ nhất đặt hai lượt trả giá trong cùng một nhóm kế hoạch. Cách thứ hai dùng mốc chuyển giao để ghi nhận giá sau từng lượt. Đối chiếu hai cách bố trí giúp xác định khi nào USE quan sát đủ dữ liệu để phát hiện việc cập nhật sai.
+TN là viết tắt của thực nghiệm. Bốn kịch bản dưới đây cùng sử dụng ví dụ Auction. Hai kịch bản đầu dùng gói mẫu và vết của lần chạy đó. Hai kịch bản sau thay đổi cách xử lý hoặc dữ liệu công bố để kiểm tra phản hồi của USE.
 
-Kịch bản kiểm tra thiếu dữ liệu giá (TN04) dùng bản Auction vẫn tạo các phiên nhưng bỏ công bố thuộc tính giá tốt nhất. Khai báo ánh xạ vẫn yêu cầu thuộc tính này. Kịch bản được thực hiện ở cả ranh giới cuối nhóm kế hoạch và ranh giới chuyển giao để đối chiếu quyết định của USE và việc bước xử lý kế tiếp có được thực hiện hay không.
+TN01 theo dõi hai phiên a1 và a2 trong chu trình mở phiên, trả giá và đóng phiên. Đối chiếu giá và mức đạt mục tiêu của từng phiên khi tiến độ khác nhau và khi hai phiên kết thúc.
 
-Để tái lập các biến thể của TN03 và TN04, sửa bản sao của dự án Auction theo từng kịch bản, giữ nguyên đặc tả và khai báo ánh xạ rồi đóng gói lại thành tệp \texttt{.mrv}. Chạy từng gói qua trình đơn như ở Hình~\ref{fig:3-launch} và đối chiếu diễn biến trong \emph{Console} với ảnh trạng thái và quyết định của USE. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/README.md}{\ul{Hướng dẫn đóng gói dự án JaCaMo trên USE.}}
+TN02 đánh giá lại vết TN01 với cùng đặc tả và khai báo ánh xạ. Đối chiếu quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng mốc.
+
+TN03 thử hai lượt trả giá 10 rồi 20. Bản hợp lệ giữ giá tốt nhất ở 10, còn bản có lỗi ghi đè thành 20. Mỗi bản được thử với hai cách quan sát, gồm chụp cuối nhóm kế hoạch và chụp ở mốc chuyển giao sau từng lượt trả giá.
+
+TN04 giữ nguyên khai báo ánh xạ và bỏ công bố giá tốt nhất ở JaCaMo. Biến thể được kiểm tra ở cuối nhóm kế hoạch và tại mốc chuyển giao sau khi mở phiên để đối chiếu phản hồi thiếu dữ liệu và thời điểm giữ dừng.
+
+Các biến thể TN03 và TN04 được tạo từ bản sao của gói mẫu và đóng gói lại thành tệp \texttt{.mrv}. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/README.md}{\ul{Hướng dẫn đóng gói trên USE.}}
 
 \section{Tiêu chí kiểm thử}\label{sec:3-3}
 
-Các tiêu chí được xác định từ đầu vào, hành vi kỳ vọng và đầu ra có thể kiểm tra. Với ca chạy trực tiếp, log tại nguồn cho biết thao tác nào thực sự xảy ra, còn ảnh trạng thái cho biết USE thực sự nhận được dữ kiện nào. Kết quả OCL, trạng thái Goal/Task và quyết định được đối chiếu với cùng ảnh. Cách đối chiếu này giúp quy nguyên nhân về dữ liệu nguồn, phép chiếu, đánh giá điều kiện hoặc trao đổi quyết định.
+Kết quả được đánh giá bằng cách đối chiếu dữ liệu JaCaMo và kết quả USE ở cùng mốc. Ảnh chụp nguồn cho biết bộ kiểm chứng nhận được dữ kiện nào, còn nhật ký JaCaMo xác nhận thao tác đã xảy ra trong lần chạy. Hai nguồn này được dùng cùng nhau khi cần giải thích phản hồi của USE.
 
-\subsection{Tính đúng đắn của trạng thái và lịch sử mục tiêu}\label{sec:3-3-1}
+\subsection{Trạng thái và mục tiêu}\label{sec:3-3-1}
 
-Phép chiếu được xem là đúng trên dữ liệu kiểm thử khi giá trị được đưa vào đúng đối tượng, định danh được bảo toàn giữa các mốc liên tiếp và các liên kết có đúng hai đầu. Trong TN01, mỗi artifact đấu giá phải tương ứng với một đối tượng CSL riêng. Khi giá thay đổi, giá trị nguồn của a1 và a2 phải khớp với thuộc tính giá của từng đối tượng tương ứng. Các liên kết được đối chiếu với dữ liệu về tác tử, vai trò và nhóm ở JaCaMo, như trường hợp đảm nhiệm vai trò ở Mục~\ref{sec:2-6-3}.
+Phép chiếu đạt yêu cầu khi mỗi phiên Auction tương ứng với một đối tượng CSL riêng và giá tốt nhất của từng đối tượng khớp với giá do artifact tương ứng công bố. Cùng một phiên phải giữ định danh qua các mốc. Quan hệ giữa tác tử, vai trò và nhóm trong trạng thái CSL cũng phải khớp với dữ liệu tổ chức của JaCaMo.
 
-Việc đánh giá Goal/Task được xem là đúng khi trạng thái phần tử phản ánh bằng chứng của chính ngữ cảnh đó. Nhiệm vụ ghi nhận giá cải thiện chỉ đạt sau khi đủ điều kiện về phiên đang mở, việc tác tử quan sát phiên và giá tốt hơn giá khởi tạo. Nếu điều kiện chỉ xuất hiện ở một cuộc, kết quả đạt chỉ được ghi cho cuộc đó. Tương tự, trạng thái đóng ban đầu chưa đủ để kết luận nhiệm vụ đóng phiên đã đạt; cần quan sát phiên mở rồi mới đóng. Trạng thái đã đạt và đang chờ được đối chiếu ở cùng mốc cho hai cuộc đấu giá, sau đó kiểm tra mục tiêu hoàn thành ở cuối vết.
+Tiến độ được ghi nhận cho đúng phiên nếu nhiệm vụ quan sát giá cải thiện chỉ đạt ở phiên đã có bằng chứng tương ứng. Trạng thái đóng ban đầu chưa đủ để xác nhận nhiệm vụ đóng phiên. Bộ đánh giá cần đã quan sát phiên mở, rồi quan sát phiên chuyển sang đóng. Khi kết thúc TN01, kết quả hoàn thành phải được xác nhận riêng cho a1 và a2.
 
-\subsection{Tính đúng đắn của quyết định và khả năng đánh giá lại}\label{sec:3-3-2}
+\subsection{Quyết định và tái hiện}\label{sec:3-3-2}
 
-Quyết định tại mỗi mốc phải phù hợp với bằng chứng quan sát được. Trong TN03, bản hợp lệ phải giữ giá tốt nhất ở 10 và được phép tiếp tục nếu các điều kiện khác được đáp ứng. Khi hai ảnh liên tiếp của bản có lỗi cho thấy giá của cùng một đối tượng đổi từ 10 lên 20, USE phải báo vi phạm mục tiêu duy trì giá không tăng và giữ dừng. Bất biến yêu cầu giá không âm vẫn được kiểm tra trên từng ảnh. Đối chứng chỉ chụp giá sau cả hai lượt giúp xác định dữ liệu còn thiếu để nhận ra sai lệch trong vết.
+Quyết định của USE được đối chiếu với điều kiện đã đặc tả và dữ liệu có tại mốc. Trong TN03, bản giữ giá tốt nhất ở 10 phải được phép tiếp tục nếu các điều kiện còn lại được đáp ứng. Nếu vết của bản có lỗi ghi đủ hai giá liên tiếp 10 và 20 của cùng một phiên, USE phải xác định vi phạm mục tiêu duy trì giá và giữ dừng. Trong TN04, thuộc tính giá bắt buộc vắng mặt là căn cứ để giữ dừng vì chưa đủ dữ liệu. Với cả hai ca, bản ghi phía JaCaMo xác nhận phản hồi đã đến đúng mốc. Nhật ký thao tác cho biết bước kế tiếp đã chạy hay còn bị giữ tại ranh giới được chọn.
 
-Trong TN04, khi ảnh thiếu thuộc tính giá mà phép ánh xạ yêu cầu, USE phải giữ dừng vì chưa đủ căn cứ kiểm chứng. Với TN03 và TN04, bản ghi phía JaCaMo phải khớp với yêu cầu và phản hồi của USE ở cùng mốc. Nếu kịch bản ghi dấu khi thực hiện bước kế tiếp, kiểm tra nhật ký nguồn để xác định bước đó đã xảy ra hay còn bị giữ ở ranh giới đang xét.
-
-Trong TN02, phép đánh giá lại phải tái hiện quyết định và tập Goal/Task đã đạt của vết gốc ở từng mốc. Mỗi phần tử được đối chiếu theo ngữ cảnh, chủ thể và tên trong đặc tả, vì cùng tên có thể xuất hiện ở hai cuộc đấu giá. Phép thử đạt khi mọi cặp bản ghi khớp và không thiếu mốc trong vết được dùng. Bản xác nhận của JaCaMo chỉ được đối chiếu với lần chạy gốc, vì lần đánh giá lại chỉ đọc ảnh đã lưu.
+Khả năng tái hiện được kiểm tra trong TN02 bằng cách so sánh kết quả đánh giá lại với vết gốc trên cùng đặc tả và ánh xạ. Tại mỗi mốc, quyết định và tập mục tiêu, nhiệm vụ đã đạt phải khớp. Mỗi phần tử trong tập được đối chiếu theo phiên đấu giá, chủ thể và tên phần tử để phân biệt các mục tiêu, nhiệm vụ có cùng tên trong mô hình.
 
 \section{Kết quả đánh giá}\label{sec:3-4}
 
 Thực nghiệm đánh giá mức độ đáp ứng của công cụ đối với các yêu cầu kiểm chứng đã xác định. So sánh được thực hiện giữa các biến thể của cùng kịch bản và giữa vết gốc với vết đánh giá lại. Với mỗi kết quả, cần phân biệt ba dữ kiện: thao tác đã xảy ra ở JaCaMo, trạng thái USE có thể quan sát và quyết định tại mốc tương ứng.
 
-\subsection{Bảo toàn trạng thái và tiến độ của mỗi cuộc đấu giá}\label{sec:3-4-1}
+\subsection{Bảo toàn trạng thái}\label{sec:3-4-1}
 
 Trong TN01, hai artifact Auction được chiếu thành hai đối tượng riêng và giữ được liên hệ với dữ liệu nguồn khi giá thay đổi. Phép đối chiếu trực tiếp giữa giá do JaCaMo công bố và giá trên sơ đồ đối tượng ở Hình~\ref{fig:2-5} và Hình~\ref{fig:2-6} minh họa cách kiểm tra phần ánh xạ. Tiến độ được kiểm tra ở thời điểm hai cuộc đấu giá có kết quả khác nhau dù đang dùng cùng đặc tả.
 
@@ -1208,7 +1190,7 @@ Hai khung của Hình~\ref{fig:3-auction-progress} giữ nguyên mốc quan sát
 
 Ở cuối lần chạy, hai khung của Hình~\ref{fig:3-auction-end} cho thấy mục tiêu hoàn thành cuộc đấu giá (\emph{AuctionCompleted}) đã đạt trong cả hai ngữ cảnh. Mỗi ngữ cảnh có bằng chứng riêng cho việc ghi nhận giá cải thiện và đóng phiên. Vết gốc cũng ghi đủ 58 quyết định cho tiếp tục và 58 bản xác nhận tương ứng của JaCaMo. TN01 qua đó kiểm tra được cả việc giữ riêng tiến độ theo đối tượng lẫn khả năng cho tiếp tục khi một nhiệm vụ vẫn chờ bằng chứng nhưng các điều kiện tại mốc đã được đáp ứng.
 
-\subsection{Phân biệt vi phạm với thiếu dữ liệu}\label{sec:3-4-2}
+\subsection{Phản hồi kiểm chứng}\label{sec:3-4-2}
 
 TN03 và TN04 đi đến hai quyết định giữ dừng vì những lý do khác nhau. Trước hết, hai ảnh liên tiếp của bản Auction có lỗi trong TN03 cho thấy giá tốt nhất thay đổi sau lượt trả giá thứ hai.
 
@@ -1244,7 +1226,7 @@ Hình~\ref{fig:3-bid-verdict} cho thấy mục tiêu duy trì giá không tăng 
 
 Trong TN04, ảnh được báo đầy đủ trong phạm vi bộ thu, nhưng phép chiếu vẫn phát hiện thuộc tính bắt buộc bị thiếu. Bên trái Hình~\ref{fig:3-missing-bid}, hai artifact còn công bố trạng thái mở, công việc và người thắng, trong khi giá tốt nhất vắng mặt. Thanh trạng thái ghi lý do thiếu giá và quyết định \texttt{HOLD\_UNVERIFIED}. Ở cấu hình chuyển giao được minh họa, JaCaMo xác nhận phản hồi và nhật ký chưa ghi nhận bước xử lý kế tiếp. Khi chỉ kiểm tra ở cuối nhóm kế hoạch, USE cũng trả quyết định giữ dừng, nhưng nhật ký cho thấy bước đó đã được thực hiện trước mốc kiểm chứng. Hai cấu hình cùng phát hiện thiếu giá và khác nhau về khả năng giữ bước kế tiếp.
 
-\subsection{Khả năng tái hiện kết quả trên vết đã ghi}\label{sec:3-4-3}
+\subsection{Tái hiện kết quả}\label{sec:3-4-3}
 
 TN02 kiểm tra khả năng tái hiện trên vết gốc gồm 58 ảnh của TN01. Quyết định và tập Goal/Task đã đạt theo từng ngữ cảnh khớp ở cả 58 mốc. Ở ảnh cuối, mục tiêu hoàn thành đạt riêng cho a1 và a2 trong cả hai kết quả. Sự trùng khớp được xác nhận trên vết đã ghi với cùng đặc tả. Giá trả, thứ tự thực thi và số mốc của một lần chạy JaCaMo mới có thể khác vết đã lưu.
 
@@ -1252,7 +1234,7 @@ TN02 kiểm tra khả năng tái hiện trên vết gốc gồm 58 ảnh của T
 
 Khả năng áp dụng thực tế phụ thuộc trước hết vào công sức chuẩn bị ánh xạ cho mỗi hệ thống và độ phân giải của việc quan sát trong khi chạy. Hai điều kiện này quyết định dữ kiện nào có thể đưa vào mô hình và tại thời điểm nào dữ kiện đó còn dùng được để đánh giá.
 
-\subsection{Hạn chế của ánh xạ và chính sách checkpoint}\label{sec:3-5-1}
+\subsection{Hạn chế của phương pháp}\label{sec:3-5-1}
 
 Hạn chế thứ nhất là chưa có phép ánh xạ toàn cục từ mô hình và dữ liệu thực thi JaCaMo sang đặc tả CSL và iStar. Bộ chiếu đã có quy tắc dùng chung để giữ định danh, chuyển giá trị sang kiểu đích và dựng các liên kết phạm vi, thành viên, vai trò và quan sát từ ảnh nguồn. Tuy nhiên, tương ứng cụ thể giữa kiểu nguồn, trường dữ liệu và thuộc tính CSL do người đặc tả khai báo thủ công trong XML. Khi đổi miền ứng dụng, cần xác định lại các tương ứng đó và bổ sung xử lý nếu trạng thái đích đòi hỏi quan hệ ngoài những loại đã hỗ trợ. Cũng chưa có bộ luật chuyển đổi chi tiết để suy ra Goal/Task từ kế hoạch Jason hoặc mục tiêu tổ chức Moise. Người phân tích vẫn phải đặc tả riêng mục tiêu iStar và các điều kiện đánh giá trên CSL. Vì thế, XML hiện hỗ trợ cấu hình phép chiếu theo miền, còn việc xây dựng đặc tả và thiết lập tương ứng vẫn cần tri thức về hệ thống nguồn.
 
@@ -1260,7 +1242,7 @@ Hạn chế thứ hai nằm ở lựa chọn checkpoint. Cơ chế hiện tại 
 
 Khả năng phát hiện còn phụ thuộc vào những dữ kiện chương trình công bố và điều kiện người phân tích đã đặc tả. Ví dụ, kết quả đạt mục tiêu hoàn thành của Auction phản ánh bằng chứng mở phiên, trả giá và đóng phiên. Để kiểm tra người thắng thực sự là tác tử đã đưa ra giá được chọn, cần quan sát định danh người gửi của từng lượt trả giá và mô tả chính sách chọn người thắng, kể cả khi có nhiều giá bằng nhau. Kết quả thực nghiệm thu được trên Auction với không gian làm việc cục bộ. Mức bao phủ dữ liệu và chi phí kiểm chứng của các hệ thống phân tán cần được đánh giá riêng.
 
-\subsection{Ý nghĩa của kết quả và hướng cải tiến}\label{sec:3-5-2}
+\subsection{Hướng cải tiến}\label{sec:3-5-2}
 
 Các kịch bản Auction làm rõ vai trò của hai yếu tố trong quyết định kiểm chứng. Dữ liệu trong vết quyết định USE có đủ căn cứ để xác định vi phạm hay chỉ có thể báo thiếu thông tin. Vị trí checkpoint quyết định phản hồi đó còn kịp giữ thao tác nào của JaCaMo. TN03 làm rõ yêu cầu về dữ liệu khi điều kiện mục tiêu cần hai giá liên tiếp. TN04 cho thấy ngay cả khi USE đưa ra cùng quyết định giữ dừng, tác dụng lên bước kế tiếp vẫn phụ thuộc vào thời điểm chương trình nhận phản hồi.
 
