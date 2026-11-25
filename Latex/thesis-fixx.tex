@@ -181,29 +181,27 @@ Em xin chân thành cảm ơn tất cả những người đã luôn đồng hà
 \chapter*{MỞ ĐẦU}\label{mo-dau}
 \addcontentsline{toc}{chapter}{MỞ ĐẦU}
 
-Trong hệ thống đa tác tử, các tác tử tự chủ phối hợp để thực hiện công việc chung~\cite{ref-1}. JaCaMo là nền tảng lập trình cho các hệ thống này, kết hợp tác tử, môi trường dùng chung và tổ chức phân vai~\cite{ref-2}. Khi kết quả của một bên là đầu vào của bên khác, cách phối hợp ảnh hưởng trực tiếp đến tiến độ chung.
+Các tác tử tự chủ phối hợp để thực hiện công việc chung~\cite{ref-1}. JaCaMo hỗ trợ xây dựng hệ thống đa tác tử bằng cách kết hợp tác tử, môi trường dùng chung và tổ chức phân vai~\cite{ref-2}. Tiến độ chung phụ thuộc vào kết quả mà các tác tử chuyển cho nhau. Khi các hành động xen kẽ, một tác tử có thể thay đổi dữ liệu mà tác tử khác đang sử dụng. Trạng thái có thể thỏa quy tắc nghiệp vụ trong khi nhiệm vụ còn dang dở, nên đánh giá tiến độ cần xét cả diễn biến trước đó~\cite{ref-5}.
 
-Khi các hành động xen kẽ, một tác tử có thể làm thay đổi dữ liệu mà tác tử khác đang dùng. Trạng thái có thể thỏa quy tắc nghiệp vụ dù một nhiệm vụ còn dang dở. Việc đánh giá tiến độ vì vậy cần xét cả trạng thái hiện tại và diễn biến trước đó~\cite{ref-5}.
+RV4JaCa kiểm chứng giao thức JaCaMo qua thông điệp~\cite{ref-24}. USE kiểm tra bất biến OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar mô tả mục tiêu và nhiệm vụ~\cite{ref-12}. Để đánh giá ràng buộc và tiến độ trong cùng lần chạy, cần dựng trạng thái từ dữ liệu JaCaMo và giữ lịch sử của từng đối tượng.
 
-RV4JaCa kiểm chứng giao thức JaCaMo qua thông điệp khi hệ thống chạy~\cite{ref-24}. USE kiểm tra bất biến OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar mô tả mục tiêu và nhiệm vụ~\cite{ref-12}. Để đánh giá cả ràng buộc lẫn tiến độ trong cùng một lần chạy, cần dựng trạng thái từ dữ liệu JaCaMo và giữ lịch sử riêng của từng đối tượng.
+Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa CSL (Composite State Language) và cách gắn điều kiện vào iStar từ nghiên cứu về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, phần mở rộng dựng trạng thái CSL từ ảnh JaCaMo. USE kiểm tra bất biến OCL, cập nhật Goal và Task theo lịch sử rồi quyết định cho tiếp tục hay giữ dừng.
 
-Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa CSL (Composite State Language) và cách gắn điều kiện vào iStar từ công trình về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, plugin dựng trạng thái CSL từ ảnh chụp JaCaMo. USE kiểm tra bất biến OCL, cập nhật Goal và Task theo lịch sử rồi trả quyết định tiếp tục hoặc giữ dừng.
+Thực nghiệm cho thấy công cụ giữ lịch sử riêng của hai phiên Auction và phân biệt vi phạm với thiếu dữ liệu. Đánh giá lại cùng vết và đặc tả tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt ở cả 58 checkpoint (Mục~\ref{sec:3-4}).
 
-Thực nghiệm cho thấy công cụ giữ lịch sử riêng cho hai phiên Auction và phân biệt vi phạm với trường hợp thiếu dữ liệu. Khi đánh giá lại cùng một vết Auction với cùng đặc tả, các quyết định và tập mục tiêu, nhiệm vụ đã đạt đều khớp ở cả 58 checkpoint (Mục~\ref{sec:3-4}).
-
-Các đóng góp gồm phép ánh xạ bảo toàn định danh, bộ đánh giá theo lịch sử và cơ chế phản hồi tại checkpoint. Nghiên cứu trả lời ba câu hỏi.
+Các đóng góp gồm phép ánh xạ bảo toàn định danh, bộ đánh giá theo lịch sử và cơ chế phản hồi tại checkpoint. Ba câu hỏi nghiên cứu là
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
 \item
-  Làm thế nào để ánh xạ dữ liệu JaCaMo sang CSL và giữ định danh, lịch sử của từng đối tượng?
+  Làm thế nào để ánh xạ JaCaMo sang CSL và bảo toàn định danh, lịch sử của từng đối tượng?
 \item
   Làm thế nào để tổng hợp kết quả OCL và iStar tại checkpoint, đồng thời phân biệt vi phạm với thiếu dữ liệu?
 \item
-  Đánh giá lại cùng một vết với cùng đặc tả có tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng checkpoint không?
+  Đánh giá lại cùng vết và đặc tả có tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt ở từng mốc không?
 \end{enumerate}
 
-Chương 1 trình bày kiến thức nền tảng và các nghiên cứu liên quan. Chương 2 mô tả phương pháp đặc tả và kiểm chứng trên USE. Chương 3 trình bày triển khai, kết quả thực nghiệm và giới hạn của phương pháp.
+Chương 1 trình bày kiến thức nền tảng và nghiên cứu liên quan. Chương 2 mô tả phương pháp đặc tả và kiểm chứng trên USE. Chương 3 trình bày triển khai, thực nghiệm và giới hạn của phương pháp.
 
 \clearpage
 \pagenumbering{arabic}
@@ -461,6 +459,33 @@ Hình~\ref{fig:1-12} xuất phát từ ví dụ ``Every iStar 2.0 element and li
 
 \subsection{Các quan hệ ý định}\label{sec:1-4-2}
 
+Bảng~\ref{tab:istar-relations} tổng hợp các đường nối theo hướng dẫn iStar 2.0~\cite{ref-12}. Dấu AND, OR, Dependency và Contribution được trích từ Hình~1 của Nguyen và cộng sự~\cite{ref-28}. Các nét còn lại lấy từ ví dụ ký pháp của piStar~\cite{ref-41}.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\caption{Ký pháp đường nối trong iStar 2.0}\label{tab:istar-relations}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{.19\linewidth}
+  >{\raggedright\arraybackslash}m{.22\linewidth}
+  >{\raggedright\arraybackslash}m{.53\linewidth}@{}}
+\toprule
+\textbf{Ký pháp} & \textbf{Thành phần} & \textbf{Cách đọc} \\
+\midrule
+\includegraphics[width=2.1cm,height=0.64cm]{figures/notation/istar-boundary.png} & Đường bao chủ thể & Nét đứt bao các phần tử ý định thuộc cùng một chủ thể. \\
+\includegraphics[width=2.8cm,height=0.74cm]{figures/notation/istar-isa.png} & is-a & Hướng từ chủ thể chuyên biệt đến chủ thể tổng quát. \\
+\includegraphics[width=2.6cm,height=0.99cm]{figures/notation/istar-participates.png} & participates-in & Hướng từ chủ thể tham gia đến chủ thể mà nó tham gia. \\
+\includegraphics[width=2.25cm,height=0.56cm]{figures/notation/istar-dependency.png} & Dependency & Dấu D nhận diện hai đoạn nối qua phần tử được trông cậy (dependum). \\
+\includegraphics[width=2.2cm,height=0.53cm]{figures/notation/istar-and.png} & AND-refinement & Vạch ngang ở đầu cha. Cần đạt mọi phần tử con. \\
+\includegraphics[width=2.2cm,height=0.53cm]{figures/notation/istar-or.png} & OR-refinement & Mũi tên ở đầu cha. Cần đạt ít nhất một phần tử con. \\
+\includegraphics[width=2.0cm,height=0.57cm]{figures/notation/istar-needed.png} & NeededBy & Chấm đặc ở đầu nhiệm vụ cần tài nguyên. \\
+\includegraphics[width=2.0cm,height=0.61cm]{figures/notation/istar-qualification.png} & Qualification & Nét đứt nối Quality với phần tử được mô tả. \\
+\includegraphics[width=2.2cm,height=0.55cm]{figures/notation/istar-contribution.png} & Contribution & Mũi tên chỉ đến Quality. Nhãn make, help, hurt hoặc break cho biết mức tác động. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 Quan hệ is-a nối chủ thể cụ thể hơn với chủ thể tổng quát hơn, còn participates-in mô tả một chủ thể tham gia vào chủ thể khác, chẳng hạn một Agent đảm nhiệm một Role~\cite{ref-12}. Khi một chủ thể cần chủ thể khác cung cấp kết quả, mô hình dùng Dependency với tối đa năm thành phần. Depender là bên cần kết quả, dependee là bên được trông cậy, còn dependum mô tả tài nguyên, công việc, trạng thái hoặc đặc tính chất lượng cần được cung cấp~\cite{ref-12}. Mỗi đầu phụ thuộc cũng có thể chỉ tới một phần tử ý định của chủ thể tương ứng qua dependerElmt hoặc dependeeElmt~\cite{ref-42}.
 
 Refinement liên kết Goal hoặc Task con với Goal hoặc Task cha trong cùng phạm vi chủ thể. Với AND-refinement, mọi phần tử con đều phải được thỏa mãn. OR-refinement yêu cầu ít nhất một phần tử con được thỏa mãn và cho phép nhiều phương án đạt đồng thời~\cite{ref-12}. Mỗi phần tử cha dùng một loại tinh chỉnh cho nhóm con trực tiếp. Nhánh AND có dấu gạch ngang gần phần tử cha, còn nhánh OR có đầu mũi tên hướng về cha~\cite{ref-12}.
@@ -672,13 +697,43 @@ Trạng thái \(\sigma\) của một mô hình CSL ghi các thể hiện đang t
 
 Khi nạp đặc tả CSL vào USE, CslFrontend.compile đọc và kiểm tra mô hình. Sau bước này, CslModelCompiler.compile tạo các lớp, thuộc tính, liên kết và bất biến trong USE. CslContextSchema.installObservations bổ sung các liên kết để điều hướng từ một thực thể tới ngữ cảnh chứa nó hoặc tới tác tử đang quan sát nó. Mục~\ref{sec:2-6} trình bày cách dựng các thể hiện từ dữ liệu JaCaMo. Mục~\ref{sec:2-7} giải thích cách kiểm tra bất biến và đánh giá các điều kiện iStar trên trạng thái đã dựng.
 
+Bảng~\ref{tab:csl-notation} trình bày các hình dạng và đường nối dùng khi đọc biểu đồ CSL. Các hình dạng, dấu tổng quát hóa và dấu hợp thành được trích từ Hình~7 của Nguyen và cộng sự~\cite{ref-28}. Các đường nối còn lại lấy từ bộ vẽ của thẻ \emph{CSL Model} trong USE, gồm cả ký hiệu bổ sung để biểu diễn ánh xạ.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\caption{Ký pháp thành phần và quan hệ của CSL}\label{tab:csl-notation}
+\begin{tabular}{@{}>{\centering\arraybackslash}m{.19\linewidth}
+  >{\raggedright\arraybackslash}m{.22\linewidth}
+  >{\raggedright\arraybackslash}m{.53\linewidth}@{}}
+\toprule
+\textbf{Ký pháp} & \textbf{Thành phần} & \textbf{Cách đọc} \\
+\midrule
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-entity.png} & Entity & Khung chữ nhật biểu diễn một kiểu thực thể nghiệp vụ. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-orgctx.png} & OrgCtx & Khung có tai biểu diễn ngữ cảnh tổ chức. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-role.png} & Role & Khung bo tròn biểu diễn một vai trò trong tổ chức. \\
+\includegraphics[width=1.12cm,height=0.63cm]{figures/notation/csl-datatype.png} & DataType & Khung phân ngăn của kiểu dữ liệu. Với kiểu liệt kê, ngăn dưới ghi các giá trị. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-association.png} & Liên kết & Nét liền biểu diễn quan hệ. Tên đầu liên kết và bội số có thể ghi cạnh các đầu. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-generalization.png} & Tổng quát hóa & Tam giác rỗng chỉ về kiểu tổng quát của thực thể hoặc vai trò. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-composition.png} & Hợp thành & Hình thoi đặc đặt ở phía kiểu bao chứa. USE dùng dấu này cho khai báo lồng trong OrgCtx. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-aggregation.png} & Kết tập & Hình thoi rỗng đặt ở phía kiểu tập hợp thành phần. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-owner.png} & Sở hữu & Ô vuông rỗng đánh dấu phía chủ sở hữu. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-compatibility.png} & Tương thích & Vòng tròn rỗng đánh dấu vai trò tương thích. Hai đầu tròn biểu thị hai chiều. Nét đứt chỉ phạm vi liên nhóm. \\
+\includegraphics[width=2.55cm,height=0.46cm]{figures/notation/csl-enactment.png} & Có thể đảm nhiệm & Nét đứt có nhãn may enact hướng tới vai trò được phép đảm nhiệm theo ánh xạ. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Trong biểu đồ, thuộc tính được đặt dưới tên kiểu và ghi dưới dạng tên kèm kiểu dữ liệu. Các điều kiện OCL được khai báo trong đặc tả. Đường \emph{may enact} chỉ khả năng đảm nhiệm theo ánh xạ, còn thể hiện vai trò thực tế được quan sát trong thẻ \emph{OAL State}.
+
 \begin{figure}
 \centering
 \includegraphics[width=6.09in,height=\textheight]{figures/fig-2-2.png}
 \caption{Mô hình CSL của Auction.}\label{fig:2-2}
 \end{figure}
 
-Hình~\ref{fig:2-2} cho thấy AuctionOrg chứa ngữ cảnh auctionGroup, nơi khai báo hai vai trò auctioneer, participant và thực thể Auction. Các thuộc tính running, best\_bid và winner mô tả dữ liệu của từng phiên đấu giá. Để đọc mô hình trong thẻ CSL Model, có thể nhận ra Entity qua khung chữ nhật ghi «entity» và ngăn thuộc tính. OrgCtx dùng khung có tai ghi «OrgCtx», Role dùng khung bo tròn có biểu tượng người, còn kiểu liệt kê đặt các giá trị bên dưới tên. Trên các đường nối, tam giác rỗng chỉ kiểu tổng quát, hình thoi đặc chỉ hợp thành và hình thoi rỗng chỉ kết tập. Vòng tròn rỗng biểu thị quan hệ tương thích và ô vuông rỗng biểu thị sở hữu. Khả năng đảm nhiệm vai trò được vẽ bằng nét đứt có nhãn may enact. Các ký hiệu này diễn tả cấu trúc khai báo. Thẻ OAL State hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục~\ref{sec:2-5} sử dụng.
+Hình~\ref{fig:2-2} cho thấy AuctionOrg chứa ngữ cảnh auctionGroup, nơi khai báo hai vai trò auctioneer, participant và thực thể Auction. Các thuộc tính running, best\_bid và winner mô tả dữ liệu của từng phiên đấu giá. Thẻ \emph{OAL State} hiển thị các đối tượng và giá trị tại checkpoint mà những điều kiện iStar ở Mục~\ref{sec:2-5} sử dụng.
 
 \section{Đặc tả iStar mở rộng trong USE}\label{sec:2-5}
 
