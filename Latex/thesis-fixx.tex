@@ -326,7 +326,7 @@ Lập trình hệ đa tác tử cần mô tả cách tác tử chọn hành đ�
 \caption{Siêu mô hình JaCaMo.}\label{fig:1-5}
 \end{figure}
 
-Hình~\ref{fig:1-5} trình bày các khái niệm của ba chiều trong một siêu mô hình. Ở phía tác tử, mỗi Plan gắn với một Event kích hoạt và có thể gồm nhiều Action. Ở phía môi trường, Workspace chứa Artifact. Mỗi Artifact công bố các Property và Operation. Phần tổ chức nối Group với Role, còn Scheme tổ chức các mục tiêu thông qua Mission. Norm chỉ ra quan hệ giữa vai trò và nhiệm vụ theo hình thức nghĩa vụ hoặc quyền. Cách đọc ba chiều này phù hợp với kiến trúc JaCaMo trình bày trong \cite{ref-2}. Hình lấy từ tệp \href{https://github.com/nguyentrungnghia1802/thesis/blob/main/1\%2C\%20Tham\%20Kh\%E1\%BA\%A3o/jacamo-metamodel.png}{jacamo-metamodel.png}.
+Hình~\ref{fig:1-5} trình bày các khái niệm của ba chiều trong một siêu mô hình. Ở phía tác tử, mỗi Plan gắn với một Event kích hoạt và có thể gồm nhiều Action. Ở phía môi trường, Workspace chứa Artifact. Mỗi Artifact công bố các Property và Operation. Phần tổ chức nối Group với Role, còn Scheme tổ chức các mục tiêu thông qua Mission. Norm chỉ ra quan hệ giữa vai trò và nhiệm vụ theo hình thức nghĩa vụ hoặc quyền. Cách đọc ba chiều này phù hợp với kiến trúc JaCaMo trình bày trong \cite{ref-2}.
 
 Ba chiều của JaCaMo cung cấp thông tin khác nhau về cùng một hoạt động. Jason hỗ trợ tác tử suy luận bằng belief, goal, plan và intention. Một hành động được chọn trong plan có thể gọi thao tác của artifact trong CArtAgO hoặc góp phần thực hiện nhiệm vụ đã cam kết trong tổ chức Moise~\cite{ref-2}. Workspace xác định phạm vi sử dụng và quan sát artifact, còn nhóm, vai trò và mission mô tả cách phối hợp để đạt mục tiêu chung. Sự phân chia này giúp nhận diện một hoạt động đã thay đổi thông tin mà tác tử sử dụng, dữ liệu môi trường hay quan hệ đảm nhiệm vai trò~\cite{ref-2}.
 
@@ -795,7 +795,7 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán 2.1 trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/use-plugin/src/main/java/org/tzi/use/plugins/jacamo/bridge/mapping/SnapshotProjection.java\#L31-L49}{\ul{Mã chuẩn bị phép chiếu.}} \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/use-plugin/src/main/java/org/tzi/use/plugins/jacamo/session/SnapshotVerifier.java\#L113-L155}{\ul{Mã tiếp nhận và áp dụng ảnh.}}
+Thuật toán 2.1 trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ.
 
 \noindent\begin{minipage}{\linewidth}
 \thesisdisplaytitle{Thuật toán 2.1}{Mã Java chiếu ảnh chụp sang trạng thái CSL}
@@ -1038,7 +1038,7 @@ Trong bản USE dùng làm nền, việc kiểm tra được tổ chức thành 
 \caption{Giao diện USE trước khi tích hợp JaCaMo.}\label{fig:3-use-standard}
 \end{figure}
 
-Hình~\ref{fig:3-use-standard} chụp bản USE 7.5.0 với ví dụ \emph{CivilStatusWorld} đi kèm. Cây bên trái trình bày mô hình đã nạp. Cửa sổ \emph{Object diagram} hiển thị các đối tượng và liên kết được tạo bằng lệnh của USE, còn \emph{Class invariants} hiển thị giá trị của từng bất biến trên trạng thái đó. Đây là luồng sử dụng cơ sở mà phần mở rộng tiếp tục dùng để đánh giá trạng thái được dựng từ dữ liệu thực thi. \href{https://github.com/useocl/use/tree/af444c47534c4ef9254f24034757e5a499edf660/use-core/src/main/resources/examples/Documentation/HowToCheckUMLAndOCLModelsWithUSE}{\ul{Ví dụ đi kèm USE.}}
+Hình~\ref{fig:3-use-standard} chụp bản USE 7.5.0 với ví dụ \emph{CivilStatusWorld} đi kèm. Cây bên trái trình bày mô hình đã nạp. Cửa sổ \emph{Object diagram} hiển thị các đối tượng và liên kết được tạo bằng lệnh của USE, còn \emph{Class invariants} hiển thị giá trị của từng bất biến trên trạng thái đó. Đây là luồng sử dụng cơ sở mà phần mở rộng tiếp tục dùng để đánh giá trạng thái được dựng từ dữ liệu thực thi.
 
 \subsection{Kiến trúc USE---JaCaMo}\label{sec:3-1-2}
 
@@ -1072,7 +1072,7 @@ Phần mở rộng giữ lại bộ máy UML/OCL và bổ sung cơ chế thu th�
 \caption{Kiến trúc tích hợp USE và JaCaMo.}\label{fig:3-architecture}
 \end{figure}
 
-Phần trong đường nét đứt của Hình~\ref{fig:3-architecture} nằm trong mô đun \texttt{use-plugin}. Cửa sổ thực nghiệm tiếp nhận một gói \texttt{.mrv}, mở các đặc tả và điều phối vòng đời của lần chạy. Gói chứa cấu hình JaCaMo, mã nguồn của ca thử, mô hình CSL, mô hình iStar và khai báo tương ứng XML. Hai mô hình có thể được xem riêng, trong khi trạng thái đối tượng CSL và kết quả đánh dấu Goal/Task được xem theo từng mốc trong cửa sổ thực nghiệm. Giao diện đăng ký bốn điểm vào để mở mô hình hoặc trạng thái CSL, iStar và một điểm vào để chạy thực nghiệm. Cả năm dùng chung một mô đun triển khai. Mô đun \texttt{use-assembly} đóng gói lõi, giao diện, plugin, thư viện JaCaMo cần thiết và các ví dụ thành một bản chạy. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/doc/ARCHITECTURE.md}{\ul{Kiến trúc mã nguồn của phần mở rộng.}}
+Phần trong đường nét đứt của Hình~\ref{fig:3-architecture} nằm trong mô đun \texttt{use-plugin}. Cửa sổ thực nghiệm tiếp nhận một gói \texttt{.mrv}, mở các đặc tả và điều phối vòng đời của lần chạy. Gói chứa cấu hình JaCaMo, mã nguồn của ca thử, mô hình CSL, mô hình iStar và khai báo tương ứng XML. Hai mô hình có thể được xem riêng, trong khi trạng thái đối tượng CSL và kết quả đánh dấu Goal/Task được xem theo từng mốc trong cửa sổ thực nghiệm. Giao diện đăng ký bốn điểm vào để mở mô hình hoặc trạng thái CSL, iStar và một điểm vào để chạy thực nghiệm. Cả năm dùng chung một mô đun triển khai. Mô đun \texttt{use-assembly} đóng gói lõi, giao diện, plugin, thư viện JaCaMo cần thiết và các ví dụ thành một bản chạy.
 
 Phía JaCaMo được khởi chạy trong một tiến trình Java do phiên thực nghiệm quản lý. Jason tiếp tục thực thi kế hoạch tác tử, CArtAgO quản lý artifact và Moise quản lý tổ chức. Bộ theo dõi quan sát các ranh giới thực thi mà phương pháp chọn, điều phối việc giữ dừng và thu dữ kiện từ các thành phần trong phạm vi quan sát. Tách tiến trình cho phép USE quản lý phiên và nhận dữ liệu mà vẫn giữ thư viện thực thi JaCaMo riêng với môi trường nạp plugin của giao diện.
 
@@ -1125,17 +1125,11 @@ Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu ngu�
 
 \subsection{Kịch bản kiểm thử}\label{sec:3-2-2}
 
-TN là viết tắt của thực nghiệm. Bốn kịch bản dưới đây cùng sử dụng ví dụ Auction. Hai kịch bản đầu dùng gói mẫu và vết của lần chạy đó. Hai kịch bản sau thay đổi cách xử lý hoặc dữ liệu công bố để kiểm tra phản hồi của USE.
+Thực nghiệm sử dụng bốn kịch bản trên Auction, ký hiệu từ TN01 đến TN04. TN01 chạy gói Auction mẫu để mở phiên, trả giá và đóng hai phiên a1 và a2. TN02 đánh giá lại vết thu từ TN01 với cùng đặc tả và khai báo ánh xạ.
 
-TN01 theo dõi hai phiên a1 và a2 trong chu trình mở phiên, trả giá và đóng phiên. Đối chiếu giá và mức đạt mục tiêu của từng phiên khi tiến độ khác nhau và khi hai phiên kết thúc.
+TN03 đưa lần lượt hai mức giá 10 và 20. Bản hợp lệ giữ giá tốt nhất ở 10, còn bản có lỗi ghi đè thành 20. Mỗi bản được thử khi chụp cuối nhóm kế hoạch và khi chụp ở mốc chuyển giao sau từng lượt trả giá. TN04 bỏ công bố giá tốt nhất ở JaCaMo, giữ nguyên khai báo ánh xạ và thu ảnh lúc kết thúc nhóm kế hoạch hoặc tại mốc chuyển giao sau khi mở phiên.
 
-TN02 đánh giá lại vết TN01 với cùng đặc tả và khai báo ánh xạ. Đối chiếu quyết định và tập mục tiêu, nhiệm vụ đã đạt tại từng mốc. \href{https://github.com/nguyentrungnghia1802/thesis/blob/main/Latex/README.md}{\ul{Hướng dẫn chạy lại TN02.}}
-
-TN03 thử hai lượt trả giá 10 rồi 20. Bản hợp lệ giữ giá tốt nhất ở 10, còn bản có lỗi ghi đè thành 20. Mỗi bản được thử với hai cách quan sát, gồm chụp cuối nhóm kế hoạch và chụp ở mốc chuyển giao sau từng lượt trả giá.
-
-TN04 giữ nguyên khai báo ánh xạ và bỏ công bố giá tốt nhất ở JaCaMo. Biến thể được kiểm tra ở cuối nhóm kế hoạch và tại mốc chuyển giao sau khi mở phiên để đối chiếu phản hồi thiếu dữ liệu và thời điểm giữ dừng.
-
-Các biến thể TN03 và TN04 được tạo từ bản sao của gói mẫu và đóng gói lại thành tệp \texttt{.mrv}. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/README.md}{\ul{Hướng dẫn đóng gói trên USE.}}
+TN01 kiểm tra việc bảo toàn định danh, giá tốt nhất và tiến độ mục tiêu của từng phiên. TN02 đánh giá khả năng tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt tại mỗi mốc. TN03 và TN04 kiểm tra khả năng phân biệt vi phạm mục tiêu với thiếu dữ liệu. Việc đối chiếu hai ranh giới trong các ca này cho biết khi nào USE có đủ bằng chứng để phát hiện sai lệch và khi nào phản hồi còn kịp giữ bước thực thi kế tiếp.
 
 \section{Tiêu chí kiểm thử}\label{sec:3-3}
 
