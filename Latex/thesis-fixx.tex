@@ -1095,7 +1095,7 @@ Quyết định được gửi về đúng yêu cầu đang chờ ở tiến tr�
 
 \section{Hướng dẫn cài đặt và kịch bản kiểm thử}\label{sec:3-2}
 
-Người đọc có thể chạy Auction trước để làm quen với phiên được phép tiếp tục, rồi chạy Counter để thấy trường hợp giữ dừng. Các ca còn lại dùng lại vết Auction, đưa dữ liệu thử vào bộ kiểm chứng hoặc chạy các biến thể được lưu kèm theo dữ liệu thực nghiệm.
+Người đọc có thể chạy Auction trước để làm quen với phiên được phép tiếp tục, rồi chạy Counter để thấy trường hợp giữ dừng. Các ca còn lại kiểm tra khả năng đánh giá lại vết, xử lý dữ liệu thiếu và phát hiện vi phạm ở những ranh giới quan sát khác nhau.
 
 \subsection{Chuẩn bị và khởi chạy phần mềm}\label{sec:3-2-1}
 
@@ -1132,16 +1132,21 @@ Trong Hình~\ref{fig:3-workbench}, khung bên trái trình bày dữ liệu ngu�
 
 Trong TN01, chạy Auction và tìm một mốc mà hai cuộc đấu giá có tiến độ khác nhau. Tại cùng mốc, lần lượt chọn a1 và a2, đối chiếu giá do artifact công bố với giá trên đối tượng CSL, rồi xem trạng thái nhiệm vụ ghi nhận lượt trả giá cải thiện. Tiếp tục đối chiếu hai ngữ cảnh ở cuối lần chạy để xác định mỗi cuộc có bằng chứng đóng phiên và đạt mục tiêu riêng hay không. Thứ tự xuất hiện của hai lượt giá cải thiện có thể thay đổi giữa các lần chạy, vì vậy chọn mốc theo nội dung quan sát được.
 
-TN02 lấy vết gốc TN01 cùng ba tệp đầu vào đã lưu, rồi dùng chức năng đánh giá lại để so kết quả từng mốc. Lệnh sau dùng Bash, chạy từ thư mục gốc của kho USE sau khi đã đóng gói. Thay \path{/duong/dan/thesis} bằng đường dẫn đến kho luận văn. Đầu ra là tệp \texttt{replay.json} tại thư mục hiện hành. Để đánh giá lại phiên vừa chạy, dùng tệp vết tại đường dẫn do giao diện báo và các đặc tả tương ứng với phiên đó.
+TN02 đánh giá lại vết do USE ghi trong lần chạy Auction ở TN01. Sau khi chạy xong gói Auction chuẩn, sao chép đường dẫn thư mục ghi sau dòng \emph{Run evidence} trong thẻ \emph{Console}. Thư mục này chứa tệp vết \path{consumer-history.jsonl}. Từ thư mục gốc của kho USE đã đóng gói, chạy các lệnh Bash dưới đây và dán đường dẫn vừa sao chép khi được hỏi. Lệnh sử dụng các tệp đặc tả và ánh xạ đi kèm gói Auction chuẩn.
 
+\noindent\begin{minipage}{\linewidth}
 \begin{Verbatim}
-case_dir=/duong/dan/thesis/Bang-chung-Chuong-3-20261123-220539/TN01
+read -r -p 'Run evidence: ' run_dir
+example_dir=use-assembly/target/new/examples/auction
 java -cp 'use-assembly/target/new/bridge/state/*' \
   org.tzi.use.plugins.jacamo.entrypoint.ReplayMain \
-  "$case_dir/input/attribute-mapping.xml" "$case_dir/input/auction.csl" \
-  "$case_dir/input/auction.istar" "$case_dir/run/consumer-history.jsonl" \
-  replay.json
+  "$example_dir/attribute-mapping.xml" \
+  "$example_dir/auction.csl" "$example_dir/auction.istar" \
+  "$run_dir/consumer-history.jsonl" replay.json
 \end{Verbatim}
+\end{minipage}
+
+Tệp \texttt{replay.json} lưu kết quả đánh giá lại. Ở mỗi mốc, đối chiếu quyết định và tập Goal/Task đã đạt trong tệp này với vết của lần chạy Auction vừa thực hiện.
 
 TN03 chạy gói Counter chuẩn. Tại điểm giữ dừng, xem giá trị bộ đếm ở \emph{Artifacts}, kết quả của bất biến không âm ở \emph{OCL} và quyết định ở \emph{Checkpoints}. TN04 kiểm tra một trường hợp khác bằng phép thử JUnit trực tiếp trên bộ kiểm chứng. Đầu vào lần lượt là ảnh đầy đủ chứa một đối tượng, ảnh được đánh dấu thiếu và ảnh đầy đủ gửi lại tại cùng số thứ tự. Từ thư mục gốc của USE, chạy lệnh sau rồi xem báo cáo trong \path{use-plugin/target/surefire-reports}.
 
@@ -1153,17 +1158,7 @@ mvn -B -pl use-plugin -am test \
 
 TN05 đưa lần lượt hai giá cố định 10 và 20 vào Auction. Bản hợp lệ giữ giá thấp nhất là 10, còn biến thể có lỗi ghi đè thành 20. Mỗi cách xử lý được đối chiếu ở hai cấu hình quan sát. Cấu hình thứ nhất giữ cả hai lượt trong cùng nhóm kế hoạch. Cấu hình thứ hai dùng mốc chuyển giao để quan sát được giá sau mỗi lượt. TN06 dùng biến thể còn công bố phiên đấu giá nhưng bỏ thuộc tính giá tốt nhất. TN07 dùng hai gói Counter có cùng thao tác đưa bộ đếm về $-1$. Một gói giữ giá trị đó đến cuối nhóm; gói kia khôi phục giá trị về 2 ngay trong nhóm.
 
-Có thể mở trực tiếp các gói TN05 lỗi có chuyển giao, TN06 thiếu thuộc tính có chuyển giao và hai biến thể TN07 theo thao tác ở Hình~\ref{fig:3-launch}. Các gói nằm trong thư mục \texttt{project} của từng ca chụp. Với TN05, hai lệnh dưới đây chạy đủ bốn tổ hợp trên Linux từ thư mục gốc của kho USE đã đóng gói. Thư mục đầu ra của mỗi lần thử phải có tên mới. Lệnh đầu chạy hai biến thể trong cùng nhóm kế hoạch; lệnh sau chạy hai biến thể với mốc chuyển giao. Đọc kết quả theo từng biến thể, kể cả lần công cụ cho tiếp tục dù log nguồn ghi nhận giá tăng. \href{https://github.com/nguyentrungnghia1802/thesis/tree/33c3a72b78045cc5fd85eca45769357773f18553/Bang-chung-4-cum-anh-20261124-170243}{\ul{Gói và ảnh các ca kiểm thử.}} \href{https://github.com/nguyentrungnghia1802/thesis/tree/33c3a72b78045cc5fd85eca45769357773f18553/Du-lieu-thuc-nghiem-bo-sung-20261124}{\ul{Vết và cấu hình đối chứng.}}
-
-\begin{Verbatim}
-evidence=/duong/dan/thesis/Du-lieu-thuc-nghiem-bo-sung-20261124
-python3 use-plugin/tools/verify-state-checker.py --output tn05-gom \
-  --cases valid_non_improving_bid increasing_best_bid
-python3 "$evidence/scripts/run-separated-auction.py" "$PWD" \
-  tn05-chuyen-giao valid_non_improving_bid increasing_best_bid
-\end{Verbatim}
-
-Lệnh chạy cấu hình gom nhóm có thể báo mã thoát 2 khi phát hiện ca có lỗi đã được cho tiếp tục. Kết quả chi tiết vẫn được lưu trong thư mục đầu ra để đối chiếu với kỳ vọng và tiêu chí ở phần sau.
+TN05--TN07 được chuẩn bị từ các bản sao của dự án mẫu. Khi tái lập các đối chứng này, giữ nguyên đặc tả và khai báo ánh xạ, rồi thay đổi hành vi nguồn hoặc ranh giới quan sát theo từng cấu hình. Sau khi đóng gói lại mỗi biến thể thành tệp \texttt{.mrv}, mở gói qua trình đơn ở Hình~\ref{fig:3-launch} và ghi nhận diễn biến trong \emph{Console}, giá trị trong ảnh trạng thái và quyết định của USE ở mốc tương ứng. \href{https://github.com/nguyentrungnghia1802/use/blob/5b6a3542d22a67c25fdb1768de54d7cfec15781d/README.md}{\ul{Hướng dẫn đóng gói dự án JaCaMo trên USE.}}
 
 \section{Tiêu chí kiểm thử}\label{sec:3-3}
 
