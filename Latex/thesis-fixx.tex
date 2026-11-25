@@ -905,8 +905,27 @@ target="Auction.best_bid"/>
 
 \subsection{Đồng bộ JaCaMo với CSL}\label{sec:2-6-2}
 
-Việc đồng bộ bắt đầu khi JaCaMo đến ranh giới thực thi cần quan sát. Hệ thống thu một ảnh ban đầu trước khi các tác tử thực thi. Trong khi chạy, mốc thường dùng là thời điểm một nhóm kế hoạch kết thúc. Kế hoạch gốc và các kế hoạch con đồng bộ được theo dõi chung. Một ý định độc lập có thể tạo nhóm riêng. Bộ theo dõi còn có thể đặt mốc khi giao thông điệp hoặc khi một goal thực thi thất bại ngoài nhóm đang xử lý. Nếu việc giao thông điệp có thể chờ đến khi nhóm kết thúc theo chính sách của hệ thống, hai ranh giới có thể dùng cùng mốc quan sát.
+Việc đồng bộ bắt đầu ở ranh giới thực thi do bộ theo dõi Jason ghi nhận. Thuật toán~\ref{alg:checkpoint-selection} xác định sự kiện nào tạo yêu cầu checkpoint và khi nào các sự kiện dùng chung một mốc.
 
+\noindent\begin{minipage}{\linewidth}
+\captionsetup{type=thesisalgorithm}
+\caption{Chọn ranh giới checkpoint và gom nhóm kế hoạch}\label{alg:checkpoint-selection}
+\small
+\setlength{\parskip}{2pt}
+\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu vào}}Sự kiện thực thi của Jason và các nhóm kế hoạch đang theo dõi.\par
+\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu ra}}Yêu cầu checkpoint nếu sự kiện tạo mốc.\par
+\begin{enumerate}
+\setlength{\itemsep}{2pt}
+\setlength{\parsep}{0pt}
+\item \textbf{Khởi tạo.} Yêu cầu \texttt{INITIAL} trước khi tác tử bắt đầu thực thi.
+\item \textbf{Bắt đầu kế hoạch.} Nếu ý định có nhóm đang thực thi, thêm kế hoạch vào nhóm. Nếu chưa có, mở nhóm với kế hoạch này làm gốc.
+\item \textbf{Kết thúc kế hoạch.} Nếu kế hoạch là gốc, đóng nhóm và yêu cầu \texttt{PLAN\_COMPLETED}. Kế hoạch con trong nhóm không tạo mốc kết thúc riêng.
+\item \textbf{Gửi thông điệp sang tác tử khác.} Nếu lần gửi thuộc nhóm, thông điệp không phải truy vấn và ý định chỉ còn các bước thoát, hoãn giao và gộp lần gửi vào mốc cuối nhóm. Các trường hợp còn lại yêu cầu \texttt{AGENT\_HANDOFF} trước khi giao.
+\item \textbf{Goal thực thi thất bại ngoài nhóm.} Yêu cầu \texttt{GOAL\_FAILED}.
+\end{enumerate}
+\end{minipage}
+
+\smallskip
 Ở mốc đã chọn, bộ điều phối tạm ngừng tiếp nhận hoạt động mới trong phạm vi theo dõi và đợi các hoạt động đã được cấp phép cùng các công việc đang chờ đạt trạng thái ổn định. Bộ thu đọc các workspace cục bộ, thuộc tính của artifact được khai báo, quan hệ quan sát của tác tử và thông tin tổ chức. Dữ kiện thành viên và đảm nhiệm vai trò được lấy từ trạng thái đang chạy. Nhờ thu trong cùng đợt giữ, bộ chiếu có thể dùng các dữ kiện này để giải các đầu liên kết trong một ảnh.
 
 Mỗi ảnh gửi tới USE mang định danh lần chạy, thứ tự, dấu hiệu độ đầy đủ và mã phản hồi cho checkpoint. Dấu hiệu độ đầy đủ phản ánh phạm vi dữ liệu mà bộ thu quản lý. Nếu nguồn cần quan sát bị gián đoạn, ảnh được đánh dấu thiếu. Ranh giới theo nhóm kế hoạch cũng xác định độ phân giải của vết. Một giá trị trung gian có thể vắng mặt trong ảnh nếu đã bị thay thế trước khi nhóm kết thúc, như đối chứng ở Mục~\ref{sec:3-4-2}.
@@ -921,76 +940,30 @@ Khóa này cho phép hai nguồn cùng kiểu tạo hai đối tượng riêng, 
 
 Bộ chiếu dựng quan hệ sau khi đã xác định các đối tượng. Quan hệ phạm vi nối thực thể hoặc ngữ cảnh con với ngữ cảnh sở hữu dựa trên khai báo CSL và dữ kiện workspace hoặc ngữ cảnh cha. Một dữ kiện quan sát nối tác tử với artifact đang được quan sát. Dữ kiện thành viên nối chủ thể với nhóm tương ứng. Khi một chủ thể đảm nhiệm vai trò, bộ chiếu tạo thể hiện vai trò rồi nối nó với chủ thể và ngữ cảnh tổ chức. Các quy tắc này được dùng chung cho những mô hình có đủ dữ kiện nguồn tương ứng. Nếu một liên kết nghiệp vụ khác cần có trong trạng thái đích, cần thu được dữ kiện nguồn và bổ sung quy tắc dựng liên kết tương ứng. Nếu một đầu liên kết bắt buộc bị thiếu hoặc có nhiều đối tượng phù hợp, phép chiếu báo lỗi.
 
-Thuật toán~\ref{alg:state-projection} trình bày hai phương thức Java thực thi phép chiếu. Bộ kiểm chứng chỉ gọi cặp phương thức này sau khi xác nhận ảnh thuộc đúng phiên, đến đúng thứ tự và được thu đầy đủ.
+Thuật toán~\ref{alg:state-projection} tách việc chuẩn bị phép chiếu khỏi bước cập nhật trạng thái trong USE.
 
 \noindent\begin{minipage}{\linewidth}
-\captionof{thesisalgorithm}{Mã Java chiếu ảnh chụp sang trạng thái CSL}\label{alg:state-projection}
-
-\noindent\textit{(a) Chuẩn bị đối tượng và liên kết}
-\begin{Verbatim}[fontsize=\footnotesize]
-public Prepared prepare(SourceSnapshot snapshot) {
-    var sources = indexSources(snapshot);
-    var rows = new LinkedHashMap<String, ObjectRow>();
-    var bySource = new HashMap<String, List<ObjectRow>>();
-    for (var source : sources.values()) {
-        for (var row : mapObjects(snapshot, source)) {
-            rows.put(row.identity(), row);
-            bySource.computeIfAbsent(source.id(), key -> new ArrayList<>())
-                    .add(row);
-        }
-    }
-
-    var links = new LinkedHashSet<Link>();
-    addFocusLinks(snapshot, sources, bySource, links);
-    addScopeLinks(sources, bySource, links);
-    addMembershipLinks(snapshot, sources, bySource, links);
-    addEnactments(snapshot, sources, bySource, rows, links);
-    validateContextCycles(snapshot.nodes());
-    return new Prepared(List.copyOf(rows.values()), List.copyOf(links));
-}
-\end{Verbatim}
+\captionsetup{type=thesisalgorithm}
+\caption{Chiếu ảnh chụp nguồn sang trạng thái CSL}\label{alg:state-projection}
+\small
+\setlength{\parskip}{2pt}
+\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu vào}}Ảnh chụp đã xác nhận đúng phiên, đúng thứ tự và đầy đủ, ánh xạ XML và trạng thái CSL hiện tại.\par
+\noindent\hangindent=4.5em\makebox[4.5em][l]{\textbf{Đầu ra}}Trạng thái CSL tại mốc mới hoặc lỗi chiếu.\par
+\begin{enumerate}
+\setlength{\itemsep}{2pt}
+\setlength{\parsep}{0pt}
+\item[] \textbf{Chuẩn bị phép chiếu}
+\item Lập chỉ mục dữ kiện nguồn. Áp dụng ánh xạ XML để xác định khóa, kiểu và giá trị thuộc tính của đối tượng CSL.
+\item Chuẩn bị các đối tượng vai trò và liên kết theo dữ kiện nguồn. Báo lỗi nếu giá trị hoặc đầu liên kết bắt buộc không hợp lệ, hoặc quan hệ ngữ cảnh có chu trình.
+\item[] \textbf{Cập nhật trạng thái USE}
+\item Tìm hoặc tạo đối tượng theo khóa đã chuẩn bị rồi gán các giá trị thuộc tính.
+\item Xóa liên kết cũ. Xóa các đối tượng vắng mặt trong ảnh đầy đủ và đóng phiên đánh giá tương ứng nếu có.
+\item Dựng lại các liên kết đã chuẩn bị.
+\end{enumerate}
 \end{minipage}
 
-Trong phần (a), \texttt{indexSources} lập chỉ mục các dữ kiện theo định danh nguồn. \texttt{mapObjects} áp dụng các khai báo XML để xác định kiểu CSL và giá trị thuộc tính của từng đối tượng. Bộ chiếu dùng kết quả đó để giải các đầu liên kết chứa, quan sát, thành viên và đảm nhiệm vai trò. Phương thức trả về đối tượng cùng liên kết đã chuẩn bị sau khi kiểm tra chu trình ngữ cảnh. Nếu phần chuẩn bị báo lỗi, trạng thái USE vẫn ở trước lần cập nhật.
-
-\noindent\begin{minipage}{\linewidth}
-\thesisdisplaytitle{Thuật toán~\ref{alg:state-projection} (tiếp)}{Áp dụng phép chiếu}
-\noindent\textit{(b) Cập nhật trạng thái trong USE}
-\begin{Verbatim}[fontsize=\footnotesize]
-private void applySnapshot(SnapshotProjection.Prepared prepared)
-        throws Exception {
-    var retained = new HashSet<String>();
-    for (var row : prepared.objects()) {
-        retained.add(row.identity());
-        var object = objects.get(row.identity());
-        if (object == null) {
-            object = api.createObject(row.type(),
-                    "state_" + hash(row.identity()).substring(0, 24));
-            objects.put(row.identity(), object);
-        }
-        for (var value : row.values().entrySet())
-            api.setAttributeValueEx(object,
-                    object.cls().attribute(value.getKey(), true), value.getValue());
-    }
-    // Links are reconstructed from each complete physical snapshot;
-    // leaving a role removes Plays/InContext.
-    for (var link : new ArrayList<>(system.state().allLinks()))
-        api.deleteLinkEx(link);
-    for (String id : new ArrayList<>(objects.keySet()))if (!retained.contains(id)) {
-        api.deleteObjectEx(objects.remove(id));
-        var retired = sessions.remove(id);
-        if (retired != null) retired.close();
-    }
-    for (var link : prepared.links())
-        api.createLink(link.association(), objects.get(link.left()).name(),
-                objects.get(link.right()).name());
-}
-\end{Verbatim}
-\end{minipage}
-
-Trong phần (b), công cụ tìm lại đối tượng theo khóa định danh đã giải ở phần (a). Nếu khóa chưa có đối tượng trong trạng thái đang lưu, USE tạo đối tượng rồi gán giá trị thuộc tính của ảnh. USE thay các liên kết cũ bằng các liên kết trong ảnh đầy đủ và đóng lịch sử đánh giá của những đối tượng đã rời trạng thái. Giá trị của trạng thái trước cập nhật được lưu ở phương thức gọi để đánh giá các điều kiện cần đối chiếu hai mốc ở Mục~\ref{sec:2-7-1}.
-
-Việc xóa dựa trên ảnh đã được xác nhận đầy đủ, qua đó tránh coi mất dữ liệu là sự kiện đối tượng rời hệ thống. Nếu lỗi phát sinh trong lúc áp dụng trực tiếp vào USE, bộ kiểm chứng giữ dừng để chẩn đoán vì một phần trạng thái có thể đã thay đổi.
+\smallskip
+Sau khi chuẩn bị thành công, USE lưu trạng thái trước cập nhật để đánh giá các điều kiện cần đối chiếu hai mốc ở Mục~\ref{sec:2-7-1}. Nếu lỗi xảy ra trong lúc áp dụng phép chiếu, trạng thái có thể đã thay đổi một phần và bộ kiểm chứng giữ dừng để chẩn đoán.
 
 \begin{figure}
 \centering
@@ -1369,7 +1342,7 @@ Khả năng áp dụng thực tế phụ thuộc trước hết vào công sức
 
 Hạn chế thứ nhất là chưa có phép ánh xạ toàn cục từ mô hình và dữ liệu thực thi JaCaMo sang đặc tả CSL và iStar. Bộ chiếu đã có quy tắc dùng chung để giữ định danh, chuyển giá trị sang kiểu đích và dựng các liên kết phạm vi, thành viên, vai trò và quan sát từ ảnh nguồn. Tuy nhiên, tương ứng cụ thể giữa kiểu nguồn, trường dữ liệu và thuộc tính CSL do người đặc tả khai báo thủ công trong XML. Khi đổi miền ứng dụng, cần xác định lại các tương ứng đó và bổ sung xử lý nếu trạng thái đích đòi hỏi quan hệ ngoài những loại đã hỗ trợ. Cũng chưa có bộ luật chuyển đổi chi tiết để suy ra Goal/Task từ kế hoạch Jason hoặc mục tiêu tổ chức Moise. Người phân tích vẫn phải đặc tả riêng mục tiêu iStar và các điều kiện đánh giá trên CSL. Vì thế, XML hiện hỗ trợ cấu hình phép chiếu theo miền, còn việc xây dựng đặc tả và thiết lập tương ứng vẫn cần tri thức về hệ thống nguồn.
 
-Hạn chế thứ hai nằm ở lựa chọn checkpoint. Cơ chế hiện tại chọn mốc theo các ranh giới thực thi của Jason, như kết thúc nhóm kế hoạch hoặc chuyển giao công việc giữa tác tử. Người đặc tả chưa thể khai báo trực tiếp một mốc nghiệp vụ, chẳng hạn kiểm tra ngay sau khi kế hoạch trả giá kết thúc nếu kế hoạch đó được gọi đồng bộ bên trong một nhóm lớn hơn. Ngược lại, những nhóm kế hoạch phụ trợ chạy độc lập vẫn có thể tạo mốc riêng và làm tăng số lượt kiểm chứng dù không cung cấp thêm bằng chứng cho mục tiêu đang xét. Vì bộ theo dõi dựa trên ranh giới thực thi, số mốc có thể vừa thiếu ở điểm nghiệp vụ quan trọng vừa dư ở phần việc phụ trợ. Trong TN03, giá 10 vắng mặt ở cấu hình chỉ chụp cuối nhóm. Nghiên cứu chưa đo chi phí phát sinh từ các mốc của nhóm kế hoạch phụ trợ.
+Hạn chế thứ hai nằm ở lựa chọn checkpoint. Theo Thuật toán~\ref{alg:checkpoint-selection}, thời điểm kế hoạch gốc kết thúc là mốc chung của cả nhóm. Người đặc tả chưa thể yêu cầu kiểm tra ngay sau một thao tác nghiệp vụ, chẳng hạn sau khi kế hoạch trả giá kết thúc nếu nó là kế hoạch con đồng bộ. Trong khi đó, nhóm phụ trợ chạy độc lập vẫn có thể tạo mốc và tăng số lượt kiểm chứng. Ở TN03, giá 10 vắng mặt khi chỉ chụp cuối nhóm. Nghiên cứu chưa đo chi phí riêng của các mốc do nhóm phụ trợ tạo ra.
 
 Khả năng phát hiện còn phụ thuộc vào những dữ kiện chương trình công bố và điều kiện người phân tích đã đặc tả. Ví dụ, kết quả đạt mục tiêu hoàn thành của Auction phản ánh bằng chứng mở phiên, trả giá và đóng phiên. Để kiểm tra người thắng thực sự là tác tử đã đưa ra giá được chọn, cần quan sát định danh người gửi của từng lượt trả giá và mô tả chính sách chọn người thắng, kể cả khi có nhiều giá bằng nhau. Kết quả thực nghiệm thu được trên Auction với không gian làm việc cục bộ. Mức bao phủ dữ liệu và chi phí kiểm chứng của các hệ thống phân tán cần được đánh giá riêng.
 
