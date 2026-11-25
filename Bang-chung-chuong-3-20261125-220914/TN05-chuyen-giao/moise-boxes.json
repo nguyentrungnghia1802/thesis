@@ -1,0 +1,52 @@
+{
+  "url": "http://127.0.0.1:3271/aorg/group/agrp",
+  "scale": 2,
+  "boxes": {
+    "bob": [
+      {
+        "text": "bob plays auctioneer",
+        "x": 48,
+        "y": 221.90625,
+        "width": 147.671875,
+        "height": 17,
+        "tag": "SPAN"
+      },
+      {
+        "text": "bob",
+        "x": 48,
+        "y": 221.90625,
+        "width": 26.703125,
+        "height": 17,
+        "tag": "A"
+      }
+    ],
+    "auctioneer": [
+      {
+        "text": "bob plays auctioneer",
+        "x": 48,
+        "y": 221.90625,
+        "width": 147.671875,
+        "height": 17,
+        "tag": "SPAN"
+      },
+      {
+        "text": "auctioneer",
+        "x": 120.953125,
+        "y": 221.90625,
+        "width": 74.71875,
+        "height": 17,
+        "tag": "A"
+      }
+    ],
+    "agrp": [
+      {
+        "text": "agrp (group)",
+        "x": 8,
+        "y": 8,
+        "width": 884,
+        "height": 28,
+        "tag": "H2"
+      }
+    ]
+  }
+}

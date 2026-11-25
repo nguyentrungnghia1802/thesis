@@ -1,0 +1,18 @@
+agrp (group)
+created from specification auctionGroup (root group)
+
+Formation:
+ok
+
+Players
+alice plays participant
+bob plays auctioneer
+
+Responsible for the following schemes:
+
+sch_a2
+sch_a1
+
+Normative State
+state	agent	maintenance condition	aim	deadline	done at	annotations
+NPL program / debug page

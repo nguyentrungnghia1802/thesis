@@ -1,0 +1,4 @@
+csl v4.0 Example {
+  entity Gauge { attribute reading : Integer required mutable; }
+  context Gauge inv Nonnegative: self.reading >= 0;
+}

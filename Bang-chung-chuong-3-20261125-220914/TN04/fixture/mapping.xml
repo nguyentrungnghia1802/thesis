@@ -1,0 +1,3 @@
+<mapping xmlns="urn:use:jacamo-state-mapping:1">
+  <attribute source="artifact:unrelated.CustomGauge/property:value" target="Gauge.reading"/>
+</mapping>

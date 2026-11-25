@@ -1,0 +1,645 @@
+{
+  "TN01": {
+    "folder": "TN01-in",
+    "run": "98170b4f-83e5-44d5-91c1-dae4b48d4da2",
+    "short": "98170b4f",
+    "end": 58,
+    "acks": 58,
+    "decision": "APPROVE",
+    "boundary": "PLAN_COMPLETED",
+    "counts": {
+      "APPROVE": 58
+    },
+    "mid": 41,
+    "mid_decision": "APPROVE",
+    "mid_details": {
+      "a1": {
+        "price": 109.68836820294183,
+        "initial": false,
+        "object": "state_83fb39f166298d2c4042b1d0",
+        "bid": "FULFILLED",
+        "finished": "UNKNOWN",
+        "safe": "FULFILLED"
+      },
+      "a2": {
+        "price": 179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+        "initial": true,
+        "object": "state_f5eae3103ba6dc99c0a8b9cd",
+        "bid": "PENDING",
+        "finished": "UNKNOWN",
+        "safe": "FULFILLED"
+      }
+    },
+    "end_details": {
+      "a1": {
+        "price": 22.003499565157192,
+        "initial": false,
+        "object": "state_83fb39f166298d2c4042b1d0",
+        "bid": "FULFILLED",
+        "finished": "FULFILLED",
+        "safe": "FULFILLED"
+      },
+      "a2": {
+        "price": 26.15354328979648,
+        "initial": false,
+        "object": "state_f5eae3103ba6dc99c0a8b9cd",
+        "bid": "FULFILLED",
+        "finished": "FULFILLED",
+        "safe": "FULFILLED"
+      }
+    },
+    "mid_invariants": [
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS"
+    ]
+  },
+  "TN03": {
+    "folder": "TN03-in",
+    "run": "8b4f7da3-b16a-4aab-bd63-d27362cea888",
+    "short": "8b4f7da3",
+    "end": 3,
+    "acks": 3,
+    "decision": "HOLD_FAILURE",
+    "boundary": "PLAN_COMPLETED",
+    "counts": {
+      "APPROVE": 2,
+      "HOLD_FAILURE": 1
+    },
+    "value": -1,
+    "nonnegative": "FAIL",
+    "safe": "VIOLATED",
+    "outcome": "SUCCEEDED"
+  },
+  "TN05": {
+    "folder": "TN05-chuyen-giao",
+    "run": "26400acd-d4e9-49b7-b7ae-9a9e6e6c0be1",
+    "short": "26400acd",
+    "end": 22,
+    "acks": 22,
+    "decision": "HOLD_FAILURE",
+    "boundary": "AGENT_HANDOFF",
+    "counts": {
+      "APPROVE": 21,
+      "HOLD_FAILURE": 1
+    },
+    "before": 21,
+    "case_context": "a1",
+    "invariants": 17
+  },
+  "TN06": {
+    "folder": "TN06-chuyen-giao-trinhbay",
+    "run": "b8241f0f-ea21-42f9-97a3-7ab4c9e1cce0",
+    "short": "b8241f0f",
+    "end": 18,
+    "acks": 18,
+    "decision": "HOLD_UNVERIFIED",
+    "boundary": "AGENT_HANDOFF",
+    "counts": {
+      "APPROVE": 17,
+      "HOLD_UNVERIFIED": 1
+    },
+    "artifacts": [
+      "a1",
+      "a2"
+    ]
+  },
+  "TN07-negative": {
+    "folder": "TN07-giu-am-in",
+    "run": "54271a7f-cc8a-40d3-bc2b-425d1ef79033",
+    "short": "54271a7f",
+    "end": 3,
+    "acks": 3,
+    "decision": "HOLD_FAILURE",
+    "boundary": "PLAN_COMPLETED",
+    "counts": {
+      "APPROVE": 2,
+      "HOLD_FAILURE": 1
+    },
+    "value": -1,
+    "nonnegative": "FAIL",
+    "safe": "VIOLATED",
+    "outcome": "SUCCEEDED",
+    "witness": [
+      0,
+      1,
+      2,
+      -1
+    ]
+  },
+  "TN07-recovered": {
+    "folder": "TN07-khoi-phuc-in",
+    "run": "769f1728-9f47-47d5-a134-03a737bb73df",
+    "short": "769f1728",
+    "end": 3,
+    "acks": 3,
+    "decision": "APPROVE",
+    "boundary": "PLAN_COMPLETED",
+    "counts": {
+      "APPROVE": 3
+    },
+    "value": 2,
+    "nonnegative": "PASS",
+    "safe": "FULFILLED",
+    "outcome": "SUCCEEDED",
+    "witness": [
+      0,
+      1,
+      2,
+      -1,
+      2
+    ]
+  },
+  "Workbench": {
+    "folder": "TN01-trinhbay",
+    "run": "5acdfd2b-88d2-4c55-959a-2fd70450bde0",
+    "short": "5acdfd2b",
+    "end": 58,
+    "acks": 58,
+    "decision": "APPROVE",
+    "boundary": "PLAN_COMPLETED",
+    "counts": {
+      "APPROVE": 58
+    }
+  },
+  "TN04": [
+    {
+      "artifacts": [
+        {
+          "identity": "physical-1",
+          "properties": {
+            "value": 1
+          }
+        }
+      ],
+      "complete": true,
+      "decision": "APPROVE",
+      "sequence": 1,
+      "state": [
+        {
+          "_kind": "ENTITY",
+          "_links": [],
+          "object": "state_4cc0280decc1f6e31896dc6f",
+          "reading": "1",
+          "relations": "",
+          "sourceIdentity": "run:physical-1:Gauge",
+          "type": "Gauge"
+        }
+      ]
+    },
+    {
+      "artifacts": [],
+      "complete": false,
+      "decision": "HOLD_UNVERIFIED",
+      "sequence": 2,
+      "state": [
+        {
+          "_kind": "ENTITY",
+          "_links": [],
+          "object": "state_4cc0280decc1f6e31896dc6f",
+          "reading": "1",
+          "relations": "",
+          "sourceIdentity": "run:physical-1:Gauge",
+          "type": "Gauge"
+        }
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "identity": "physical-1",
+          "properties": {
+            "value": 2
+          }
+        }
+      ],
+      "complete": true,
+      "decision": "APPROVE",
+      "sequence": 2,
+      "state": [
+        {
+          "_kind": "ENTITY",
+          "_links": [],
+          "object": "state_4cc0280decc1f6e31896dc6f",
+          "reading": "2",
+          "relations": "",
+          "sourceIdentity": "run:physical-1:Gauge",
+          "type": "Gauge"
+        }
+      ]
+    }
+  ],
+  "TN02": {
+    "run": "3868eb28-83b0-4ea5-9de0-78420f33e383",
+    "checkpoint_count": 58,
+    "acks": 58,
+    "decision_matches": 58,
+    "fulfilled_matches": 58,
+    "firstHoldSequence": 0,
+    "decision": "APPROVE",
+    "terminal_contexts": {
+      "a1": "state_666055bd21979d318d0452d0",
+      "a2": "state_86ae789e6d07769cc117704f"
+    },
+    "inputs": {
+      "consumer-history.jsonl": "922cc844d28f48b10bbededac920db6d179712de2976a566e20a56af7f98bb3a",
+      "attribute-mapping.xml": "3bc38ba17d93ecb15cc1780fb95c57d7633b124402cd64625921e7676dd534ca",
+      "auction.csl": "a5e938c885ae350b25f5238cbd30e7524f582e9c1978c150357ab3222b0b4b18",
+      "auction.istar": "c8e87fa3dcb9cfa44e5c608400a375ec15e1e171dd9ea474591d2f0f60de2c13"
+    }
+  },
+  "reference_TN05": [
+    {
+      "case": "TN05-hop-le-gom-plan",
+      "run": "84ca78e2-75a2-4799-be90-a43daa686d88",
+      "count": 28,
+      "decisions": {
+        "APPROVE": 28
+      },
+      "bids_later": [
+        [
+          10.0,
+          20.0,
+          10.0
+        ],
+        [
+          10.0,
+          20.0,
+          10.0
+        ]
+      ],
+      "price_cuts": {
+        "a1": [
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            10
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            24,
+            10
+          ],
+          [
+            25,
+            10
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            27,
+            10
+          ],
+          [
+            28,
+            10
+          ]
+        ],
+        "a2": [
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            10
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            24,
+            10
+          ],
+          [
+            25,
+            10
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            27,
+            10
+          ],
+          [
+            28,
+            10
+          ]
+        ]
+      },
+      "hold": null,
+      "blocked_probe": "",
+      "blocked_probe_ran": false
+    },
+    {
+      "case": "TN05-loi-gom-plan",
+      "run": "7cd97fb6-6bee-439d-867e-b9adc7f09890",
+      "count": 27,
+      "decisions": {
+        "APPROVE": 27
+      },
+      "bids_later": [
+        [
+          10.0,
+          20.0,
+          20.0
+        ],
+        [
+          10.0,
+          20.0,
+          20.0
+        ]
+      ],
+      "price_cuts": {
+        "a1": [
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            20
+          ],
+          [
+            22,
+            20
+          ],
+          [
+            23,
+            20
+          ],
+          [
+            24,
+            20
+          ],
+          [
+            25,
+            20
+          ],
+          [
+            26,
+            20
+          ],
+          [
+            27,
+            20
+          ]
+        ],
+        "a2": [
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            20
+          ],
+          [
+            22,
+            20
+          ],
+          [
+            23,
+            20
+          ],
+          [
+            24,
+            20
+          ],
+          [
+            25,
+            20
+          ],
+          [
+            26,
+            20
+          ],
+          [
+            27,
+            20
+          ]
+        ]
+      },
+      "hold": null,
+      "blocked_probe": "after_bid_2",
+      "blocked_probe_ran": true
+    },
+    {
+      "case": "TN05-hop-le-chuyen-giao",
+      "run": "fc782eef-26c0-495a-80dc-d5ef1416d9f5",
+      "count": 31,
+      "decisions": {
+        "APPROVE": 31
+      },
+      "bids_later": [
+        [
+          10.0,
+          20.0,
+          10.0
+        ],
+        [
+          10.0,
+          20.0,
+          10.0
+        ]
+      ],
+      "price_cuts": {
+        "a1": [
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            10
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            24,
+            10
+          ],
+          [
+            25,
+            10
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            27,
+            10
+          ],
+          [
+            28,
+            10
+          ],
+          [
+            29,
+            10
+          ],
+          [
+            30,
+            10
+          ],
+          [
+            31,
+            10
+          ]
+        ],
+        "a2": [
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            10
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            24,
+            10
+          ],
+          [
+            25,
+            10
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            27,
+            10
+          ],
+          [
+            28,
+            10
+          ],
+          [
+            29,
+            10
+          ],
+          [
+            30,
+            10
+          ],
+          [
+            31,
+            10
+          ]
+        ]
+      },
+      "hold": null,
+      "blocked_probe": "",
+      "blocked_probe_ran": false
+    },
+    {
+      "case": "TN05-loi-chuyen-giao",
+      "run": "f4cd8445-47fc-431b-aa80-ac9a3249fad5",
+      "count": 22,
+      "decisions": {
+        "APPROVE": 21,
+        "HOLD_FAILURE": 1
+      },
+      "bids_later": [
+        [
+          10.0,
+          20.0,
+          20.0
+        ],
+        [
+          10.0,
+          20.0,
+          20.0
+        ]
+      ],
+      "price_cuts": {
+        "a1": [
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            20
+          ]
+        ],
+        "a2": [
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            20
+          ]
+        ]
+      },
+      "hold": 22,
+      "blocked_probe": "after_bid_2",
+      "blocked_probe_ran": false
+    }
+  ]
+}

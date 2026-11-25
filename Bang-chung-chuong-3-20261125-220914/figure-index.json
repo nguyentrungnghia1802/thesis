@@ -1,0 +1,158 @@
+{
+  "figures": {
+    "moise-org": {
+      "number": "2.7",
+      "title": "Vai trò trong nhóm agrp trên Moise",
+      "width": 9.1,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/moise-org.png"
+    },
+    "oal-org": {
+      "number": "2.8",
+      "title": "Tác tử, vai trò và nhóm trong OAL State",
+      "width": 9.0,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/oal-org.png"
+    },
+    "menu": {
+      "number": "3.1",
+      "title": "Mở chức năng thực nghiệm JaCaMo",
+      "width": 5.2,
+      "note": "",
+      "path": "hinh-chen/menu.png"
+    },
+    "mrv": {
+      "number": "3.2",
+      "title": "Hộp thoại chọn gói Auction",
+      "width": 9.0,
+      "note": "",
+      "path": "hinh-chen/mrv.png"
+    },
+    "workbench": {
+      "number": "3.3",
+      "title": "Cửa sổ thực nghiệm tại checkpoint được chọn",
+      "width": 15.8,
+      "note": "phiên 5acdfd2b, checkpoint 58",
+      "path": "hinh-chen/workbench.png"
+    },
+    "mid-a1": {
+      "number": "3.4",
+      "title": "Tiến độ ObserveBid của a1",
+      "width": 12.4,
+      "note": "phiên 98170b4f, checkpoint 41",
+      "path": "hinh-chen/auction-mid-a1.png"
+    },
+    "mid-a2": {
+      "number": "3.5",
+      "title": "Tiến độ ObserveBid của a2",
+      "width": 12.4,
+      "note": "phiên 98170b4f, checkpoint 41",
+      "path": "hinh-chen/auction-mid-a2.png"
+    },
+    "final-a1": {
+      "number": "3.6",
+      "title": "Kết quả AuctionCompleted của a1",
+      "width": 12.4,
+      "note": "phiên 98170b4f, checkpoint 58",
+      "path": "hinh-chen/auction-final-a1.png"
+    },
+    "final-a2": {
+      "number": "3.7",
+      "title": "Kết quả AuctionCompleted của a2",
+      "width": 12.4,
+      "note": "phiên 98170b4f, checkpoint 58",
+      "path": "hinh-chen/auction-final-a2.png"
+    },
+    "counter": {
+      "number": "3.8",
+      "title": "Giá trị bộ đếm và kết quả TN03",
+      "width": 15.8,
+      "note": "phiên 8b4f7da3, checkpoint 3",
+      "path": "hinh-chen/counter.png"
+    },
+    "bid-before": {
+      "number": "3.9",
+      "title": "Giá tốt nhất trước lượt trả giá kém hơn",
+      "width": 15.4,
+      "note": "phiên 26400acd, checkpoint 21",
+      "path": "hinh-chen/bid-before.png"
+    },
+    "bid-after": {
+      "number": "3.10",
+      "title": "Giá tốt nhất sau lượt trả giá kém hơn",
+      "width": 15.4,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/bid-after.png"
+    },
+    "bid-goal": {
+      "number": "3.11",
+      "title": "Vi phạm mục tiêu giữ giá không tăng",
+      "width": 12.4,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/bid-goal.png"
+    },
+    "bid-ocl": {
+      "number": "3.12",
+      "title": "Kết quả bất biến CSL trong TN05",
+      "width": 13.7,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/bid-ocl.png"
+    },
+    "bid-hold": {
+      "number": "3.13",
+      "title": "Quyết định tại mốc chuyển giao trong TN05",
+      "width": 15.8,
+      "note": "phiên 26400acd, checkpoint 22",
+      "path": "hinh-chen/bid-hold.png"
+    },
+    "missing": {
+      "number": "3.14",
+      "title": "Giữ dừng vì thiếu giá tốt nhất trong TN06",
+      "width": 15.8,
+      "note": "phiên b8241f0f, checkpoint 18",
+      "path": "hinh-chen/missing.png"
+    },
+    "negative-console": {
+      "number": "3.15",
+      "title": "Log giá trị của phiên Counter giữ âm",
+      "width": 5.7,
+      "note": "phiên 54271a7f, trước checkpoint 3",
+      "path": "hinh-chen/negative-console.png"
+    },
+    "negative-checkpoint": {
+      "number": "3.16",
+      "title": "Giá trị âm tại checkpoint của TN07",
+      "width": 15.8,
+      "note": "phiên 54271a7f, checkpoint 3",
+      "path": "hinh-chen/negative-checkpoint.png"
+    },
+    "recovered-console": {
+      "number": "3.17",
+      "title": "Log giá trị của phiên Counter khôi phục",
+      "width": 5.7,
+      "note": "phiên 769f1728, trước checkpoint 3",
+      "path": "hinh-chen/recovered-console.png"
+    },
+    "recovered-checkpoint": {
+      "number": "3.18",
+      "title": "Giá trị đã khôi phục tại checkpoint",
+      "width": 15.8,
+      "note": "phiên 769f1728, checkpoint 3",
+      "path": "hinh-chen/recovered-checkpoint.png"
+    }
+  },
+  "tables": {
+    "tn04": {
+      "number": "3.1",
+      "title": "Phản hồi với ảnh trạng thái thiếu trong TN04"
+    },
+    "tn05-control": {
+      "number": "3.2",
+      "title": "Đối chứng theo cách cập nhật giá và ranh giới TN05"
+    },
+    "replay": {
+      "number": "3.3",
+      "title": "Đối chiếu vết gốc và kết quả đánh giá lại trong TN02"
+    }
+  }
+}

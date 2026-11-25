@@ -1,0 +1,72 @@
+Thực nghiệm đưa phương pháp ở Chương 2 vào hai chương trình JaCaMo là Auction và Counter. Auction có nhiều đối tượng cùng dùng một đặc tả, còn Counter cho phép theo dõi một thay đổi qua các mốc kiểm chứng. Chương này trình bày thao tác trên công cụ, cách bố trí từng ca và dữ liệu dùng để đối chiếu với kết quả.
+
+## 3.1. Giới thiệu
+
+Câu hỏi thứ nhất là liệu bộ kiểm chứng có giữ đúng giá trị và lịch sử Goal, Task của từng cuộc đấu giá khi nhiều phiên dùng chung mô hình hay không. Hai đối tượng a1 và a2 cho phép đối chiếu cùng một nhiệm vụ tại một checkpoint mà tiến độ giữa hai phiên khác nhau.
+
+Câu hỏi thứ hai là trong những tình huống nào JaCaMo tiếp tục, bị giữ dừng do vi phạm hoặc bị giữ dừng vì thiếu dữ liệu. Để trả lời, các ca thử thay đổi giá trị, mức độ đầy đủ của ảnh chụp và vị trí checkpoint. Kết quả được đối chiếu với phản hồi mà phía JaCaMo đã ghi nhận.
+
+Câu hỏi thứ ba là khi giữ nguyên các ảnh trạng thái và đặc tả, bộ kiểm chứng có tái hiện được quyết định và kết quả Goal, Task đã đạt ở từng mốc hay không. Ca đánh giá lại dùng chính vết Auction đã lưu để kiểm tra điều này.
+
+## 3.2. Triển khai công cụ
+
+Người dùng mở một gói thực nghiệm, khởi chạy chương trình nguồn và chọn checkpoint cần xem. Tại mốc được chọn, cửa sổ thực nghiệm đặt dữ liệu JaCaMo và các kết quả kiểm chứng trong cùng một màn hình.
+
+### 3.2.1. Tổ chức các thành phần
+
+USE nạp đặc tả CSL và iStar cùng luật ánh xạ. Đặc tả CSL quy định kiểu đối tượng, liên kết và bất biến. Đặc tả iStar ghi các Goal, Task và điều kiện dùng để đánh giá tiến độ. Luật ánh xạ xác định dữ kiện nguồn nào cung cấp giá trị cho từng thuộc tính CSL.
+
+JaCaMo chạy trong một tiến trình riêng. Tại checkpoint, chương trình nguồn giữ thực thi trong phạm vi được theo dõi rồi gửi ảnh trạng thái sang USE. Bộ kiểm chứng dựng trạng thái CSL, đánh giá bất biến và cập nhật Goal, Task theo lịch sử của từng đối tượng. Phản hồi gắn với checkpoint đang chờ và được JaCaMo xác nhận trước khi cho phép tiếp tục. Người dùng vẫn có thể xem dữ liệu và kết quả trên USE khi phía thực thi đang giữ dừng.
+
+### 3.2.2. Môi trường và cách khởi chạy
+
+Các phiên chụp mới chạy trên Windows 11 với JDK 21.0.5, USE 7.5.0 và plugin JaCaMo 1.0.1. Với JDK 21, Maven 3.9 và các thư viện JaCaMo đã chuẩn bị, lệnh mvn -B package -Dmaven.test.skip=true đóng gói bản chạy. Trên Windows, người dùng mở USE bằng start_use.bat trong thư mục bin của bản đóng gói. TN02 sử dụng chức năng đánh giá lại qua dòng lệnh và TN04 chạy ở cấp bộ kiểm chứng.
+
+Để mở phiên, người dùng vào trình đơn Plugins của USE, chọn JaCaMo như trong [[menu]].
+
+@fig menu
+
+Lệnh Run experiment mở hộp thoại chọn gói. Chọn auction.mrv và bấm Run như trong [[mrv]].
+
+@fig mrv
+
+Hộp thoại lọc tệp theo định dạng .mrv. Một gói chứa dự án JaCaMo và mã nguồn đi kèm, mô hình CSL, mô hình iStar và luật ánh xạ. USE mở các thành phần theo cấu trúc được ghi trong gói và chuẩn bị tiến trình JaCaMo của phiên.
+
+Khi cửa sổ thực nghiệm xuất hiện, chọn một hàng ở thẻ Checkpoints như tại [[workbench]].
+
+@fig workbench
+
+Bên phải [[workbench]], dòng trên các thẻ ghi checkpoint đang xem và cột Decision trong bảng cho biết quyết định. Bên trái, các dòng a1 và a2 của thẻ Artifacts hiển thị trạng thái do JaCaMo công bố ở mốc đó. Khi chuyển sang OAL State, OCL hoặc iStarSCN ở khung bên phải, người dùng lần lượt xem đối tượng CSL, kết quả ràng buộc hoặc trạng thái Goal, Task của cùng checkpoint. Tùy chọn Follow live trở lại chế độ theo dõi mốc mới nhất.
+
+## 3.3. Kịch bản thử nghiệm
+
+Các ca TN01 và TN02 kiểm tra việc theo dõi theo đối tượng và đánh giá lại một vết đã thu. Các ca còn lại thay đổi dữ liệu hoặc thời điểm lấy mẫu để xem bộ kiểm chứng phản hồi thế nào khi bằng chứng khác đi.
+
+### 3.3.1. Chạy Auction và đánh giá lại vết
+
+Trong TN01, hai cuộc đấu giá a1 và a2 dùng chung luật ánh xạ và đặc tả mục tiêu. Mỗi cuộc có artifact riêng lưu trạng thái mở hoặc đóng và giá tốt nhất. Cần quan sát một mốc khi một cuộc đã có giá cải thiện còn cuộc kia chưa có, rồi xem lại cả hai ở mốc hoàn thành. Kỳ vọng là mỗi đối tượng CSL nhận đúng giá và mỗi tiến độ được ghi nhận cho đúng cuộc đấu giá.
+
+TN02 dùng chuỗi ảnh gốc của TN01 kèm ba tệp đặc tả và ánh xạ đã lưu cùng lần chạy. Bộ đánh giá đọc các ảnh theo thứ tự từ mốc khởi tạo đến hết vết hoặc đến quyết định giữ dừng đầu tiên. Nếu kết quả tái hiện trên vết này, quyết định và tập Goal, Task đã đạt theo từng ngữ cảnh sẽ khớp ở mỗi mốc.
+
+### 3.3.2. Vi phạm ràng buộc và thiếu dữ liệu
+
+TN03 dùng Counter với bất biến Nonnegative, yêu cầu giá trị bộ đếm không âm. Chương trình để giá trị −1 tồn tại ở cuối nhóm kế hoạch. Kỳ vọng bộ kiểm chứng nhìn thấy giá trị đó, phát hiện bất biến sai và trả quyết định giữ dừng cho JaCaMo.
+
+TN04 dùng một bộ kiểm thử gửi ảnh trạng thái vào bộ kiểm chứng theo thứ tự xác định. Ảnh đầu có một đối tượng Gauge hợp lệ. Ảnh tiếp theo được báo chưa đầy đủ và danh sách thực thể rỗng. Kỳ vọng là bộ kiểm chứng giữ dừng vì thiếu dữ liệu và vẫn giữ đối tượng đã biết. Bộ kiểm thử sau đó đưa ảnh đầy đủ vào cùng số thứ tự để kiểm tra đối tượng có được cập nhật tiếp hay không.
+
+### 3.3.3. Ca đối chứng và giới hạn quan sát
+
+TN05 chủ động gửi giá 10 rồi giá 20 cho từng cuộc đấu giá. Vì Auction chọn giá thấp hơn, bản xử lý hợp lệ giữ giá tốt nhất ở 10. Bản có lỗi ghi đè thành 20. Mỗi cách xử lý được thử ở hai cấu hình ranh giới. Một cấu hình thu ở cuối nhóm kế hoạch, cấu hình còn lại có checkpoint chuyển giao giữa hai lần cập nhật. Nếu bộ kiểm chứng quan sát được 10 rồi 20 trên cùng đối tượng, Goal BidNeverIncreases phải ghi vi phạm dù giá vẫn không âm.
+
+TN06 tạo tình huống thiếu thông tin trên nguồn đã quan sát được. Biến thể Auction bỏ công bố giá tốt nhất, trong khi luật ánh xạ vẫn yêu cầu giá này để dựng đối tượng CSL. Bộ kiểm chứng được kỳ vọng giữ dừng vì thiếu dữ liệu ngay tại ảnh đầu tiên cần giá trị đó.
+
+TN07 dùng hai biến thể Counter để đối chiếu log thay đổi với trạng thái cuối nhóm. Cả hai cùng ghi nhận bộ đếm có lúc bằng −1. Một biến thể giữ giá trị đến checkpoint, còn biến thể kia đưa giá trị trở lại 2 trong cùng nhóm. Kỳ vọng là bất biến chỉ báo vi phạm ở ca còn giá trị âm tại mốc được kiểm tra.
+
+## 3.4. Tiêu chí đánh giá
+
+Để kiểm tra ánh xạ, đối chiếu giá của artifact JaCaMo với giá trên đối tượng CSL tại cùng checkpoint. Vết ở nhiều mốc cho biết bộ kiểm chứng có dùng lại đúng đối tượng của a1 và a2 hay không. Trong thẻ iStarSCN, mục Execution xác định ngữ cảnh đang xem. Hàng của cùng một nhiệm vụ trong hai ngữ cảnh cho biết tiến độ có được theo dõi riêng hay không.
+
+Để giải thích một quyết định, trước hết dùng log nguồn để xác nhận thao tác đã xảy ra, rồi dùng ảnh trạng thái để xem bộ kiểm chứng thực sự nhận giá trị nào. Kết quả bất biến và Goal, Task được đọc tại cùng mốc. Với ca chạy trực tiếp, quyết định chỉ được ghi nhận là đã đến JaCaMo khi bản xác nhận của tiến trình nguồn khớp với yêu cầu và phản hồi trong vết USE. Với TN04, đối tượng trước và sau khi nhận ảnh thiếu được lấy từ vết của bộ kiểm thử.
+
+Để đánh giá khả năng tái hiện, ghép các bản ghi gốc với kết quả đánh giá lại theo số thứ tự checkpoint. Ở mỗi cặp, so sánh quyết định và tập phần tử đã đạt theo ba thành phần là ngữ cảnh, chủ thể và Goal hoặc Task. Việc đối chiếu theo ngữ cảnh giúp phát hiện trường hợp hai phiên cùng dùng tên phần tử nhưng kết quả bị gán nhầm.
+

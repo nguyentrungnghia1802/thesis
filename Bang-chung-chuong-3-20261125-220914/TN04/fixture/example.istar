@@ -1,0 +1,6 @@
+istar StateGoals { agent Gauge {
+  goal Safe : Maintain condition {[ self.reading >= 0 ]}
+  goal Done : Achieve
+  task ReachedTwo > Done pre {[ true ]} post {[ self.reading >= 2 ]}
+  task NonnegativeObserved > Done pre {[ true ]} post {[ self.reading >= 0 ]}
+} }

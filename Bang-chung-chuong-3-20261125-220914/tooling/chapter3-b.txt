@@ -1,0 +1,122 @@
+## 3.5. Kết quả và phân tích
+
+Kết quả dưới đây đối chiếu tình huống đã tạo với giá trị JaCaMo ghi nhận, trạng thái USE đánh giá và quyết định gửi về nguồn. Chú thích phân biệt mã phiên và checkpoint của ảnh chụp mới với vết đối chứng đã lưu.
+
+### 3.5.1. Định danh và lịch sử của từng đối tượng
+
+Ở phiên chụp {auction_run}, checkpoint {auction_mid} cho phép quan sát a1 và a2 khi hai cuộc đấu giá có tiến độ khác nhau. Thẻ iStarSCN cho phép giữ nguyên mốc và đổi đối tượng ở mục Execution.
+
+@fig mid-a1
+
+Trong [[mid-a1]], mục Execution chọn a1. Cột Status của nhiệm vụ ghi nhận lượt trả giá cải thiện (ObserveBid) ghi đã đạt (FULFILLED). Vết JaCaMo ghi giá tốt nhất của a1 vào khoảng {auction_mid_price} và đối tượng CSL tương ứng giữ đúng giá trị đó. Mục tiêu kết thúc phiên (AuctionCompleted) vẫn chưa xác định (UNKNOWN) ở mốc này.
+
+@fig mid-a2
+
+[[mid-a2]] giữ checkpoint {auction_mid} và chuyển Execution sang a2. Dòng ObserveBid ghi đang chờ (PENDING). Giá tốt nhất của a2 vẫn ở giá trị khởi tạo trong cả ảnh nguồn và trạng thái CSL. Bộ kiểm chứng ghi nhận {auction_mid_checks} lượt đánh giá bất biến đều đạt và trả APPROVE tại mốc này. Trạng thái chờ cho biết a2 chưa có bằng chứng giá cải thiện, trong khi các điều kiện để tiếp tục tại checkpoint vẫn được đáp ứng.
+
+Vết gốc {replay_run} cũng cho thấy hai tiến độ tách biệt. Cả hai phiên còn chờ ở checkpoint 39, rồi a2 có giá cải thiện ở checkpoint 42 trong khi a1 vẫn chờ. Lần chụp mới quan sát a1 cải thiện trước a2.
+
+Hai đối tượng giữ định danh riêng từ giữa phiên đến khi cả hai cuộc đấu giá đạt mục tiêu. Các hình sau ghi mốc {auction_end} của chính phiên chụp đó.
+
+@fig final-a1
+
+Ở [[final-a1]], dòng AuctionCompleted của a1 đã chuyển sang FULFILLED. Các dòng ObserveBid và StopAuction cũng ghi đã đạt, tương ứng với việc quan sát được giá cải thiện và sau đó quan sát được phiên đóng.
+
+@fig final-a2
+
+Ở [[final-a2]], cùng dòng AuctionCompleted ghi đã đạt cho a2, với a2 được chọn ở mục Execution. Hai ảnh cuối xác nhận kết quả đóng của từng cuộc đấu giá. Sự khác nhau về tiến độ được chứng minh bằng hai ảnh ở checkpoint {auction_mid}. Trong phiên chụp, JaCaMo có bản xác nhận cho cả {auction_acks} checkpoint. Vết gốc {replay_run} cho TN02 là một lần chạy riêng.
+
+### 3.5.2. Quyết định kiểm chứng và giới hạn quan sát
+
+TN03–TN07 lần lượt tách vi phạm bất biến, vi phạm Goal và hai nguyên nhân thiếu dữ liệu. Log và vết trạng thái trong TN07 cũng cho phép đối chiếu một thay đổi bên trong nhóm kế hoạch với dữ liệu còn tồn tại khi chụp.
+
+Trong TN03, Counter kết thúc nhóm kế hoạch với giá trị −1.
+
+@fig counter
+
+Bên trái [[counter]], dòng counter trong thẻ Artifacts ghi giá trị −1. Bên phải, cột Value của bất biến Nonnegative ghi sai (FAIL). Trạng thái trên cùng ghi giữ dừng do vi phạm (HOLD_FAILURE) tại checkpoint {counter_end}. Vết nguồn ghi nhóm kế hoạch kết thúc bình thường và JaCaMo xác nhận quyết định giữ dừng tại mốc này. Goal SafeValue cũng bị vi phạm. TN05 khảo sát riêng tình huống mà các bất biến đều đạt.
+
+TN04 được chạy bằng một phép thử JUnit. Báo cáo ghi một phép thử đạt. Chạy lại cùng ba đầu vào trên bộ kiểm chứng cho kết quả chi tiết trong [[tn04]].
+
+@table tn04
+
+Hàng thứ hai của [[tn04]] cho thấy ảnh được báo chưa đầy đủ và không chứa đối tượng nguồn. Bộ kiểm chứng trả quyết định giữ dừng vì thiếu dữ liệu (HOLD_UNVERIFIED), trong khi cùng đối tượng Gauge vẫn giữ giá trị 1. Ở lần thử lại mốc 2, ảnh đầy đủ chứa giá trị 2. Bộ kiểm chứng cập nhật đúng đối tượng đó và trả APPROVE. Đây là kết quả ở cấp bộ kiểm chứng với đầu vào do bộ thử cung cấp.
+
+TN05 kiểm tra trường hợp giá tốt nhất tăng sau khi xử lý lượt trả giá kém hơn. Phiên chụp {goal_run} ghi hai ảnh liên tiếp quanh lần thay đổi.
+
+@fig bid-before
+
+Ở [[bid-before]], cột thuộc tính quan sát trên hai dòng a1 và a2 ghi giá tốt nhất bằng 10 tại checkpoint {goal_before}.
+
+@fig bid-after
+
+Cũng tại hai dòng đó, [[bid-after]] ghi giá 20 ở checkpoint {goal_end}. Hai ảnh có cùng định danh artifact. Chênh lệch 10 lên 20 vì thế có thể được kiểm tra trên chính đối tượng của từng cuộc đấu giá.
+
+@fig bid-goal
+
+Trong [[bid-goal]], mục Execution chọn {goal_context}. Dòng BidNeverIncreases ghi vi phạm (VIOLATED). Điều kiện duy trì giá không tăng nhận giá trị sai vì giá mới 20 lớn hơn giá ở ảnh trước là 10.
+
+@fig bid-ocl
+
+[[bid-ocl]] liệt kê {goal_invariants} lượt đánh giá bất biến tại checkpoint {goal_end}. Cột Value đều ghi đạt (PASS), kể cả các dòng ValidBid vì 20 vẫn là giá không âm. Dữ liệu này tách nguyên nhân giữ dừng do Goal khỏi trường hợp vi phạm bất biến trong TN03.
+
+@fig bid-hold
+
+Dòng cuối [[bid-hold]] đặt quyết định HOLD_FAILURE ở ranh giới chuyển giao (AGENT_HANDOFF). Bản xác nhận của JaCaMo khớp với phản hồi USE tại checkpoint {goal_end}. Mốc này giữ việc chuyển giao đang chờ và log nguồn không có dấu hiệu bước kế tiếp của biến thể đã được thực thi.
+
+Bốn vết đối chứng trong [[tn05-control]] cung cấp dữ liệu để đánh giá vai trò của ranh giới. Các vết đã thu trước phiên chụp mới và dùng hai cách cập nhật giá cùng hai vị trí chụp ở cùng tình huống thử.
+
+@table tn05-control
+
+Trong bản có lỗi chụp cuối nhóm, log ghi giá lần lượt 10 và 20. Ảnh chứa giá đã cập nhật chỉ ghi 20. Bộ kiểm chứng vì vậy không có cặp giá 10 và 20 trên cùng đối tượng để phát hiện bước tăng bằng điều kiện so sánh hai checkpoint. Khi tách mốc chuyển giao, vết giữ được cả hai giá và xuất hiện quyết định giữ dừng. Hai bản cập nhật hợp lệ luôn giữ giá 10 sau lượt trả giá 20 và đều được cho tiếp tục. Kết quả đối chứng cho thấy việc tách mốc có ích khi nó cung cấp thêm giá trị cần cho điều kiện đánh giá.
+
+Trong TN06, biến thể vẫn công bố thông tin về phiên đấu giá nhưng bỏ thuộc tính giá tốt nhất. Bộ thu báo ảnh đã đầy đủ trong phạm vi theo dõi.
+
+@fig missing
+
+Bên trái [[missing]], các dòng {missing_name} có trạng thái mở, công việc và thông tin về người thắng. Giá tốt nhất vắng mặt. Thanh trạng thái báo thiếu Auction.best_bid và ghi HOLD_UNVERIFIED. Hàng có dấu hỏi ở cuối thẻ Checkpoints là yêu cầu chuyển giao tại checkpoint {missing_end} trong vết của lần chụp. JaCaMo có bản xác nhận cho quyết định ở mốc này. Trong TN04, bộ thu đã báo thiếu ảnh nên bộ kiểm chứng giữ lại trạng thái trước bước chiếu. Trong TN06, thiếu dữ liệu được phát hiện khi dựng trạng thái CSL từ ảnh đã thu.
+
+TN07 đặt thay đổi của Counter vào bên trong một nhóm kế hoạch. Trước hết, xét phiên giữ giá trị âm {negative_run}.
+
+@fig negative-console
+
+Trong [[negative-console]], dòng cuối của log Console ghi giá trị −1 sau các giá trị 0, 1 và 2. Log xác nhận thao tác nguồn đã tạo giá trị âm.
+
+@fig negative-checkpoint
+
+Ở [[negative-checkpoint]], Artifacts vẫn ghi −1 tại checkpoint {negative_end}. Dòng Nonnegative cho FAIL và quyết định là HOLD_FAILURE. JaCaMo xác nhận phản hồi ngay tại mốc giữ dừng. Khi giá trị âm còn tồn tại trong ảnh, bộ kiểm chứng có căn cứ để đánh giá bất biến là sai.
+
+Phiên khôi phục {recovered_run} cũng đi qua giá trị âm bên trong nhóm kế hoạch.
+
+@fig recovered-console
+
+Hai dòng cuối [[recovered-console]] ghi −1 rồi 2. Thứ tự trong log cho thấy Counter đã được đưa về giá trị hợp lệ trước mốc chụp tiếp theo.
+
+@fig recovered-checkpoint
+
+Trong [[recovered-checkpoint]], cột thuộc tính quan sát ghi 2 tại checkpoint {recovered_end}. Nonnegative cho PASS và JaCaMo xác nhận quyết định APPROVE. Hai ca đều có giá trị âm trong log, nhưng ảnh chụp cuối nhóm chỉ còn giá trị âm ở ca giữ −1. Phạm vi phát hiện phụ thuộc vào việc giá trị vi phạm có xuất hiện trong ảnh được đánh giá hay không.
+
+### 3.5.3. Tái hiện kết quả khi đánh giá lại vết
+
+TN02 đánh giá lại vết gốc {replay_run} của TN01 cùng các đặc tả đã dùng khi thu vết. Lệnh báo đã đánh giá {replay_total} checkpoint và kết thúc với APPROVE. Kết quả trong [[replay]] được tính bằng cách so từng bản ghi với vết gốc và kiểm tra các bản xác nhận của JaCaMo.
+
+@table replay
+
+Các quyết định và tập Goal, Task đã đạt theo ngữ cảnh đều khớp ở {replay_total} checkpoint. Ở mốc cuối, AuctionCompleted đạt riêng cho a1 và a2 trong cả vết gốc và kết quả đánh giá lại. Phép so sánh xác nhận tính tái hiện khi giữ nguyên dãy ảnh và đặc tả. Thứ tự hoạt động và giá đấu trong lần khởi chạy JaCaMo khác có thể tạo một vết khác.
+
+## 3.6. Giới hạn và hướng mở rộng
+
+Checkpoint giới hạn những gì bộ kiểm chứng quan sát được. TN05 cho thấy một mốc chuyển giao có thể cung cấp giá trước để so với giá sau. TN07 cho thấy một lần sai lệch có thể chỉ có trong log nguồn nếu giá trị được khôi phục trước khi nhóm kế hoạch kết thúc. Có thể mở rộng cách chọn mốc tại những ranh giới nghiệp vụ cần theo dõi. Việc tăng số mốc cần được đánh giá thêm về tác động lên thực thi.
+
+Trong Auction, công cụ đọc giá tốt nhất và người thắng do artifact công bố. Để kiểm tra rằng người thắng thực sự là người đã đưa ra mức giá được giữ lại, cần quan sát mỗi lượt trả giá cùng định danh người gửi, thứ tự và quy tắc xử lý khi các giá bằng nhau. Cần đặc tả thêm điều kiện liên kết người thắng với lượt trả giá được chọn. Kết quả AuctionCompleted hiện xác nhận các điều kiện mở phiên, trả giá và đóng phiên đã được quan sát theo đặc tả đã dùng.
+
+Việc đánh giá lại kiểm tra đúng các checkpoint đã ghi với cùng mô hình và luật ánh xạ. Các thao tác ngoài checkpoint có thể chỉ được xác nhận qua log nguồn. Kết quả thực nghiệm cũng phụ thuộc phạm vi dữ liệu JaCaMo được thu, các kiểu đối tượng đã ánh xạ và các điều kiện đã khai báo. Các ca thử trong chương dùng workspace cục bộ và các biến thể có điều kiện được kiểm soát. Khả năng áp dụng cho chương trình khác cần được đối chiếu trên cấu trúc tổ chức và nguồn dữ liệu của chương trình đó.
+
+## 3.7. Tổng kết chương
+
+TN01 trả lời câu hỏi về định danh và tiến độ. Giá tốt nhất của hai cuộc đấu giá đi vào hai đối tượng CSL riêng. Trạng thái ObserveBid có thể khác nhau tại cùng checkpoint, và kết quả đạt sau cùng được ghi trên từng đối tượng.
+
+TN03–TN07 giải thích các quyết định tại ranh giới quan sát. Bộ kiểm chứng giữ dừng khi thấy bất biến sai hoặc Goal vi phạm và cũng giữ dừng khi thiếu căn cứ. Khi một giá trị vi phạm đã được phục hồi trước lúc chụp, kết quả tại checkpoint phản ánh giá trị sau phục hồi.
+
+TN02 trả lời câu hỏi về tái hiện. Đánh giá lại cùng vết và đặc tả cho quyết định và tập Goal, Task đã đạt khớp ở {replay_total} trên {replay_total} checkpoint của vết gốc.
+

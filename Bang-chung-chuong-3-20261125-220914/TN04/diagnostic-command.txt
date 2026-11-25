@@ -1,0 +1,1 @@
+java -cp "D:\_CODE_BANK\Project_\08_Thesis\use\use-assembly\target\new-staging\bridge\state\*" "C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-chuong-3-20261125-220914\tooling\RecordTN04.java" "C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-chuong-3-20261125-220914\TN04"

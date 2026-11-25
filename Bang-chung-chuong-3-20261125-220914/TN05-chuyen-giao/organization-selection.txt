@@ -1,0 +1,7 @@
+run=26400acd-d4e9-49b7-b7ae-9a9e6e6c0be1
+checkpoint=22
+player=bob
+role=auctioneer
+group=agrp
+decision=HOLD_FAILURE
+links=Plays,InContext

@@ -1,0 +1,11 @@
+USE version 7.5.0, Copyright (C) 1999-2025 University of Bremen & University of Applied Sciences Hamburg
+PACKAGED_PLUGINS_OK engine=file:/D:/_CODE_BANK/Project_/08_Thesis/use/use-assembly/target/new-staging/lib/plugins/use-jacamo-plugin-1.0.1.jar
+Input MRV: D:\_CODE_BANK\Project_\08_Thesis\use\use-plugin\src\main\resources\example\counter\counter.mrv
+STATE_WORKBENCH work=C:\WINDOWS\TEMP\use-jacamo-16720011179179164754 pid=2092
+CSL_STATE sequence=1 decision=APPROVE diagnostic=
+CSL_STATE sequence=2 decision=APPROVE diagnostic=
+CSL_STATE sequence=3 decision=HOLD_FAILURE diagnostic=
+View ocl.png 405x128
+View counter-workbench.png 930x248
+View hold.png 789x74
+EMBEDDED_USE_SMOKE_PASS case=counter evidence=C:\Users\NTNghia\OneDrive\Desktop\Thesis\Thesis\Bang-chung-chuong-3-20261125-220914\TN03-in

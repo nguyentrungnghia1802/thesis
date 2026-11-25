@@ -1,0 +1,1 @@
+mvn -B -pl use-plugin -am test -Dtest=CslStateVerifierTest#incompleteCoverageCannotDeleteObjectsOrCertifyEmptyState -Dsurefire.failIfNoSpecifiedTests=false -DfailIfNoTests=false

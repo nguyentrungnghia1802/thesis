@@ -1,0 +1,91 @@
+458 Heading 1     CHƯƠNG 3. TRIỂN KHAI VÀ THỰC NGHIỆM
+459 Normal        Công cụ được triển khai dưới dạng plugin USE. Một tiến trình JaCaMo cung cấp dữ liệu thực thi cho bộ kiểm chứng tại từng checkpoint. Chương này trình bày cách tổ chức công cụ và các ca dùng để đối chiếu phương pháp với kết quả thực thi.
+460 Heading 2     3.1. Giới thiệu
+461 Normal        Thực nghiệm xem xét cách phương pháp ở Chương 2 hoạt động khi nhiều đối tượng cùng kiểu được kiểm chứng trong một phiên chạy. Việc giữ định danh và lịch sử riêng cho từng đối tượng cho phép đối chiếu quyết định tại một checkpoint với bằng chứng của chính đối tượng đó. Đánh giá lại cùng vết với cùng cấu hình còn cho phép kiểm tra liệu các quyết định và trạng thái Goal, Task có được tái hiện tại từng mốc hay không.
+462 Normal        TN01 theo dõi hai cuộc đấu giá trong USE, còn TN02 đánh giá lại chính vết đã ghi. TN03 và TN04 lần lượt tạo một vi phạm bất biến và một ảnh chụp được báo là thiếu dữ liệu. TN05–TN07 bổ sung các tình huống vi phạm Goal, thiếu một thuộc tính bắt buộc và sai lệch xuất hiện giữa hai mốc quan sát. Ba ca bổ sung thu vết qua dòng lệnh, còn các lần chụp giao diện dùng cấu hình tương ứng để minh họa kết quả.
+463 Normal        Các ca thử được thực hiện trên công cụ mô tả ở Mục 3.2, theo cấu hình và tiêu chí đánh giá trình bày tại Mục 3.3–3.4. Mục 3.5 phân tích bằng chứng thu được từ các lần chạy, qua đó xác định phạm vi kết luận và các hướng mở rộng trong Mục 3.6.
+464 Heading 2     3.2. Triển khai công cụ
+465 Normal        Công cụ kết nối JaCaMo với USE qua cơ chế checkpoint. Cách tổ chức plugin quyết định nơi lưu trạng thái kiểm chứng, còn cấu hình đầu vào xác định dữ liệu nào được sử dụng trong mỗi phiên.
+466 Heading 3     3.2.1. Tổ chức các thành phần
+467 Normal        Công cụ được đóng gói thành bản USE có thể chạy được qua module Maven use-assembly. Trong tiến trình USE, giao diện do use-gui cung cấp nạp plugin từ use-plugin và làm việc với mô hình, trạng thái đối tượng và bộ đánh giá OCL của use-core. Mỗi phiên có một MSystem riêng trong tiến trình chính để giữ mô hình và kết quả kiểm chứng. Trong khi đó, JaCaMo chạy trong JVM con để nạp runtime và mã Java của các artifact. Plugin xử lý ảnh chụp từ tiến trình con và trả quyết định về nguồn. Cách tổ chức này cho phép giao diện USE tiếp tục hiển thị kết quả khi JaCaMo đang chờ phản hồi tại checkpoint.
+468 Normal        VerificationSession kiểm tra các tệp cấu hình và khởi chạy JaCaMo. Công cụ kiểm tra ảnh chụp khởi tạo trước khi cho các tác tử chạy. Ở các mốc sau, bộ thu chờ phần thực thi thuộc phạm vi theo dõi đi đến điểm ổn định rồi gửi ảnh chụp. SnapshotVerifier dựng trạng thái CSL, kiểm tra bất biến và đưa kết quả điều kiện vào bộ đánh giá Goal/Task. USE lưu kết quả và phản hồi tại đúng checkpoint. JaCaMo xác nhận phản hồi trước khi tiếp tục nếu được phê duyệt.
+469 Heading 3     3.2.2. Môi trường và cách khởi chạy
+470 Normal        TN01 và TN03 chạy trên Windows 11 với JDK 21, USE 7.5.0 và plugin 1.0.1. Ba ca TN05–TN07 chạy qua dòng lệnh trên Debian với cùng phiên bản mã USE và runtime kiểm chứng.
+471 Normal        Người dùng mở Plugins → JaCaMo → Run experiment... như trong Hình 3.1.
+472 Normal         <IMG>
+473 Caption       Hình 3.1 Lệnh Run experiment trong trình đơn JaCaMo.
+474 Normal        Trong Hình 3.2, người dùng chỉ chọn gói auction.mrv rồi bấm Run. Gói này chứa manifest mrv.json trỏ đến dự án JaCaMo (.jcm), đặc tả CSL, mô hình iStar và luật ánh xạ XML, cùng mã nguồn cần cho thực nghiệm. Khi chạy, khung bên trái hiển thị dữ liệu thực thi JaCaMo và khung bên phải hiển thị kết quả của USE. Chọn một hàng ở thẻ Checkpoints để xem dữ liệu nguồn, trạng thái đối tượng CSL và kết quả Goal/Task tại cùng mốc.
+475 Normal         <IMG>
+476 Caption       Hình 3.2 Hộp thoại chọn gói auction.mrv.
+477 Normal        Vết của USE ghi dữ liệu gửi đến và kết quả kiểm chứng. Sau khi nhận và xác nhận phản hồi, JaCaMo ghi một bản xác nhận cho checkpoint tương ứng. Log của chương trình nguồn giúp đối chiếu các thao tác phát sinh giữa hai lần chụp.
+478 Heading 2     3.3. Kịch bản thử nghiệm
+479 Normal        Các ca thử bắt đầu bằng việc chạy Auction và đánh giá lại dữ liệu đã thu. Các biến thể sau đó tạo vi phạm hoặc giới hạn dữ liệu quan sát để kiểm tra cách công cụ phản hồi tại từng checkpoint.
+480 Heading 3     3.3.1. Chạy Auction và đánh giá lại vết
+481 Normal        TN01 chạy Auction với hai phiên a1 và a2 dùng chung cấu trúc, điều kiện mục tiêu và luật ánh xạ. Ca thử kiểm tra liệu từng phiên có giữ được giá và tiến độ riêng qua các checkpoint hay không. Hình 3.3 minh họa thẻ theo dõi của phiên chụp mới 804fdea5. TN02 dùng chuỗi snapshot và các tệp đặc tả của lần chạy TN01 đã lưu để so sánh quyết định và các phần tử đạt tại từng checkpoint.
+482 Normal         <IMG>
+483 Caption       Hình 3.3 Theo dõi Auction trong thẻ Checkpoints (phiên 804fdea5, đến checkpoint 58).
+484 Heading 3     3.3.2. Vi phạm ràng buộc và thiếu dữ liệu
+485 Normal        TN03 dùng Counter với bất biến Nonnegative, yêu cầu giá trị bộ đếm không âm. Chương trình đặt giá trị thành −1 trước khi nhóm plan kết thúc. Tại mốc cuối, USE được kỳ vọng nhận biết vi phạm và giữ dừng. TN04 bổ sung tình huống mà ảnh chụp được báo là chưa đầy đủ nên công cụ chưa có đủ căn cứ để kiểm chứng. Bộ kiểm chứng nhận trước một đối tượng hợp lệ rồi nhận ảnh thiếu dữ liệu. Ca thử xác nhận đối tượng cũ vẫn còn và kết quả là HOLD_UNVERIFIED. Khi thay ảnh thiếu bằng ảnh đầy đủ ở cùng mốc, công cụ được kỳ vọng phê duyệt.
+486 Heading 3     3.3.3. Ca đối chứng và giới hạn quan sát
+487 Normal        TN05 so sánh hai cách xử lý lượt trả giá kém hơn. Bản đối chứng giữ giá tốt nhất ở 10 khi nhận giá 20. Bản có lỗi thay giá tốt nhất bằng 20. Cả hai cách được thử khi các lượt trả giá nằm trong một nhóm plan và khi có thêm checkpoint chuyển giao giữa các lần cập nhật. Giá 20 vẫn thỏa bất biến yêu cầu giá không âm. Khi vết ghi cả giá 10 và 20 của cùng đối tượng, Goal BidNeverIncreases phải phát hiện bước tăng. So sánh hai cấu hình giúp xác định ảnh hưởng của ranh giới quan sát.
+488 Normal        Hai ca còn lại khảo sát những giới hạn khác nhau của dữ liệu quan sát. Trong TN06, thuộc tính best_bid bị bỏ khỏi bản sao của chương trình đấu giá, trong khi luật ánh xạ vẫn yêu cầu thuộc tính đó. Tình huống này cho phép kiểm tra cách công cụ phản hồi khi đã quan sát được đối tượng nguồn nhưng thiếu giá trị để dựng trạng thái CSL. TN07 xét giới hạn của thời điểm quan sát. Cả hai bản Counter đều đặt bộ đếm thành −1 như được ghi trong log nguồn. Một bản giữ giá trị đến cuối nhóm plan, còn bản kia đưa bộ đếm trở lại 2 trước khi nhóm kết thúc.
+489 Heading 2     3.4. Tiêu chí đánh giá
+490 Normal        Việc đánh giá bắt đầu bằng đối chiếu mỗi artifact JaCaMo với đối tượng CSL và lịch sử Goal, Task tương ứng. Tên, định danh và giá trị được so sánh tại cùng checkpoint rồi theo dõi qua nhiều mốc để phát hiện trường hợp dữ liệu của hai phiên bị trộn. Sau khi xác nhận sự kiện trong log nguồn và dữ liệu quan sát được trong snapshot, kết quả bất biến hoặc Goal được đối chiếu với quyết định của USE và bản xác nhận của JaCaMo. Qua đó có thể phân biệt quyết định giữ dừng vì có vi phạm với trường hợp thiếu căn cứ kiểm chứng. Khả năng tái hiện được đánh giá bằng cách xử lý lại cùng vết và cùng đặc tả, rồi so sánh quyết định và tập Goal, Task đã đạt ở mỗi checkpoint theo đúng đối tượng và chủ thể.
+491 Heading 2     3.5. Kết quả và phân tích
+492 Normal        Các kết quả được phân tích từ dữ liệu quan sát của từng đối tượng đến quyết định mà công cụ trả tại checkpoint. Việc đánh giá lại cùng vết cho biết các kết quả đó có được tái hiện khi dữ liệu đầu vào được giữ nguyên hay không.
+493 Heading 3     3.5.1. Định danh và lịch sử của từng đối tượng
+494 Normal        Trong TN01, hai artifact được ánh xạ thành hai đối tượng Auction tách biệt. USE giữ ổn định định danh đích qua các lần cập nhật. Ở checkpoint 39, cả hai phiên còn chờ lượt trả giá cải thiện. Đến checkpoint 42, a2 đã có mức giá tốt hơn trong khi a1 vẫn chờ. Kết quả cho thấy cùng một nhiệm vụ được theo dõi riêng cho từng phiên.
+495 Normal        Vết gốc của TN01 ghi giá của hai artifact và hai đối tượng tương ứng tại checkpoint 58. Hình 3.4 minh họa dữ liệu nguồn ở checkpoint 58 của phiên chụp mới 804fdea5. Cách đối chiếu cùng checkpoint với trạng thái OAL được trình bày ở Hình 2.5 và Hình 2.6.
+496 Normal         <IMG>
+497 Caption       Hình 3.4 Giá công bố khi hai cuộc đấu giá đã đạt mục tiêu (phiên 804fdea5, checkpoint 58).
+498 Normal        Ở phiên chụp 804fdea5, Hình 3.5 trình bày toàn bộ sơ đồ iStarSCN của ngữ cảnh a1 tại checkpoint 58. Bảng Markings ở Hình 3.6 ghi AuctionCompleted = FULFILLED của a1 tại mốc đó.
+499 Normal         <IMG>
+500 Caption       Hình 3.5 Sơ đồ iStarSCN đầy đủ của ngữ cảnh a1 (phiên 804fdea5, checkpoint 58).
+501 Normal         <IMG>
+502 Caption       Hình 3.6 Các Goal của AuctionGroup trong ngữ cảnh a1 (phiên 804fdea5, checkpoint 58).
+503 Normal        Hình 3.7 cho thấy AuctionCompleted cũng đạt trên ngữ cảnh a2 tại cùng checkpoint 58 của phiên chụp. Trong vết gốc TN01, JaCaMo xác nhận đủ cả 58 quyết định APPROVE.
+504 Normal         <IMG>
+505 Caption       Hình 3.7 Các Goal của AuctionGroup trong ngữ cảnh a2 (phiên 804fdea5, checkpoint 58).
+506 Heading 3     3.5.2. Quyết định kiểm chứng và giới hạn quan sát
+507 Normal        Câu hỏi thứ hai xét đồng thời nguyên nhân quyết định và bằng chứng quyết định được chuyển về nguồn. TN03 kiểm tra một vi phạm còn quan sát được ở cuối nhóm plan. TN04 kiểm tra trường hợp ảnh chụp chưa đầy đủ và việc giữ đối tượng đã biết. Các ca bổ sung tiếp tục tách vi phạm Goal, thiếu thuộc tính và sự kiện chỉ xảy ra giữa hai lần chụp.
+508 Normal        Trong TN03, hai mốc đầu cho thấy bộ đếm bằng 0 và bất biến được thỏa. Tại mốc 3, nhóm plan kết thúc bình thường, nhưng trạng thái quan sát có giá trị −1. USE phát hiện vi phạm Nonnegative và trả HOLD_FAILURE. Hình 3.8 minh họa kết quả OCL trong lần chụp lại. Goal SafeValue cũng bị vi phạm tại mốc này, nên TN05 được dùng để xem xét riêng tác động của một Goal.
+509 Normal         <IMG>
+510 Caption       Hình 3.8 Vi phạm bất biến Nonnegative trong TN03 (phiên d6df3077, checkpoint 3).
+511 Normal        TN04 trả HOLD_UNVERIFIED khi nhận ảnh chụp thiếu và vẫn giữ một đối tượng đã quan sát. Bộ kiểm chứng phê duyệt sau khi nhận ảnh đầy đủ thay thế tại cùng mốc.
+512 Normal        TN05 xét vi phạm mục tiêu BidNeverIncreases. Khi hai lượt trả giá nằm trong cùng nhóm plan, log cho thấy giá tăng từ 10 lên 20 và snapshot chỉ ghi giá cuối. USE phê duyệt cả 27 checkpoint. Bản đối chứng giữ giá 10 sau lượt trả giá 20 và được phê duyệt ở cả 28 checkpoint.
+513 Normal        Khi có thêm mốc chuyển giao, USE quan sát được giá 10 ở checkpoint 21 và 20 ở checkpoint 22. Mục tiêu BidNeverIncreases bị vi phạm, JaCaMo nhận HOLD_FAILURE và log không ghi hoạt động sau điểm dừng. Phiên đối chứng dùng cùng ranh giới và tiếp tục ở cả 31 checkpoint. Trong phiên chụp 9c465412, thẻ Artifacts cho thấy bước tăng từ 10 lên 20 (Hình 3.9 và Hình 3.10). Thẻ Checkpoints ghi HOLD_FAILURE (Hình 3.11), thẻ iStarSCN ghi BidNeverIncreases = VIOLATED (Hình 3.12) và cả 17 lượt đánh giá bất biến đều PASS (Hình 3.13).
+514 Normal         <IMG>
+515 Caption       Hình 3.9 Giá tốt nhất trước lượt trả giá kém hơn trong TN05 (phiên 9c465412, checkpoint 21).
+516 Normal         <IMG>
+517 Caption       Hình 3.10 Giá tốt nhất sau lượt trả giá kém hơn trong TN05 (phiên 9c465412, checkpoint 22).
+518 Normal         <IMG>
+519 Caption       Hình 3.11 Quyết định HOLD_FAILURE trong TN05 (phiên 9c465412, checkpoint 22).
+520 Normal         <IMG>
+521 Caption       Hình 3.12 Vi phạm Goal BidNeverIncreases trong ngữ cảnh a1 (phiên 9c465412, checkpoint 22).
+522 Normal         <IMG>
+523 Caption       Hình 3.13 Kết quả các bất biến CSL trong TN05 (phiên 9c465412, checkpoint 22).
+524 Normal        Trong TN06, cả hai phiên đều thu được đối tượng Auction nhưng thiếu giá tốt nhất để ánh xạ vào Auction.best_bid. USE trả HOLD_UNVERIFIED tại checkpoint 18 và JaCaMo xác nhận phản hồi. Ở phiên gom plan, thao tác đánh dấu đã diễn ra trước khi chụp. Khi đưa checkpoint chuyển giao lên trước thao tác đó, log không còn ghi thao tác. Trong phiên chụp c94699f1, hàng có dấu hỏi ở Hình 3.14 ứng với checkpoint 18 trong vết chạy. Thanh trạng thái USE ở Hình 3.15 ghi thuộc tính còn thiếu.
+525 Normal         <IMG>
+526 Caption       Hình 3.14 Quyết định HOLD_UNVERIFIED trong TN06 (phiên c94699f1, checkpoint 18).
+527 Normal         <IMG>
+528 Caption       Hình 3.15 Chẩn đoán thiếu thuộc tính Auction.best_bid (phiên c94699f1, checkpoint 18).
+529 Normal        Ở phiên Counter giữ âm 98ba754b của TN07, Console ghi bộ đếm nhận giá trị −1 (Hình 3.16). Tại checkpoint 3, Counter vẫn có giá trị −1, bất biến Nonnegative cho kết quả FAIL (Hình 3.17) và USE trả HOLD_FAILURE. Đối chứng dùng một phiên riêng để kiểm tra điều gì xảy ra khi giá trị được sửa trong cùng nhóm plan.
+530 Normal         <IMG>
+531 Caption       Hình 3.16 Giá trị quan sát trong Console của phiên Counter giữ âm (phiên 98ba754b, trước checkpoint 3).
+532 Normal         <IMG>
+533 Caption       Hình 3.17 Bất biến Nonnegative khi Counter giữ giá trị âm (phiên 98ba754b, checkpoint 3).
+534 Normal        Trong phiên Counter khôi phục 2c2c05ea, Console ghi bộ đếm nhận −1 rồi trở về 2 trong cùng nhóm plan (Hình 3.18). Tại checkpoint 3, Nonnegative cho kết quả PASS (Hình 3.19) và USE trả APPROVE. Giá trị −1 chỉ xuất hiện trong log nguồn vì bộ đếm đã được khôi phục trước khi chụp ở cuối nhóm plan.
+535 Normal         <IMG>
+536 Caption       Hình 3.18 Giá trị quan sát trong Console của phiên Counter khôi phục (phiên 2c2c05ea, trước checkpoint 3).
+537 Normal         <IMG>
+538 Caption       Hình 3.19 Bất biến Nonnegative sau khi Counter khôi phục giá trị (phiên 2c2c05ea, checkpoint 3).
+539 Heading 3     3.5.3. Tái hiện kết quả khi đánh giá lại vết
+540 Normal        TN02 đánh giá lại cùng vết và cùng đặc tả của TN01. Quyết định và tập Goal/Task đã đạt khớp ở cả 58 checkpoint. Tại mốc 58, lần chạy gốc và lần đánh giá lại cùng ghi nhận AuctionCompleted cho hai phiên riêng biệt. Kết quả xác nhận khả năng tái hiện trên vết đã ghi. Một lần chạy mới có thể sinh vết khác nếu thứ tự thực thi của tác tử thay đổi.
+541 Heading 2     3.6. Giới hạn và hướng mở rộng
+542 Normal        Độ hạt checkpoint ảnh hưởng tới điểm phát hiện. TN03 phát hiện −1 ở cuối plan cha. Các giá trị 1 và 2 được tạo trong cùng nhóm plan con có thể không xuất hiện ở biên. Một hướng mở rộng là bổ sung điểm quan sát có chủ đích, xác định ảnh hưởng lên điều phối và đo chi phí trên các vết có thể so sánh.
+543 Normal        Trong Auction, best_bid cho biết giá đã được cải thiện và winner phản ánh nội dung thuộc tính được công bố. Để kiểm tra người thắng ứng với giá giữ lại, cần dữ liệu về chủ sở hữu của từng bid hoặc best-bidder và ràng buộc kiểm tra quan hệ đó. Việc xác nhận dịch vụ thực hiện đúng yêu cầu cũng cần ánh xạ Request/Scheme hoặc dữ liệu có ý nghĩa tương ứng. Các hướng này cần những ca đối chứng có thay đổi được xác định trước.
+544 Normal        Bằng chứng thực nghiệm áp dụng cho workspace cục bộ, những thuộc tính và ràng buộc đã khai báo, cùng kết quả Goal, Task được đánh giá trên một kiểu ngữ cảnh trong mỗi đồ thị. Auction cho phép đối chiếu nhiều thể hiện cùng kiểu. TN04 và TN06 kiểm tra hai điểm khác nhau khi xử lý dữ liệu thiếu. Counter cô lập ảnh hưởng của ranh giới quan sát với một biến, qua đó TN07 xác định giới hạn lấy mẫu trong một tình huống cụ thể. Việc đánh giá lại chỉ bao phủ phần vết đã thu. Khả năng áp dụng cho hệ khác còn phụ thuộc vào cấu trúc tổ chức, dữ liệu được công bố và các luật ánh xạ cần khai báo. Một bước tiếp theo là chọn hệ đa tác tử có cấu trúc nhóm và loại thuộc tính khác Auction.
+545 Normal        Để đối chiếu kết quả giữa hai công cụ, dữ kiện dùng làm mốc kiểm tra được lưu ở cả log nguồn và vết USE. Log bổ sung được đặt sau thao tác nguồn để xác nhận biến thể đã tạo đúng tình huống. Tuy nhiên, một số biến thể chủ động kiểm soát giá và lịch thao tác. Khi đọc kết quả, cần xét phiên bản runtime, phạm vi hook được theo dõi và việc một trường hợp có đúng điều kiện kích hoạt hay không. Kết quả theo từng ca chưa cung cấp số đo chi phí thời gian hay độ mở rộng. Những nhận định đó cần một nghiên cứu riêng có số lần lặp, tải và mốc đo xác định trước.
+546 Heading 2     3.7. Tổng kết chương
+547 Normal        TN01 cho thấy công cụ duy trì định danh, giá trị và lịch sử Goal/Task của từng phiên đấu giá. Khi đánh giá lại vết TN01, TN02 tái hiện quyết định và tập Goal/Task đã đạt ở cả 58 checkpoint. TN03 và TN05 xác nhận việc giữ dừng trước vi phạm đã quan sát, kể cả khi một Goal vi phạm trong lúc mọi bất biến đều đạt. TN04 và TN06 cho thấy công cụ phân biệt các trường hợp thiếu dữ liệu với vi phạm đã xác định.
+548 Normal        TN07 cho thấy một thay đổi đã được khôi phục trước mốc quan sát có thể chỉ xuất hiện trong log nguồn. Phạm vi kết luận vì vậy phụ thuộc vào vị trí checkpoint và dữ liệu có trong đặc tả, chẳng hạn quan hệ giữa người thắng và giá được giữ trong Auction.
