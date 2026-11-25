@@ -247,27 +247,39 @@ XML & Extensible Markup Language & Ngôn ngữ đánh dấu mở rộng \\
 \chapter*{MỞ ĐẦU}\label{mo-dau}
 \addcontentsline{toc}{chapter}{MỞ ĐẦU}
 
-Các tác tử tự chủ phối hợp để thực hiện công việc chung~\cite{ref-1}. JaCaMo hỗ trợ xây dựng hệ thống đa tác tử bằng cách kết hợp tác tử, môi trường dùng chung và tổ chức phân vai~\cite{ref-2}. Tiến độ chung phụ thuộc vào kết quả mà các tác tử chuyển cho nhau. Khi các hành động xen kẽ, một tác tử có thể thay đổi dữ liệu mà tác tử khác đang sử dụng. Trạng thái có thể thỏa quy tắc nghiệp vụ trong khi nhiệm vụ còn dang dở, nên đánh giá tiến độ cần xét cả diễn biến trước đó~\cite{ref-5}.
+Trong hệ thống đa tác tử, nhiều tác tử tự chủ phối hợp để thực hiện công việc chung~\cite{ref-1}. JaCaMo hỗ trợ xây dựng các hệ thống này bằng ba thành phần. Jason thực thi kế hoạch của tác tử, CArtAgO cung cấp môi trường dùng chung, còn Moise tổ chức vai trò và nhiệm vụ~\cite{ref-2}. Kiểm chứng khi thực thi đối chiếu dữ liệu quan sát trong một lần chạy với đặc tả, qua đó giúp phát hiện sai lệch khi hệ thống đang hoạt động~\cite{ref-5}.
 
-RV4JaCa kiểm chứng giao thức JaCaMo qua thông điệp~\cite{ref-24}. USE kiểm tra bất biến OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar mô tả mục tiêu và nhiệm vụ~\cite{ref-12}. Để đánh giá ràng buộc và tiến độ trong cùng lần chạy, cần dựng trạng thái từ dữ liệu JaCaMo và giữ lịch sử của từng đối tượng.
+Đánh giá tiến độ đòi hỏi bằng chứng về diễn biến của công việc qua nhiều trạng thái. Trong ca Auction của khóa luận, hai phiên đấu giá có thể cùng thỏa bất biến yêu cầu giá tốt nhất không âm, dù chỉ một phiên đã ghi nhận lượt trả giá thấp hơn giá khởi tạo. Để xác nhận tiến độ, cần biết mỗi giá trị thuộc về phiên nào và phiên đó đã trải qua những trạng thái nào. Việc chọn thời điểm quan sát cũng ảnh hưởng đến kết quả, vì một thay đổi có thể xảy ra rồi bị ghi đè trước lần thu dữ liệu tiếp theo.
 
-Nghiên cứu mở rộng USE để kiểm chứng JaCaMo khi thực thi, kế thừa CSL (Composite State Language) và cách gắn điều kiện vào iStar từ nghiên cứu về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Tại mỗi checkpoint, phần mở rộng dựng trạng thái CSL từ ảnh JaCaMo. USE kiểm tra bất biến OCL, cập nhật Goal và Task theo lịch sử rồi quyết định cho tiếp tục hay giữ dừng.
+Các nghiên cứu hiện có cung cấp những cơ sở khác nhau để xử lý bài toán này. RV4JaCa dùng vết thông điệp để giám sát giao thức tương tác trong JaCaMo~\cite{ref-24}. USE hỗ trợ kiểm tra bất biến OCL trên trạng thái đối tượng~\cite{ref-4}, còn iStar biểu diễn mục tiêu, nhiệm vụ và quan hệ giữa các chủ thể~\cite{ref-12}. Nguyen và cộng sự dùng mô hình trạng thái chung để đánh giá mục tiêu iStar trên các kịch bản sinh từ mô hình BPMN~\cite{ref-28}. Khi đưa cách tiếp cận này vào JaCaMo, vấn đề đặt ra là làm thế nào để dựng trạng thái có kiểu từ dữ liệu thực thi, giữ bằng chứng theo từng đối tượng và dùng kết quả kiểm chứng ngay tại mốc đã thu dữ liệu.
 
-Thực nghiệm cho thấy công cụ giữ lịch sử riêng của hai phiên Auction và phân biệt vi phạm với thiếu dữ liệu. Đánh giá lại cùng vết và đặc tả tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt ở cả 58 checkpoint (Mục~\ref{sec:3-4}).
+Khóa luận đề xuất một phương pháp kiểm chứng khi thực thi và triển khai phương pháp đó dưới dạng phần mở rộng của USE cho JaCaMo. Phương pháp kế thừa Ngôn ngữ trạng thái hợp thành (Composite State Language, CSL) và cách gắn điều kiện OCL vào iStar từ nghiên cứu về sự phù hợp giữa iStar và BPMN~\cite{ref-28}. Mô hình CSL xác định các thực thể, thuộc tính và quan hệ cần quan sát. Các điều kiện trong iStar xác định bằng chứng dùng để đánh giá mục tiêu (Goal) và nhiệm vụ (Task).
 
-Các đóng góp gồm phép ánh xạ bảo toàn định danh, bộ đánh giá theo lịch sử và cơ chế phản hồi tại checkpoint. Ba câu hỏi nghiên cứu là
+Tại mỗi điểm kiểm tra (checkpoint), JaCaMo giữ thực thi tại ranh giới được chọn và gửi ảnh chụp trạng thái sang USE. Phần mở rộng ánh xạ các thuộc tính đã khai báo, dựng liên kết từ dữ kiện nguồn và dùng định danh ổn định để cập nhật đúng đối tượng CSL qua các mốc. USE kiểm tra bất biến OCL trên trạng thái vừa dựng, đồng thời cập nhật tiến độ Goal và Task dựa trên các điều kiện đã đặc tả và lịch sử của từng ngữ cảnh. Bộ kiểm chứng tổng hợp các kết quả thành quyết định và gửi về JaCaMo để cho tiếp tục hoặc giữ dừng tại mốc đó.
+
+Trong thực nghiệm Auction, hai phiên a1 và a2 dùng chung đặc tả và được theo dõi với hai lịch sử riêng. Khi hai ảnh chụp liên tiếp cho thấy giá tốt nhất tăng từ 10 lên 20, công cụ phát hiện vi phạm mục tiêu duy trì giá dù các bất biến tại mốc đó đều đạt. Khi thiếu thuộc tính giá bắt buộc, công cụ giữ dừng vì chưa đủ căn cứ kiểm chứng. Khi đánh giá lại vết đã ghi với cùng đặc tả và ánh xạ, công cụ tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt theo từng ngữ cảnh tại cả 58 checkpoint (Mục~\ref{sec:3-4}).
+
+Đóng góp của khóa luận gồm phép chiếu có kiểu bảo toàn định danh từ JaCaMo sang CSL, cơ chế kết hợp kiểm tra bất biến với đánh giá Goal và Task theo lịch sử, cùng quy trình phản hồi và ghi vết tại checkpoint. Khóa luận trả lời ba câu hỏi nghiên cứu sau.
 
 \begin{enumerate}
 \def\labelenumi{\roman{enumi})}
 \item
-  Làm thế nào để ánh xạ JaCaMo sang CSL và bảo toàn định danh, lịch sử của từng đối tượng?
+  Làm thế nào để dựng trạng thái CSL từ dữ liệu JaCaMo và duy trì định danh của từng đối tượng qua các checkpoint?
 \item
-  Làm thế nào để tổng hợp kết quả OCL và iStar tại checkpoint, đồng thời phân biệt vi phạm với thiếu dữ liệu?
+  Làm thế nào để tổng hợp kết quả kiểm tra bất biến OCL và đánh giá Goal, Task thành quyết định tại checkpoint, đồng thời phân biệt vi phạm đã xác định với trường hợp chưa đủ dữ liệu?
 \item
-  Đánh giá lại cùng vết và đặc tả có tái hiện quyết định và tập mục tiêu, nhiệm vụ đã đạt ở từng mốc không?
+  Khi đánh giá lại một vết với cùng đặc tả và ánh xạ, quyết định và tập mục tiêu, nhiệm vụ đã đạt theo từng ngữ cảnh trùng khớp đến mức nào ở mỗi checkpoint?
 \end{enumerate}
 
-Chương 1 trình bày kiến thức nền tảng và nghiên cứu liên quan. Chương 2 mô tả phương pháp đặc tả và kiểm chứng trên USE. Chương 3 trình bày triển khai, thực nghiệm và giới hạn của phương pháp.
+\begin{samepage}
+Phần còn lại của khóa luận được tổ chức như sau.
+
+\textbf{Chương~\ref{sec:1}. Kiến thức nền tảng} trình bày ngôn ngữ hướng miền, JaCaMo, iStar, UML/OCL và USE, cùng các hướng kiểm chứng hệ thống đa tác tử có liên quan.
+
+\textbf{Chương~\ref{sec:2}. Phương pháp đặc tả và kiểm chứng hệ thống đa tác tử trên USE} trình bày đặc tả CSL và iStar mở rộng, phép chiếu trạng thái JaCaMo và quy tắc đánh giá tại checkpoint.
+
+\textbf{Chương~\ref{sec:3}. Thực nghiệm} mô tả kiến trúc phần mở rộng, cách tổ chức các kịch bản Auction, kết quả đánh giá và giới hạn của phương pháp.
+\end{samepage}
 
 \clearpage
 \pagenumbering{arabic}
